@@ -1,6 +1,6 @@
 {
   "name": "@rgbyk/color",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A color model system that generates a full range of accessible color palettes, and utility classes from a single color.",
   "keywords": [
     "color",
@@ -21,9 +21,9 @@
   "license": "MIT",
   "author": "Daniel Haim",
   "scripts": {
-    "color": "./bin/lib/color.sh",
-    "color-rgb": "./bin/lib/color-rgb.sh",
-    "color-ryb": "./bin/lib/color-ryb.sh",
+    "color": "chmod +x ./bin/lib/color.sh && ./bin/lib/color.sh",
+    "color-rgb": "chmod +x ./bin/lib/color-rgb.sh && ./bin/lib/color-rgb.sh",
+    "color-ryb": "chmod +x ./bin/lib/color-ryb.sh && ./bin/lib/color-ryb.sh",
     "unpack": "chmod +x ./bin/lib/unpack.sh && ./bin/lib/unpack.sh",
     "watch:color": "nodemon --watch src/scss -e scss -x \"npm run color\"",
     "watch:color-rgb": "nodemon --watch src/scss -e scss -x \"npm run color-rgb\"",
