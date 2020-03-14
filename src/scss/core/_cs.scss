@@ -1,0 +1,170 @@
+// ==========================================================================
+// # Color System
+// ==========================================================================
+//
+// =============================================
+// | Model | Primary   | Chromatic | Harmonized | 
+// | :---: | :-------: | :-------: | :-------:  |
+// | RGB   | #8e43e7   | #FF0000   | #e74343    |
+// |       |           | #FF8000   | #e79543    |
+// |       |           | #FFFF00   | #e7e743    |
+// |       |           | #80FF00   | #95e743    |
+// |       |           | #00FF00   | #43e743    |
+// |       |           | #00FF80   | #43e795    |
+// |       |           | #00FFFF   | #43e7e7    |
+// |       |           | #0080FF   | #4395e7    |
+// |       |           | #0000FF   | #4343e7    |
+// |       |           | #8000FF   | #9543e7    |
+// |       |           | #FF00FF   | #e743e7    |
+// |       |           | #FF0080   | #e74395    |
+// 
+// =============================================
+// | Model | Primary   | Chromatic | Harmonized | 
+// | :---: | :-------: | :-------: | :-------:  |
+// | RYB   | #8e43e7   | #FE2712   |  #e75243   |
+// |       |           | #FF4000   |  #e76c43   |
+// |       |           | #FF7700   |  #e79543   |
+// |       |           | #FFBF00   |  #e7be43   |
+// |       |           | #FEFE33   |  #e7e743   |
+// |       |           | #B2D733   |  #c2e743   |
+// |       |           | #66B032   |  #87e743   |
+// |       |           | #158466   |  #43e7bb   |
+// |       |           | #0247FE   |  #4370e7   |
+// |       |           | #55308D   |  #8443e7   |
+// |       |           | #800080   |  #e743e7   |
+// |       |           | #BF1449   |  #e74376   |
+//
+
+@use "sass:color";
+@use "sass:math";
+
+@use "config" as get;
+
+@use "../functions/color-func-is" as cf-is;
+@use "../functions/color-func-ryb" as cf-ryb;
+
+// ==========================================================================
+// # Values
+// ==========================================================================
+
+$value-0: #000000 !default; // #000000
+$value-1: color.scale($value-0, $lightness: 10%) !default; // #1A1A1A
+$value-2: color.scale($value-0, $lightness: 20%) !default; // #333333
+$value-3: color.scale($value-0, $lightness: 30%) !default; // #4D4D4D
+$value-4: color.scale($value-0, $lightness: 40%) !default; // #666666
+$value-5: color.scale($value-0, $lightness: 50%) !default; // #808080
+$value-6: color.scale($value-0, $lightness: 60%) !default; // #999999
+$value-7: color.scale($value-0, $lightness: 70%) !default; // #B3B3B3
+$value-8: color.scale($value-0, $lightness: 80%) !default; // #CCCCCC
+$value-9: color.scale($value-0, $lightness: 90%) !default; // #E6E6E6
+$value-10: color.scale($value-0, $lightness: 100%) !default; // #FFFFFF
+
+// ==========================================================================
+// # Chromas
+// ==========================================================================
+
+$-x: 8.333333333333333;
+
+$chroma-0: 0% !default; // 0%
+$chroma-1: math.percentage($-x * 0.01) !default; // 8.3333333333%
+$chroma-2: math.percentage($-x * 0.02) !default; // 16.6666666667%
+$chroma-3: math.percentage($-x * 0.03) !default; // 25%
+$chroma-4: math.percentage($-x * 0.04) !default; // 33.3333333333%
+$chroma-5: math.percentage($-x * 0.05) !default; // 41.6666666667%
+$chroma-6: math.percentage($-x * 0.06) !default; // 50%
+$chroma-7: math.percentage($-x * 0.07) !default; // 58.3333333333%
+$chroma-8: math.percentage($-x * 0.08) !default; // 66.6666666667%
+$chroma-9: math.percentage($-x * 0.09) !default; // 75%
+$chroma-10: math.percentage($-x * 0.1) !default; // 83.3333333333%
+$chroma-11: math.percentage($-x * 0.11) !default; // 91.6666666667%
+$chroma-12: math.percentage($-x * 0.12) !default; // 100%
+
+// ==========================================================================
+// # Hues
+// ==========================================================================
+
+$-red-base: color.change(
+  get.$brand-color,
+  $hue: 0,
+  $saturation: color.saturation(get.$brand-color),
+  $lightness: color.lightness(get.$brand-color)
+);
+
+$-hue-0: $-red-base;
+$-hue-30: color.adjust($-red-base, $hue: 30);
+$-hue-60: color.adjust($-red-base, $hue: 60);
+$-hue-90: color.adjust($-red-base, $hue: 90);
+$-hue-120: color.adjust($-red-base, $hue: 120);
+$-hue-150: color.adjust($-red-base, $hue: 150);
+$-hue-180: color.adjust($-red-base, $hue: 180);
+$-hue-210: color.adjust($-red-base, $hue: 210);
+$-hue-240: color.adjust($-red-base, $hue: 240);
+$-hue-270: color.adjust($-red-base, $hue: 270);
+$-hue-300: color.adjust($-red-base, $hue: 300);
+$-hue-330: color.adjust($-red-base, $hue: 330);
+
+@if (get.$color-model == ryb) {
+  $-hue-0: cf-ryb.ryb-adjust-hue($-red-base, 0);
+  $-hue-30: cf-ryb.ryb-adjust-hue($-red-base, 30);
+  $-hue-60: cf-ryb.ryb-adjust-hue($-red-base, 60);
+  $-hue-90: cf-ryb.ryb-adjust-hue($-red-base, 90);
+  $-hue-120: cf-ryb.ryb-adjust-hue($-red-base, 120);
+  $-hue-150: cf-ryb.ryb-adjust-hue($-red-base, 150);
+  $-hue-180: cf-ryb.ryb-adjust-hue($-red-base, 180);
+  $-hue-210: cf-ryb.ryb-adjust-hue($-red-base, 210);
+  $-hue-240: cf-ryb.ryb-adjust-hue($-red-base, 240);
+  $-hue-270: cf-ryb.ryb-adjust-hue($-red-base, 270);
+  $-hue-300: cf-ryb.ryb-adjust-hue($-red-base, 300);
+  $-hue-330: cf-ryb.ryb-adjust-hue($-red-base, 330);
+}
+
+// ==========================================================================
+// Default Wheel
+// ==========================================================================
+
+@if (cf-is.is-color-grayscale(get.$brand-color)) {
+  @if (get.$color-model == ryb) {
+    $-hue-0: map-get($ryb-map, 0deg);
+    $-hue-30: map-get($ryb-map, 30deg);
+    $-hue-60: map-get($ryb-map, 60deg);
+    $-hue-90: map-get($ryb-map, 90deg);
+    $-hue-120: map-get($ryb-map, 120deg);
+    $-hue-150: map-get($ryb-map, 150deg);
+    $-hue-180: map-get($ryb-map, 180deg);
+    $-hue-210: map-get($ryb-map, 210deg);
+    $-hue-240: map-get($ryb-map, 240deg);
+    $-hue-270: map-get($ryb-map, 270deg);
+    $-hue-300: map-get($ryb-map, 300deg);
+    $-hue-330: map-get($ryb-map, 330deg);
+  } @else {
+    $-hue-0: map-get($rgb-map, 0deg);
+    $-hue-30: map-get($rgb-map, 30deg);
+    $-hue-60: map-get($rgb-map, 60deg);
+    $-hue-90: map-get($rgb-map, 90deg);
+    $-hue-120: map-get($rgb-map, 120deg);
+    $-hue-150: map-get($rgb-map, 150deg);
+    $-hue-180: map-get($rgb-map, 180deg);
+    $-hue-210: map-get($rgb-map, 210deg);
+    $-hue-240: map-get($rgb-map, 240deg);
+    $-hue-270: map-get($rgb-map, 270deg);
+    $-hue-300: map-get($rgb-map, 300deg);
+    $-hue-330: map-get($rgb-map, 330deg);
+  }
+} @else {}
+
+// ==========================================================================
+// # Defaults
+// ==========================================================================
+
+$hue-0: $-hue-0 !default;
+$hue-30: $-hue-30 !default;
+$hue-60: $-hue-60 !default;
+$hue-90: $-hue-90 !default;
+$hue-120: $-hue-120 !default;
+$hue-150: $-hue-150 !default;
+$hue-180: $-hue-180 !default;
+$hue-210: $-hue-210 !default;
+$hue-240: $-hue-240 !default;
+$hue-270: $-hue-270 !default;
+$hue-300: $-hue-300 !default;
+$hue-330: $-hue-330 !default;

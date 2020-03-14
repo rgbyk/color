@@ -1,0 +1,131 @@
+// ==========================================================================
+// # set-#{$func} functions
+// ==========================================================================
+
+@use "sass:color";
+@use "sass:string";
+
+@use "../core";
+
+// ##################################
+// ######### RGBA Functions #########
+// ##################################
+
+// ==========================================================================
+// set-red($color, $integer)
+// ==========================================================================
+//
+// @param  {color}    $color     - the color
+// @param  {number}   $integer   - the r() value (-255 and 255)
+// @return {color}               - the adjusted color
+// 
+// @debug functions.set-red(#8e43e7, 200); // #ff43e7
+// @debug functions.set-red(#8e43e7, 50);  // #c043e7
+// 
+
+@function set-red($color, $integer) {
+  @return color.adjust($color, $red: $integer);
+}
+
+// ==========================================================================
+// set-green($color, $integer)
+// ==========================================================================
+//
+// @param  {color}    $color     - the color
+// @param  {number}   $integer   - the g() value (-255 and 255)
+// @return {color}               - the adjusted color
+// 
+// @debug functions.set-green(#8e43e7, 200); // #8effe7
+// @debug functions.set-green(#8e43e7, 50);  // #8e75e7
+// 
+
+@function set-green($color, $integer) {
+  @return color.adjust($color, $green: $integer);
+}
+
+// ==========================================================================
+// set-blue($color, $integer)
+// ==========================================================================
+//
+// @param  {color}    $color     - the color
+// @param  {number}   $integer   - the b() value (-255 and 255)
+// @return {color}               - the adjusted color
+// 
+// @debug functions.set-blue(#ed1c16, 200); // #ed1cde
+// @debug functions.set-blue(#ed1c16, 100); // #ed1c7a
+// 
+
+@function set-blue($color, $integer) {
+  @return color.adjust($color, $blue: $integer);
+}
+
+// ##################################
+// ######### HSLA Functions #########
+// ##################################
+
+// ==========================================================================
+// set-hue($color, $degree)
+// ==========================================================================
+//
+// @param  {color}  $color      - the color to adjust
+// @param  {number} $degree     - the degree (0 and 360)
+// @return {color}              - the adjusted color
+// 
+// @debug functions.set-hue(#8e43e7, 30);   // #e79543
+// @debug functions.set-hue(#8e43e7, 90);   // #95e743
+// @debug functions.set-hue(#8e43e7, 150);  // #43e795
+// 
+
+@function set-hue($color, $degree) {
+    @return color.change($color, $hue: $degree);
+}
+
+// ==========================================================================
+// set-saturation($color, $percent)
+// ==========================================================================
+//
+// @param  {color}  $color      - the color to adjust
+// @param  {number} $percent    - the percent (0% and 100%)
+// @return {color}              - the adjusted color
+// 
+// @debug set-saturation(#8e43e7, 30%); // #9275b5
+// @debug set-saturation(#8e43e7, 60%); // #9055d5
+// @debug set-saturation(#8e43e7, 5%);  // #95909a
+// 
+
+@function set-saturation($color, $percent) {
+    @return color.change($color, $saturation: $percent);
+}
+
+// ==========================================================================
+// set-lightness($color, $percent)
+// ==========================================================================
+//
+// @param  {color}  $color      - the color to adjust
+// @param  {number} $percent    - the percent (0% and 100%)
+// @return {color}              - the adjusted color
+// 
+// @debug functions.set-lightness(#8e43e7, 30%); // #471188
+// @debug functions.set-lightness(#8e43e7, 60%); // #924ae8
+// @debug functions.set-lightness(#8e43e7, 5%);  // #0c0317
+// 
+
+@function set-lightness($color, $percent) {
+    @return color.change($color, $lightness: $percent);
+}
+
+// ==========================================================================
+// set-alpha($color, $integer)
+// ==========================================================================
+//
+// @param  {color}  $color      - the color to adjust
+// @param  {number} $integer    - the alpha channel (0-1)
+// @return {color}              - the adjusted color
+// 
+// @debug functions.set-alpha(#8e43e7, 0.5); // rgba(142, 67, 231, 0.5)
+// @debug functions.set-alpha(#8e43e7, 0.2); // rgba(142, 67, 231, 0.2)
+// 
+
+@function set-alpha($color, $integer) {
+    @return color.change($color, $alpha: $integer);
+}

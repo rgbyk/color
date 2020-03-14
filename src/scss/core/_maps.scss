@@ -1,0 +1,113 @@
+// ==========================================================================
+// # Maps
+// ==========================================================================
+
+@use "cs";
+
+$ryb-map: (
+    "0deg": #FE2712,
+    "30deg": #FF4000,    
+    "60deg": #FF7700,
+    "90deg": #FFBF00,
+    "120deg": #FEFE33,
+    "150deg": #B2D733,
+    "180deg": #66B032,
+    "210deg": #158466,
+    "240deg": #0247FE,
+    "270deg": #55308D,
+    "300deg": #800080,
+    "330deg": #BF1449
+) !default;
+
+$rgb-map: (
+    "0deg": #FF0000,
+    "30deg": #FF8000,    
+    "60deg": #FFFF00,
+    "90deg": #80FF00,
+    "120deg": #00FF00,
+    "150deg": #00FF80,
+    "180deg": #00FFFF,
+    "210deg": #0080FF,
+    "240deg": #0000FF,
+    "270deg": #8000FF,
+    "300deg": #FF00FF,
+    "330deg": #FF0080
+) !default;
+
+$color-light-mono-map: (
+    "100":(
+        value: cs.$value-10,
+        chroma: cs.$chroma-1
+    ),
+    "200":(
+        value: cs.$value-10,
+        chroma: cs.$chroma-3
+    ),
+    "300":(
+        value: cs.$value-10,
+        chroma: cs.$chroma-5
+    ),
+    "400":(
+        value: cs.$value-0,
+        chroma: cs.$chroma-12
+    ),
+    "500":(
+        value: cs.$value-0,
+        chroma: cs.$chroma-8
+    ),
+    "600":(
+        value: cs.$value-0,
+        chroma: cs.$chroma-6
+    ),
+    "700":(
+        value: cs.$value-0,
+        chroma: cs.$chroma-4
+    ),
+    "800":(
+        value: cs.$value-0,
+        chroma: cs.$chroma-3
+    ),
+    "900":(
+        value: cs.$value-0,
+        chroma: cs.$chroma-1
+    ),
+) !default;
+
+$color-dark-mono-map: (
+    "100":(
+        value: cs.$value-10,
+        chroma: cs.$chroma-1
+    ),
+    "200":(
+        value: cs.$value-10,
+        chroma: cs.$chroma-3
+    ),
+    "300":(
+        value: cs.$value-10,
+        chroma: cs.$chroma-5
+    ),
+    "400":(
+        value: cs.$value-0,
+        chroma: cs.$chroma-12
+    ),
+    "500":(
+        value: cs.$value-0,
+        chroma: cs.$chroma-10
+    ),
+    "600":(
+        value: cs.$value-0,
+        chroma: cs.$chroma-9
+    ),
+    "700":(
+        value: cs.$value-0,
+        chroma: cs.$chroma-7
+    ),
+    "800":(
+        value: cs.$value-0,
+        chroma: cs.$chroma-5
+    ),
+    "900":(
+        value: cs.$value-0,
+        chroma: cs.$chroma-2
+    ),
+) !default;

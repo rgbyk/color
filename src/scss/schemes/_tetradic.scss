@@ -1,0 +1,131 @@
+// ==========================================================================
+// # Tetradic
+// ==========================================================================
+// 
+// Triadic color scheme is a four-color combination consisting of a base
+// color and three colors that are 60 degrees apart from the base color.
+//
+// | Model | Color     | Chromatic | Harmonized |         | 
+// | :---: | :-------: | :-------: | :-------:  | :---:   |
+// | RGB   | #8e43e7   | #e7439c   | #d943a8    | 60°     |
+// |       |           | #9ce743   | #9ad555    | 180°    |
+// |       |           | #43e78e   | #4fcd9c    | 240°    |
+
+// | Model | Color     | Chromatic | Harmonized |         | 
+// | :---: | :-------: | :-------: | :-------:  | :---:   |
+// | RYB   | #8e43e7   | #e74368   | #d9437c    | 60°     |
+// |       |           | #e7d443   | #ddc455    | 180°    |
+// |       |           | #a5e743   | #a2d555    | 240°    |
+// 
+// @debug color.adjust(#8e43e7, $hue: 60);
+// @debug color.adjust(#8e43e7, $hue: 180);
+// @debug color.adjust(#8e43e7, $hue: 240);
+// 
+// @debug functions.ryb-adjust-hue(#8e43e7, 60);
+// @debug functions.ryb-adjust-hue(#8e43e7, 180);
+// @debug functions.ryb-adjust-hue(#8e43e7, 240);
+// 
+
+@use "sass:color";
+
+@use "../core";
+@use "../functions";
+
+// ==========================================================================
+// # Variables
+// ==========================================================================
+
+$-tetradic1-400: color.adjust(core.$brand-color, $hue: 60);
+$-tetradic2-400: color.adjust(core.$brand-color, $hue: 180);
+$-tetradic3-400: color.adjust(core.$brand-color, $hue: 240);
+
+@if (core.$color-model == ryb) {
+  $-tetradic1-400: functions.ryb-adjust-hue(core.$brand-color, 60);
+  $-tetradic2-400: functions.ryb-adjust-hue(core.$brand-color, 180);
+  $-tetradic3-400: functions.ryb-adjust-hue(core.$brand-color, 240);
+} @else {}
+
+@if core.$color-mode-harmony {
+  $-tetradic1-400: functions.make-color-harmony(core.$brand-color, $-tetradic1-400);
+  $-tetradic2-400: functions.make-color-harmony(core.$brand-color, $-tetradic2-400);
+  $-tetradic3-400: functions.make-color-harmony(core.$brand-color, $-tetradic3-400);
+} @else {}
+
+// ==========================================================================
+// # Monochromatic
+// ==========================================================================
+
+// ## Tetradic (1) @ 90°
+$tetradic1-100: functions.make-color-mono($-tetradic1-400, 100) !default;
+$tetradic1-200: functions.make-color-mono($-tetradic1-400, 200) !default;
+$tetradic1-300: functions.make-color-mono($-tetradic1-400, 300) !default;
+$tetradic1-400: $-tetradic1-400 !default;
+$tetradic1-500: functions.make-color-mono($-tetradic1-400, 500) !default;
+$tetradic1-600: functions.make-color-mono($-tetradic1-400, 600) !default;
+$tetradic1-700: functions.make-color-mono($-tetradic1-400, 700) !default;
+$tetradic1-800: functions.make-color-mono($-tetradic1-400, 800) !default;
+$tetradic1-900: functions.make-color-mono($-tetradic1-400, 900) !default;
+
+// ## Tetradic (2) @ 180°
+$tetradic2-100: functions.make-color-mono($-tetradic2-400, 100) !default;
+$tetradic2-200: functions.make-color-mono($-tetradic2-400, 200) !default;
+$tetradic2-300: functions.make-color-mono($-tetradic2-400, 300) !default;
+$tetradic2-400: $-tetradic2-400 !default;
+$tetradic2-500: functions.make-color-mono($-tetradic2-400, 500) !default;
+$tetradic2-600: functions.make-color-mono($-tetradic2-400, 600) !default;
+$tetradic2-700: functions.make-color-mono($-tetradic2-400, 700) !default;
+$tetradic2-800: functions.make-color-mono($-tetradic2-400, 800) !default;
+$tetradic2-900: functions.make-color-mono($-tetradic2-400, 900) !default;
+
+// ## Tetradic (3) @ 270°
+$tetradic3-100: functions.make-color-mono($-tetradic3-400, 100) !default;
+$tetradic3-200: functions.make-color-mono($-tetradic3-400, 200) !default;
+$tetradic3-300: functions.make-color-mono($-tetradic3-400, 300) !default;
+$tetradic3-400: $-tetradic3-400 !default;
+$tetradic3-500: functions.make-color-mono($-tetradic3-400, 500) !default;
+$tetradic3-600: functions.make-color-mono($-tetradic3-400, 600) !default;
+$tetradic3-700: functions.make-color-mono($-tetradic3-400, 700) !default;
+$tetradic3-800: functions.make-color-mono($-tetradic3-400, 800) !default;
+$tetradic3-900: functions.make-color-mono($-tetradic3-400, 900) !default;
+
+// ==========================================================================
+// # Map
+// ==========================================================================
+
+$map-tetradic1: (
+  "tetradic1-100": $tetradic1-100,
+  "tetradic1-200": $tetradic1-200,
+  "tetradic1-300": $tetradic1-300,
+  "tetradic1-400": $tetradic1-400,
+  "tetradic1-500": $tetradic1-500,
+  "tetradic1-600": $tetradic1-600,
+  "tetradic1-700": $tetradic1-700,
+  "tetradic1-800": $tetradic1-800,
+  "tetradic1-900": $tetradic1-900
+) !default;
+
+$map-tetradic2: (
+  "tetradic2-100": $tetradic2-100,
+  "tetradic2-200": $tetradic2-200,
+  "tetradic2-300": $tetradic2-300,
+  "tetradic2-400": $tetradic2-400,
+  "tetradic2-500": $tetradic2-500,
+  "tetradic2-600": $tetradic2-600,
+  "tetradic2-700": $tetradic2-700,
+  "tetradic2-800": $tetradic2-800,
+  "tetradic2-900": $tetradic2-900
+) !default;
+
+$map-tetradic3: (
+  "tetradic3-100": $tetradic3-100,
+  "tetradic3-200": $tetradic3-200,
+  "tetradic3-300": $tetradic3-300,
+  "tetradic3-400": $tetradic3-400,
+  "tetradic3-500": $tetradic3-500,
+  "tetradic3-600": $tetradic3-600,
+  "tetradic3-700": $tetradic3-700,
+  "tetradic3-800": $tetradic3-800,
+  "tetradic3-900": $tetradic3-900
+) !default;
+
+$map-tetradic: core.map-collect($map-tetradic1, $map-tetradic2, $map-tetradic3) !default;

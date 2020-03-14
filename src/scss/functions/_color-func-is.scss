@@ -1,0 +1,155 @@
+// ==========================================================================
+// # is-color-#{$func} functions
+// ==========================================================================
+
+@use "sass:math";
+@use "sass:color";
+@use "sass:string";
+
+// ==========================================================================
+// is-color-grayscale($color)
+// ==========================================================================
+//
+// check if color saturation is less than 8% and return true/false
+// 
+// @debug color.saturation(#DEDED9); // returns => 7.0422535211%
+// @debug color.saturation(#E2E2D5); // returns => 18.3098591549%
+// 
+// @param  {color}  $color    - the color to analyze
+// @return {boolean}          - returns true/false
+// 
+// @debug functions.is-color-grayscale(#DEDED9); // returns true
+// @debug functions.is-color-grayscale(#E2E2D5); // returns false
+// 
+// https://stackoverflow.com/questions/40642192/how-can-i-determine-if-a-color-is-greyscale-with-sass/60492263#60492263
+// 
+
+@function is-color-grayscale($color){
+    $saturation: math.ceil(color.saturation($color));
+    
+    @if ($saturation < 8%) {
+        @return true;
+    } @else{
+        @return false;
+    }
+}
+
+// ==========================================================================
+// is-color-cool($color)
+// ==========================================================================
+// 
+// check if color is "cool" or "warm"
+// 
+// @param  {color}              - the color to analyze
+// @return {boolean}            - returns true/false
+// 
+// @debug functions.is-color-cool(#FF0000); // 0°   | false
+// @debug functions.is-color-cool(#FF7F00); // 30°  | false
+// @debug functions.is-color-cool(#FFFF00); // 60°  | false
+// @debug functions.is-color-cool(#7FFF00); // 90°  | false
+// @debug functions.is-color-cool(#00FF00); // 120° | false
+// @debug functions.is-color-cool(#00FF7F); // 150° | true
+// @debug functions.is-color-cool(#00FFFF); // 180° | true
+// @debug functions.is-color-cool(#007FFF); // 210° | true
+// @debug functions.is-color-cool(#0000FF); // 240° | true
+// @debug functions.is-color-cool(#7F00FF); // 270° | true
+// @debug functions.is-color-cool(#FF00FF); // 300° | false
+// @debug functions.is-color-cool(#FF007F); // 330° | false
+// 
+
+@function is-color-cool($color) {
+    $hue: math.ceil(color.hue($color));
+    @return $hue < 300 and $hue > 120;
+}
+
+// ==========================================================================
+// High Key Color Values
+// ==========================================================================
+
+// ==========================================================================
+// is-color-high-key-value($color)
+// ==========================================================================
+// 
+// check if color has high key value
+// 
+// @param  {color}              - the color to analyze
+// @return {boolean}            - returns true/false
+// 
+// @debug functions.is-color-high-key-value(#FF0000); // 0°   | false
+// @debug functions.is-color-high-key-value(#FF7F00); // 30°  | false
+// @debug functions.is-color-high-key-value(#FFFF00); // 60°  | true
+// @debug functions.is-color-high-key-value(#7FFF00); // 90°  | true
+// @debug functions.is-color-high-key-value(#00FF00); // 120° | true
+// @debug functions.is-color-high-key-value(#00FF7F); // 150° | false
+// @debug functions.is-color-high-key-value(#00FFFF); // 180° | false
+// @debug functions.is-color-high-key-value(#007FFF); // 210° | false
+// @debug functions.is-color-high-key-value(#0000FF); // 240° | false
+// @debug functions.is-color-high-key-value(#7F00FF); // 270° | false
+// @debug functions.is-color-high-key-value(#FF00FF); // 300° | false
+// @debug functions.is-color-high-key-value(#FF007F); // 330° | false
+// 
+
+@function is-color-high-key-value($color) {
+    $hue: math.ceil(color.hue($color));
+    @return $hue > 30 and $hue < 140;
+}
+
+// ==========================================================================
+// is-color-highest-key-value($color)
+// ==========================================================================
+// 
+// check if color has highest key value
+// @param  {color}              - the color to analyze
+// @return {boolean}            - returns true/false
+// 
+// @debug functions.is-color-highest-key-value(#FF0000); // 0°   | false
+// @debug functions.is-color-highest-key-value(#FF7F00); // 30°  | false
+// @debug functions.is-color-highest-key-value(#FFFF00); // 60°  | true
+// @debug functions.is-color-highest-key-value(#7FFF00); // 90°  | false
+// @debug functions.is-color-highest-key-value(#00FF00); // 120° | false
+// @debug functions.is-color-highest-key-value(#00FF7F); // 150° | false
+// @debug functions.is-color-highest-key-value(#00FFFF); // 180° | false
+// @debug functions.is-color-highest-key-value(#007FFF); // 210° | false
+// @debug functions.is-color-highest-key-value(#0000FF); // 240° | false
+// @debug functions.is-color-highest-key-value(#7F00FF); // 270° | false
+// @debug functions.is-color-highest-key-value(#FF00FF); // 300° | false
+// @debug functions.is-color-highest-key-value(#FF007F); // 330° | false
+// 
+
+@function is-color-highest-key-value($color) {
+    $hue: math.ceil(color.hue($color));
+    @return $hue > 30 and $hue < 90;
+}
+
+// ==========================================================================
+// is-color-dark($color)
+// ==========================================================================
+// 
+// determine if a color is dark (based on lightness and hue)
+// @param  {color}              - the color to analyze
+// @return {boolean}            - returns true/false
+// 
+// @debug functions.is-color-dark(#FF0000); // 0°   | true
+// @debug functions.is-color-dark(#FF7F00); // 30°  | false
+// @debug functions.is-color-dark(#FFFF00); // 60°  | false
+// @debug functions.is-color-dark(#7FFF00); // 90°  | false
+// @debug functions.is-color-dark(#00FF00); // 120° | false
+// @debug functions.is-color-dark(#00FF7F); // 150° | false
+// @debug functions.is-color-dark(#00FFFF); // 180° | false
+// @debug functions.is-color-dark(#007FFF); // 210° | true
+// @debug functions.is-color-dark(#0000FF); // 240° | true
+// @debug functions.is-color-dark(#7F00FF); // 270° | true
+// @debug functions.is-color-dark(#FF00FF); // 300° | true
+// @debug functions.is-color-dark(#FF007F); // 330° | true
+// 
+
+@function is-color-dark($color) {
+    $lightness: math.ceil(color.lightness($color));
+    $hue: math.ceil(color.hue($color));
+
+    @if ($lightness < 60% and ($hue >= 210 or $hue <= 27) or $lightness <= 32%) {
+        @return true;
+    } @else {
+        @return false;
+    }
+}

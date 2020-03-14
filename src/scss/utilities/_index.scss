@@ -1,0 +1,120 @@
+// ============================================================================
+// # Utilities
+// ============================================================================
+
+@use "../functions"as functions;
+@use "../core"as core;
+@use "maps";
+
+@function is-root-or-hex($name, $hex) {
+	@if (core.$enable-root-colors) {
+		@return var(--#{$name});
+	}
+
+	@else {
+		@return #{$hex};
+	}
+}
+
+@mixin make-utilities($name, $hex) {
+	@if (core.$enable-utility-bg) {
+		.bg-#{$name} {
+			background-color: is-root-or-hex($name, $hex);
+		}
+	}
+
+	@if (core.$enable-utility-stroke) {
+		.color-#{$name} {
+			color: is-root-or-hex($name, $hex);
+		}
+	}
+
+	@if (core.$enable-utility-fill) {
+		.fill-#{$name} {
+			color: is-root-or-hex($name, $hex);
+		}
+	}
+
+	@if (core.$enable-utility-stroke) {
+		.stroke-#{$name} {
+			stroke: is-root-or-hex($name, $hex);
+		}
+	}
+
+	@if (core.$enable-utility-border) {
+		.border-#{$name} {
+			border-color: is-root-or-hex($name, $hex);
+		}
+	}
+}
+
+@if (core.$enable-root-colors) {
+	:root {
+
+		@each $name,
+		$hex in maps.$color-scheme-map {
+			--#{$name}: #{$hex};
+		}
+
+		@if core.$color-scheme-pastel {
+
+			@each $name,
+			$hex in maps.$color-scheme-map {
+				@if (str-index($name, "black")) or (str-index($name, "white")) or (str-index($name, "grey")) {}
+
+				@else {
+					$hex-pastel: functions.make-color-pastel($hex);
+					--#{$name}p: #{$hex-pastel};
+				}
+			}
+		}
+
+		@if core.$color-scheme-neutral {
+
+			@each $name,
+			$hex in maps.$color-scheme-map {
+				@if (str-index($name, "black")) or (str-index($name, "white")) or (str-index($name, "grey")) {}
+
+				@else {
+					$hex-neutral: functions.make-color-neutral($hex);
+					--#{$name}n: #{$hex-neutral};
+				}
+			}
+		}
+
+		@if core.$color-scheme-alpha {
+
+			@each $name,
+			$hex in maps.$color-scheme-map {
+				@if (str-index($name, "black")) or (str-index($name, "white")) or (str-index($name, "grey")) {}
+
+				@else {
+					$hex-alpha: rgba($hex, 0.3);
+					--#{$name}a: #{$hex-alpha};
+				}
+			}
+		}
+
+		@if core.$color-scheme-chromatic {
+
+			@each $name,
+			$hex in maps.$color-scheme-map {
+				@if (str-index($name, "black")) or (str-index($name, "white")) or (str-index($name, "grey")) {}
+				@else{
+					@if (str-index($name, "400")) {
+						$hex-chromatic: functions.color-equalize($hex);
+						--#{$name}c: #{$hex-chromatic};
+					} @else{}	
+				}
+			}
+		}
+	}
+}
+
+@if (core.$enable-utility-classes) {
+
+	@each $name,
+	$hex in maps.$color-scheme-map {
+		@include make-utilities($name, $hex);
+	}
+}

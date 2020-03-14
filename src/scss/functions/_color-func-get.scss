@@ -1,0 +1,54 @@
+// ==========================================================================
+// # get-color-#{$func} functions
+// ==========================================================================
+
+@use "../core";
+
+@use "color-func-calc" as cf-calc;
+
+// ==========================================================================
+// get-color-contrast($color)
+// ==========================================================================
+//
+// ! determine whether to use dark or light text on top of given color.
+// ! returns black for dark text and white for light text.
+//
+// @param {color} $color        - hexdecimal color
+// @return                      - black, or white (hexdecimal, or var())
+// 
+// @debug get-color-contrast(#FF0000); // #000000
+// @debug get-color-contrast(#FF8000); // #000000
+// @debug get-color-contrast(#FFFF00); // #000000
+// @debug get-color-contrast(#80FF00); // #000000
+// @debug get-color-contrast(#00FF00); // #000000
+// @debug get-color-contrast(#00FF80); // #000000
+// @debug get-color-contrast(#00FFFF); // #000000
+// @debug get-color-contrast(#0080FF); // #000000
+// @debug get-color-contrast(#0000FF); // #FFFFFF
+// @debug get-color-contrast(#7F00FF); // #FFFFFF
+// @debug get-color-contrast(#FF00FF); // #000000
+// @debug get-color-contrast(#FF007F); // #000000
+// 
+
+@function get-color-contrast($color) {
+  $contrast-light: cf-calc.calc-contrast($color, white);
+  $contrast-dark: cf-calc.calc-contrast($color, black);
+
+  @if core.$enable-root-colors {
+    @if $contrast-light > $contrast-dark {
+      @return var(--white);
+    }
+
+    @else {
+      @return var(--black);
+    }
+  } @else {
+    @if $contrast-light > $contrast-dark {
+      @return white;
+    }
+
+    @else {
+      @return black;
+    }
+  }
+}
