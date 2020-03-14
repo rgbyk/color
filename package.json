@@ -1,0 +1,47 @@
+{
+  "name": "@rgbyk/color",
+  "version": "1.0.0",
+  "description": "A color model system that generates a full range of accessible color palettes, and utility classes from a single color.",
+  "keywords": [
+    "color",
+    "color system",
+    "color blindness",
+    "color palettes",
+    "rgb",
+    "ryb"
+  ],
+  "homepage": "https://github.com/rgbyk/color#readme",
+  "bugs": {
+    "url": "https://github.com/rgbyk/color/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rgbyk/color.git"
+  },
+  "license": "MIT",
+  "author": "Daniel Haim",
+  "scripts": {
+    "color": "./bin/lib/color.sh",
+    "color-rgb": "./bin/lib/color-rgb.sh",
+    "color-ryb": "./bin/lib/color-ryb.sh",
+    "unpack": "chmod +x ./bin/lib/unpack.sh && ./bin/lib/unpack.sh",
+    "watch:color": "nodemon --watch src/scss -e scss -x \"npm run color\"",
+    "watch:color-rgb": "nodemon --watch src/scss -e scss -x \"npm run color-rgb\"",
+    "watch:color-ryb": "nodemon --watch src/scss -e scss -x \"npm run color-ryb\""
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "browserslist": "^4.8.7",
+    "caniuse-lite": "^1.0.30001027",
+    "css-declaration-sorter": "^5.1.1",
+    "cssnano": "^4.1.10",
+    "nodemon": "^2.0.2",
+    "postcss-cli": "^7.1.0",
+    "postcss-combine-duplicated-selectors": "^8.1.0",
+    "postcss-merge-idents": "^4.0.1",
+    "postcss-merge-rules": "^4.0.3",
+    "postcss-merge-selectors": "0.0.6",
+    "postcss-sorting": "^5.0.1",
+    "sass": "^1.26.0"
+  }
+}
