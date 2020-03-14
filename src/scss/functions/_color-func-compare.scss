@@ -1,0 +1,21 @@
+// ==========================================================================
+// # compare-color-#{$func} functions
+// ==========================================================================
+
+@use "color-func-calc" as cf-calc;
+
+// ! compares contrast of a given color to the light/dark 
+// ! arguments and returns whichever is most 'contrasty'
+@function compare-color-contrast($color, $dark: #000000, $light: #FFFFFF) {
+  @if $color == null {
+    @return null;
+  }
+
+  @else {
+    $color-brightness: cf-calc.calc-brightness($color);
+    $light-text-brightness: cf-calc.calc-brightness(#FFFFFF);
+    $dark-text-brightness: cf-calc.calc-brightness(#000000);
+
+    @return if(abs($color-brightness - $light-text-brightness) > abs($color-brightness - $dark-text-brightness), $light, $dark);
+  }
+}

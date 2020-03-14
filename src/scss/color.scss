@@ -1,0 +1,47 @@
+// ==========================================================================
+// @RGBYK/color
+// ==========================================================================
+
+@forward "core" with ( 
+    $brand-color: #7FF9E2,
+    $color-model: rgb,
+
+    $color-mode-harmony: false,
+    $color-mode-harmony-grayscale: false,
+    $color-mode-harmony-grayscale-cool-mix: 3%,
+    $color-mode-harmony-grayscale-warm-mix: 2%,
+
+    $enable-utility-classes: false,
+    $enable-utility-bg: true,
+    $enable-utility-color: true,
+    $enable-utility-border: true,
+    $enable-utility-fill: true,
+    $enable-utility-stroke: true,
+
+    $color-scheme-primary: true,
+    $color-scheme-achromatic: true,
+
+    $color-scheme-analogous: true,
+    $color-scheme-complementary: true,
+    $color-scheme-hues: true,
+    $color-scheme-split: true,
+    $color-scheme-square: true,
+    $color-scheme-tetradic: true,
+    $color-scheme-triadic: true,
+
+    $color-scheme-danger: true,
+    $color-scheme-warning: true,
+    $color-scheme-success: true,
+    $color-scheme-info: true,
+
+    $color-scheme-neutral: false,
+    $color-scheme-pastel: false,
+    $color-scheme-alpha: false,
+    $color-scheme-chromatic: false,
+
+    $enable-root-colors: true
+);
+
+@use "functions";
+@use "schemes";
+@use "utilities";

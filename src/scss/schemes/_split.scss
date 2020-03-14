@@ -1,0 +1,101 @@
+// ==========================================================================
+// # Split Complementary
+// ==========================================================================
+// 
+// Split-complementary color scheme is a three-color combination consisting 
+// of a base color and two colors that are 150 degrees and 210 degrees
+// apart from the base color.
+//
+// | Model | Color     | Chromatic | Harmonized |         | 
+// | :---: | :-------: | :-------: | :-------:  | :---:   |
+// | RGB   | #8e43e7   | #e7e043   | #ddcf55    | 150°    |
+// |       |           | #4ae743   | #51d555    | 210°    |
+// 
+// | Model | Color     | Chromatic | Harmonized |         | 
+// | :---: | :-------: | :-------: | :-------:  | :---:   |
+// | RYB   | #8e43e7   | #e7ab43   | #dda055    | 150°    |
+// |       |           | #d4e743   | #ccd555    | 210°    |
+// 
+// @debug color.adjust(#8e43e7, $hue: 150);
+// @debug color.adjust(#8e43e7, $hue: 210);
+//
+// @debug functions.ryb-adjust-hue(#8e43e7, 150);
+// @debug functions.ryb-adjust-hue(#8e43e7, 210);
+
+@use "sass:color";
+
+@use "../core";
+@use "../functions";
+
+// ==========================================================================
+// # Variables
+// ==========================================================================
+
+$-split1-400: color.adjust(core.$brand-color, $hue: 150);
+$-split2-400: color.adjust(core.$brand-color, $hue: 210);
+
+@if (core.$color-model == ryb) {
+  $-split1-400: functions.ryb-adjust-hue(core.$brand-color, 150);
+  $-split2-400: functions.ryb-adjust-hue(core.$brand-color, 210);
+} @else {}
+
+@if core.$color-mode-harmony {
+  $-split1-400: functions.make-color-harmony(core.$brand-color, $-split1-400);
+  $-split2-400: functions.make-color-harmony(core.$brand-color, $-split2-400);
+} @else {}
+
+// ==========================================================================
+// # Monochromatic
+// ==========================================================================
+
+// ## Split (1) @ 150°
+$split1-100: functions.make-color-mono($-split1-400, 100) !default;
+$split1-200: functions.make-color-mono($-split1-400, 200) !default;
+$split1-300: functions.make-color-mono($-split1-400, 300) !default;
+$split1-400: $-split1-400 !default;
+$split1-500: functions.make-color-mono($-split1-400, 500) !default;
+$split1-600: functions.make-color-mono($-split1-400, 600) !default;
+$split1-700: functions.make-color-mono($-split1-400, 700) !default;
+$split1-800: functions.make-color-mono($-split1-400, 800) !default;
+$split1-900: functions.make-color-mono($-split1-400, 900) !default;
+
+// ## Split (2) @ 210°
+$split2-100: functions.make-color-mono($-split2-400, 100) !default;
+$split2-200: functions.make-color-mono($-split2-400, 200) !default;
+$split2-300: functions.make-color-mono($-split2-400, 300) !default;
+$split2-400: $-split2-400 !default;
+$split2-500: functions.make-color-mono($-split2-400, 500) !default;
+$split2-600: functions.make-color-mono($-split2-400, 600) !default;
+$split2-700: functions.make-color-mono($-split2-400, 700) !default;
+$split2-800: functions.make-color-mono($-split2-400, 800) !default;
+$split2-900: functions.make-color-mono($-split2-400, 900) !default;
+
+// =============================================================================
+// # Map
+// =============================================================================
+
+$map-split1: (
+  "split1-100": $split1-100,
+  "split1-200": $split1-200,
+  "split1-300": $split1-300,
+  "split1-400": $split1-400,
+  "split1-500": $split1-500,
+  "split1-600": $split1-600,
+  "split1-700": $split1-700,
+  "split1-800": $split1-800,
+  "split1-900": $split1-900
+) !default;
+
+$map-split2: (
+  "split2-100": $split2-100,
+  "split2-200": $split2-200,
+  "split2-300": $split2-300,
+  "split2-400": $split2-400,
+  "split2-500": $split2-500,
+  "split2-600": $split2-600,
+  "split2-700": $split2-700,
+  "split2-800": $split2-800,
+  "split2-900": $split2-900
+) !default;
+
+$map-split: core.map-collect($map-split1, $map-split2) !default;

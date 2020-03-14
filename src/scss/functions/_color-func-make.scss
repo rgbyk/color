@@ -1,0 +1,246 @@
+// ==========================================================================
+// # make-color-#{$func} functions
+// ==========================================================================
+
+@use "sass:color";
+@use "sass:map";
+
+@use "../core";
+@use "color-func-is" as cfi;
+
+// ==========================================================================
+// make-color-harmony($mix, $base)
+// ==========================================================================
+// 
+// establish similar light conditions between two colors
+//
+// @param  {color} $mix     - the "primary" color
+// @param  {color} $base    - the "base" color
+// @return {color}          - the adjusted color
+// 
+// @debug functions.make-color-harmony(#FF0000, #3b00c4); // #680097
+// @debug functions.make-color-harmony(#FF8000, #3b00c4); // #681d97
+// @debug functions.make-color-harmony(#FFFF00, #3b00c4); // #683b97
+// @debug functions.make-color-harmony(#80FF00, #3b00c4); // #4b3b97
+// @debug functions.make-color-harmony(#00FF00, #3b00c4); // #2d3b97
+// @debug functions.make-color-harmony(#00FF80, #3b00c4); // #3229b9
+// @debug functions.make-color-harmony(#00FFFF, #3b00c4); // #3229cd
+// @debug functions.make-color-harmony(#0080FF, #3b00c4); // #3214cd
+// @debug functions.make-color-harmony(#0000FF, #3b00c4); // #3200cd
+// @debug functions.make-color-harmony(#7F00FF, #3b00c4); // #4600cd
+// @debug functions.make-color-harmony(#FF00FF, #3b00c4); // #6800d2
+// @debug functions.make-color-harmony(#FF007F, #3b00c4); // #6800b4
+// 
+
+@function make-color-harmony($mix, $base) {
+  @if cfi.is-color-cool($mix) {
+    @if cfi.is-color-high-key-value($base) {
+        @return color.mix($mix, $base, 11%);
+    } @else {
+        @return color.mix($mix, $base, 16%);
+    }
+  } @else {
+    @if cfi.is-color-high-key-value($base) {
+        @return color.mix($mix, $base, 13%);
+    } @else {
+        @return color.mix($mix, $base, 23%);
+    }
+  }
+}
+
+// ==========================================================================
+// make-color-harmony-grayscale($color)
+// ==========================================================================
+//
+// establish color relationship in your grayscale palette.
+// 
+// @param  {color} $mix     - the "primary" color
+// @param  {color} $base    - the "base" color
+// @return {color}          - the adjusted color
+//
+// $color-mode-harmony-grayscale: true !default;
+//
+// @debug functions.make-color-harmony-grayscale(#FF0000, #EEEEEE); // #f0d3d3
+// @debug functions.make-color-harmony-grayscale(#FF8000, #EEEEEE); // #f0e1d3
+// @debug functions.make-color-harmony-grayscale(#FFFF00, #EEEEEE); // #f0f0d3
+// @debug functions.make-color-harmony-grayscale(#80FF00, #EEEEEE); // #e1f0d3
+// @debug functions.make-color-harmony-grayscale(#00FF00, #EEEEEE); // #d3f0d3
+// @debug functions.make-color-harmony-grayscale(#00FF80, #EEEEEE); // #dbefe5
+// @debug functions.make-color-harmony-grayscale(#00FFFF, #EEEEEE); // #dbefef
+// @debug functions.make-color-harmony-grayscale(#0080FF, #EEEEEE); // #dbe5ef
+// @debug functions.make-color-harmony-grayscale(#0000FF, #EEEEEE); // #dbdbef
+// @debug functions.make-color-harmony-grayscale(#7F00FF, #EEEEEE); // #e5dbef
+// @debug functions.make-color-harmony-grayscale(#FF00FF, #EEEEEE); // #f0d3f0
+// @debug functions.make-color-harmony-grayscale(#FF007F, #EEEEEE); // #f0d3e1
+// 
+
+@function make-color-harmony-grayscale($mix, $base) {
+    @if (core.$color-mode-harmony-grayscale){
+        @if cfi.is-color-cool($mix) {
+            @if cfi.is-color-high-key-value($base) {
+              @return color.mix($mix, $base, 5.5%);
+            } @else {
+              @return color.mix($mix, $base, 8%);
+            }
+        } @else {
+            @if cfi.is-color-high-key-value($base) {
+              @return color.mix($mix, $base, 6.5%);
+            } @else {
+              @return color.mix($mix, $base, 11.5%);
+            }
+        }
+    }
+    @else{
+        @return $base;
+    }
+}
+
+// ==========================================================================
+// make-color-neutral($color)
+// ==========================================================================
+// 
+// convert a color to its neutral form.
+// neutral color is a color scheme with multiple meanings.
+// in its narrowest sense, it referrs to "any color containing some brown"
+// https://gist.github.com/tallys/daf7a377062e555c93ab438b540df97e
+//
+// @param  {color}      $color  - the color to adjust
+// @return {color}              - the adjusted color
+// 
+// @debug functions.make-color-neutral(#FF0000); // #c43b3b
+// @debug functions.make-color-neutral(#FF8000); // #de8021
+// @debug functions.make-color-neutral(#FFFF00); // #dede21
+// @debug functions.make-color-neutral(#80FF00); // #80c43b
+// @debug functions.make-color-neutral(#00FF00); // #3bc43b
+// @debug functions.make-color-neutral(#00FF80); // #3bc480
+// @debug functions.make-color-neutral(#00FFFF); // #3bc4c4
+// @debug functions.make-color-neutral(#0080FF); // #3b80c4
+// @debug functions.make-color-neutral(#0000FF); // #4f4fb0
+// @debug functions.make-color-neutral(#7F00FF); // #7f42bd
+// @debug functions.make-color-neutral(#FF00FF); // #bd42bd
+// @debug functions.make-color-neutral(#FF007F); // #c43b7f
+// 
+
+@function make-color-neutral($color) {
+  $complementary: color.complement($color);
+
+  @if cfi.is-color-highest-key-value($color) {
+    @if cfi.is-color-high-key-value($complementary) {
+      @return color.mix($complementary, $color, $weight: 19%);
+    } @else {
+      @return color.mix($complementary, $color, $weight: 13%);
+    }
+  } @else if cfi.is-color-high-key-value($color) {
+    @if cfi.is-color-high-key-value($complementary) {
+      @return color.mix($complementary, $color, $weight: 31%);
+    } @else {
+      @return color.mix($complementary, $color, $weight: 23%);
+    }
+  } @else {
+    @if cfi.is-color-highest-key-value($complementary) {
+      @return color.mix($complementary, $color, $weight: 31%);
+    }
+    @if cfi.is-color-high-key-value($complementary) {
+      @return color.mix($complementary, $color, $weight: 26%);
+    } @else {
+      @return color.mix($complementary, $color, $weight: 23%);
+    }
+  }
+}
+
+// ==========================================================================
+// make-color-mono($color, $weight)
+// ==========================================================================
+// 
+// monochromatic scaling using the $chroma/$value system
+//
+// @param  {color}          $color  - the color to adjust
+// @param  {integer}        $weight - the integer (between 100 - 900)
+// @return {color}                  - the adjusted color
+// 
+// Resources
+// - https://en.wikipedia.org/wiki/Color_solid
+// 
+// @debug functions.make-color-mono(#8e43e7, 100); // #f6effd
+// @debug functions.make-color-mono(#8e43e7, 200); // #e3d0f9
+// @debug functions.make-color-mono(#8e43e7, 300); // #d0b1f5
+// @debug functions.make-color-mono(#8e43e7, 400); // #8e43e7
+// @debug functions.make-color-mono(#8e43e7, 500); // #7638c1
+// @debug functions.make-color-mono(#8e43e7, 600); // #6b32ad
+// @debug functions.make-color-mono(#8e43e7, 700); // #532787
+// @debug functions.make-color-mono(#8e43e7, 800); // #3b1c60
+// @debug functions.make-color-mono(#8e43e7, 900); // #180b27
+//
+// @debug functions.make-color-mono(#1da1f2, 100); // #ecf7fe
+// @debug functions.make-color-mono(#1da1f2, 200); // #c7e8fc
+// @debug functions.make-color-mono(#1da1f2, 300); // #a1d8fa
+// @debug functions.make-color-mono(#1da1f2, 400); // #1da1f2
+// @debug functions.make-color-mono(#1da1f2, 500); // #136ba1
+// @debug functions.make-color-mono(#1da1f2, 600); // #0f5179
+// @debug functions.make-color-mono(#1da1f2, 700); // #0a3651
+// @debug functions.make-color-mono(#1da1f2, 800); // #07283d
+// @debug functions.make-color-mono(#1da1f2, 900); // #020d14
+//
+// @debug functions.make-color-mono(#0af167, 100); // #ebfef2
+// @debug functions.make-color-mono(#0af167, 200); // #c2fcd9
+// @debug functions.make-color-mono(#0af167, 300); // #99f9c0
+// @debug functions.make-color-mono(#0af167, 400); // #0af167
+// @debug functions.make-color-mono(#0af167, 500); // #07a145
+// @debug functions.make-color-mono(#0af167, 600); // #057934
+// @debug functions.make-color-mono(#0af167, 700); // #035022
+// @debug functions.make-color-mono(#0af167, 800); // #033c1a
+// @debug functions.make-color-mono(#0af167, 900); // #011409
+
+@function make-color-mono($color, $weight) {
+    $value: core.$value-0;
+    $chroma: core.$chroma-12;
+
+    @if ( cfi.is-color-dark($color) ){
+        $value: core.map-deep-get(core.$color-dark-mono-map, #{$weight}, "value");
+        $chroma: core.map-deep-get(core.$color-dark-mono-map, #{$weight}, "chroma");
+    } @else{
+        $value: core.map-deep-get(core.$color-light-mono-map, #{$weight}, "value");
+        $chroma: core.map-deep-get(core.$color-light-mono-map, #{$weight}, "chroma");
+    }
+
+    @return color.mix($color, $value, $weight: $chroma);
+}
+
+
+// ==========================================================================
+// make-color-pastel($color);
+// ==========================================================================
+// 
+// convert a color to its pastel form.
+//
+// @param  {color}      $color  - the color to adjust
+// @return {color}              - the adjusted color
+// 
+// https://codepen.io/jalcine/pen/xGvwEO
+// 
+
+@function make-color-pastel($color) {
+
+  $r: color.red($color);
+  $g: color.green($color);
+  $b: color.blue($color);
+  
+  $r: ($r + 255) / 2;
+  $g: ($g + 255) / 2;
+  $b: ($b + 255) / 2;
+
+  @return rgb($r, $g, $b);
+}
+
+// @debug make-color-pastel(#FF0000); // #ff8080
+// @debug make-color-pastel(#FF8000); // #ffc080
+// @debug make-color-pastel(#FFFF00); // #ffff80
+// @debug make-color-pastel(#80FF00); // #c0ff80
+// @debug make-color-pastel(#00FF00); // #80ff80
+// @debug make-color-pastel(#00FF80); // #80ffc0
+// @debug make-color-pastel(#00FFFF); // #80ffff
+// @debug make-color-pastel(#0080FF); // #80c0ff
+// @debug make-color-pastel(#0000FF); // #8080ff
+// @debug make-color-pastel(#7F00FF); // #bf80ff
+// @debug make-color-pastel(#FF00FF); // #ff80ff
+// @debug make-color-pastel(#FF007F); // #ff80bf

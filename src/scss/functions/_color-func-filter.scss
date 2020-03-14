@@ -1,0 +1,237 @@
+// ==========================================================================
+// # filter-color-#{$func} functions
+// ==========================================================================
+
+@use "sass:color";
+@use "sass:map";
+
+@use "../core";
+
+// ==========================================================================
+// # filterMatrix
+// ==========================================================================
+
+$grayscale: (
+  0.333, 0.333, 0.333, 0.000, 0.000, 
+  0.333, 0.333, 0.333, 0.000, 0.000,
+  0.333, 0.333, 0.333, 0.000, 0.000,
+  0.000, 0.000, 0.000, 1.000, 0.000
+);
+
+$protanopia: ( 
+  0.567, 0.433, 0.000, 0.000, 0.000,
+  0.558, 0.442, 0.000, 0.000, 0.000,
+  0.000, 0.242, 0.758, 0.000, 0.000,
+  0.000, 0.000, 0.000, 1.000, 0.000
+);
+
+$protanomaly: (
+  0.817, 0.183, 0.000, 0.000, 0.000,
+  0.333, 0.667, 0.000, 0.000, 0.000,
+  0.000, 0.125, 0.875, 0.000, 0.000,
+  0.000, 0.000, 0.000, 1.000, 0.000
+);
+
+$deuteranopia: ( 
+  0.625, 0.375, 0.000, 0.000, 0.000,
+  0.700, 0.300, 0.000, 0.000, 0.000,
+  0.000, 0.300, 0.700, 0.000, 0.000,
+  0.000, 0.000, 0.000, 1.000, 0.000
+);
+
+$deuteranomaly: ( 
+  0.800, 0.200, 0.000, 0.000, 0.000,
+  0.258, 0.742, 0.000, 0.000, 0.000,
+  0.000, 0.142, 0.858, 0.000, 0.000,
+  0.000, 0.000, 0.000, 1.000, 0.000
+);
+
+$tritanopia: ( 
+  0.950, 0.050, 0.000, 0.000, 0.000,
+  0.000, 0.433, 0.567, 0.000, 0.000,
+  0.000, 0.475, 0.525, 0.000, 0.000,
+  0.000, 0.000, 0.000, 1.000, 0.000
+);
+
+$tritanomaly: ( 
+  0.967, 0.033, 0.000, 0.000, 0.000,
+  0.000, 0.733, 0.267, 0.000, 0.000,
+  0.000, 0.183, 0.817, 0.000, 0.000,
+  0.000, 0.000, 0.000, 1.000, 0.000
+);
+
+$achromatopsia: ( 
+  0.299, 0.587, 0.114, 0.000, 0.000,
+  0.299, 0.587, 0.114, 0.000, 0.000,
+  0.299, 0.587, 0.114, 0.000, 0.000,
+  0.000, 0.000, 0.000, 1.000, 0.000
+);
+
+$achromatomaly: ( 
+  0.618, 0.320, 0.062, 0.000, 0.000,
+  0.163, 0.775, 0.062, 0.000, 0.000,
+  0.163, 0.320, 0.516, 0.000, 0.000,
+  0.000, 0.000, 0.000, 1.000, 0.000
+);
+
+
+// ==========================================================================
+// # Map Options
+// ==========================================================================
+
+@function color-blindness($mode: core.$color-mode-cvd) {
+  // ! grayscale
+  @if ($mode == "grayscale") {
+    @return $grayscale;
+  }
+
+  // ! protanopia
+  @else if ($mode == "protanopia") {
+    @return $protanopia;
+  }
+
+  // ! protanomaly
+  @else if ($mode == "protanomaly") {
+    @return $protanomaly;
+  }
+
+  // ! deuteranopia
+  @else if ($mode == "deuteranopia") {
+    @return $deuteranopia;
+  }
+
+  // ! deuteranomaly
+  @else if ($mode == "deuteranomaly") {
+    @return $deuteranomaly;
+  }
+
+  // ! tritanopia
+  @else if ($mode == "tritanopia") {
+    @return $tritanopia;
+  }
+
+  // ! tritanomaly
+  @else if ($mode == "tritanomaly") {
+    @return $tritanomaly;
+  }
+
+  // ! achromatopsia
+  @else if ($mode == "achromatopsia") {
+    @return $achromatopsia;
+  }
+
+  // ! achromatomaly
+  @else if ($mode == "achromatomaly") {
+    @return $achromatomaly;
+  } @else {
+    @return null;
+  }
+}
+
+// ==========================================================================
+// # color-filter($color, $filter)
+// ==========================================================================
+// 
+// run a matrix filter over a color variable and return the color
+// 
+// @param   {color}     $color        - hexdecimal color
+// @param   {boolean}   $filter       - filter (options)
+// @return                            - hexdecimal color
+// 
+// http://alistapart.com/article/finessing-fecolormatrix
+// https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix
+
+@function color-filter($color, $filter) {
+    // RGBA values of the color
+    $colorRGBA: (
+      "red": color.red($color),
+      "green": color.green($color),
+      "blue": color.blue($color),
+      "alpha": color.alpha($color)
+    );
+
+    $filterRGBA: core.Chunk($filter, 5);
+
+    $filterResult: (
+      "red": 0,
+      "green": 0,
+      "blue": 0,
+      "alpha": 0
+    );
+
+    $j: 1;
+
+    @each $filterGroup in $filterRGBA {
+      $i: 1;
+
+      @each $key in map-keys($colorRGBA) {
+        $rgbaValue: map-get($colorRGBA, $key);
+        $filterResult: map-merge(
+          $filterResult,
+          (
+            nth(map-keys($filterResult), $j):
+              nth(map-values($filterResult), $j) +
+              nth($filterGroup, $i) *
+              $rgbaValue
+          )
+        );
+
+        $i: $i + 1;
+      }
+
+      $j: $j + 1;
+    }
+
+    @return rgba(
+      map-get($filterResult, "red"),
+      map-get($filterResult, "green"),
+      map-get($filterResult, "blue"),
+      map-get($filterResult, "alpha")
+    );
+}
+
+// ==========================================================================
+// run-hex-cvd($color, $boolean)
+// ==========================================================================
+// 
+// 1. if $color-mode-cvd == true,  return => new hex;
+// 2. if $color-mode-cvd == false, return => original hex;
+//
+// @debug run-hex-cvd(#8e43e7); // `$color-mode-cvd` mode
+// @debug run-hex-cvd(#8e43e7, $protanopia); // `protanopia` mode
+//
+// @debug run-hex-cvd(#8e43e7, $protanopia);     // #6e6dbf
+// @debug run-hex-cvd(#8e43e7, $protanomaly);    // #805cd3
+// @debug run-hex-cvd(#8e43e7, $deuteranopia);   // #7278b6
+// @debug run-hex-cvd(#8e43e7, $deuteranomaly);  // #7f56d0
+// @debug run-hex-cvd(#8e43e7, $tritanopia);     // #8aa099
+// @debug run-hex-cvd(#8e43e7, $tritanomaly);    // #8c6fc9
+// @debug run-hex-cvd(#8e43e7, $achromatopsia);  // #6c6c6c
+// @debug run-hex-cvd(#8e43e7, $achromatomaly);  // #7c59a4
+// 
+// @debug run-hex-cvd(#1db954, $protanopia);     // #61626c
+// @debug run-hex-cvd(#1db954, $protanomaly);    // #3a8561
+// @debug run-hex-cvd(#1db954, $deuteranopia);   // #584c72
+// @debug run-hex-cvd(#1db954, $deuteranomaly);  // #3c9162
+// @debug run-hex-cvd(#1db954, $tritanopia);     // #258084
+// @debug run-hex-cvd(#1db954, $tritanomaly);    // #229e66
+// @debug run-hex-cvd(#1db954, $achromatopsia);  // #7f7f7f
+// @debug run-hex-cvd(#1db954, $achromatomaly);  // #52996b
+// 
+// @debug run-hex-cvd(#ed1c16, $protanopia);     // #939117
+// @debug run-hex-cvd(#ed1c16, $protanomaly);    // #c76217
+// @debug run-hex-cvd(#ed1c16, $deuteranopia);   // #9fae18
+// @debug run-hex-cvd(#ed1c16, $deuteranomaly);  // #c35217
+// @debug run-hex-cvd(#ed1c16, $tritanopia);     // #e31919
+// @debug run-hex-cvd(#ed1c16, $tritanomaly);    // #e61a17
+// @debug run-hex-cvd(#ed1c16, $achromatopsia);  // #5a5a5a
+// @debug run-hex-cvd(#ed1c16, $achromatomaly);  // #9d3e3b
+//
+
+@function run-hex-cvd($color, $boolean: core.$color-mode-cvd) {
+  @if ($boolean != false) {
+    @return color-filter($color, $boolean);
+  } @else {
+    @return $color;
+  }
+}

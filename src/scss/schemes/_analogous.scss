@@ -1,0 +1,134 @@
+// ==========================================================================
+// # Analogous
+// ==========================================================================
+//
+// Analogous color scheme is a four-color combination consisting 
+// of a base color and three colors that are 30 degrees, 60 degrees, 
+// and 90 degrees apart from the base color.
+// 
+// While this scheme typical uses colors that are 30 degrees apart,
+// Neutral harmonies use colors that are 15 degrees apart.
+//
+// | Model | Color     | Chromatic | Harmonized |         | 
+// | :---: | :-------: | :-------: | :-------:  | :---:   |
+// | RGB   | #8e43e7   | #e043e7   | #d343e7    | 30°     |
+// |       |           | #e7439c   | #d943a8    | 60°     |
+// |       |           | #e7434a   | #d94363    | 90°     |
+// 
+// | Model | Color     | Chromatic | Harmonized |         | 
+// | :---: | :-------: | :-------: | :-------:  | :---:   |
+// | RYB   | #8e43e7   | #e743e2   | #d943e3    | 30°     |
+// |       |           | #e74371   | #d94384    | 60°     |
+// |       |           | #e77443   | #d96c5d    | 90°     |
+// 
+// @debug color.adjust(#8e43e7, $hue: 30);
+// @debug color.adjust(#8e43e7, $hue: 60);
+// @debug color.adjust(#8e43e7, $hue: 90);
+// @debug ryb-adjust-hue(#8e43e7, 30);
+// @debug ryb-adjust-hue(#8e43e7, 60);
+// @debug ryb-adjust-hue(#8e43e7, 90);
+
+@use "sass:color";
+
+@use "../core";
+@use "../functions";
+
+// ==========================================================================
+// # Variables
+// ==========================================================================
+
+$-analogous1-400: color.adjust(core.$brand-color, $hue: 30);
+$-analogous2-400: color.adjust(core.$brand-color, $hue: 60);
+$-analogous3-400: color.adjust(core.$brand-color, $hue: 90);
+
+@if (core.$color-model == ryb) {
+  $-analogous1-400: functions.ryb-adjust-hue(core.$brand-color, 30);
+  $-analogous2-400: functions.ryb-adjust-hue(core.$brand-color, 60);
+  $-analogous3-400: functions.ryb-adjust-hue(core.$brand-color, 90);
+} @else {}
+
+@if core.$color-mode-harmony {
+  $-analogous1-400: functions.make-color-harmony(core.$brand-color, $-analogous1-400);
+  $-analogous2-400: functions.make-color-harmony(core.$brand-color, $-analogous2-400);
+  $-analogous3-400: functions.make-color-harmony(core.$brand-color, $-analogous3-400);
+} @else {}
+
+// ==========================================================================
+// # Monochromatic Scaling
+// ==========================================================================
+
+// ## Analog (1) @ 30°
+$analogous1-100: functions.make-color-mono($-analogous1-400, 100) !default;
+$analogous1-200: functions.make-color-mono($-analogous1-400, 200) !default;
+$analogous1-300: functions.make-color-mono($-analogous1-400, 300) !default;
+$analogous1-400: $-analogous1-400 !default;
+$analogous1-500: functions.make-color-mono($-analogous1-400, 500) !default;
+$analogous1-600: functions.make-color-mono($-analogous1-400, 600) !default;
+$analogous1-700: functions.make-color-mono($-analogous1-400, 700) !default;
+$analogous1-800: functions.make-color-mono($-analogous1-400, 800) !default;
+$analogous1-900: functions.make-color-mono($-analogous1-400, 900) !default;
+
+// ## Analog (2) @ 60°
+$analogous2-100: functions.make-color-mono($-analogous2-400, 100) !default;
+$analogous2-200: functions.make-color-mono($-analogous2-400, 200) !default;
+$analogous2-300: functions.make-color-mono($-analogous2-400, 300) !default;
+$analogous2-400: $-analogous2-400 !default;
+$analogous2-500: functions.make-color-mono($-analogous2-400, 500) !default;
+$analogous2-600: functions.make-color-mono($-analogous2-400, 600) !default;
+$analogous2-700: functions.make-color-mono($-analogous2-400, 700) !default;
+$analogous2-800: functions.make-color-mono($-analogous2-400, 800) !default;
+$analogous2-900: functions.make-color-mono($-analogous2-400, 900) !default;
+
+// ## Analog (3) @ 90°
+$analogous3-100: functions.make-color-mono($-analogous3-400, 100) !default;
+$analogous3-200: functions.make-color-mono($-analogous3-400, 200) !default;
+$analogous3-300: functions.make-color-mono($-analogous3-400, 300) !default;
+$analogous3-400: $-analogous3-400 !default;
+$analogous3-500: functions.make-color-mono($-analogous3-400, 500) !default;
+$analogous3-600: functions.make-color-mono($-analogous3-400, 600) !default;
+$analogous3-700: functions.make-color-mono($-analogous3-400, 700) !default;
+$analogous3-800: functions.make-color-mono($-analogous3-400, 800) !default;
+$analogous3-900: functions.make-color-mono($-analogous3-400, 900) !default;
+
+
+// =============================================================================
+// # Map
+// =============================================================================
+
+$map-analogous1: (
+  "analogous1-100": $analogous1-100,
+  "analogous1-200": $analogous1-200,
+  "analogous1-300": $analogous1-300,
+  "analogous1-400": $analogous1-400,
+  "analogous1-500": $analogous1-500,
+  "analogous1-600": $analogous1-600,
+  "analogous1-700": $analogous1-700,
+  "analogous1-800": $analogous1-800,
+  "analogous1-900": $analogous1-900
+) !default;
+
+$map-analogous2: (
+  "analogous2-100": $analogous2-100,
+  "analogous2-200": $analogous2-200,
+  "analogous2-300": $analogous2-300,
+  "analogous2-400": $analogous2-400,
+  "analogous2-500": $analogous2-500,
+  "analogous2-600": $analogous2-600,
+  "analogous2-700": $analogous2-700,
+  "analogous2-800": $analogous2-800,
+  "analogous2-900": $analogous2-900
+) !default;
+
+$map-analogous3: (
+  "analogous3-100": $analogous3-100,
+  "analogous3-200": $analogous3-200,
+  "analogous3-300": $analogous3-300,
+  "analogous3-400": $analogous3-400,
+  "analogous3-500": $analogous3-500,
+  "analogous3-600": $analogous3-600,
+  "analogous3-700": $analogous3-700,
+  "analogous3-800": $analogous3-800,
+  "analogous3-900": $analogous3-900
+) !default;
+
+$map-analogous: core.map-collect($map-analogous1, $map-analogous2, $map-analogous3) !default;

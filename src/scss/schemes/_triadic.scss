@@ -1,0 +1,102 @@
+// ==========================================================================
+// # Triadic
+// ==========================================================================
+// 
+// Triadic color scheme is a three-color combination consisting of a base
+// color and two colors that are 120 degrees and 240 degrees
+// apart from the base color.
+// 
+// | Model | Color     | Chromatic | Harmonized |         | 
+// | :---: | :-------: | :-------: | :-------:  | :---:   |
+// | RGB   | #8e43e7   | #e78e43   | #d9825d    | 120°    |
+// |       |           | #43e78e   | #4fcd9c    | 240°    |
+// 
+// | Model | Color     | Chromatic | Harmonized |         | 
+// | :---: | :-------: | :-------: | :-------:  | :---:   |
+// | RYB   | #8e43e7   | #e78243   | #d9785d    | 120°    |
+// |       |           | #a5e743   | #a2d555    | 240°    |
+// 
+// @debug color.adjust(#8e43e7, $hue: 120);
+// @debug color.adjust(#8e43e7, $hue: 240);
+// 
+// @debug functions.ryb-adjust-hue(#8e43e7, 120);
+// @debug functions.ryb-adjust-hue(#8e43e7, 240);
+// 
+
+@use "sass:color";
+
+@use "../core";
+@use "../functions";
+
+// ==========================================================================
+// # Variables
+// ==========================================================================
+
+$-triadic1-400: color.adjust(core.$brand-color, $hue: 120);
+$-triadic2-400: color.adjust(core.$brand-color, $hue: 240);
+
+@if (core.$color-model == ryb) {
+    $-triadic1-400: functions.ryb-adjust-hue(core.$brand-color, 120); 
+    $-triadic2-400: functions.ryb-adjust-hue(core.$brand-color, 240); 
+} @else {}
+
+@if core.$color-mode-harmony{
+    $-triadic1-400: functions.make-color-harmony(core.$brand-color, $-triadic1-400);
+    $-triadic2-400: functions.make-color-harmony(core.$brand-color, $-triadic2-400);
+} @else{}
+
+// ==========================================================================
+// # Monochromatic
+// ==========================================================================
+
+// ## Triadic (1) @ 120°
+$triadic1-100: functions.make-color-mono($-triadic1-400, 100) !default;
+$triadic1-200: functions.make-color-mono($-triadic1-400, 200) !default;
+$triadic1-300: functions.make-color-mono($-triadic1-400, 300) !default;
+$triadic1-400: $-triadic1-400 !default;
+$triadic1-500: functions.make-color-mono($-triadic1-400, 500) !default;
+$triadic1-600: functions.make-color-mono($-triadic1-400, 600) !default;
+$triadic1-700: functions.make-color-mono($-triadic1-400, 700) !default;
+$triadic1-800: functions.make-color-mono($-triadic1-400, 800) !default;
+$triadic1-900: functions.make-color-mono($-triadic1-400, 900) !default;
+
+// ## Triadic (2) @ 240°
+$triadic2-100: functions.make-color-mono($-triadic2-400, 100) !default;
+$triadic2-200: functions.make-color-mono($-triadic2-400, 200) !default;
+$triadic2-300: functions.make-color-mono($-triadic2-400, 300) !default;
+$triadic2-400: $-triadic2-400 !default;
+$triadic2-500: functions.make-color-mono($-triadic2-400, 500) !default;
+$triadic2-600: functions.make-color-mono($-triadic2-400, 600) !default;
+$triadic2-700: functions.make-color-mono($-triadic2-400, 700) !default;
+$triadic2-800: functions.make-color-mono($-triadic2-400, 800) !default;
+$triadic2-900: functions.make-color-mono($-triadic2-400, 900) !default;
+
+// =============================================================================
+// # Map
+// =============================================================================
+
+$map-triadic1: (
+  "triadic1-100": $triadic1-100,
+  "triadic1-200": $triadic1-200,
+  "triadic1-300": $triadic1-300,
+  "triadic1-400": $triadic1-400,
+  "triadic1-500": $triadic1-500,
+  "triadic1-600": $triadic1-600,
+  "triadic1-700": $triadic1-700,
+  "triadic1-800": $triadic1-800,
+  "triadic1-900": $triadic1-900
+) !default;
+
+$map-triadic2: (
+  "triadic2-100": $triadic2-100,
+  "triadic2-200": $triadic2-200,
+  "triadic2-300": $triadic2-300,
+  "triadic2-400": $triadic2-400,
+  "triadic2-500": $triadic2-500,
+  "triadic2-600": $triadic2-600,
+  "triadic2-700": $triadic2-700,
+  "triadic2-800": $triadic2-800,
+  "triadic2-900": $triadic2-900
+) !default;
+
+$map-triadic: core.map-collect($map-triadic1, $map-triadic2) !default;

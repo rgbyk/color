@@ -1,0 +1,18 @@
+// ==========================================================================
+// @RGBYK/color-rgb
+// ==========================================================================
+
+@forward "core" with ( 
+    $brand-color: #7FF9E2,
+    $color-model: rgb,
+
+    $color-mode-harmony: false,
+    $color-mode-harmony-grayscale: false,
+    $enable-utility-classes: false,
+    $color-scheme-neutral: false,
+    $color-scheme-pastel: false
+);
+
+@use "functions";
+@use "schemes";
+@use "utilities";

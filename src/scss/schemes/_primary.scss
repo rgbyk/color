@@ -1,0 +1,44 @@
+// ==========================================================================
+// # Primary
+// ==========================================================================
+
+@use "sass:color";
+
+@use "../core";
+@use "../functions";
+
+// ==========================================================================
+// # Variables
+// ==========================================================================
+
+$-primary-400: core.$brand-color;
+
+// ==========================================================================
+// # Monochromatic
+// ==========================================================================
+
+$primary-100: functions.make-color-mono($-primary-400, 100) !default;
+$primary-200: functions.make-color-mono($-primary-400, 200) !default;
+$primary-300: functions.make-color-mono($-primary-400, 300) !default;
+$primary-400: $-primary-400 !default;
+$primary-500: functions.make-color-mono($-primary-400, 500) !default;
+$primary-600: functions.make-color-mono($-primary-400, 600) !default;
+$primary-700: functions.make-color-mono($-primary-400, 700) !default;
+$primary-800: functions.make-color-mono($-primary-400, 800) !default;
+$primary-900: functions.make-color-mono($-primary-400, 900) !default;
+
+// =============================================================================
+// # Map
+// =============================================================================
+
+$map-primary: (
+  "primary-100": $primary-100,
+  "primary-200": $primary-200,
+  "primary-300": $primary-300,
+  "primary-400": $primary-400,
+  "primary-500": $primary-500,
+  "primary-600": $primary-600,
+  "primary-700": $primary-700,
+  "primary-800": $primary-800,
+  "primary-900": $primary-900
+) !default;

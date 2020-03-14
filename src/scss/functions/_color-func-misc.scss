@@ -1,0 +1,95 @@
+// ==========================================================================
+// Misc. Color Functions
+// ==========================================================================
+
+@use "sass:color";
+@use "../core";
+
+// ==========================================================================
+// color-tint($color, $percent)
+// ==========================================================================
+// 
+// mix a color with white to reduces darkness
+//
+// @param  {color}      $color       - the color to adjust
+// @param  {percent}    $percent     - the amount to mix in %
+// @return {color}                   - the adjusted color
+// 
+// ## Resources
+// - https://en.wikipedia.org/wiki/Tints_and_shades
+// 
+// ## Debugging
+// @debug functions.color-tint(#8e43e7, 10%); // #9956e9
+// @debug functions.color-tint(#8e43e7, 50%); // #c7a1f3
+// @debug functions.color-tint(#8e43e7, 80%); // #e8d9fa
+// 
+
+@function color-tint($color, $percent) {
+  @return color.mix(core.$value-10, $color, $weight: $percent);
+}
+
+// ==========================================================================
+// color-shade($color, $percent)
+// ==========================================================================
+// 
+// mix a color with black to increases darkness
+//
+// @param  {color}      $color       - the color to adjust
+// @param  {percent}    $percent     - the amount to mix in %
+// @return {color}                   - the adjusted color
+// 
+// ## Resources
+// - https://en.wikipedia.org/wiki/Tints_and_shades
+// 
+// ## Debugging
+// @debug functions.color-shade(#8e43e7, 10%); // #803cd0
+// @debug functions.color-shade(#8e43e7, 50%); // #472274
+// @debug functions.color-shade(#8e43e7, 80%); // #1c0d2e
+// 
+
+@function color-shade($color, $percent) {
+  @return color.mix(core.$value-0, $color, $weight: $percent);
+}
+
+// ==========================================================================
+// color-tone($color, $percent)
+// ==========================================================================
+// 
+// add percentage of grey to a color
+//
+// @param  {color}      $color       - the color to adjust
+// @param  {percent}    $percent     - the amount to mix in %
+// @return {color}                   - the adjusted color
+// 
+// ## Resources
+// - https://en.wikipedia.org/wiki/Tints_and_shades
+// 
+// ## Debugging
+// @debug functions.color-shade(#8e43e7, 10%); // #803cd0
+// @debug functions.color-shade(#8e43e7, 50%); // #472274
+// @debug functions.color-shade(#8e43e7, 80%); // #1c0d2e
+// 
+
+@function color-tone($color, $percent) {
+  @return color.mix(core.$value-5, $color, $weight: $percent);
+}
+
+// ==========================================================================
+// color-equalize($color)
+// ==========================================================================
+// 
+// equalize a given color
+//
+// @param  {color} $color       - the "primary" color
+// @return {color}              - the adjusted color
+// 
+// @debug functions.color-equalize(#8e43e7); // #7500ff
+// @debug functions.color-equalize(#1db954); // #00ff5a
+// @debug functions.color-equalize(#1da1f2); // #009eff
+// @debug functions.color-equalize(#ed1c16); // #ff0700
+// 
+
+@function color-equalize($color) {
+  $deg: color.hue($color);
+  @return hsl($hue: $deg, $saturation: 100%, $lightness: 50%);
+}

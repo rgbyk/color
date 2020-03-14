@@ -1,0 +1,364 @@
+// ==========================================================================
+// # ryb-#{$func} functions
+// ==========================================================================
+// 
+// RYB is a color model based on Red Yellow and Blue base colors. This color space
+// is not very popular as there are many colors deffined via RGB or CMYK that can
+// not be converted to RYB. However this color model is good for physical mixture
+// of pigments. So this color model may be usefull for model painters and artists
+// who uses acrylic and especially oil paints.
+// 
+// RGB Hex codes for RYB primary colors are: 
+// - Red: #FE2712
+// - Yellow: #FEFE33
+// - Blue: #0247FE
+// 
+// Resources:
+// - https://en.wikipedia.org/wiki/RYB_color_model
+// - https://en.wikipedia.org/wiki/Tertiary_color
+// - https://www.jstage.jst.go.jp/article/tievciieej/5/2/5_110/_pdf/-char/en
+// - https://github.com/at-import/color-schemer
+// - https://ianstormtaylor.com/design-tip-never-use-black/
+// - https://www.fastcompany.com/3002676/magical-tech-behind-paper-ipads-color-mixing-perfection
+// - https://www.pcgamer.com/why-games-need-color-blind-modes-see-simcity-with-simulated-color-blindness/
+
+@use "sass:color";
+@use "sass:math";
+@use "sass:list";
+
+// ==========================================================================
+// ryb-hue($color)
+// ==========================================================================
+$ryb-offset: 0 1 2 3 5 6 7 8 9 10 11 13 14 15 16 17 18 19 19 20 21 21 22 23 23
+24 25 25 26 27 27 28 28 29 29 30 30 31 31 32 32 32 33 33 34 34 35 35 35 36 36 37
+37 37 38 38 38 39 39 40 40 40 41 41 41 42 42 42 43 43 43 44 44 44 45 45 45 46 46
+46 47 47 47 47 48 48 48 49 49 49 50 50 50 51 51 51 52 52 52 53 53 53 54 54 54 55
+55 55 56 56 56 57 57 57 58 58 59 59 59 60 60 61 61 62 63 63 64 65 65 66 67 68 68
+69 70 70 71 72 72 73 73 74 75 75 76 77 77 78 79 79 80 81 82 82 83 84 85 86 87 88
+88 89 90 91 92 93 95 96 98 100 102 104 105 107 109 111 113 115 116 118 120 122
+125 127 129 131 134 136 138 141 143 145 147 150 152 154 156 158 159 161 163 165
+166 168 170 171 173 175 177 178 180 182 184 185 187 189 191 192 194 196 198 199
+201 203 205 206 207 208 209 210 212 213 214 215 216 217 218 219 220 221 222 223
+224 226 227 228 229 230 232 233 234 235 236 238 239 240 241 242 243 244 245 246
+247 248 249 250 251 251 252 253 254 255 256 257 257 258 259 260 260 261 262 263
+264 264 265 266 267 268 268 269 270 271 272 273 274 274 275 276 277 278 279 280
+282 283 284 286 287 289 290 292 293 294 296 297 299 300 302 303 305 307 309 310
+312 314 316 317 319 321 323 324 326 327 328 329 330 331 332 333 334 336 337 338
+339 340 341 342 343 344 345 347 348 349 350 352 353 354 355 356 358 359 360;
+
+$ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
+#FFDF00 #FEFE33 #D8F208 #B2D733 #8CC433 #66B032 #079d43 #158466 #007BA7 #0247FE
+#2C3BC6 #55308D #691a87 #800080 #94006C #BF1449 #FF0040;
+
+@function ryb-hue($color) {
+  $length: list.length($ryb-offset);
+
+  @for $i from 1 through $length {
+    @if nth($ryb-offset, $i) > color.hue($color) {
+      @return $i - 2deg;
+    }
+  }
+}
+
+// ==========================================================================
+// Color Interpolation
+// ==========================================================================
+
+@function ryb-interpolate($value) {
+  // ! loop numbers out of scale back into the scale.
+  @while $value >= 360 {
+    $value: $value - 360;
+  }
+  @while $value < 0 {
+    $value: $value + 360;
+  }
+
+  // find out how many units in each stop
+  $deg: 360 / list.length($ryb-interpolation);
+
+  // ! count through stops
+  $deg-count: $deg;
+  $stop-count: 1;
+
+  // ! add the first stop to the end so it will be
+  // ! interpolated with the last stop.
+  $ryb-interpolation: list.append($ryb-interpolation, nth($ryb-interpolation, 1));
+
+  // ! start interpolating
+  @for $i from 0 through list.length($ryb-interpolation) {
+    @if $value < $deg-count {
+
+      $-n: math.percentage(($deg-count - $value) / $deg);
+
+      @return color-mix(
+        nth($ryb-interpolation, $stop-count + 1),
+        nth($ryb-interpolation, $stop-count), 
+        abs($-n - 100), 
+        $model: "rgb"
+      );
+    }
+
+    // ! if the value is not in this stop, loop up to another stop.
+    @else {
+      $deg-count: $deg-count + $deg;
+      $stop-count: $stop-count + 1
+    }
+  }
+}
+
+// ==========================================================================
+// find-ryb-hue($degree);
+// ==========================================================================
+// 
+// return the degree of rgb color in ryb
+// 
+// @param  {integer}    $degrees      - degrees (0 to 360) in rgb
+// @return {integer}                  - degrees (0 to 360) in ryb
+// 
+// @debug find-ryb-hue(30);  // 27.2941176471deg
+// @debug find-ryb-hue(60);  // 40deg
+// @debug find-ryb-hue(90);  // 49.6470588235deg
+// @debug find-ryb-hue(120); // 60deg
+// @debug find-ryb-hue(150); // 79.9159663866deg
+// @debug find-ryb-hue(180); // 120deg
+// @debug find-ryb-hue(210); // 180deg
+// @debug find-ryb-hue(240); // 221.9607843137deg
+// @debug find-ryb-hue(270); // 254.3225806452deg
+// @debug find-ryb-hue(300); // 278.7577639752deg
+// @debug find-ryb-hue(330); // 326.0487804878deg
+
+@function find-ryb-hue($degree) {
+  @if unit($degree) == deg { $degree: $degree / 1deg; }
+  @return color.hue(ryb-interpolate($degree));
+}
+
+// ==========================================================================
+// ryb-adjust-hue($color, $degrees);
+// ==========================================================================
+// 
+// return a color with adjusted hue
+// 
+// @param  {color}      $color        - Hex color
+// @param  {integer}    $degrees      - Degrees (0-360)
+// @return {color}                    - Hex color
+//
+// @debug ryb-adjust-hue(#8e43e7, 0);   // #bd43e7
+// @debug ryb-adjust-hue(#8e43e7, 30);  // #e743b6
+// @debug ryb-adjust-hue(#8e43e7, 60);  // #e74368
+// @debug ryb-adjust-hue(#8e43e7, 90);  // #e75943
+// @debug ryb-adjust-hue(#8e43e7, 120); // #e78243
+// @debug ryb-adjust-hue(#8e43e7, 150); // #e7ab43
+// @debug ryb-adjust-hue(#8e43e7, 180); // #e7d443
+// @debug ryb-adjust-hue(#8e43e7, 210); // #d4e743
+// @debug ryb-adjust-hue(#8e43e7, 240); // #a5e743
+// @debug ryb-adjust-hue(#8e43e7, 270); // #43e788
+// @debug ryb-adjust-hue(#8e43e7, 300); // #43b7e7
+// @debug ryb-adjust-hue(#8e43e7, 330); // #434ee7
+// 
+
+@function ryb-adjust-hue($color, $degrees) {
+  @if unit($degrees) == "%" {
+    $degrees: 360 * ($degrees / 100%);
+  }
+
+  $hue-adjust: (ryb-hue($color) + $degrees) / 1deg;
+  @return hsl(color.hue(ryb-interpolate($hue-adjust)), color.saturation($color), color.lightness($color));
+}
+
+// ==========================================================================
+// color-mix($color1, $color2, $percent: 50%, $model: $color-model)
+// ==========================================================================
+// 
+// mix two colors by percent in a color color model.
+// 
+// @param  {color}      $color1        - Hex color
+// @param  {color}      $color2        - Hex color
+// @param  {percent}    $percent       - Percentage (0% to 100%)
+// @param  {model}      $model         - Color Model: [rgb | ryb]
+// @return {color}                     - Hex color
+//
+// @debug functions.color-mix(#800080, #158466, 60%, ryb); // #340882
+// @debug functions.color-mix(#FFBF00, #0247FE, 60%, ryb); // #d8ff01
+// @debug functions.color-mix(#FF4000, #00FF80, 50%, ryb); // #ffdb00
+// 
+// @debug functions.color-mix(#800080, #158466, 60%, rgb); // #130882
+// @debug functions.color-mix(#FFBF00, #0247FE, 60%, rgb); // #10ff01
+// @debug functions.color-mix(#FF4000, #00FF80, 50%, rgb); // #9fff00
+// 
+
+@function color-mix($color1, $color2, $percent: 50%, $model: null) {  
+  $decimal: abs($percent - 100%) / 100%;
+  $hue-offset: ();
+
+  @if $model == rgb {
+    $hue-offset: (color.hue($color1) - color.hue($color2)) * $decimal;
+    @if (color.hue($color1) - color.hue($color2)) * .5 < -90deg {
+      $hue-offset: (color.hue($color1) + 360deg - hue($color2)) * $decimal;
+    }
+    @if (color.hue($color1) - color.hue($color2)) * .5 > 90deg {
+      $hue-offset: (color.hue($color1) - 360deg - color.hue($color2)) * $decimal;
+    }
+  }
+
+  @if $model == ryb {
+    $hue-offset: (ryb-hue($color1) - ryb-hue($color2)) * $decimal;
+    @if (ryb-hue($color1) - ryb-hue($color2)) * .5 < -90deg {
+      $hue-offset: (ryb-hue($color1) + 360deg - ryb-hue($color2)) * $decimal;
+    }
+    @if (ryb-hue($color1) - ryb-hue($color2)) * .5 > 90deg {
+      $hue-offset: (ryb-hue($color1) - 360deg - ryb-hue($color2)) * $decimal;
+    }
+  }
+
+  $saturation-offset: (color.saturation($color1) - color.saturation($color2)) * $decimal;
+  $lightness-offset: (color.lightness($color1) - color.lightness($color2)) * $decimal;
+
+  @if $model == ryb {
+    $color1: ryb-adjust-hue($color1, $hue-offset * -1);
+  } @else {
+    $color1: color.adjust($color1, $hue: $hue-offset * -1);
+  }
+
+  @return color.change(
+    $color1,
+    $saturation: color.saturation($color1) - $saturation-offset,
+    $lightness: color.lightness($color1) - $lightness-offset
+  );
+}
+
+// ==========================================================================
+// ryba($red, $yellow, $blue, $alpha)
+// ==========================================================================
+// 
+// return the hexdecimal of an ryba
+//
+// @param  {value}    $red        - the r() value (0 to 255)
+// @param  {value}    $yellow     - the y() value (0 to 255)
+// @param  {value}    $blue       - the b() value (0 to 255)
+// @param  {value}    $alpha      - the a() value (0 to 1)
+// @return {color}                - rgba(#, #, #, #);
+//
+// @debug ryba(187, 187, 47, .5); // rgba(255, 0, 0, 0.5)
+// @debug ryba(18, 4, 60, .9); // rgba(0, 77, 255, 0.9)
+//
+
+@function ryba($red, $yellow, $blue, $alpha) {
+  $hue: 0;
+  $saturation: 0;
+  $lightness: percentage(($red + $yellow + $blue) / (255 * 3));
+
+  @if ($red == $yellow and $yellow == $blue) {
+    @return hsla(0, 0, $lightness, $alpha);
+  }
+
+  @if ($red >= $yellow and $red >= $blue) {
+    $hue: 0;
+  } @else if ($yellow >= $red and $yellow >= $blue) {
+    $hue: 360 / 3;
+  } @else if ($blue >= $red and $blue >= $yellow) {
+    $hue: 360 / 3 * 2;
+  }
+  
+  $results: hsla(color.hue(ryb-interpolate($hue)), 100%, 50%, 1);
+  @return rgba($results, $alpha);
+}
+
+// ==========================================================================
+// ryb($red, $yellow, $blue)
+// ==========================================================================
+//
+// return the hexdecimal of an ryb
+// 
+// @param  {value}    $red        - the r() value (0 to 255)
+// @param  {value}    $yellow     - the y() value (0 to 255)
+// @param  {value}    $blue       - the b() value (0 to 255)
+// @return {color}                - Hex color
+//
+// @debug ryb(187, 187, 47); // red
+// @debug ryb(18, 4, 60); // #004dff
+//
+
+@function ryb($red, $yellow, $blue) {
+  @return ryba($red, $yellow, $blue, 1);
+}
+
+// ==========================================================================
+// set-ryb-hue($color, $degree)
+// ==========================================================================
+//
+// @param  {color}    $color      - Hex color
+// @param  {number}   $degree     - Degree (0-360)
+// @return {color}                - Hex color
+//
+// @debug set-ryb-hue(#FF0000, 0);   // #ff1700
+// @debug set-ryb-hue(#FF0000, 30);  // #ff4000
+// @debug set-ryb-hue(#FF0000, 60);  // #ff8000
+// @debug set-ryb-hue(#FF0000, 90);  // #ffbf00
+// @debug set-ryb-hue(#FF0000, 120); // #FFFF00
+// @debug set-ryb-hue(#FF0000, 150); // #c5ff00
+// @debug set-ryb-hue(#FF0000, 180); // #69ff00
+// @debug set-ryb-hue(#FF0000, 210); // #00ffba
+// @debug set-ryb-hue(#FF0000, 240); // #0046ff
+// @debug set-ryb-hue(#FF0000, 270); // #6500ff
+// @debug set-ryb-hue(#FF0000, 300); // #ff00ff
+// @debug set-ryb-hue(#FF0000, 330); // #ff004f
+//
+
+@function set-ryb-hue($color, $degree) {
+  @return color.change($color, $hue: color.hue(ryb-interpolate($degree)));
+}
+
+
+// ==========================================================================
+// ryb-complement();
+// ==========================================================================
+//
+// return the complement of a color in ryb
+// 
+// @param  {color}    $color      - Hex color
+// @return {color}                - Hex color
+// 
+// @debug ryb-complement(#bd43e7); // #e2e743
+// @debug ryb-complement(#e743b6); // #c8e743
+// @debug ryb-complement(#e74368); // #a1e743
+// @debug ryb-complement(#e75943); // #48e743
+// @debug ryb-complement(#e78243); // #43e7a5
+// @debug ryb-complement(#e7ab43); // #4384e7
+// @debug ryb-complement(#e7d443); // #ac43e7
+// @debug ryb-complement(#d4e743); // #e743cc
+// @debug ryb-complement(#a5e743); // #e74373
+// @debug ryb-complement(#43e788); // #e75643
+// @debug ryb-complement(#43b7e7); // #e77943
+// @debug ryb-complement(#434ee7); // #e7a443
+//
+
+@function ryb-complement($color) {
+  @return ryb-adjust-hue($color, 180deg);
+}
+
+// ==========================================================================
+// ryb-invert($color);
+// ==========================================================================
+// 
+// return the inverse of a color in ryb
+// 
+// @param  {color}    $color      - Hex color
+// @return {color}                - Hex color
+// 
+// @debug ryb-invert(#bd43e7); // #b7bc18
+// @debug ryb-invert(#e743b6); // #9dbc18
+// @debug ryb-invert(#e74368); // #76bc18
+// @debug ryb-invert(#e75943); // #1dbc18
+// @debug ryb-invert(#e78243); // #18bc7a
+// @debug ryb-invert(#e7ab43); // #1859bc
+// @debug ryb-invert(#e7d443); // #8118bc
+// @debug ryb-invert(#d4e743); // #bc18a1
+// @debug ryb-invert(#a5e743); // #bc1848
+// @debug ryb-invert(#43e788); // #bc2b18
+// @debug ryb-invert(#43b7e7); // #bc4e18
+// @debug ryb-invert(#434ee7); // #bc7918
+// 
+
+@function ryb-invert($color) {
+  @return ryb-adjust-hue(hsl(color.hue($color), color.saturation(color.invert($color)), color.lightness(color.invert($color))), 180deg);
+}

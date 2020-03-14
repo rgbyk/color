@@ -1,0 +1,110 @@
+// ============================================================================
+// # Maps
+// ============================================================================
+
+@use "sass:color";
+@use "sass:math";
+@use "sass:meta";
+@use "sass:map";
+@use "sass:list";
+@use "sass:string";
+
+@use "../core" as core;
+@use "../schemes" as schemes;
+
+// Merge Maps
+// ============================================================================
+
+$color-scheme-map-merge: core.map-collect(
+  schemes.$map-analogous,
+  schemes.$map-complementary,
+  schemes.$map-hues,
+  schemes.$map-split,
+  schemes.$map-tetradic,
+  schemes.$map-triadic,
+  schemes.$map-achromatic,
+  schemes.$map-primary,
+  schemes.$map-success,
+  schemes.$map-danger,
+  schemes.$map-warning,
+  schemes.$map-info
+);
+
+// Boolean Maps
+// ============================================================================
+
+$color-scheme-map-boolean: (
+  "achromatic": (
+    "state": core.$color-scheme-achromatic,
+    "colors": schemes.$map-achromatic
+  ),
+  "primary": (
+    "state": core.$color-scheme-primary,
+    "colors": schemes.$map-primary
+  ),
+  "hues": (
+    "state": core.$color-scheme-hues,
+    "colors": schemes.$map-hues
+  ),
+  "complementary": (
+    "state": core.$color-scheme-complementary,
+    "colors": schemes.$map-complementary
+  ),
+  "analogous": (
+    "state": core.$color-scheme-analogous,
+    "colors": schemes.$map-analogous
+  ),
+  "split": (
+    "state": core.$color-scheme-split,
+    "colors": schemes.$map-split
+  ),
+  "square": (
+    "state": core.$color-scheme-square,
+    "colors": schemes.$map-square
+  ),
+  "triadic": (
+    "state": core.$color-scheme-triadic,
+    "colors": schemes.$map-triadic
+  ),
+  "tetradic": (
+    "state": core.$color-scheme-tetradic,
+    "colors": schemes.$map-tetradic
+  ),
+  "success": (
+    "state": core.$color-scheme-success,
+    "colors": schemes.$map-success
+  ),
+  "danger": (
+    "state": core.$color-scheme-danger,
+    "colors": schemes.$map-danger
+  ),
+  "warning": (
+    "state": core.$color-scheme-warning,
+    "colors": schemes.$map-warning
+  ),
+  "info": (
+    "state": core.$color-scheme-info,
+    "colors": schemes.$map-info
+  )
+);
+
+// Collect Maps
+// ============================================================================
+
+@function enabled-palettes($map) {
+  $results: ();
+
+  @each $list,
+  $child in $map {
+    @if (map.get($child, "state"))==true {
+      $lists: map.get($child, "state");
+      $colors: map.get($child, "colors");
+      $merge: map.merge($results, $colors);
+      $results: $merge;
+    }
+  }
+
+  @return $results;
+}
+
+$color-scheme-map: enabled-palettes($color-scheme-map-boolean);
