@@ -1,6 +1,6 @@
 {
   "name": "@rgbyk/color",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A color model system that generates a full range of accessible color palettes, and utility classes from a single color.",
   "keywords": [
     "color",
