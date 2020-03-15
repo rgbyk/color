@@ -1,5 +1,11 @@
 # Ignore directories
-dist
+/dist
+/jekyll
+/node_modules
+package-lock.json
+
+_*.js
+_*.sh
 
 .sass-cache/
 *.css.map
@@ -31,6 +37,3 @@ dist
 *.sublime-workspace
 nbproject
 Thumbs.db
-
-# Folders to ignore
-node_modules
