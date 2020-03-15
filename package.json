@@ -1,6 +1,6 @@
 {
   "name": "@rgbyk/color",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "A color model system for generating accessible palettes.",
   "keywords": [
     "color",
@@ -29,7 +29,7 @@
     "color": "chmod +x ./bin/lib/color.sh && ./bin/lib/color.sh",
     "color-rgb": "chmod +x ./bin/lib/color-rgb.sh && ./bin/lib/color-rgb.sh",
     "color-ryb": "chmod +x ./bin/lib/color-ryb.sh && ./bin/lib/color-ryb.sh",
-    "unpack": "chmod +x ./bin/lib/unpack.sh && ./bin/lib/unpack.sh",
+    "unpack-rgbyk": "chmod +x ./bin/lib/unpack-rgbyk.sh && ./bin/lib/unpack-rgbyk.sh",
     "watch:color": "nodemon --watch src/scss -e scss -x \"npm run color\"",
     "watch:color-rgb": "nodemon --watch src/scss -e scss -x \"npm run color-rgb\"",
     "watch:color-ryb": "nodemon --watch src/scss -e scss -x \"npm run color-ryb\""

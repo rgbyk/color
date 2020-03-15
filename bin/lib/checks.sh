@@ -1,20 +1,16 @@
 #!/bin/sh
 
 #######################################################################
-## CHECKS
+## @rgbyk/color => checks.sh
 #######################################################################
 
-# Usage
-# 1. $ chmod 777 ./bin/lib/checks
-# 2. $ ./bin/lib/checks
-# 3. $ "checks": "chmod 777 ./bin/lib/checks.sh && ./bin/lib/checks.sh"
+# 1. $ chmod +x ./bin/lib/checks.sh
+# 2. $ ./bin/lib/checks.sh
 
 set -e
 
-# LOAD CONFIG
 . ./bin/lib/config.sh
 
-# ANNOUNCE START
 echo $white_ "... $ checks.sh;" $reset
 
 if [ ! -d $FOLDER_DIST ]; then
@@ -35,5 +31,4 @@ if [ ! -d $FOLDER_DIST_ASSETS_CSS ]; then
     sleep 0.1
 fi
 
-# ANNOUNCE END
 echo $green_ "... $ checks.sh;\n" $reset

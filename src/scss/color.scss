@@ -3,7 +3,6 @@
 // ==========================================================================
 
 @forward "core" with ( 
-    $brand-color: #7FF9E2,
     $color-model: rgb,
 
     $color-mode-harmony: false,
@@ -34,10 +33,10 @@
     $color-scheme-success: true,
     $color-scheme-info: true,
 
-    $color-scheme-neutral: false,
-    $color-scheme-pastel: false,
-    $color-scheme-alpha: false,
-    $color-scheme-chromatic: false,
+    $color-scheme-neutral: true,
+    $color-scheme-pastel: true,
+    $color-scheme-alpha: true,
+    $color-scheme-chromatic: true,
 
     $enable-root-colors: true
 );
