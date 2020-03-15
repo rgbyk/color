@@ -36,7 +36,7 @@
 - [split-complementary (accented)](http://www.paletton.com/wiki/index.php?title=Split-complementary_color_scheme_(accented))
 - [triadic color scheme](http://www.paletton.com/wiki/index.php?title=Triadic_color_scheme)
 - [analogous](http://www.paletton.com/wiki/index.php?title=Analogous_color_scheme)
-- [analogous (accented)]http://www.paletton.com/wiki/index.php?title=Analogous_color_scheme_(accented)
+- [analogous (accented)](http://www.paletton.com/wiki/index.php?title=Analogous_color_scheme_(accented))
 - [dual](http://www.paletton.com/wiki/index.php?title=Dual_color_scheme)
 - [tetradic](http://www.paletton.com/wiki/index.php?title=Tetradic_color_scheme)
 
