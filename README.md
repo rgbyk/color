@@ -22,6 +22,10 @@
 
 ## resources
 
+### accessibility
+- [designing for (and with) color blindness](https://medium.com/@aaron10buuren/designing-for-and-with-color-blindness-48392aab3d87)
+- [accessible color contrast](http://www.w3.org/TR/AERT#color-contrast)
+
 
 ### color spaces
 - [munsell color system](https://en.wikipedia.org/wiki/Munsell_color_system)
@@ -45,14 +49,19 @@
 - [rgb color model](https://en.wikipedia.org/wiki/RGB_color_model)
 - [rgba color model](https://en.wikipedia.org/wiki/RGBA_color_model)
 
+### approach
+- [practical color theory for people who code](https://tallys.github.io/color-theory/)
+- [math based color theory](https://www.ethangardner.com/articles/2009/03/15/a-math-based-approach-to-color-theory-using-hue-saturation-and-brightness-hsb/)
+
 ### misc.
+- [understanding different color modes](https://helpx.adobe.com/photoshop/using/color-modes.html)
+- [establishing color harmony](https://en.wikipedia.org/wiki/Harmony_(color)#Relationship)
 - [color space](https://en.wikipedia.org/wiki/Color_space)
 - [rgb color space](https://en.wikipedia.org/wiki/RGB_color_space)
 - [cielab color space](https://en.wikipedia.org/wiki/CIELAB_color_space)
 - [color spaces with rgb primaries](https://en.wikipedia.org/wiki/Color_spaces_with_RGB_primaries)
 - [web safe colors](https://www.rapidtables.com/web/color/Web_Safe.html)
 - [complementary colors](https://en.wikipedia.org/wiki/Complementary_colors)
-- [math based color theory](https://www.ethangardner.com/articles/2009/03/15/a-math-based-approach-to-color-theory-using-hue-saturation-and-brightness-hsb/)
 
 ### tools
 - [adobe color](https://color.adobe.com/)
