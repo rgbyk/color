@@ -1,37 +1,21 @@
 #!/bin/sh
 
-#######################################################################
-## CONFIG
-#######################################################################
-
 set -e
-
-#######################################################################
-## DATA
-#######################################################################
-
-_name=$(node -p "require('./package.json').name")
-_version=$(node -p "require('./package.json').version")
 
 #######################################################################
 ## VARIABLES
 #######################################################################
 
-FOLDER_SRC_SCSS=$'./src/scss'
-# FOLDER_SRC_JS=$'./src/scss'
+_name=$(node -p "require('./package.json').name")
+_version=$(node -p "require('./package.json').version")
 
 NODE_MODULES=$'./node_modules'
+
+FOLDER_SRC_SCSS=$'./src/scss'
 
 FOLDER_DIST=$'./dist'
 FOLDER_DIST_ASSETS=$'./dist/assets'
 FOLDER_DIST_ASSETS_CSS=$'./dist/assets/css'
-# FOLDER_DIST_ASSETS_JS=$'./dist/assets/js'
-# FOLDER_DIST_ASSETS_JS_BUNDLE=$'./dist/assets/js/bundle'
-
-# FOLDER_JEKYLL=$'./jekyll'
-# FOLDER_JEKYLL_ASSETS=$'./jekyll/assets'
-# FOLDER_JEKYLL_ASSETS_CSS=$'./jekyll/assets/css'
-# FOLDER_JEKYLL_ASSETS_JS=$'./jekyll/assets/js'
 
 FILE_STYLE_0=$'color'
 FILE_STYLE_RYB=$'color-ryb'
