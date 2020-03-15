@@ -19,7 +19,7 @@ sass $FOLDER_SRC_SCSS/$FILE_STYLE_0.scss $FOLDER_DIST_ASSETS_CSS/$FILE_STYLE_0.c
 
 # POSTCSS $FILE_STYLE_0
 echo $black_ "... $ postcss $FILE_STYLE_0;" $reset
-postcss $FOLDER_DIST_ASSETS_CSS/$FILE_STYLE_0.css $FOLDER_DIST_ASSETS_CSS/$FILE_STYLE_0.min.css
+postcss $FOLDER_DIST_ASSETS_CSS/$FILE_STYLE_0.css -o $FOLDER_DIST_ASSETS_CSS/$FILE_STYLE_0.min.css
 
 # ANNOUNCE END
 echo $green_ "... $ color.sh;\n" $reset
