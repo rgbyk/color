@@ -1,6 +1,6 @@
 {
   "name": "@rgbyk/color",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A color model system that generates a full range of accessible color palettes, and utility classes from a single color.",
   "keywords": [
     "color",
@@ -15,7 +15,9 @@
     "url": "https://github.com/rgbyk/color/issues"
   },
   "bin": {
-    "color-x" : "./bin/modules/color.js"
+    "rgbyk-color": "./bin/modules/color-cli.js",
+    "rgbyk-color-ryb": "./bin/modules/color-ryb-cli.js",
+    "rgbyk-color-rgb": "./bin/modules/color-rgb-cli.js"
   },
   "repository": {
     "type": "git",
