@@ -1,9 +1,12 @@
 #!/bin/sh
 
-# Usage
-# 1. $ chmod 777 ./bin/lib/color
-# 2. $ ./bin/lib/color
-# 3. $ "color": "chmod 777 ./bin/lib/color.sh && ./bin/lib/color.sh"
+#######################################################################
+## @rgbyk/color => color.sh
+#######################################################################
+
+# 1. $ chmod +x ./bin/lib/color.sh
+# 2. $ ./bin/lib/color.sh
+# 3. $ "color": "chmod +x ./bin/lib/color.sh && ./bin/lib/color.sh"
 
 set -e
 
