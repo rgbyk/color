@@ -1,9 +1,12 @@
 #!/bin/sh
 
-# Usage
-# 1. $ chmod 777 ./bin/lib/color
-# 2. $ ./bin/lib/color
-# 3. $ "color": "chmod 777 ./bin/lib/color.sh && ./bin/lib/color.sh"
+#######################################################################
+## @rgbyk/color => color.sh
+#######################################################################
+
+# 1. $ chmod +x ./bin/lib/color.sh
+# 2. $ ./bin/lib/color.sh
+# 3. $ "color": "chmod +x ./bin/lib/color.sh && ./bin/lib/color.sh"
 
 set -e
 
@@ -19,7 +22,7 @@ sass $FOLDER_SRC_SCSS/$FILE_STYLE_0.scss $FOLDER_DIST_ASSETS_CSS/$FILE_STYLE_0.c
 
 # POSTCSS $FILE_STYLE_0
 echo $black_ "... $ postcss $FILE_STYLE_0;" $reset
-postcss $FOLDER_DIST_ASSETS_CSS/$FILE_STYLE_0.css $FOLDER_DIST_ASSETS_CSS/$FILE_STYLE_0.min.css
+postcss $FOLDER_DIST_ASSETS_CSS/$FILE_STYLE_0.css -o $FOLDER_DIST_ASSETS_CSS/$FILE_STYLE_0.min.css
 
 # ANNOUNCE END
 echo $green_ "... $ color.sh;\n" $reset
