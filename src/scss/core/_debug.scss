@@ -1,7 +1,7 @@
 // ==========================================================================
 // # Debugger
 // ==========================================================================
-// Unit Testing for RYB
+
 @if functions.ryb-adjust-hue(green, 0) !=green {
   @debug "functions.ryb-adjust-hue fail";
   @debug "functions.ryb-adjust-hue(green, 0) was #{functions.ryb-adjust-hue(green, 0)}";

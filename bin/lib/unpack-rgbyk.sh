@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #######################################################################
-## @rgbyk/color => unpack-rgbyk.sh
+## @rgbyk/color/bin/lib/unpack-rgbyk.sh
 #######################################################################
 
 # 1. $ chmod +x  ./bin/lib/unpack-rgybk.sh
@@ -10,13 +10,13 @@
 
 set -e
 
-chmod +x config.sh
-chmod +x branding.sh
-chmod +x checks.sh
-chmod +x kill.sh
-chmod +x color-rgb.sh
-chmod +x color-ryb.sh
-chmod +x color.sh
+chmod +x ./bin/lib/config.sh
+chmod +x ./bin/lib/branding.sh
+chmod +x ./bin/lib/checks.sh
+chmod +x ./bin/lib/kill.sh
+chmod +x ./bin/lib/color-rgb.sh
+chmod +x ./bin/lib/color-ryb.sh
+chmod +x ./bin/lib/color.sh
 
 . ./bin/lib/config.sh
 . ./bin/lib/branding.sh

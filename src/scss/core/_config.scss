@@ -1,6 +1,6 @@
-// ============================================================================
-// Configuration
-// ============================================================================
+// ==========================================================================
+// # Default Configuration
+// ==========================================================================
 
 @use "sass:color";
 
@@ -15,24 +15,33 @@ $-bc-snapchat: #fffc00;
 
 $brand-color: $-bc-default !default;
 
-// Color Model
+// ==========================================================================
+// # Color Model
 // ============================================================================
+
 $color-model: rgb !default; // [rgb | ryb]
 
-// Color Setting
+// ==========================================================================
+// # Color Setting
 // ============================================================================
+
 $color-mode-harmony: false !default; // ! set `true` to harmonize palettes
 $color-mode-harmony-grayscale: false !default; // ! set `true` to harmonize the grayscale scheme
 $color-mode-harmony-grayscale-cool-mix: 3% !default; // default 3%
 $color-mode-harmony-grayscale-warm-mix: 2% !default; // default 2%
 
-// Color Accessibility
+// ==========================================================================
+// # Color Accessibility
 // ============================================================================
-$color-mode-cvd: false !default; // options: [false protanopia protanomaly deuteranopia deuteranomaly tritanopia tritanomalyachromatopsia chromatomaly]
+
+$color-mode-cvd: false !default; // options: [false protanopia protanomaly deuteranopia 
+// deuteranomaly tritanopia tritanomalyachromatopsia chromatomaly]
 $color-mode-a11y: false !default; // ! set `false` to disable a11y features
 
-// Color Utilities
+// ==========================================================================
+// # Color Utilities
 // ============================================================================
+
 $enable-utility-classes: true !default; // ! set `false` to disable _all_ utilities
 $enable-utility-bg: true !default; // ! set `false` to disable `.bg-` classes
 $enable-utility-color: true !default; // ! set `false` to disable `.color-` classes
@@ -40,12 +49,13 @@ $enable-utility-border: true !default; // ! set `false` to disable `.border-` cl
 $enable-utility-fill: false !default; // ! set `false` to disable `.fill-` classes
 $enable-utility-stroke: false !default; // ! set `false` to disable `.stroke-` classes
 
-// Color Schemes
+// ==========================================================================
+// # Color Schemes
 // ============================================================================
+
 $color-scheme-primary: true !default; // ! set `false` to disable the primary palette
 $color-scheme-achromatic: true !default; // ! set `false` to disable the achromatic palette
 $color-scheme-chromatic: false !default; // ! set `false` to disable the chromatic palette
-
 $color-scheme-analogous: false !default; // ! set `false` to disable the analogous palette
 $color-scheme-complementary: false !default; // ! set `false` to disable the complementary palette
 $color-scheme-hues: false !default; // ! set `false` to disable the hue palette
@@ -54,21 +64,27 @@ $color-scheme-square: false !default; // ! set `false` to disable the split pale
 $color-scheme-tetradic: false !default; // ! set `false` to disable the tetradic palette
 $color-scheme-triadic: false !default; // ! set `false` to disable the triadic palette
 
-// Alert Schemes
+// ==========================================================================
+// # Alert Schemes
 // ============================================================================
+
 $color-scheme-danger: false !default; // ! set `false` to disable the danger scheme
 $color-scheme-warning: false !default; // ! set `false` to disable the warning scheme
 $color-scheme-success: false !default; // ! set `false` to disable the success scheme
 $color-scheme-info: false !default; // ! set `false` to disable the info scheme
 
-// Further Options
+// ==========================================================================
+// # Misc. Color Scheme Options
 // ============================================================================
+
 $color-scheme-neutral: false !default; // ! set `false` to disable the neutral palette
 $color-scheme-pastel: false !default; // ! set `false` to disable the pastel palette
 $color-scheme-alpha: false !default; // ! set `false` to disable the alpha palette
 
-// Disable Checks
+// ==========================================================================
+// # Disable Checks
 // ============================================================================
+
 @if (color.saturation($brand-color) < 8%) {
     $color-scheme-complementary: false;
     $color-scheme-analogous: false;
@@ -77,8 +93,10 @@ $color-scheme-alpha: false !default; // ! set `false` to disable the alpha palet
     $color-scheme-tetradic: false;
 } @else {}
 
-// Code Output
+// ==========================================================================
+// # Code Output
 // ============================================================================
+
 $enable-root-colors: true !default;
 // ! set to `true` to use --var($color-name)
 // ! set to `false` to use #{$color-hex}
