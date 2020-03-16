@@ -1,5 +1,5 @@
 // ==========================================================================
-// # ryb-#{$func} functions
+// ryb-#{$func} functions
 // ==========================================================================
 // 
 // RYB is a color model based on Red Yellow and Blue base colors. This color space
@@ -61,7 +61,7 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
 }
 
 // ==========================================================================
-// Color Interpolation
+// # Color Interpolation
 // ==========================================================================
 
 @function ryb-interpolate($value) {

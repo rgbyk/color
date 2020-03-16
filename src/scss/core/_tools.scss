@@ -1,8 +1,11 @@
-// ==========================================================================
+// ============================================================================
 // # Tools
-// ==========================================================================
+// ============================================================================
+
+// 
 // ! map deep get
 // ! https://css-tricks.com/snippets/sass/deep-getset-maps/
+// 
 @function map-deep-get($map, $keys...) {
   @each $key in $keys {
     $map: map-get($map, $key);
@@ -11,10 +14,13 @@
   @return $map;
 }
 
+// 
 // ! create a collection of maps, since map.merge() can only take up to 2 maps at a time.
+// ! https://stackoverflow.com/questions/27740063/merge-multiple-sass-maps
+// 
 // ! @debug map-collect($map1, $map2, $map3);
 // ! @debug $maps;
-// ! https://stackoverflow.com/questions/27740063/merge-multiple-sass-maps
+// 
 @function map-collect($maps...) {
   $collection: ();
 
@@ -25,8 +31,10 @@
   @return $collection;
 }
 
+// 
 // ! chunk an array into sizable pieces
 // ! https://hugogiraudel.com/2013/10/09/advanced-sass-list-functions-again/
+// 
 @function Chunk($list, $size) {
   $result: ();
   $n: ceil(length($list) / $size);

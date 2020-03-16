@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+// #######################################################################
+// ## @rgbyk/color/bin/modules/color-rgb-cli.js
+// #######################################################################
+
 const { exec } = require('child_process')
 const [,, ... args] = process.argv
 

@@ -1,10 +1,11 @@
 // ==========================================================================
-// @RGBYK/color-ryb
+// @rgbyk/color-ryb.scss
 // ==========================================================================
 
 @forward "core" with ( 
-    $brand-color: #7FF9E2,
+    $brand-color: #8e43e7,
     $color-model: ryb,
+
     $color-mode-harmony: false,
     $color-mode-harmony-grayscale: false,
     $enable-utility-classes: false,
