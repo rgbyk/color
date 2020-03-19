@@ -1,6 +1,6 @@
 {
   "name": "@rgbyk/color",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "A color model system for generating accessible palettes.",
   "keywords": [
     "color",
