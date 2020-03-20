@@ -118,7 +118,7 @@
 		@include make-utilities($name, $hex);
 	}
 
-	@if core.$color-scheme-pastel {
+		@if core.$color-scheme-pastel {
 
 			@each $name,
 			$hex in maps.$color-scheme-map {
