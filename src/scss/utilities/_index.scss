@@ -31,7 +31,7 @@
 
 	@if (core.$enable-utility-fill) {
 		.fill-#{$name} {
-			color: is-root-or-hex($name, $hex);
+			fill: is-root-or-hex($name, $hex);
 		}
 	}
 
@@ -86,8 +86,7 @@
 
 			@each $name,
 			$hex in maps.$color-scheme-map {
-				@if (str-index($name, "black")) or (str-index($name, "white")) or (str-index($name, "grey")) {}
-
+				@if (str-index($name, "black")) or (str-index($name, "white")) {}
 				@else {
 					$hex-alpha: rgba($hex, 0.3);
 					--#{$name}a: #{$hex-alpha};
