@@ -65,9 +65,9 @@
 // - https://en.wikipedia.org/wiki/Tints_and_shades
 // 
 // ## Debugging
-// @debug functions.color-shade(#8e43e7, 10%); // #803cd0
-// @debug functions.color-shade(#8e43e7, 50%); // #472274
-// @debug functions.color-shade(#8e43e7, 80%); // #1c0d2e
+// @debug functions.color-tone(#8e43e7, 10%); // TODO
+// @debug functions.color-tone(#8e43e7, 50%); // TODO
+// @debug functions.color-tone(#8e43e7, 80%); // TODO
 // 
 
 @function color-tone($color, $percent) {
