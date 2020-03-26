@@ -25,61 +25,60 @@ $color-model: rgb !default; // [rgb | ryb]
 // # Color Setting
 // ============================================================================
 
-$color-mode-harmony: false !default; // ! set `true` to harmonize palettes
-$color-mode-harmony-grayscale: false !default; // ! set `true` to harmonize the grayscale scheme
-$color-mode-harmony-grayscale-cool-mix: 3% !default; // default 3%
-$color-mode-harmony-grayscale-warm-mix: 2% !default; // default 2%
+$color-mode-harmony: false !default; // [true | false], create harmony in color scheme
+$color-mode-harmony-grayscale: false !default; // [true | false], create harmony in grayscale scheme
+$color-mode-harmony-grayscale-cool-mix: 3% !default; // [integer], the % amount to mix if primary is cool
+$color-mode-harmony-grayscale-warm-mix: 2% !default; // [integer], the % amount to mix if primary is warm
 
 // ==========================================================================
 // # Color Accessibility
 // ============================================================================
 
-$color-mode-cvd: false !default; // options: [false protanopia protanomaly deuteranopia 
-// deuteranomaly tritanopia tritanomalyachromatopsia chromatomaly]
-$color-mode-a11y: false !default; // ! set `false` to disable a11y features
+$color-mode-cvd: false !default; // [false | "protanopia" | "protanomaly" | "deuteranopia" | "deuteranomaly" | "tritanopia" | "tritanomaly" | "achromatopsia" | "chromatomaly"]
+$color-mode-a11y: false !default; // [true | false] => a11y contrast features
 
 // ==========================================================================
 // # Color Utilities
 // ============================================================================
 
-$enable-utility-classes: true !default; // ! set `false` to disable _all_ utilities
-$enable-utility-bg: true !default; // ! set `false` to disable `.bg-` classes
-$enable-utility-color: true !default; // ! set `false` to disable `.color-` classes
-$enable-utility-border: true !default; // ! set `false` to disable `.border-` classes
-$enable-utility-fill: false !default; // ! set `false` to disable `.fill-` classes
-$enable-utility-stroke: false !default; // ! set `false` to disable `.stroke-` classes
+$enable-utility-classes: true !default; // [true | false] => _all_ utilities
+$enable-utility-bg: true !default; // [true | false] => `.bg-` classes
+$enable-utility-color: true !default; // [true | false] => `.color-` classes
+$enable-utility-border: true !default; // [true | false] => `.border-` classes
+$enable-utility-fill: false !default; // [true | false] => `.fill-` classes
+$enable-utility-stroke: false !default; // [true | false] => `.stroke-` classes
 
 // ==========================================================================
 // # Color Schemes
 // ============================================================================
 
-$color-scheme-primary: true !default; // ! set `false` to disable the primary palette
-$color-scheme-achromatic: true !default; // ! set `false` to disable the achromatic palette
-$color-scheme-chromatic: false !default; // ! set `false` to disable the chromatic palette
-$color-scheme-analogous: false !default; // ! set `false` to disable the analogous palette
-$color-scheme-complementary: false !default; // ! set `false` to disable the complementary palette
-$color-scheme-hues: false !default; // ! set `false` to disable the hue palette
-$color-scheme-split: false !default; // ! set `false` to disable the split palette
-$color-scheme-square: false !default; // ! set `false` to disable the split palette
-$color-scheme-tetradic: false !default; // ! set `false` to disable the tetradic palette
-$color-scheme-triadic: false !default; // ! set `false` to disable the triadic palette
+$color-scheme-primary: true !default; // [true | false] => primary scheme
+$color-scheme-achromatic: true !default; // [true | false] => achromatic scheme
+$color-scheme-chromatic: false !default; // [true | false] => chromatic scheme
+$color-scheme-analogous: false !default; // [true | false] => analogous scheme
+$color-scheme-complementary: false !default; // [true | false] => complementary scheme
+$color-scheme-hues: false !default; // [true | false] => hue scheme
+$color-scheme-split: false !default; // [true | false] => split scheme
+$color-scheme-square: false !default; // [true | false] => split scheme
+$color-scheme-tetradic: false !default; // [true | false] => tetradic scheme
+$color-scheme-triadic: false !default; // [true | false] => triadic scheme
 
 // ==========================================================================
 // # Alert Schemes
 // ============================================================================
 
-$color-scheme-danger: false !default; // ! set `false` to disable the danger scheme
-$color-scheme-warning: false !default; // ! set `false` to disable the warning scheme
-$color-scheme-success: false !default; // ! set `false` to disable the success scheme
-$color-scheme-info: false !default; // ! set `false` to disable the info scheme
+$color-scheme-danger: false !default; // [true | false] => danger scheme
+$color-scheme-warning: false !default; // [true | false] => warning scheme
+$color-scheme-success: false !default; // [true | false] => success scheme
+$color-scheme-info: false !default; // [true | false] => info scheme
 
 // ==========================================================================
 // # Misc. Color Scheme Options
 // ============================================================================
 
-$color-scheme-neutral: false !default; // ! set `false` to disable the neutral palette
-$color-scheme-pastel: false !default; // ! set `false` to disable the pastel palette
-$color-scheme-alpha: false !default; // ! set `false` to disable the alpha palette
+$color-scheme-neutral: false !default; // [true | false] => neutral palette
+$color-scheme-pastel: false !default; // [true | false] => pastel palette
+$color-scheme-alpha: false !default; // [true | false] => alpha palette
 
 // ==========================================================================
 // # Disable Checks
@@ -98,5 +97,5 @@ $color-scheme-alpha: false !default; // ! set `false` to disable the alpha palet
 // ============================================================================
 
 $enable-root-colors: true !default;
-// ! set to `true` to use --var($color-name)
-// ! set to `false` to use #{$color-hex}
+// set `true` for => `var(--black)`
+// set `false` for => `#000000`
