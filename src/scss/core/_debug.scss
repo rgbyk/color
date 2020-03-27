@@ -2,12 +2,12 @@
 // # Debugger
 // ==========================================================================
 
-@if functions.ryb-adjust-hue(green, 0) !=green {
-  @debug "functions.ryb-adjust-hue fail";
-  @debug "functions.ryb-adjust-hue(green, 0) was #{functions.ryb-adjust-hue(green, 0)}";
+@if functions.adjust-hue-ryb(green, 0) !=green {
+  @debug "functions.adjust-hue-ryb fail";
+  @debug "functions.adjust-hue-ryb(green, 0) was #{functions.adjust-hue-ryb(green, 0)}";
 }
 
-@if functions.ryb-complement(green) !=maroon {
-  @debug "functions.ryb-complement fail";
-  @debug "functions.ryb-complement(green) was #{functions.ryb-complement(green)}";
+@if functions.complement-ryb(green) !=maroon {
+  @debug "functions.complement-ryb fail";
+  @debug "functions.complement-ryb(green) was #{functions.complement-ryb(green)}";
 }

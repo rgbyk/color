@@ -105,18 +105,18 @@ $-hue-300: color.adjust($-red-base, $hue: 300);
 $-hue-330: color.adjust($-red-base, $hue: 330);
 
 @if (get.$color-model == ryb) {
-  $-hue-0: cf-ryb.ryb-adjust-hue($-red-base, 0);
-  $-hue-30: cf-ryb.ryb-adjust-hue($-red-base, 30);
-  $-hue-60: cf-ryb.ryb-adjust-hue($-red-base, 60);
-  $-hue-90: cf-ryb.ryb-adjust-hue($-red-base, 90);
-  $-hue-120: cf-ryb.ryb-adjust-hue($-red-base, 120);
-  $-hue-150: cf-ryb.ryb-adjust-hue($-red-base, 150);
-  $-hue-180: cf-ryb.ryb-adjust-hue($-red-base, 180);
-  $-hue-210: cf-ryb.ryb-adjust-hue($-red-base, 210);
-  $-hue-240: cf-ryb.ryb-adjust-hue($-red-base, 240);
-  $-hue-270: cf-ryb.ryb-adjust-hue($-red-base, 270);
-  $-hue-300: cf-ryb.ryb-adjust-hue($-red-base, 300);
-  $-hue-330: cf-ryb.ryb-adjust-hue($-red-base, 330);
+  $-hue-0: cf-ryb.adjust-hue-ryb($-red-base, 0);
+  $-hue-30: cf-ryb.adjust-hue-ryb($-red-base, 30);
+  $-hue-60: cf-ryb.adjust-hue-ryb($-red-base, 60);
+  $-hue-90: cf-ryb.adjust-hue-ryb($-red-base, 90);
+  $-hue-120: cf-ryb.adjust-hue-ryb($-red-base, 120);
+  $-hue-150: cf-ryb.adjust-hue-ryb($-red-base, 150);
+  $-hue-180: cf-ryb.adjust-hue-ryb($-red-base, 180);
+  $-hue-210: cf-ryb.adjust-hue-ryb($-red-base, 210);
+  $-hue-240: cf-ryb.adjust-hue-ryb($-red-base, 240);
+  $-hue-270: cf-ryb.adjust-hue-ryb($-red-base, 270);
+  $-hue-300: cf-ryb.adjust-hue-ryb($-red-base, 300);
+  $-hue-330: cf-ryb.adjust-hue-ryb($-red-base, 330);
 }
 
 // ==========================================================================

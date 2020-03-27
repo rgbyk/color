@@ -18,7 +18,7 @@
 // | RYB   | #8e43e7   | #e7d943   | #ddc955    | 180°    |
 // 
 // @debug color.adjust(#8e43e7, $hue: 180);
-// @debug functions.ryb-adjust-hue(#8e43e7, 180);
+// @debug functions.adjust-hue-ryb(#8e43e7, 180);
 // 
 
 @use "sass:color";
@@ -33,7 +33,7 @@
 $-complementary-400: color.adjust(core.$brand-color, $hue: 180);
 
 @if (core.$color-model == ryb) {
-  $-complementary-400: functions.ryb-adjust-hue(core.$brand-color, 180);
+  $-complementary-400: functions.adjust-hue-ryb(core.$brand-color, 180);
 } @else {}
 
 @if core.$color-mode-harmony {

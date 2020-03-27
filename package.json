@@ -1,12 +1,14 @@
 {
   "name": "@rgbyk/color",
-  "version": "1.1.6",
-  "description": "A color model system for generating accessible palettes.",
+  "version": "1.1.8",
+  "description": "a node.js color model system.",
   "keywords": [
     "color",
     "color system",
-    "color blindness",
+    "color schemes",
     "color palettes",
+    "color accessibility",
+    "color theory",
     "rgb",
     "ryb"
   ],

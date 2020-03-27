@@ -21,9 +21,9 @@
 // @debug color.adjust(#8e43e7, $hue: 180);
 // @debug color.adjust(#8e43e7, $hue: 270);
 // 
-// @debug functions.ryb-adjust-hue(#8e43e7, 90);
-// @debug functions.ryb-adjust-hue(#8e43e7, 180);
-// @debug functions.ryb-adjust-hue(#8e43e7, 270);
+// @debug functions.adjust-hue-ryb(#8e43e7, 90);
+// @debug functions.adjust-hue-ryb(#8e43e7, 180);
+// @debug functions.adjust-hue-ryb(#8e43e7, 270);
 // 
 
 @use "sass:color";
@@ -40,9 +40,9 @@ $-square2-400: color.adjust(core.$brand-color, $hue: 180);
 $-square3-400: color.adjust(core.$brand-color, $hue: 270);
 
 @if (core.$color-model == ryb) {
-  $-square1-400: functions.ryb-adjust-hue(core.$brand-color, 90);
-  $-square2-400: functions.ryb-adjust-hue(core.$brand-color, 180);
-  $-square3-400: functions.ryb-adjust-hue(core.$brand-color, 270);
+  $-square1-400: functions.adjust-hue-ryb(core.$brand-color, 90);
+  $-square2-400: functions.adjust-hue-ryb(core.$brand-color, 180);
+  $-square3-400: functions.adjust-hue-ryb(core.$brand-color, 270);
 } @else {}
 
 @if core.$color-mode-harmony {
