@@ -107,7 +107,7 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
 }
 
 // ==========================================================================
-// find-ryb-hue($degree);
+// find-hue-ryb($degree);
 // ==========================================================================
 // 
 // return the degree of rgb color in ryb
@@ -115,25 +115,25 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
 // @param  {integer}    $degrees      - degrees (0 to 360) in rgb
 // @return {integer}                  - degrees (0 to 360) in ryb
 // 
-// @debug find-ryb-hue(30);  // 27.2941176471deg
-// @debug find-ryb-hue(60);  // 40deg
-// @debug find-ryb-hue(90);  // 49.6470588235deg
-// @debug find-ryb-hue(120); // 60deg
-// @debug find-ryb-hue(150); // 79.9159663866deg
-// @debug find-ryb-hue(180); // 120deg
-// @debug find-ryb-hue(210); // 180deg
-// @debug find-ryb-hue(240); // 221.9607843137deg
-// @debug find-ryb-hue(270); // 254.3225806452deg
-// @debug find-ryb-hue(300); // 278.7577639752deg
-// @debug find-ryb-hue(330); // 326.0487804878deg
+// @debug find-hue-ryb(30);  // 27.2941176471deg
+// @debug find-hue-ryb(60);  // 40deg
+// @debug find-hue-ryb(90);  // 49.6470588235deg
+// @debug find-hue-ryb(120); // 60deg
+// @debug find-hue-ryb(150); // 79.9159663866deg
+// @debug find-hue-ryb(180); // 120deg
+// @debug find-hue-ryb(210); // 180deg
+// @debug find-hue-ryb(240); // 221.9607843137deg
+// @debug find-hue-ryb(270); // 254.3225806452deg
+// @debug find-hue-ryb(300); // 278.7577639752deg
+// @debug find-hue-ryb(330); // 326.0487804878deg
 
-@function find-ryb-hue($degree) {
+@function find-hue-ryb($degree) {
   @if unit($degree) == deg { $degree: $degree / 1deg; }
   @return color.hue(ryb-interpolate($degree));
 }
 
 // ==========================================================================
-// ryb-adjust-hue($color, $degrees);
+// adjust-hue-ryb($color, $degrees);
 // ==========================================================================
 // 
 // return a color with adjusted hue
@@ -142,21 +142,21 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
 // @param  {integer}    $degrees      - Degrees (0-360)
 // @return {color}                    - Hex color
 //
-// @debug ryb-adjust-hue(#8e43e7, 0);   // #bd43e7
-// @debug ryb-adjust-hue(#8e43e7, 30);  // #e743b6
-// @debug ryb-adjust-hue(#8e43e7, 60);  // #e74368
-// @debug ryb-adjust-hue(#8e43e7, 90);  // #e75943
-// @debug ryb-adjust-hue(#8e43e7, 120); // #e78243
-// @debug ryb-adjust-hue(#8e43e7, 150); // #e7ab43
-// @debug ryb-adjust-hue(#8e43e7, 180); // #e7d443
-// @debug ryb-adjust-hue(#8e43e7, 210); // #d4e743
-// @debug ryb-adjust-hue(#8e43e7, 240); // #a5e743
-// @debug ryb-adjust-hue(#8e43e7, 270); // #43e788
-// @debug ryb-adjust-hue(#8e43e7, 300); // #43b7e7
-// @debug ryb-adjust-hue(#8e43e7, 330); // #434ee7
+// @debug adjust-hue-ryb(#8e43e7, 0);   // #bd43e7
+// @debug adjust-hue-ryb(#8e43e7, 30);  // #e743b6
+// @debug adjust-hue-ryb(#8e43e7, 60);  // #e74368
+// @debug adjust-hue-ryb(#8e43e7, 90);  // #e75943
+// @debug adjust-hue-ryb(#8e43e7, 120); // #e78243
+// @debug adjust-hue-ryb(#8e43e7, 150); // #e7ab43
+// @debug adjust-hue-ryb(#8e43e7, 180); // #e7d443
+// @debug adjust-hue-ryb(#8e43e7, 210); // #d4e743
+// @debug adjust-hue-ryb(#8e43e7, 240); // #a5e743
+// @debug adjust-hue-ryb(#8e43e7, 270); // #43e788
+// @debug adjust-hue-ryb(#8e43e7, 300); // #43b7e7
+// @debug adjust-hue-ryb(#8e43e7, 330); // #434ee7
 // 
 
-@function ryb-adjust-hue($color, $degrees) {
+@function adjust-hue-ryb($color, $degrees) {
   @if unit($degrees) == "%" {
     $degrees: 360 * ($degrees / 100%);
   }
@@ -214,7 +214,7 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
   $lightness-offset: (color.lightness($color1) - color.lightness($color2)) * $decimal;
 
   @if $model == ryb {
-    $color1: ryb-adjust-hue($color1, $hue-offset * -1);
+    $color1: adjust-hue-ryb($color1, $hue-offset * -1);
   } @else {
     $color1: color.adjust($color1, $hue: $hue-offset * -1);
   }
@@ -283,34 +283,34 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
 }
 
 // ==========================================================================
-// set-ryb-hue($color, $degree)
+// set-hue-ryb($color, $degree)
 // ==========================================================================
 //
 // @param  {color}    $color      - Hex color
 // @param  {number}   $degree     - Degree (0-360)
 // @return {color}                - Hex color
 //
-// @debug set-ryb-hue(#FF0000, 0);   // #ff1700
-// @debug set-ryb-hue(#FF0000, 30);  // #ff4000
-// @debug set-ryb-hue(#FF0000, 60);  // #ff8000
-// @debug set-ryb-hue(#FF0000, 90);  // #ffbf00
-// @debug set-ryb-hue(#FF0000, 120); // #FFFF00
-// @debug set-ryb-hue(#FF0000, 150); // #c5ff00
-// @debug set-ryb-hue(#FF0000, 180); // #69ff00
-// @debug set-ryb-hue(#FF0000, 210); // #00ffba
-// @debug set-ryb-hue(#FF0000, 240); // #0046ff
-// @debug set-ryb-hue(#FF0000, 270); // #6500ff
-// @debug set-ryb-hue(#FF0000, 300); // #ff00ff
-// @debug set-ryb-hue(#FF0000, 330); // #ff004f
+// @debug set-hue-ryb(#FF0000, 0);   // #ff1700
+// @debug set-hue-ryb(#FF0000, 30);  // #ff4000
+// @debug set-hue-ryb(#FF0000, 60);  // #ff8000
+// @debug set-hue-ryb(#FF0000, 90);  // #ffbf00
+// @debug set-hue-ryb(#FF0000, 120); // #FFFF00
+// @debug set-hue-ryb(#FF0000, 150); // #c5ff00
+// @debug set-hue-ryb(#FF0000, 180); // #69ff00
+// @debug set-hue-ryb(#FF0000, 210); // #00ffba
+// @debug set-hue-ryb(#FF0000, 240); // #0046ff
+// @debug set-hue-ryb(#FF0000, 270); // #6500ff
+// @debug set-hue-ryb(#FF0000, 300); // #ff00ff
+// @debug set-hue-ryb(#FF0000, 330); // #ff004f
 //
 
-@function set-ryb-hue($color, $degree) {
+@function set-hue-ryb($color, $degree) {
   @return color.change($color, $hue: color.hue(ryb-interpolate($degree)));
 }
 
 
 // ==========================================================================
-// ryb-complement();
+// complement-ryb();
 // ==========================================================================
 //
 // return the complement of a color in ryb
@@ -318,26 +318,26 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
 // @param  {color}    $color      - Hex color
 // @return {color}                - Hex color
 // 
-// @debug ryb-complement(#bd43e7); // #e2e743
-// @debug ryb-complement(#e743b6); // #c8e743
-// @debug ryb-complement(#e74368); // #a1e743
-// @debug ryb-complement(#e75943); // #48e743
-// @debug ryb-complement(#e78243); // #43e7a5
-// @debug ryb-complement(#e7ab43); // #4384e7
-// @debug ryb-complement(#e7d443); // #ac43e7
-// @debug ryb-complement(#d4e743); // #e743cc
-// @debug ryb-complement(#a5e743); // #e74373
-// @debug ryb-complement(#43e788); // #e75643
-// @debug ryb-complement(#43b7e7); // #e77943
-// @debug ryb-complement(#434ee7); // #e7a443
+// @debug complement-ryb(#bd43e7); // #e2e743
+// @debug complement-ryb(#e743b6); // #c8e743
+// @debug complement-ryb(#e74368); // #a1e743
+// @debug complement-ryb(#e75943); // #48e743
+// @debug complement-ryb(#e78243); // #43e7a5
+// @debug complement-ryb(#e7ab43); // #4384e7
+// @debug complement-ryb(#e7d443); // #ac43e7
+// @debug complement-ryb(#d4e743); // #e743cc
+// @debug complement-ryb(#a5e743); // #e74373
+// @debug complement-ryb(#43e788); // #e75643
+// @debug complement-ryb(#43b7e7); // #e77943
+// @debug complement-ryb(#434ee7); // #e7a443
 //
 
-@function ryb-complement($color) {
-  @return ryb-adjust-hue($color, 180deg);
+@function complement-ryb($color) {
+  @return adjust-hue-ryb($color, 180deg);
 }
 
 // ==========================================================================
-// ryb-invert($color);
+// invert-ryb($color);
 // ==========================================================================
 // 
 // return the inverse of a color in ryb
@@ -345,20 +345,20 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
 // @param  {color}    $color      - Hex color
 // @return {color}                - Hex color
 // 
-// @debug ryb-invert(#bd43e7); // #b7bc18
-// @debug ryb-invert(#e743b6); // #9dbc18
-// @debug ryb-invert(#e74368); // #76bc18
-// @debug ryb-invert(#e75943); // #1dbc18
-// @debug ryb-invert(#e78243); // #18bc7a
-// @debug ryb-invert(#e7ab43); // #1859bc
-// @debug ryb-invert(#e7d443); // #8118bc
-// @debug ryb-invert(#d4e743); // #bc18a1
-// @debug ryb-invert(#a5e743); // #bc1848
-// @debug ryb-invert(#43e788); // #bc2b18
-// @debug ryb-invert(#43b7e7); // #bc4e18
-// @debug ryb-invert(#434ee7); // #bc7918
+// @debug invert-ryb(#bd43e7); // #b7bc18
+// @debug invert-ryb(#e743b6); // #9dbc18
+// @debug invert-ryb(#e74368); // #76bc18
+// @debug invert-ryb(#e75943); // #1dbc18
+// @debug invert-ryb(#e78243); // #18bc7a
+// @debug invert-ryb(#e7ab43); // #1859bc
+// @debug invert-ryb(#e7d443); // #8118bc
+// @debug invert-ryb(#d4e743); // #bc18a1
+// @debug invert-ryb(#a5e743); // #bc1848
+// @debug invert-ryb(#43e788); // #bc2b18
+// @debug invert-ryb(#43b7e7); // #bc4e18
+// @debug invert-ryb(#434ee7); // #bc7918
 // 
 
-@function ryb-invert($color) {
-  @return ryb-adjust-hue(hsl(color.hue($color), color.saturation(color.invert($color)), color.lightness(color.invert($color))), 180deg);
+@function invert-ryb($color) {
+  @return adjust-hue-ryb(hsl(color.hue($color), color.saturation(color.invert($color)), color.lightness(color.invert($color))), 180deg);
 }

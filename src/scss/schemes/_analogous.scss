@@ -24,9 +24,9 @@
 // @debug color.adjust(#8e43e7, $hue: 30);
 // @debug color.adjust(#8e43e7, $hue: 60);
 // @debug color.adjust(#8e43e7, $hue: 90);
-// @debug ryb-adjust-hue(#8e43e7, 30);
-// @debug ryb-adjust-hue(#8e43e7, 60);
-// @debug ryb-adjust-hue(#8e43e7, 90);
+// @debug adjust-hue-ryb(#8e43e7, 30);
+// @debug adjust-hue-ryb(#8e43e7, 60);
+// @debug adjust-hue-ryb(#8e43e7, 90);
 
 @use "sass:color";
 
@@ -42,9 +42,9 @@ $-analogous2-400: color.adjust(core.$brand-color, $hue: 60);
 $-analogous3-400: color.adjust(core.$brand-color, $hue: 90);
 
 @if (core.$color-model == ryb) {
-  $-analogous1-400: functions.ryb-adjust-hue(core.$brand-color, 30);
-  $-analogous2-400: functions.ryb-adjust-hue(core.$brand-color, 60);
-  $-analogous3-400: functions.ryb-adjust-hue(core.$brand-color, 90);
+  $-analogous1-400: functions.adjust-hue-ryb(core.$brand-color, 30);
+  $-analogous2-400: functions.adjust-hue-ryb(core.$brand-color, 60);
+  $-analogous3-400: functions.adjust-hue-ryb(core.$brand-color, 90);
 } @else {}
 
 @if core.$color-mode-harmony {

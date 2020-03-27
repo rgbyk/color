@@ -19,8 +19,8 @@
 // @debug color.adjust(#8e43e7, $hue: 150);
 // @debug color.adjust(#8e43e7, $hue: 210);
 //
-// @debug functions.ryb-adjust-hue(#8e43e7, 150);
-// @debug functions.ryb-adjust-hue(#8e43e7, 210);
+// @debug functions.adjust-hue-ryb(#8e43e7, 150);
+// @debug functions.adjust-hue-ryb(#8e43e7, 210);
 
 @use "sass:color";
 
@@ -35,8 +35,8 @@ $-split1-400: color.adjust(core.$brand-color, $hue: 150);
 $-split2-400: color.adjust(core.$brand-color, $hue: 210);
 
 @if (core.$color-model == ryb) {
-  $-split1-400: functions.ryb-adjust-hue(core.$brand-color, 150);
-  $-split2-400: functions.ryb-adjust-hue(core.$brand-color, 210);
+  $-split1-400: functions.adjust-hue-ryb(core.$brand-color, 150);
+  $-split2-400: functions.adjust-hue-ryb(core.$brand-color, 210);
 } @else {}
 
 @if core.$color-mode-harmony {
