@@ -1,6 +1,6 @@
 {
   "name": "@rgbyk/color",
-  "version": "1.1.9",
+  "version": "1.2.0",
   "description": "a node.js color model system.",
   "keywords": [
     "color",
@@ -10,7 +10,8 @@
     "color accessibility",
     "color theory",
     "rgb",
-    "ryb"
+    "ryb",
+    "build-tools"
   ],
   "homepage": "https://github.com/rgbyk/color#readme",
   "bugs": {

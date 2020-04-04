@@ -3,12 +3,12 @@
 // ==========================================================================
 
 @forward "core" with ( 
-    $brand-color: #8e43e7,
+    $brand-color: #ef4723,
     
     $color-model: rgb,
 
-    $color-mode-harmony: false,
-    $color-mode-harmony-grayscale: false,
+    $color-mode-harmony: true,
+    $color-mode-harmony-grayscale: true,
     $color-mode-harmony-grayscale-cool-mix: 3%,
     $color-mode-harmony-grayscale-warm-mix: 2%,
 
@@ -23,20 +23,20 @@
     $color-scheme-achromatic: true,
 
     $color-scheme-analogous: true,
-    $color-scheme-complementary: true,
-    $color-scheme-hues: true,
-    $color-scheme-split: true,
-    $color-scheme-square: true,
-    $color-scheme-tetradic: true,
-    $color-scheme-triadic: true,
+    $color-scheme-complementary: false,
+    $color-scheme-hues: false,
+    $color-scheme-split: false,
+    $color-scheme-square: false,
+    $color-scheme-tetradic: false,
+    $color-scheme-triadic: false,
 
-    $color-scheme-danger: true,
-    $color-scheme-warning: true,
-    $color-scheme-success: true,
-    $color-scheme-info: true,
+    $color-scheme-danger: false,
+    $color-scheme-warning: false,
+    $color-scheme-success: false,
+    $color-scheme-info: false,
 
     $color-scheme-neutral: true,
-    $color-scheme-pastel: true,
+    $color-scheme-pastel: false,
     $color-scheme-alpha: true,
 
     $enable-root-colors: true
