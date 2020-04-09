@@ -1,6 +1,6 @@
 {
   "name": "@rgbyk/color",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "a node.js color model system.",
   "keywords": [
     "color",
@@ -38,12 +38,12 @@
     "watch:color-ryb": "nodemon --watch src/scss -e scss -x \"npm run color-ryb\""
   },
   "devDependencies": {
-    "autoprefixer": "^9.7.4",
-    "browserslist": "^4.8.7",
-    "caniuse-lite": "^1.0.30001038",
+    "autoprefixer": "^9.7.6",
+    "browserslist": "^4.11.1",
+    "caniuse-lite": "^1.0.30001040",
     "css-declaration-sorter": "^5.1.1",
     "cssnano": "^4.1.10",
-    "nodemon": "^2.0.2",
+    "nodemon": "^2.0.3",
     "postcss-cli": "^7.1.0",
     "postcss-combine-duplicated-selectors": "^8.1.0",
     "postcss-merge-idents": "^4.0.1",
