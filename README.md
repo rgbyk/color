@@ -100,7 +100,6 @@ $enable-utility-stroke: false; // [true | false] => `.stroke-` classes
 ```scss
 $color-scheme-primary: true; // [true | false] => primary scheme
 $color-scheme-achromatic: true; // [true | false] => achromatic scheme
-$color-scheme-chromatic: false; // [true | false] => chromatic scheme
 $color-scheme-analogous: false; // [true | false] => analogous scheme
 $color-scheme-complementary: false; // [true | false] => complementary scheme
 $color-scheme-hues: false; // [true | false] => hue scheme
