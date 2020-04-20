@@ -23,7 +23,7 @@
 		}
 	}
 
-	@if (core.$enable-utility-stroke) {
+	@if (core.$enable-utility-color) {
 		.color-#{$name} {
 			color: is-root-or-hex($name, $hex);
 		}
