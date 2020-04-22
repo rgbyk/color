@@ -1,6 +1,6 @@
 {
   "name": "@rgbyk/color",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "a node.js color model system.",
   "keywords": [
     "color",

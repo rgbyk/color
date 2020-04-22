@@ -219,7 +219,6 @@
 // https://codepen.io/jalcine/pen/xGvwEO
 // 
 
-
 @function make-color-pastel($color) {
   $r: color.red($color);
   $g: color.green($color);
@@ -229,26 +228,21 @@
   $g: ($g + 255) / 2;
   $b: ($b + 255) / 2;
   
-  $_color: rgb($r, $g, $b);
-
-  @if ( cfi.is-color-dark($_color) ){
-    $_color: color.adjust($_color, $saturation: 20%, $lightness: -14%);
-  } @else{
-    $_color: color.adjust($_color, $saturation: 20%, $lightness: -8%);
-  }
-
+  $hue: color.hue(rgb($r, $g, $b));
+  $color: hsl($hue, 100%, 87.5%);
+  
   @return $color;
 }
 
-// @debug make-color-pastel(#FF0000); // #ff8080
-// @debug make-color-pastel(#FF8000); // #ffc080
-// @debug make-color-pastel(#FFFF00); // #ffff80
-// @debug make-color-pastel(#80FF00); // #c0ff80
-// @debug make-color-pastel(#00FF00); // #80ff80
-// @debug make-color-pastel(#00FF80); // #80ffc0
-// @debug make-color-pastel(#00FFFF); // #80ffff
-// @debug make-color-pastel(#0080FF); // #80c0ff
-// @debug make-color-pastel(#0000FF); // #8080ff
-// @debug make-color-pastel(#7F00FF); // #bf80ff
-// @debug make-color-pastel(#FF00FF); // #ff80ff
-// @debug make-color-pastel(#FF007F); // #ff80bf
+// @debug make-color-pastel(#FF0000); // #ffbfbf
+// @debug make-color-pastel(#FF8000); // #ffdfbf
+// @debug make-color-pastel(#FFFF00); // #ffffbf
+// @debug make-color-pastel(#80FF00); // #dfffbf
+// @debug make-color-pastel(#00FF00); // #bfffbf
+// @debug make-color-pastel(#00FF80); // #bfffdf
+// @debug make-color-pastel(#00FFFF); // #bfffff
+// @debug make-color-pastel(#0080FF); // #bfdfff
+// @debug make-color-pastel(#0000FF); // #bfbfff
+// @debug make-color-pastel(#7F00FF); // #dfbfff
+// @debug make-color-pastel(#FF00FF); // #ffbfff
+// @debug make-color-pastel(#FF007F); // #ffbfdf

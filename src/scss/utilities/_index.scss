@@ -98,6 +98,7 @@
 
 				@else if (str-index($name, "400")) {
 					$hex-equal: functions.color-equalize($hex);
+					--#{$name}-e: #{$hex-equal};
 				}
 
 				@else {}
@@ -130,14 +131,14 @@
 		}
 	}
 
-	@if core.$color-scheme-pastel {
-		@each $name, $hex in maps.$color-scheme-map {
-			@if (str-index($name, "black")) or (str-index($name, "white")) or (str-index($name, "grey")) {}
+	// @if core.$color-scheme-pastel {
+	// 	@each $name, $hex in maps.$color-scheme-map {
+	// 		@if (str-index($name, "black")) or (str-index($name, "white")) or (str-index($name, "grey")) {}
 
-			@else {
-				$hex-pastel: functions.make-color-pastel($hex);
-				@include make-utilities(#{$name}-p, $hex-pastel);
-			}
-		}
-	}
+	// 		@else {
+	// 			$hex-pastel: functions.make-color-pastel($hex);
+	// 			@include make-utilities(#{$name}-p, $hex-pastel);
+	// 		}
+	// 	}
+	// }
 }
