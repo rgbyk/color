@@ -1,6 +1,6 @@
 {
   "name": "@rgbyk/color",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "a node.js color model system.",
   "keywords": [
     "color",
@@ -17,17 +17,15 @@
   "bugs": {
     "url": "https://github.com/rgbyk/color/issues"
   },
-  "bin": {
-    "rgbyk-color": "./bin/modules/color-cli.js",
-    "rgbyk-color-ryb": "./bin/modules/color-ryb-cli.js",
-    "rgbyk-color-rgb": "./bin/modules/color-rgb-cli.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rgbyk/color.git"
   },
   "license": "MIT",
   "author": "Daniel Haim",
+  "bin": {
+    "rgbyk": "./bin/cli/main.js"
+  },
   "scripts": {
     "color": "chmod +x ./bin/lib/color.sh && ./bin/lib/color.sh",
     "color-rgb": "chmod +x ./bin/lib/color-rgb.sh && ./bin/lib/color-rgb.sh",
@@ -37,12 +35,13 @@
     "watch:color-rgb": "nodemon --watch src/scss -e scss -x \"npm run color-rgb\"",
     "watch:color-ryb": "nodemon --watch src/scss -e scss -x \"npm run color-ryb\""
   },
-  "devDependencies": {
+  "dependencies": {
     "autoprefixer": "^9.7.6",
-    "browserslist": "^4.11.1",
-    "caniuse-lite": "^1.0.30001040",
+    "browserslist": "^4.12.0",
+    "caniuse-lite": "^1.0.30001045",
     "css-declaration-sorter": "^5.1.1",
     "cssnano": "^4.1.10",
+    "minimist": ">=1.2.2",
     "nodemon": "^2.0.3",
     "postcss-cli": "^7.1.0",
     "postcss-combine-duplicated-selectors": "^8.1.0",
@@ -50,7 +49,6 @@
     "postcss-merge-rules": "^4.0.3",
     "postcss-merge-selectors": "0.0.6",
     "postcss-sorting": "^5.0.1",
-    "sass": "^1.26.0",
-    "minimist": ">=1.2.2"
+    "sass": "^1.26.0"
   }
 }

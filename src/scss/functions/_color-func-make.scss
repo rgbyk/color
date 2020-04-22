@@ -219,8 +219,8 @@
 // https://codepen.io/jalcine/pen/xGvwEO
 // 
 
-@function make-color-pastel($color) {
 
+@function make-color-pastel($color) {
   $r: color.red($color);
   $g: color.green($color);
   $b: color.blue($color);
@@ -228,8 +228,16 @@
   $r: ($r + 255) / 2;
   $g: ($g + 255) / 2;
   $b: ($b + 255) / 2;
+  
+  $_color: rgb($r, $g, $b);
 
-  @return rgb($r, $g, $b);
+  @if ( cfi.is-color-dark($_color) ){
+    $_color: color.adjust($_color, $saturation: 20%, $lightness: -14%);
+  } @else{
+    $_color: color.adjust($_color, $saturation: 20%, $lightness: -8%);
+  }
+
+  @return $color;
 }
 
 // @debug make-color-pastel(#FF0000); // #ff8080
