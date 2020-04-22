@@ -1,6 +1,6 @@
 {
   "name": "@rgbyk/color",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "a node.js color model system.",
   "keywords": [
     "color",
@@ -23,9 +23,6 @@
   },
   "license": "MIT",
   "author": "Daniel Haim",
-  "bin": {
-    "rgbyk": "./bin/cli/main.js"
-  },
   "scripts": {
     "color": "chmod +x ./bin/lib/color.sh && ./bin/lib/color.sh",
     "color-rgb": "chmod +x ./bin/lib/color-rgb.sh && ./bin/lib/color-rgb.sh",
