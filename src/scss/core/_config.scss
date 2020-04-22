@@ -76,8 +76,9 @@ $color-scheme-info: false !default; // [true | false] => info scheme
 // ============================================================================
 
 $color-scheme-neutral: false !default; // [true | false] => neutral palette
-$color-scheme-pastel: false !default; // [true | false] => pastel palette
 $color-scheme-alpha: false !default; // [true | false] => alpha palette
+$color-scheme-pastel: false !default; // [true | false] => pastel color (400)
+$color-scheme-equal: false !default; // [true | false ] => chromatic color (400)
 
 // ==========================================================================
 // # Disable Checks

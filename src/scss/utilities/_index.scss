@@ -57,7 +57,10 @@
 
 		@if core.$color-scheme-neutral {
 			@each $name, $hex in maps.$color-scheme-map {
-				@if (str-index($name, "black")) or (str-index($name, "white")) or (str-index($name, "grey")) {}
+				@if (str-index($name, "black")) or 
+					(str-index($name, "white")) or 
+					(str-index($name, "grey")) {}
+
 				@else {
 					$hex-neutral: functions.make-color-neutral($hex);
 					--#{$name}-n: #{$hex-neutral};
@@ -74,14 +77,33 @@
 
 		@if core.$color-scheme-pastel {
 			@each $name, $hex in maps.$color-scheme-map {
-				@if (str-index($name, "black")) or (str-index($name, "white")) or (str-index($name, "grey")) {}
+				@if (str-index($name, "black")) or 
+					(str-index($name, "white")) or 
+					(str-index($name, "grey")){}
 
-				@else {
+				@else if (str-index($name, "400")) {
 					$hex-pastel: functions.make-color-pastel($hex);
 					--#{$name}-p: #{$hex-pastel};
 				}
+				
+				@else {}
 			}
 		}
+
+		@if core.$color-scheme-equal {
+			@each $name, $hex in maps.$color-scheme-map {
+				@if (str-index($name, "black")) or 
+					(str-index($name, "white")) or 
+					(str-index($name, "grey")){}
+
+				@else if (str-index($name, "400")) {
+					$hex-equal: functions.color-equalize($hex);
+				}
+
+				@else {}
+			}
+		}
+		
 	}
 }
 
