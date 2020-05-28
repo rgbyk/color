@@ -2,7 +2,7 @@
 
 A color model system that generates a full range of accessible color palettes, and utility classes from a single color.
 
-[Simulator demo](https://danielhaim.com/colorimetry/)
+[Simulator demo](https://rgbyk.com/color/)
 
 ----
 
