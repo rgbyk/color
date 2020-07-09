@@ -91,32 +91,32 @@ $-red-base: color.change(
   $lightness: color.lightness(get.$brand-color)
 );
 
-$-hue-0: $-red-base;
-$-hue-30: color.adjust($-red-base, $hue: 30);
-$-hue-60: color.adjust($-red-base, $hue: 60);
-$-hue-90: color.adjust($-red-base, $hue: 90);
-$-hue-120: color.adjust($-red-base, $hue: 120);
-$-hue-150: color.adjust($-red-base, $hue: 150);
-$-hue-180: color.adjust($-red-base, $hue: 180);
-$-hue-210: color.adjust($-red-base, $hue: 210);
-$-hue-240: color.adjust($-red-base, $hue: 240);
-$-hue-270: color.adjust($-red-base, $hue: 270);
-$-hue-300: color.adjust($-red-base, $hue: 300);
-$-hue-330: color.adjust($-red-base, $hue: 330);
+$-hue-1: $-red-base;
+$-hue-2: color.adjust($-red-base, $hue: 30);
+$-hue-3: color.adjust($-red-base, $hue: 60);
+$-hue-4: color.adjust($-red-base, $hue: 90);
+$-hue-5: color.adjust($-red-base, $hue: 120);
+$-hue-6: color.adjust($-red-base, $hue: 150);
+$-hue-7: color.adjust($-red-base, $hue: 180);
+$-hue-8: color.adjust($-red-base, $hue: 210);
+$-hue-9: color.adjust($-red-base, $hue: 240);
+$-hue-10: color.adjust($-red-base, $hue: 270);
+$-hue-11: color.adjust($-red-base, $hue: 300);
+$-hue-12: color.adjust($-red-base, $hue: 330);
 
 @if (get.$color-model == ryb) {
-  $-hue-0: cf-ryb.adjust-hue-ryb($-red-base, 0);
-  $-hue-30: cf-ryb.adjust-hue-ryb($-red-base, 30);
-  $-hue-60: cf-ryb.adjust-hue-ryb($-red-base, 60);
-  $-hue-90: cf-ryb.adjust-hue-ryb($-red-base, 90);
-  $-hue-120: cf-ryb.adjust-hue-ryb($-red-base, 120);
-  $-hue-150: cf-ryb.adjust-hue-ryb($-red-base, 150);
-  $-hue-180: cf-ryb.adjust-hue-ryb($-red-base, 180);
-  $-hue-210: cf-ryb.adjust-hue-ryb($-red-base, 210);
-  $-hue-240: cf-ryb.adjust-hue-ryb($-red-base, 240);
-  $-hue-270: cf-ryb.adjust-hue-ryb($-red-base, 270);
-  $-hue-300: cf-ryb.adjust-hue-ryb($-red-base, 300);
-  $-hue-330: cf-ryb.adjust-hue-ryb($-red-base, 330);
+  $-hue-1: cf-ryb.adjust-hue-ryb($-red-base, 0);
+  $-hue-2: cf-ryb.adjust-hue-ryb($-red-base, 30);
+  $-hue-3: cf-ryb.adjust-hue-ryb($-red-base, 60);
+  $-hue-4: cf-ryb.adjust-hue-ryb($-red-base, 90);
+  $-hue-5: cf-ryb.adjust-hue-ryb($-red-base, 120);
+  $-hue-6: cf-ryb.adjust-hue-ryb($-red-base, 150);
+  $-hue-7: cf-ryb.adjust-hue-ryb($-red-base, 180);
+  $-hue-8: cf-ryb.adjust-hue-ryb($-red-base, 210);
+  $-hue-9: cf-ryb.adjust-hue-ryb($-red-base, 240);
+  $-hue-10: cf-ryb.adjust-hue-ryb($-red-base, 270);
+  $-hue-11: cf-ryb.adjust-hue-ryb($-red-base, 300);
+  $-hue-12: cf-ryb.adjust-hue-ryb($-red-base, 330);
 }
 
 // ==========================================================================
@@ -125,31 +125,31 @@ $-hue-330: color.adjust($-red-base, $hue: 330);
 
 @if (cf-is.is-color-grayscale(get.$brand-color)) {
   @if (get.$color-model == ryb) {
-    $-hue-0: map-get($ryb-map, 0deg);
-    $-hue-30: map-get($ryb-map, 30deg);
-    $-hue-60: map-get($ryb-map, 60deg);
-    $-hue-90: map-get($ryb-map, 90deg);
-    $-hue-120: map-get($ryb-map, 120deg);
-    $-hue-150: map-get($ryb-map, 150deg);
-    $-hue-180: map-get($ryb-map, 180deg);
-    $-hue-210: map-get($ryb-map, 210deg);
-    $-hue-240: map-get($ryb-map, 240deg);
-    $-hue-270: map-get($ryb-map, 270deg);
-    $-hue-300: map-get($ryb-map, 300deg);
-    $-hue-330: map-get($ryb-map, 330deg);
+    $-hue-1: map-get($ryb-map, 0deg);
+    $-hue-2: map-get($ryb-map, 30deg);
+    $-hue-3: map-get($ryb-map, 60deg);
+    $-hue-4: map-get($ryb-map, 90deg);
+    $-hue-5: map-get($ryb-map, 120deg);
+    $-hue-6: map-get($ryb-map, 150deg);
+    $-hue-7: map-get($ryb-map, 180deg);
+    $-hue-8: map-get($ryb-map, 210deg);
+    $-hue-9: map-get($ryb-map, 240deg);
+    $-hue-10: map-get($ryb-map, 270deg);
+    $-hue-11: map-get($ryb-map, 300deg);
+    $-hue-12: map-get($ryb-map, 330deg);
   } @else {
-    $-hue-0: map-get($rgb-map, 0deg);
-    $-hue-30: map-get($rgb-map, 30deg);
-    $-hue-60: map-get($rgb-map, 60deg);
-    $-hue-90: map-get($rgb-map, 90deg);
-    $-hue-120: map-get($rgb-map, 120deg);
-    $-hue-150: map-get($rgb-map, 150deg);
-    $-hue-180: map-get($rgb-map, 180deg);
-    $-hue-210: map-get($rgb-map, 210deg);
-    $-hue-240: map-get($rgb-map, 240deg);
-    $-hue-270: map-get($rgb-map, 270deg);
-    $-hue-300: map-get($rgb-map, 300deg);
-    $-hue-330: map-get($rgb-map, 330deg);
+    $-hue-1: map-get($rgb-map, 0deg);
+    $-hue-2: map-get($rgb-map, 30deg);
+    $-hue-3: map-get($rgb-map, 60deg);
+    $-hue-4: map-get($rgb-map, 90deg);
+    $-hue-5: map-get($rgb-map, 120deg);
+    $-hue-6: map-get($rgb-map, 150deg);
+    $-hue-7: map-get($rgb-map, 180deg);
+    $-hue-8: map-get($rgb-map, 210deg);
+    $-hue-9: map-get($rgb-map, 240deg);
+    $-hue-10: map-get($rgb-map, 270deg);
+    $-hue-11: map-get($rgb-map, 300deg);
+    $-hue-12: map-get($rgb-map, 330deg);
   }
 } @else {}
 
@@ -157,15 +157,15 @@ $-hue-330: color.adjust($-red-base, $hue: 330);
 // # Defaults
 // ==========================================================================
 
-$hue-0: $-hue-0 !default;
-$hue-30: $-hue-30 !default;
-$hue-60: $-hue-60 !default;
-$hue-90: $-hue-90 !default;
-$hue-120: $-hue-120 !default;
-$hue-150: $-hue-150 !default;
-$hue-180: $-hue-180 !default;
-$hue-210: $-hue-210 !default;
-$hue-240: $-hue-240 !default;
-$hue-270: $-hue-270 !default;
-$hue-300: $-hue-300 !default;
-$hue-330: $-hue-330 !default;
+$hue-1: $-hue-1 !default;
+$hue-2: $-hue-2 !default;
+$hue-3: $-hue-3 !default;
+$hue-4: $-hue-4 !default;
+$hue-5: $-hue-5 !default;
+$hue-6: $-hue-6 !default;
+$hue-7: $-hue-7 !default;
+$hue-8: $-hue-8 !default;
+$hue-9: $-hue-9 !default;
+$hue-10: $-hue-10 !default;
+$hue-11: $-hue-11 !default;
+$hue-12: $-hue-12 !default;

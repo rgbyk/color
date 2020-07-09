@@ -11,15 +11,15 @@
 // # Variables
 // ==========================================================================
 
-$-danger-400: color.mix(core.$hue-0, core.$value-0, $weight: core.$chroma-12);
-$-warning-400: color.mix(core.$hue-30, core.$value-0, $weight: core.$chroma-12);
-$-success-400: color.mix(core.$hue-120, core.$value-0, $weight: core.$chroma-12);
-$-info-400: color.mix(core.$hue-210, core.$value-0, $weight: core.$chroma-12);
+$-danger-400: color.mix(core.$hue-1, core.$value-0, $weight: core.$chroma-12);
+$-warning-400: color.mix(core.$hue-2, core.$value-0, $weight: core.$chroma-12);
+$-success-400: color.mix(core.$hue-5, core.$value-0, $weight: core.$chroma-12);
+$-info-400: color.mix(core.$hue-8, core.$value-0, $weight: core.$chroma-12);
 
 @if (core.$color-model == ryb) {
-  $-warning-400: color.mix(core.$hue-60, core.$value-0, $weight: core.$chroma-12);
-  $-success-400: color.mix(core.$hue-180, core.$value-0, $weight: core.$chroma-12);
-  $-info-400: color.mix(core.$hue-240, core.$value-0, $weight: core.$chroma-12);
+  $-warning-400: color.mix(core.$hue-3, core.$value-0, $weight: core.$chroma-12);
+  $-success-400: color.mix(core.$hue-7, core.$value-0, $weight: core.$chroma-12);
+  $-info-400: color.mix(core.$hue-9, core.$value-0, $weight: core.$chroma-12);
 } @else {}
 
 // ==========================================================================
