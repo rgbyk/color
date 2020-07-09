@@ -32,17 +32,17 @@
 // # Variables
 // ==========================================================================
 
-$-triadic1-400: color.adjust(core.$brand-color, $hue: 120);
-$-triadic2-400: color.adjust(core.$brand-color, $hue: 240);
+$-triadic-1-400: color.adjust(core.$brand-color, $hue: 120);
+$-triadic-2-400: color.adjust(core.$brand-color, $hue: 240);
 
 @if (core.$color-model == ryb) {
-    $-triadic1-400: functions.adjust-hue-ryb(core.$brand-color, 120); 
-    $-triadic2-400: functions.adjust-hue-ryb(core.$brand-color, 240); 
+    $-triadic-1-400: functions.adjust-hue-ryb(core.$brand-color, 120); 
+    $-triadic-2-400: functions.adjust-hue-ryb(core.$brand-color, 240); 
 } @else {}
 
 @if core.$color-mode-harmony{
-    $-triadic1-400: functions.make-color-harmony(core.$brand-color, $-triadic1-400);
-    $-triadic2-400: functions.make-color-harmony(core.$brand-color, $-triadic2-400);
+    $-triadic-1-400: functions.make-color-harmony(core.$brand-color, $-triadic-1-400);
+    $-triadic-2-400: functions.make-color-harmony(core.$brand-color, $-triadic-2-400);
 } @else{}
 
 // ==========================================================================
@@ -50,53 +50,53 @@ $-triadic2-400: color.adjust(core.$brand-color, $hue: 240);
 // ==========================================================================
 
 // ## Triadic (1) @ 120°
-$triadic1-100: functions.make-color-mono($-triadic1-400, 100) !default;
-$triadic1-200: functions.make-color-mono($-triadic1-400, 200) !default;
-$triadic1-300: functions.make-color-mono($-triadic1-400, 300) !default;
-$triadic1-400: $-triadic1-400 !default;
-$triadic1-500: functions.make-color-mono($-triadic1-400, 500) !default;
-$triadic1-600: functions.make-color-mono($-triadic1-400, 600) !default;
-$triadic1-700: functions.make-color-mono($-triadic1-400, 700) !default;
-$triadic1-800: functions.make-color-mono($-triadic1-400, 800) !default;
-$triadic1-900: functions.make-color-mono($-triadic1-400, 900) !default;
+$triadic-1-100: functions.make-color-mono($-triadic-1-400, 100) !default;
+$triadic-1-200: functions.make-color-mono($-triadic-1-400, 200) !default;
+$triadic-1-300: functions.make-color-mono($-triadic-1-400, 300) !default;
+$triadic-1-400: $-triadic-1-400 !default;
+$triadic-1-500: functions.make-color-mono($-triadic-1-400, 500) !default;
+$triadic-1-600: functions.make-color-mono($-triadic-1-400, 600) !default;
+$triadic-1-700: functions.make-color-mono($-triadic-1-400, 700) !default;
+$triadic-1-800: functions.make-color-mono($-triadic-1-400, 800) !default;
+$triadic-1-900: functions.make-color-mono($-triadic-1-400, 900) !default;
 
 // ## Triadic (2) @ 240°
-$triadic2-100: functions.make-color-mono($-triadic2-400, 100) !default;
-$triadic2-200: functions.make-color-mono($-triadic2-400, 200) !default;
-$triadic2-300: functions.make-color-mono($-triadic2-400, 300) !default;
-$triadic2-400: $-triadic2-400 !default;
-$triadic2-500: functions.make-color-mono($-triadic2-400, 500) !default;
-$triadic2-600: functions.make-color-mono($-triadic2-400, 600) !default;
-$triadic2-700: functions.make-color-mono($-triadic2-400, 700) !default;
-$triadic2-800: functions.make-color-mono($-triadic2-400, 800) !default;
-$triadic2-900: functions.make-color-mono($-triadic2-400, 900) !default;
+$triadic-2-100: functions.make-color-mono($-triadic-2-400, 100) !default;
+$triadic-2-200: functions.make-color-mono($-triadic-2-400, 200) !default;
+$triadic-2-300: functions.make-color-mono($-triadic-2-400, 300) !default;
+$triadic-2-400: $-triadic-2-400 !default;
+$triadic-2-500: functions.make-color-mono($-triadic-2-400, 500) !default;
+$triadic-2-600: functions.make-color-mono($-triadic-2-400, 600) !default;
+$triadic-2-700: functions.make-color-mono($-triadic-2-400, 700) !default;
+$triadic-2-800: functions.make-color-mono($-triadic-2-400, 800) !default;
+$triadic-2-900: functions.make-color-mono($-triadic-2-400, 900) !default;
 
 // =============================================================================
 // # Map
 // =============================================================================
 
-$map-triadic1: (
-  "triadic1-100": $triadic1-100,
-  "triadic1-200": $triadic1-200,
-  "triadic1-300": $triadic1-300,
-  "triadic1-400": $triadic1-400,
-  "triadic1-500": $triadic1-500,
-  "triadic1-600": $triadic1-600,
-  "triadic1-700": $triadic1-700,
-  "triadic1-800": $triadic1-800,
-  "triadic1-900": $triadic1-900
+$map-triadic-1: (
+  "triadic-1-100": $triadic-1-100,
+  "triadic-1-200": $triadic-1-200,
+  "triadic-1-300": $triadic-1-300,
+  "triadic-1-400": $triadic-1-400,
+  "triadic-1-500": $triadic-1-500,
+  "triadic-1-600": $triadic-1-600,
+  "triadic-1-700": $triadic-1-700,
+  "triadic-1-800": $triadic-1-800,
+  "triadic-1-900": $triadic-1-900
 ) !default;
 
-$map-triadic2: (
-  "triadic2-100": $triadic2-100,
-  "triadic2-200": $triadic2-200,
-  "triadic2-300": $triadic2-300,
-  "triadic2-400": $triadic2-400,
-  "triadic2-500": $triadic2-500,
-  "triadic2-600": $triadic2-600,
-  "triadic2-700": $triadic2-700,
-  "triadic2-800": $triadic2-800,
-  "triadic2-900": $triadic2-900
+$map-triadic-2: (
+  "triadic-2-100": $triadic-2-100,
+  "triadic-2-200": $triadic-2-200,
+  "triadic-2-300": $triadic-2-300,
+  "triadic-2-400": $triadic-2-400,
+  "triadic-2-500": $triadic-2-500,
+  "triadic-2-600": $triadic-2-600,
+  "triadic-2-700": $triadic-2-700,
+  "triadic-2-800": $triadic-2-800,
+  "triadic-2-900": $triadic-2-900
 ) !default;
 
-$map-triadic: core.map-collect($map-triadic1, $map-triadic2) !default;
+$map-triadic: core.map-collect($map-triadic-1, $map-triadic-2) !default;

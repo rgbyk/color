@@ -35,20 +35,20 @@
 // # Variables
 // ==========================================================================
 
-$-tetradic1-400: color.adjust(core.$brand-color, $hue: 60);
-$-tetradic2-400: color.adjust(core.$brand-color, $hue: 180);
-$-tetradic3-400: color.adjust(core.$brand-color, $hue: 240);
+$-tetradic-1-400: color.adjust(core.$brand-color, $hue: 60);
+$-tetradic-2-400: color.adjust(core.$brand-color, $hue: 180);
+$-tetradic-3-400: color.adjust(core.$brand-color, $hue: 240);
 
 @if (core.$color-model == ryb) {
-  $-tetradic1-400: functions.adjust-hue-ryb(core.$brand-color, 60);
-  $-tetradic2-400: functions.adjust-hue-ryb(core.$brand-color, 180);
-  $-tetradic3-400: functions.adjust-hue-ryb(core.$brand-color, 240);
+  $-tetradic-1-400: functions.adjust-hue-ryb(core.$brand-color, 60);
+  $-tetradic-2-400: functions.adjust-hue-ryb(core.$brand-color, 180);
+  $-tetradic-3-400: functions.adjust-hue-ryb(core.$brand-color, 240);
 } @else {}
 
 @if core.$color-mode-harmony {
-  $-tetradic1-400: functions.make-color-harmony(core.$brand-color, $-tetradic1-400);
-  $-tetradic2-400: functions.make-color-harmony(core.$brand-color, $-tetradic2-400);
-  $-tetradic3-400: functions.make-color-harmony(core.$brand-color, $-tetradic3-400);
+  $-tetradic-1-400: functions.make-color-harmony(core.$brand-color, $-tetradic-1-400);
+  $-tetradic-2-400: functions.make-color-harmony(core.$brand-color, $-tetradic-2-400);
+  $-tetradic-3-400: functions.make-color-harmony(core.$brand-color, $-tetradic-3-400);
 } @else {}
 
 // ==========================================================================
@@ -56,76 +56,76 @@ $-tetradic3-400: color.adjust(core.$brand-color, $hue: 240);
 // ==========================================================================
 
 // ## Tetradic (1) @ 90°
-$tetradic1-100: functions.make-color-mono($-tetradic1-400, 100) !default;
-$tetradic1-200: functions.make-color-mono($-tetradic1-400, 200) !default;
-$tetradic1-300: functions.make-color-mono($-tetradic1-400, 300) !default;
-$tetradic1-400: $-tetradic1-400 !default;
-$tetradic1-500: functions.make-color-mono($-tetradic1-400, 500) !default;
-$tetradic1-600: functions.make-color-mono($-tetradic1-400, 600) !default;
-$tetradic1-700: functions.make-color-mono($-tetradic1-400, 700) !default;
-$tetradic1-800: functions.make-color-mono($-tetradic1-400, 800) !default;
-$tetradic1-900: functions.make-color-mono($-tetradic1-400, 900) !default;
+$tetradic-1-100: functions.make-color-mono($-tetradic-1-400, 100) !default;
+$tetradic-1-200: functions.make-color-mono($-tetradic-1-400, 200) !default;
+$tetradic-1-300: functions.make-color-mono($-tetradic-1-400, 300) !default;
+$tetradic-1-400: $-tetradic-1-400 !default;
+$tetradic-1-500: functions.make-color-mono($-tetradic-1-400, 500) !default;
+$tetradic-1-600: functions.make-color-mono($-tetradic-1-400, 600) !default;
+$tetradic-1-700: functions.make-color-mono($-tetradic-1-400, 700) !default;
+$tetradic-1-800: functions.make-color-mono($-tetradic-1-400, 800) !default;
+$tetradic-1-900: functions.make-color-mono($-tetradic-1-400, 900) !default;
 
 // ## Tetradic (2) @ 180°
-$tetradic2-100: functions.make-color-mono($-tetradic2-400, 100) !default;
-$tetradic2-200: functions.make-color-mono($-tetradic2-400, 200) !default;
-$tetradic2-300: functions.make-color-mono($-tetradic2-400, 300) !default;
-$tetradic2-400: $-tetradic2-400 !default;
-$tetradic2-500: functions.make-color-mono($-tetradic2-400, 500) !default;
-$tetradic2-600: functions.make-color-mono($-tetradic2-400, 600) !default;
-$tetradic2-700: functions.make-color-mono($-tetradic2-400, 700) !default;
-$tetradic2-800: functions.make-color-mono($-tetradic2-400, 800) !default;
-$tetradic2-900: functions.make-color-mono($-tetradic2-400, 900) !default;
+$tetradic-2-100: functions.make-color-mono($-tetradic-2-400, 100) !default;
+$tetradic-2-200: functions.make-color-mono($-tetradic-2-400, 200) !default;
+$tetradic-2-300: functions.make-color-mono($-tetradic-2-400, 300) !default;
+$tetradic-2-400: $-tetradic-2-400 !default;
+$tetradic-2-500: functions.make-color-mono($-tetradic-2-400, 500) !default;
+$tetradic-2-600: functions.make-color-mono($-tetradic-2-400, 600) !default;
+$tetradic-2-700: functions.make-color-mono($-tetradic-2-400, 700) !default;
+$tetradic-2-800: functions.make-color-mono($-tetradic-2-400, 800) !default;
+$tetradic-2-900: functions.make-color-mono($-tetradic-2-400, 900) !default;
 
 // ## Tetradic (3) @ 270°
-$tetradic3-100: functions.make-color-mono($-tetradic3-400, 100) !default;
-$tetradic3-200: functions.make-color-mono($-tetradic3-400, 200) !default;
-$tetradic3-300: functions.make-color-mono($-tetradic3-400, 300) !default;
-$tetradic3-400: $-tetradic3-400 !default;
-$tetradic3-500: functions.make-color-mono($-tetradic3-400, 500) !default;
-$tetradic3-600: functions.make-color-mono($-tetradic3-400, 600) !default;
-$tetradic3-700: functions.make-color-mono($-tetradic3-400, 700) !default;
-$tetradic3-800: functions.make-color-mono($-tetradic3-400, 800) !default;
-$tetradic3-900: functions.make-color-mono($-tetradic3-400, 900) !default;
+$tetradic-3-100: functions.make-color-mono($-tetradic-3-400, 100) !default;
+$tetradic-3-200: functions.make-color-mono($-tetradic-3-400, 200) !default;
+$tetradic-3-300: functions.make-color-mono($-tetradic-3-400, 300) !default;
+$tetradic-3-400: $-tetradic-3-400 !default;
+$tetradic-3-500: functions.make-color-mono($-tetradic-3-400, 500) !default;
+$tetradic-3-600: functions.make-color-mono($-tetradic-3-400, 600) !default;
+$tetradic-3-700: functions.make-color-mono($-tetradic-3-400, 700) !default;
+$tetradic-3-800: functions.make-color-mono($-tetradic-3-400, 800) !default;
+$tetradic-3-900: functions.make-color-mono($-tetradic-3-400, 900) !default;
 
 // ==========================================================================
 // # Map
 // ==========================================================================
 
-$map-tetradic1: (
-  "tetradic1-100": $tetradic1-100,
-  "tetradic1-200": $tetradic1-200,
-  "tetradic1-300": $tetradic1-300,
-  "tetradic1-400": $tetradic1-400,
-  "tetradic1-500": $tetradic1-500,
-  "tetradic1-600": $tetradic1-600,
-  "tetradic1-700": $tetradic1-700,
-  "tetradic1-800": $tetradic1-800,
-  "tetradic1-900": $tetradic1-900
+$map-tetradic-1: (
+  "tetradic-1-100": $tetradic-1-100,
+  "tetradic-1-200": $tetradic-1-200,
+  "tetradic-1-300": $tetradic-1-300,
+  "tetradic-1-400": $tetradic-1-400,
+  "tetradic-1-500": $tetradic-1-500,
+  "tetradic-1-600": $tetradic-1-600,
+  "tetradic-1-700": $tetradic-1-700,
+  "tetradic-1-800": $tetradic-1-800,
+  "tetradic-1-900": $tetradic-1-900
 ) !default;
 
-$map-tetradic2: (
-  "tetradic2-100": $tetradic2-100,
-  "tetradic2-200": $tetradic2-200,
-  "tetradic2-300": $tetradic2-300,
-  "tetradic2-400": $tetradic2-400,
-  "tetradic2-500": $tetradic2-500,
-  "tetradic2-600": $tetradic2-600,
-  "tetradic2-700": $tetradic2-700,
-  "tetradic2-800": $tetradic2-800,
-  "tetradic2-900": $tetradic2-900
+$map-tetradic-2: (
+  "tetradic-2-100": $tetradic-2-100,
+  "tetradic-2-200": $tetradic-2-200,
+  "tetradic-2-300": $tetradic-2-300,
+  "tetradic-2-400": $tetradic-2-400,
+  "tetradic-2-500": $tetradic-2-500,
+  "tetradic-2-600": $tetradic-2-600,
+  "tetradic-2-700": $tetradic-2-700,
+  "tetradic-2-800": $tetradic-2-800,
+  "tetradic-2-900": $tetradic-2-900
 ) !default;
 
-$map-tetradic3: (
-  "tetradic3-100": $tetradic3-100,
-  "tetradic3-200": $tetradic3-200,
-  "tetradic3-300": $tetradic3-300,
-  "tetradic3-400": $tetradic3-400,
-  "tetradic3-500": $tetradic3-500,
-  "tetradic3-600": $tetradic3-600,
-  "tetradic3-700": $tetradic3-700,
-  "tetradic3-800": $tetradic3-800,
-  "tetradic3-900": $tetradic3-900
+$map-tetradic-3: (
+  "tetradic-3-100": $tetradic-3-100,
+  "tetradic-3-200": $tetradic-3-200,
+  "tetradic-3-300": $tetradic-3-300,
+  "tetradic-3-400": $tetradic-3-400,
+  "tetradic-3-500": $tetradic-3-500,
+  "tetradic-3-600": $tetradic-3-600,
+  "tetradic-3-700": $tetradic-3-700,
+  "tetradic-3-800": $tetradic-3-800,
+  "tetradic-3-900": $tetradic-3-900
 ) !default;
 
-$map-tetradic: core.map-collect($map-tetradic1, $map-tetradic2, $map-tetradic3) !default;
+$map-tetradic: core.map-collect($map-tetradic-1, $map-tetradic-2, $map-tetradic-3) !default;
