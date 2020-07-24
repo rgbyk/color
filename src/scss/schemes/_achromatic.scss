@@ -12,6 +12,8 @@
 // ==========================================================================
 
 $-value-5: core.$value-5;
+$-value-4: core.$value-4;
+$-value-3: core.$value-3;
 
 @if core.$color-mode-harmony-grayscale {
   $-value-5: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-5);
@@ -23,9 +25,9 @@ $grey-300: functions.make-color-mono($-value-5, 300) !default;
 $grey-400: $-value-5 !default;
 $grey-500: functions.make-color-mono($-value-5, 500) !default;
 $grey-600: functions.make-color-mono($-value-5, 600) !default;
-$grey-700: functions.make-color-mono($-value-5, 700) !default;
-$grey-800: functions.make-color-mono($-value-5, 800) !default;
-$grey-900: functions.make-color-mono($-value-5, 900) !default;
+$grey-700: functions.make-color-mono($-value-4, 700) !default;
+$grey-800: functions.make-color-mono($-value-4, 800) !default;
+$grey-900: functions.make-color-mono($-value-3, 900) !default;
 
 // =============================================================================
 // # Map
