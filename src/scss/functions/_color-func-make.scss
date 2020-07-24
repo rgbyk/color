@@ -60,33 +60,53 @@
 //
 // $color-mode-harmony-grayscale: true !default;
 //
-// @debug functions.make-color-harmony-grayscale(#FF0000, #EEEEEE); // #f0d3d3
-// @debug functions.make-color-harmony-grayscale(#FF8000, #EEEEEE); // #f0e1d3
-// @debug functions.make-color-harmony-grayscale(#FFFF00, #EEEEEE); // #f0f0d3
-// @debug functions.make-color-harmony-grayscale(#80FF00, #EEEEEE); // #e1f0d3
-// @debug functions.make-color-harmony-grayscale(#00FF00, #EEEEEE); // #d3f0d3
-// @debug functions.make-color-harmony-grayscale(#00FF80, #EEEEEE); // #dbefe5
-// @debug functions.make-color-harmony-grayscale(#00FFFF, #EEEEEE); // #dbefef
-// @debug functions.make-color-harmony-grayscale(#0080FF, #EEEEEE); // #dbe5ef
-// @debug functions.make-color-harmony-grayscale(#0000FF, #EEEEEE); // #dbdbef
-// @debug functions.make-color-harmony-grayscale(#7F00FF, #EEEEEE); // #e5dbef
-// @debug functions.make-color-harmony-grayscale(#FF00FF, #EEEEEE); // #f0d3f0
-// @debug functions.make-color-harmony-grayscale(#FF007F, #EEEEEE); // #f0d3e1
+// ~ whereas `$color-mode-harmony-grayscale-warm-mix == 2%`
+// @debug functions.make-color-harmony-grayscale(#FF0000, #f9f9f9); // #f9efef
+// @debug functions.make-color-harmony-grayscale(#FF0000, #e6e6e6); // #e7dddd
+// @debug functions.make-color-harmony-grayscale(#FF0000, #c6c6c6); // #c8bebe
+// @debug functions.make-color-harmony-grayscale(#FF0000, #999999); // #9d9393
+// @debug functions.make-color-harmony-grayscale(#FF0000, #6b6b6b); // #716767
+// @debug functions.make-color-harmony-grayscale(#FF0000, #4d4d4d); // #544a4a
+// @debug functions.make-color-harmony-grayscale(#FF0000, #2d2d2d); // #352b2b
+// @debug functions.make-color-harmony-grayscale(#FF0000, #272727); // #302525
+// @debug functions.make-color-harmony-grayscale(#FF0000, #1a1a1a); // #231919
+
+// ~ whereas `$color-mode-harmony-grayscale-cool-mix == 3%`
+// @debug functions.make-color-harmony-grayscale(#80FF00, #f9f9f9); // #f4f9ef
+// @debug functions.make-color-harmony-grayscale(#80FF00, #e6e6e6); // #e2e7dd
+// @debug functions.make-color-harmony-grayscale(#80FF00, #c6c6c6); // #c3c8be
+// @debug functions.make-color-harmony-grayscale(#80FF00, #999999); // #989d93
+// @debug functions.make-color-harmony-grayscale(#80FF00, #6b6b6b); // #6c7167
+// @debug functions.make-color-harmony-grayscale(#80FF00, #4d4d4d); // #4f544a
+// @debug functions.make-color-harmony-grayscale(#80FF00, #2d2d2d); // #30352b
+// @debug functions.make-color-harmony-grayscale(#80FF00, #272727); // #2b3025
+// @debug functions.make-color-harmony-grayscale(#80FF00, #1a1a1a); // #1e2319
+
+// ~ whereas `$color-mode-harmony-grayscale-cool-mix == 3%`
+// @debug functions.make-color-harmony-grayscale(#0000FF, #f9f9f9); // #eaeaf9
+// @debug functions.make-color-harmony-grayscale(#0000FF, #e6e6e6); // #d8d8e8
+// @debug functions.make-color-harmony-grayscale(#0000FF, #c6c6c6); // #babac9
+// @debug functions.make-color-harmony-grayscale(#0000FF, #999999); // #90909f
+// @debug functions.make-color-harmony-grayscale(#0000FF, #6b6b6b); // #656574
+// @debug functions.make-color-harmony-grayscale(#0000FF, #4d4d4d); // #484858
+// @debug functions.make-color-harmony-grayscale(#0000FF, #2d2d2d); // #2a2a3a
+// @debug functions.make-color-harmony-grayscale(#0000FF, #272727); // #252534
+// @debug functions.make-color-harmony-grayscale(#0000FF, #1a1a1a); // #181828
 // 
 
 @function make-color-harmony-grayscale($mix, $base) {
     @if (core.$color-mode-harmony-grayscale){
         @if cfi.is-color-cool($mix) {
             @if cfi.is-color-high-key-value($base) {
-              @return color.mix($mix, $base, 5.5%);
+              @return color.mix($mix, $base, core.$color-mode-harmony-grayscale-cool-mix);
             } @else {
-              @return color.mix($mix, $base, 8%);
+              @return color.mix($mix, $base, core.$color-mode-harmony-grayscale-cool-mix * 2);
             }
         } @else {
             @if cfi.is-color-high-key-value($base) {
-              @return color.mix($mix, $base, 6.5%);
+              @return color.mix($mix, $base, core.$color-mode-harmony-grayscale-warm-mix);
             } @else {
-              @return color.mix($mix, $base, 11.5%);
+              @return color.mix($mix, $base, core.$color-mode-harmony-grayscale-warm-mix * 2);
             }
         }
     }

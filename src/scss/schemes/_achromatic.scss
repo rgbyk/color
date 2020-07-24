@@ -11,22 +11,32 @@
 // # Variables
 // ==========================================================================
 
-$-value-5: core.$value-5;
-$-value-4: core.$value-4;
 $-value-3: core.$value-3;
+$-value-4: core.$value-4;
+$-value-5: core.$value-5;
+$-value-6: core.$value-6;
+$-value-7: core.$value-7;
+$-value-8: core.$value-8;
+$-value-9: core.$value-9;
 
 @if core.$color-mode-harmony-grayscale {
+  $-value-3: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-3);
+  $-value-4: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-4);
   $-value-5: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-5);
+  $-value-6: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-6);
+  $-value-7: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-7);
+  $-value-8: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-8);
+  $-value-9: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-9);
 } @else {}
 
-$grey-100: functions.make-color-mono($-value-5, 100) !default;
-$grey-200: functions.make-color-mono($-value-5, 200) !default;
-$grey-300: functions.make-color-mono($-value-5, 300) !default;
-$grey-400: $-value-5 !default;
+$grey-100: functions.make-color-mono($-value-9, 100) !default;
+$grey-200: functions.make-color-mono($-value-8, 200) !default;
+$grey-300: functions.make-color-mono($-value-7, 300) !default;
+$grey-400: functions.make-color-mono($-value-6, 400) !default;
 $grey-500: functions.make-color-mono($-value-5, 500) !default;
-$grey-600: functions.make-color-mono($-value-5, 600) !default;
-$grey-700: functions.make-color-mono($-value-4, 700) !default;
-$grey-800: functions.make-color-mono($-value-4, 800) !default;
+$grey-600: functions.make-color-mono($-value-4, 600) !default;
+$grey-700: functions.make-color-mono($-value-3, 700) !default;
+$grey-800: functions.make-color-mono($-value-3, 800) !default;
 $grey-900: functions.make-color-mono($-value-3, 900) !default;
 
 // =============================================================================
