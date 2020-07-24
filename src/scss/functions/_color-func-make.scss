@@ -183,33 +183,33 @@
 // 
 // @debug functions.make-color-mono(#8e43e7, 100); // #f6effd
 // @debug functions.make-color-mono(#8e43e7, 200); // #e3d0f9
-// @debug functions.make-color-mono(#8e43e7, 300); // #d0b1f5
+// @debug functions.make-color-mono(#8e43e7, 300); // #c7a1f3
 // @debug functions.make-color-mono(#8e43e7, 400); // #8e43e7
-// @debug functions.make-color-mono(#8e43e7, 500); // #7638c1
-// @debug functions.make-color-mono(#8e43e7, 600); // #6b32ad
-// @debug functions.make-color-mono(#8e43e7, 700); // #532787
-// @debug functions.make-color-mono(#8e43e7, 800); // #3b1c60
+// @debug functions.make-color-mono(#8e43e7, 500); // #703eab
+// @debug functions.make-color-mono(#8e43e7, 600); // #542f81
+// @debug functions.make-color-mono(#8e43e7, 700); // #3b1c60
+// @debug functions.make-color-mono(#8e43e7, 800); // #24113a
 // @debug functions.make-color-mono(#8e43e7, 900); // #180b27
 //
 // @debug functions.make-color-mono(#1da1f2, 100); // #ecf7fe
 // @debug functions.make-color-mono(#1da1f2, 200); // #c7e8fc
-// @debug functions.make-color-mono(#1da1f2, 300); // #a1d8fa
+// @debug functions.make-color-mono(#1da1f2, 300); // #7bc8f7
 // @debug functions.make-color-mono(#1da1f2, 400); // #1da1f2
-// @debug functions.make-color-mono(#1da1f2, 500); // #136ba1
-// @debug functions.make-color-mono(#1da1f2, 600); // #0f5179
-// @debug functions.make-color-mono(#1da1f2, 700); // #0a3651
-// @debug functions.make-color-mono(#1da1f2, 800); // #07283d
-// @debug functions.make-color-mono(#1da1f2, 900); // #020d14
+// @debug functions.make-color-mono(#1da1f2, 500); // #1886ca
+// @debug functions.make-color-mono(#1da1f2, 600); // #136ba1
+// @debug functions.make-color-mono(#1da1f2, 700); // #0f5179
+// @debug functions.make-color-mono(#1da1f2, 800); // #0a3651
+// @debug functions.make-color-mono(#1da1f2, 900); // #051b28
 //
 // @debug functions.make-color-mono(#0af167, 100); // #ebfef2
 // @debug functions.make-color-mono(#0af167, 200); // #c2fcd9
-// @debug functions.make-color-mono(#0af167, 300); // #99f9c0
+// @debug functions.make-color-mono(#0af167, 300); // #70f7a6
 // @debug functions.make-color-mono(#0af167, 400); // #0af167
-// @debug functions.make-color-mono(#0af167, 500); // #07a145
-// @debug functions.make-color-mono(#0af167, 600); // #057934
-// @debug functions.make-color-mono(#0af167, 700); // #035022
-// @debug functions.make-color-mono(#0af167, 800); // #033c1a
-// @debug functions.make-color-mono(#0af167, 900); // #011409
+// @debug functions.make-color-mono(#0af167, 500); // #08c956
+// @debug functions.make-color-mono(#0af167, 600); // #07a145
+// @debug functions.make-color-mono(#0af167, 700); // #057934
+// @debug functions.make-color-mono(#0af167, 800); // #035022
+// @debug functions.make-color-mono(#0af167, 900); // #022811
 
 @function make-color-mono($color, $weight) {
     $value: core.$value-0;
