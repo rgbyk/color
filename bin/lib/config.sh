@@ -23,7 +23,7 @@ FOLDER_DIST_ASSETS_CSS=$'./dist/assets/css'
 
 FILE_STYLE_0=$'color'
 FILE_STYLE_RYB=$'color-ryb'
-FILE_STYLE_RGB=$'color-ryb'
+FILE_STYLE_RGB=$'color-rgb'
 
 ## STYLING
 black=$'\e[90;1m'
