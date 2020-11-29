@@ -35,25 +35,29 @@ $rgb-map: (
 ) !default;
 
 $color-light-mono-map: (
-    "100":(
+    "50":(
         value: cs.$value-10,
         chroma: cs.$chroma-1
     ),
+    "100":(
+        value: cs.$value-10,
+        chroma: cs.$chroma-3
+    ),
     "200":(
         value: cs.$value-10,
-        chroma: cs.$chroma-4
+        chroma: cs.$chroma-5
     ),
     "300":(
         value: cs.$value-10,
-        chroma: cs.$chroma-6
+        chroma: cs.$chroma-7
     ),
     "400":(
-        value: cs.$value-0,
-        chroma: cs.$chroma-12
+        value: cs.$value-10,
+        chroma: cs.$chroma-9
     ),
     "500":(
-        value: cs.$value-2,
-        chroma: cs.$chroma-10
+        value: cs.$value-10,
+        chroma: cs.$chroma-12
     ),
     "600":(
         value: cs.$value-1,
@@ -74,25 +78,29 @@ $color-light-mono-map: (
 ) !default;
 
 $color-dark-mono-map: (
-    "100":(
+    "50":(
         value: cs.$value-10,
         chroma: cs.$chroma-1
     ),
+    "100":(
+        value: cs.$value-10,
+        chroma: cs.$chroma-3
+    ),
     "200":(
         value: cs.$value-10,
-        chroma: cs.$chroma-4
+        chroma: cs.$chroma-5
     ),
     "300":(
         value: cs.$value-10,
-        chroma: cs.$chroma-6
+        chroma: cs.$chroma-7
     ),
     "400":(
-        value: cs.$value-0,
-        chroma: cs.$chroma-12
+        value: cs.$value-10,
+        chroma: cs.$chroma-9
     ),
     "500":(
-        value: cs.$value-2,
-        chroma: cs.$chroma-10
+        value: cs.$value-10,
+        chroma: cs.$chroma-12
     ),
     "600":(
         value: cs.$value-1,

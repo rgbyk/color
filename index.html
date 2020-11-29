@@ -1,0 +1,2737 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US" dir="ltr" prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="robots" content="all" />
+        <link rel="stylesheet" type="text/css" href="dist/assets/css/color-rgb.css">
+    <style>
+
+        html, body{
+            margin: 0;
+        }
+
+        body {
+            padding: 1rem;
+        }
+
+        *, *:before, *:after t{
+            box-sizing: border-box;
+        }
+
+        .scheme-container {
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            padding: 1rem;
+        }
+
+        .scheme-wrapper {
+            display: grid;
+            align-items: center;
+            grid-template-columns: 150px 1fr;
+        }
+
+        .scheme-wrapper + .scheme-wrapper {
+            margin-top: 1rem;
+        }
+
+        .scheme-wrapper--name {
+            text-transform: capitalize;
+            font-size: 14.44px;
+            display: flex;
+        }
+
+        .scheme-wrapper--colors {
+            display: grid;
+            align-items: center;
+            grid-template-columns: repeat(10, minmax(100px, 1fr));
+            grid-gap: 12px;
+        }
+
+        .scheme-color {
+            display: grid;
+            grid-gap: 12px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .scheme-color--preview{
+            grid-column-start: 1;
+            grid-column-end: 3;
+            border-radius: 6px;
+        }
+
+        .scheme-color--depth{
+            grid-column-start: 1;
+            grid-column-end: 1;
+            text-align: left;
+            padding-left: 6px;
+            padding-bottom: 6px;
+            font-size: 12px;
+        }
+
+        .scheme-color--hex{
+            grid-column-start: 2;
+            grid-column-end: 2;
+            text-align: right;
+            padding-right: 6px;
+            padding-bottom: 6px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .scheme-color--depth,
+        .scheme-color--hex { display: none; }
+
+        /*[data-scheme-type=alpha] { display: none; }*/
+        /*[data-scheme-type=neutral] { display: none; }*/
+        [data-scheme-type=alpha] .scheme-color--hex { text-transform: lowercase; }
+
+        .scheme-color--preview {
+            height: 60px;
+            width: 100%;
+        }
+
+        hr.size-md {
+            margin-top: 1.953rem;
+            margin-bottom: 1.953rem;
+            border-top: 1px solid var(--grey-200);
+        }
+
+        .particle-tabs{margin-top:1rem;margin-bottom:1rem}.particle-tabs:first-child{margin-top:0}.particle-tabs nav{display:flex;margin-bottom:1rem;border-bottom:1px solid var(--grey-400);align-items:center;justify-content:flex-start}.particle-tabs nav a:after{transform:translate3d(0,100%,0) translate3d(0,0,0)}.particle-tabs nav a{font-style:normal;font-size:16px;font-weight:400;position:relative;display:block;overflow:hidden;padding:0 1rem;transition:color .3s ease;white-space:nowrap;text-overflow:ellipsis}.particle-tabs nav a span{z-index:1;position:relative}.particle-tabs nav a:after{position:absolute;z-index:0;left:0;width:100%;content:"";transition:background-color .2s,transform .3s;transition-timing-function:ease,ease}.particle-tabs nav a.active:after{transform:translate3d(0,0,0)}.particle-tabs:not(.is--contained) nav a{margin-bottom:-1px;line-height:40px}.particle-tabs:not(.is--contained) nav a:after{background-color:var(--grey-400);top:0;height:100%}.particle-tabs:not(.is--contained) nav a:not(.active){color:var(--grey-500)}.particle-tabs:not(.is--contained) nav a:not(.active):hover{color:var(--grey-900)}.particle-tabs:not(.is--contained) nav a.active{color:var(--white)}.particle-tabs:not(.is--contained) nav a.active:after{background-color:var(--primary-400)}.particle-tabs.is--contained nav{border:1px solid var(--grey-400);border-radius:4px 4px 0 0}.particle-tabs.is--contained nav a{line-height:49px}.particle-tabs.is--contained nav a:after{height:4px;bottom:-1px}.particle-tabs.is--contained nav a:hover:after{transform:translate3d(0,0,0)}.particle-tabs.is--contained nav a:not(.active){color:var(--grey-500)}.particle-tabs.is--contained nav a:not(.active):hover{color:var(--grey-900)}.particle-tabs.is--contained nav a:not(.active):hover:after{background-color:var(--primary-200)}.particle-tabs.is--contained nav a.active{color:var(--grey-900)}.particle-tabs.is--contained nav a.active{font-weight:700;background-color:var(--primary-300)}.particle-tabs.is--contained nav a.active:after{background-color:var(--primary-400)}.particle-tabs.has--container nav{margin-bottom:0}.particle-tabs.has--container div[class^=particle-item--]{border:1px solid var(--grey-400);border-top:0;padding:1rem;border-radius:0 0 4px 4px}@media (max-width:768px){.particle-tabs nav{align-items:left;justify-content:flex-start;flex-flow:column}.particle-tabs nav a{width:100%}.particle-tabs.is--contained a,.particle-tabs:not(.is--contained) a{font-size:13px;line-height:38px}.particle-tabs:not(.is--contained) a:not(.active){background-color:var(--grey-200)}.particle-tabs.is--contained a:after{bottom:0;height:100%;width:100%;left:0}}.hide{display: none;}table.demo-colorspectrum-table {border-collapse: collapse;width: 100%;}table.demo-colorspectrum-table th, table.demo-colorspectrum-table td{vertical-align: middle;border: 0px solid;padding: 0;font-size:14.44px;font-family: inherit;}table.demo-colorspectrum-table tbody tr, table.demo-colorspectrum-table tbody th, table.demo-colorspectrum-table thead th {border-width: 0px;font-size: 13px;font-weight: 500;vertical-align: middle;text-align: center;width: 100px;height: 60px;}
+    </style>
+    </head>
+    <body>
+        <!-- Color Palette -->
+        <div class="scheme-container">
+            <div class="scheme-wrapper" data-scheme-name="grey"></div>
+            <div class="scheme-wrapper" data-scheme-name="grey" data-scheme-type="alpha"></div>
+
+            <!-- Primary -->
+            <hr class="size-md">
+            <div class="scheme-wrapper" data-scheme-name="primary"></div>
+            <div class="scheme-wrapper" data-scheme-name="primary" data-scheme-type="alpha"></div>
+            <div class="scheme-wrapper" data-scheme-name="primary" data-scheme-type="neutral"></div>
+
+            <!-- Complementary -->
+            <hr class="size-md">
+            <div class="scheme-wrapper" data-scheme-name="complementary"></div>
+            <div class="scheme-wrapper" data-scheme-name="complementary" data-scheme-type="alpha"></div>
+            <div class="scheme-wrapper" data-scheme-name="complementary" data-scheme-type="neutral"></div>
+
+            <!-- Analogous -->
+            <hr class="size-md">
+            <div class="scheme-wrapper" data-scheme-name="analogous-1"></div>
+            <div class="scheme-wrapper" data-scheme-name="analogous-1" data-scheme-type="alpha"></div>
+            <div class="scheme-wrapper" data-scheme-name="analogous-1" data-scheme-type="neutral"></div>
+
+            <div class="scheme-wrapper" data-scheme-name="analogous-2"></div>
+            <div class="scheme-wrapper" data-scheme-name="analogous-2" data-scheme-type="alpha"></div>
+            <div class="scheme-wrapper" data-scheme-name="analogous-2" data-scheme-type="neutral"></div>
+
+            <div class="scheme-wrapper" data-scheme-name="analogous-3"></div>
+            <div class="scheme-wrapper" data-scheme-name="analogous-3" data-scheme-type="alpha"></div>
+            <div class="scheme-wrapper" data-scheme-name="analogous-3" data-scheme-type="neutral"></div>
+
+            <!-- Split -->
+            <hr class="size-md">
+            <div class="scheme-wrapper" data-scheme-name="split-1"></div>
+            <div class="scheme-wrapper" data-scheme-name="split-1" data-scheme-type="alpha"></div>
+            <div class="scheme-wrapper" data-scheme-name="split-1" data-scheme-type="neutral"></div>
+
+            <div class="scheme-wrapper" data-scheme-name="split-2"></div>
+            <div class="scheme-wrapper" data-scheme-name="split-2" data-scheme-type="alpha"></div>
+            <div class="scheme-wrapper" data-scheme-name="split-2" data-scheme-type="neutral"></div>
+
+            <!-- Square -->
+            <hr class="size-md">
+            <div class="scheme-wrapper" data-scheme-name="square-1"></div>
+            <div class="scheme-wrapper" data-scheme-name="square-1" data-scheme-type="alpha"></div>
+            <div class="scheme-wrapper" data-scheme-name="square-1" data-scheme-type="neutral"></div>
+
+            <div class="scheme-wrapper" data-scheme-name="square-2"></div>
+            <div class="scheme-wrapper" data-scheme-name="square-2" data-scheme-type="alpha"></div>
+            <div class="scheme-wrapper" data-scheme-name="square-2" data-scheme-type="neutral"></div>
+
+            <div class="scheme-wrapper" data-scheme-name="square-3"></div>
+            <div class="scheme-wrapper" data-scheme-name="square-3" data-scheme-type="alpha"></div>
+            <div class="scheme-wrapper" data-scheme-name="square-3" data-scheme-type="neutral"></div>
+
+            <!-- Triadic -->
+            <hr class="size-md">
+            <div class="scheme-wrapper" data-scheme-name="triadic-1"></div>
+            <div class="scheme-wrapper" data-scheme-name="triadic-1" data-scheme-type="alpha"></div>
+            <div class="scheme-wrapper" data-scheme-name="triadic-1" data-scheme-type="neutral"></div>
+
+            <div class="scheme-wrapper" data-scheme-name="triadic-2"></div>
+            <div class="scheme-wrapper" data-scheme-name="triadic-2" data-scheme-type="alpha"></div>
+            <div class="scheme-wrapper" data-scheme-name="triadic-2" data-scheme-type="neutral"></div>
+
+            <!-- Tetradic -->
+            <hr class="size-md">
+            <div class="scheme-wrapper" data-scheme-name="grey"></div>
+            <div class="scheme-wrapper" data-scheme-name="primary"></div>
+            <div class="scheme-wrapper" data-scheme-name="tetradic-1"></div>
+            <div class="scheme-wrapper" data-scheme-name="tetradic-1" data-scheme-type="alpha"></div>
+            <div class="scheme-wrapper" data-scheme-name="tetradic-1" data-scheme-type="neutral"></div>
+
+            <div class="scheme-wrapper" data-scheme-name="tetradic-2"></div>
+            <div class="scheme-wrapper" data-scheme-name="tetradic-2" data-scheme-type="alpha"></div>
+            <div class="scheme-wrapper" data-scheme-name="tetradic-2" data-scheme-type="neutral"></div>
+
+            <div class="scheme-wrapper" data-scheme-name="tetradic-3"></div>
+            <div class="scheme-wrapper" data-scheme-name="tetradic-3" data-scheme-type="alpha"></div>
+            <div class="scheme-wrapper" data-scheme-name="tetradic-3" data-scheme-type="neutral"></div>
+
+            <!-- Hue -->
+            <hr class="size-md">
+            <div class="scheme-wrapper" data-scheme-name="hue-1" data></div>
+            <div class="scheme-wrapper" data-scheme-name="hue-2"></div>
+            <div class="scheme-wrapper" data-scheme-name="hue-3"></div>
+            <div class="scheme-wrapper" data-scheme-name="hue-4"></div>
+            <div class="scheme-wrapper" data-scheme-name="hue-5"></div>
+            <div class="scheme-wrapper" data-scheme-name="hue-6"></div>
+            <div class="scheme-wrapper" data-scheme-name="hue-7"></div>
+            <div class="scheme-wrapper" data-scheme-name="hue-8"></div>
+            <div class="scheme-wrapper" data-scheme-name="hue-9"></div>
+            <div class="scheme-wrapper" data-scheme-name="hue-10"></div>
+            <div class="scheme-wrapper" data-scheme-name="hue-11"></div>
+            <div class="scheme-wrapper" data-scheme-name="hue-12"></div>
+
+
+
+        </div>
+
+<div class="particle-tabs is--contained hidden-sm-down">
+    <nav>
+        <a class="active" data-tab-id="tab__primary" onclick="clickParticleTab(this);"><span>Primary</span></a>    
+        <a data-tab-id="tab__hue1" class="" onclick="clickParticleTab(this);"><span>Hue1</span></a>    
+        <a data-tab-id="tab__hue2" class="" onclick="clickParticleTab(this);"><span>Hue2</span></a>    
+        <a data-tab-id="tab__hue3" class="" onclick="clickParticleTab(this);"><span>Hue3</span></a>    
+        <a data-tab-id="tab__hue4" class="" onclick="clickParticleTab(this);"><span>Hue4</span></a>    
+        <a data-tab-id="tab__hue5" class="" onclick="clickParticleTab(this);"><span>Hue5</span></a>    
+        <a data-tab-id="tab__hue6" class="" onclick="clickParticleTab(this);"><span>Hue6</span></a>    
+        <a data-tab-id="tab__hue7" class="" onclick="clickParticleTab(this);"><span>Hue7</span></a>    
+        <a data-tab-id="tab__hue8" class="" onclick="clickParticleTab(this);"><span>Hue8</span></a>    
+        <a data-tab-id="tab__hue9" class="" onclick="clickParticleTab(this);"><span>Hue9</span></a>    
+        <a data-tab-id="tab__hue10" class="" onclick="clickParticleTab(this);"><span>Hue10</span></a>    
+        <a data-tab-id="tab__hue11" class="" onclick="clickParticleTab(this);"><span>Hue11</span></a>    
+        <a data-tab-id="tab__hue12" class="" onclick="clickParticleTab(this);"><span>Hue12</span></a>    
+    </nav>
+    <div id="tab__primary">
+        <table class="table demo-colorspectrum-table">
+            <tbody>
+                <tr>
+                    <td class="bg-value-10"></td>
+                    <td>C1</td>
+                    <td>C2</td>
+                    <td>C3</td>
+                    <td>C4</td>
+                    <td>C5</td>
+                    <td>C6</td>
+                    <td>C7</td>
+                    <td>C8</td>
+                    <td>C9</td>
+                    <td>C10</td>
+                    <td>C11</td>
+                    <td>C12</td>
+                </tr>
+                <tr>
+                    <td class="bg-value-10">V10</td>
+                    <td class="bg-primary-v10-c1"></td>
+                    <td class="bg-primary-v10-c2"></td>
+                    <td class="bg-primary-v10-c3"></td>
+                    <td class="bg-primary-v10-c4"></td>
+                    <td class="bg-primary-v10-c5"></td>
+                    <td class="bg-primary-v10-c6"></td>
+                    <td class="bg-primary-v10-c7"></td>
+                    <td class="bg-primary-v10-c8"></td>
+                    <td class="bg-primary-v10-c9"></td>
+                    <td class="bg-primary-v10-c10"></td>
+                    <td class="bg-primary-v10-c11"></td>
+                    <td class="bg-primary-v10-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-9">V9</td>
+                    <td class="bg-primary-v9-c1"></td>
+                    <td class="bg-primary-v9-c2"></td>
+                    <td class="bg-primary-v9-c3"></td>
+                    <td class="bg-primary-v9-c4"></td>
+                    <td class="bg-primary-v9-c5"></td>
+                    <td class="bg-primary-v9-c6"></td>
+                    <td class="bg-primary-v9-c7"></td>
+                    <td class="bg-primary-v9-c8"></td>
+                    <td class="bg-primary-v9-c9"></td>
+                    <td class="bg-primary-v9-c10"></td>
+                    <td class="bg-primary-v9-c11"></td>
+                    <td class="bg-primary-v9-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-8">V8</td>
+                    <td class="bg-primary-v8-c1"></td>
+                    <td class="bg-primary-v8-c2"></td>
+                    <td class="bg-primary-v8-c3"></td>
+                    <td class="bg-primary-v8-c4"></td>
+                    <td class="bg-primary-v8-c5"></td>
+                    <td class="bg-primary-v8-c6"></td>
+                    <td class="bg-primary-v8-c7"></td>
+                    <td class="bg-primary-v8-c8"></td>
+                    <td class="bg-primary-v8-c9"></td>
+                    <td class="bg-primary-v8-c10"></td>
+                    <td class="bg-primary-v8-c11"></td>
+                    <td class="bg-primary-v8-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-7">V7</td>
+                    <td class="bg-primary-v7-c1"></td>
+                    <td class="bg-primary-v7-c2"></td>
+                    <td class="bg-primary-v7-c3"></td>
+                    <td class="bg-primary-v7-c4"></td>
+                    <td class="bg-primary-v7-c5"></td>
+                    <td class="bg-primary-v7-c6"></td>
+                    <td class="bg-primary-v7-c7"></td>
+                    <td class="bg-primary-v7-c8"></td>
+                    <td class="bg-primary-v7-c9"></td>
+                    <td class="bg-primary-v7-c10"></td>
+                    <td class="bg-primary-v7-c11"></td>
+                    <td class="bg-primary-v7-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-6">V6</td>
+                    <td class="bg-primary-v6-c1"></td>
+                    <td class="bg-primary-v6-c2"></td>
+                    <td class="bg-primary-v6-c3"></td>
+                    <td class="bg-primary-v6-c4"></td>
+                    <td class="bg-primary-v6-c5"></td>
+                    <td class="bg-primary-v6-c6"></td>
+                    <td class="bg-primary-v6-c7"></td>
+                    <td class="bg-primary-v6-c8"></td>
+                    <td class="bg-primary-v6-c9"></td>
+                    <td class="bg-primary-v6-c10"></td>
+                    <td class="bg-primary-v6-c11"></td>
+                    <td class="bg-primary-v6-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-5">V5</td>
+                    <td class="bg-primary-v5-c1"></td>
+                    <td class="bg-primary-v5-c2"></td>
+                    <td class="bg-primary-v5-c3"></td>
+                    <td class="bg-primary-v5-c4"></td>
+                    <td class="bg-primary-v5-c5"></td>
+                    <td class="bg-primary-v5-c6"></td>
+                    <td class="bg-primary-v5-c7"></td>
+                    <td class="bg-primary-v5-c8"></td>
+                    <td class="bg-primary-v5-c9"></td>
+                    <td class="bg-primary-v5-c10"></td>
+                    <td class="bg-primary-v5-c11"></td>
+                    <td class="bg-primary-v5-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-4">V4</td>
+                    <td class="bg-primary-v4-c1"></td>
+                    <td class="bg-primary-v4-c2"></td>
+                    <td class="bg-primary-v4-c3"></td>
+                    <td class="bg-primary-v4-c4"></td>
+                    <td class="bg-primary-v4-c5"></td>
+                    <td class="bg-primary-v4-c6"></td>
+                    <td class="bg-primary-v4-c7"></td>
+                    <td class="bg-primary-v4-c8"></td>
+                    <td class="bg-primary-v4-c9"></td>
+                    <td class="bg-primary-v4-c10"></td>
+                    <td class="bg-primary-v4-c11"></td>
+                    <td class="bg-primary-v4-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-3">V3</td>
+                    <td class="bg-primary-v3-c1"></td>
+                    <td class="bg-primary-v3-c2"></td>
+                    <td class="bg-primary-v3-c3"></td>
+                    <td class="bg-primary-v3-c4"></td>
+                    <td class="bg-primary-v3-c5"></td>
+                    <td class="bg-primary-v3-c6"></td>
+                    <td class="bg-primary-v3-c7"></td>
+                    <td class="bg-primary-v3-c8"></td>
+                    <td class="bg-primary-v3-c9"></td>
+                    <td class="bg-primary-v3-c10"></td>
+                    <td class="bg-primary-v3-c11"></td>
+                    <td class="bg-primary-v3-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-2">V2</td>
+                    <td class="bg-primary-v2-c1"></td>
+                    <td class="bg-primary-v2-c2"></td>
+                    <td class="bg-primary-v2-c3"></td>
+                    <td class="bg-primary-v2-c4"></td>
+                    <td class="bg-primary-v2-c5"></td>
+                    <td class="bg-primary-v2-c6"></td>
+                    <td class="bg-primary-v2-c7"></td>
+                    <td class="bg-primary-v2-c8"></td>
+                    <td class="bg-primary-v2-c9"></td>
+                    <td class="bg-primary-v2-c10"></td>
+                    <td class="bg-primary-v2-c11"></td>
+                    <td class="bg-primary-v2-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-1">V1</td>
+                    <td class="bg-primary-v1-c1"></td>
+                    <td class="bg-primary-v1-c2"></td>
+                    <td class="bg-primary-v1-c3"></td>
+                    <td class="bg-primary-v1-c4"></td>
+                    <td class="bg-primary-v1-c5"></td>
+                    <td class="bg-primary-v1-c6"></td>
+                    <td class="bg-primary-v1-c7"></td>
+                    <td class="bg-primary-v1-c8"></td>
+                    <td class="bg-primary-v1-c9"></td>
+                    <td class="bg-primary-v1-c10"></td>
+                    <td class="bg-primary-v1-c11"></td>
+                    <td class="bg-primary-v1-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-0">V0</td>
+                    <td class="bg-primary-v0-c1"></td>
+                    <td class="bg-primary-v0-c2"></td>
+                    <td class="bg-primary-v0-c3"></td>
+                    <td class="bg-primary-v0-c4"></td>
+                    <td class="bg-primary-v0-c5"></td>
+                    <td class="bg-primary-v0-c6"></td>
+                    <td class="bg-primary-v0-c7"></td>
+                    <td class="bg-primary-v0-c8"></td>
+                    <td class="bg-primary-v0-c9"></td>
+                    <td class="bg-primary-v0-c10"></td>
+                    <td class="bg-primary-v0-c11"></td>
+                    <td class="bg-primary-v0-c12"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="tab__hue1" class="hide">
+        <table class="table demo-colorspectrum-table">
+            <tbody>
+                <tr>
+                    <td class="bg-value-10"></td>
+                    <td>C1</td>
+                    <td>C2</td>
+                    <td>C3</td>
+                    <td>C4</td>
+                    <td>C5</td>
+                    <td>C6</td>
+                    <td>C7</td>
+                    <td>C8</td>
+                    <td>C9</td>
+                    <td>C10</td>
+                    <td>C11</td>
+                    <td>C12</td>
+                </tr>
+                <tr>
+                    <td class="bg-value-10">V10</td>
+                    <td class="bg-hue-1-v10-c1"></td>
+                    <td class="bg-hue-1-v10-c2"></td>
+                    <td class="bg-hue-1-v10-c3"></td>
+                    <td class="bg-hue-1-v10-c4"></td>
+                    <td class="bg-hue-1-v10-c5"></td>
+                    <td class="bg-hue-1-v10-c6"></td>
+                    <td class="bg-hue-1-v10-c7"></td>
+                    <td class="bg-hue-1-v10-c8"></td>
+                    <td class="bg-hue-1-v10-c9"></td>
+                    <td class="bg-hue-1-v10-c10"></td>
+                    <td class="bg-hue-1-v10-c11"></td>
+                    <td class="bg-hue-1-v10-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-9">V9</td>
+                    <td class="bg-hue-1-v9-c1"></td>
+                    <td class="bg-hue-1-v9-c2"></td>
+                    <td class="bg-hue-1-v9-c3"></td>
+                    <td class="bg-hue-1-v9-c4"></td>
+                    <td class="bg-hue-1-v9-c5"></td>
+                    <td class="bg-hue-1-v9-c6"></td>
+                    <td class="bg-hue-1-v9-c7"></td>
+                    <td class="bg-hue-1-v9-c8"></td>
+                    <td class="bg-hue-1-v9-c9"></td>
+                    <td class="bg-hue-1-v9-c10"></td>
+                    <td class="bg-hue-1-v9-c11"></td>
+                    <td class="bg-hue-1-v9-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-8">V8</td>
+                    <td class="bg-hue-1-v8-c1"></td>
+                    <td class="bg-hue-1-v8-c2"></td>
+                    <td class="bg-hue-1-v8-c3"></td>
+                    <td class="bg-hue-1-v8-c4"></td>
+                    <td class="bg-hue-1-v8-c5"></td>
+                    <td class="bg-hue-1-v8-c6"></td>
+                    <td class="bg-hue-1-v8-c7"></td>
+                    <td class="bg-hue-1-v8-c8"></td>
+                    <td class="bg-hue-1-v8-c9"></td>
+                    <td class="bg-hue-1-v8-c10"></td>
+                    <td class="bg-hue-1-v8-c11"></td>
+                    <td class="bg-hue-1-v8-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-7">V7</td>
+                    <td class="bg-hue-1-v7-c1"></td>
+                    <td class="bg-hue-1-v7-c2"></td>
+                    <td class="bg-hue-1-v7-c3"></td>
+                    <td class="bg-hue-1-v7-c4"></td>
+                    <td class="bg-hue-1-v7-c5"></td>
+                    <td class="bg-hue-1-v7-c6"></td>
+                    <td class="bg-hue-1-v7-c7"></td>
+                    <td class="bg-hue-1-v7-c8"></td>
+                    <td class="bg-hue-1-v7-c9"></td>
+                    <td class="bg-hue-1-v7-c10"></td>
+                    <td class="bg-hue-1-v7-c11"></td>
+                    <td class="bg-hue-1-v7-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-6">V6</td>
+                    <td class="bg-hue-1-v6-c1"></td>
+                    <td class="bg-hue-1-v6-c2"></td>
+                    <td class="bg-hue-1-v6-c3"></td>
+                    <td class="bg-hue-1-v6-c4"></td>
+                    <td class="bg-hue-1-v6-c5"></td>
+                    <td class="bg-hue-1-v6-c6"></td>
+                    <td class="bg-hue-1-v6-c7"></td>
+                    <td class="bg-hue-1-v6-c8"></td>
+                    <td class="bg-hue-1-v6-c9"></td>
+                    <td class="bg-hue-1-v6-c10"></td>
+                    <td class="bg-hue-1-v6-c11"></td>
+                    <td class="bg-hue-1-v6-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-5">V5</td>
+                    <td class="bg-hue-1-v5-c1"></td>
+                    <td class="bg-hue-1-v5-c2"></td>
+                    <td class="bg-hue-1-v5-c3"></td>
+                    <td class="bg-hue-1-v5-c4"></td>
+                    <td class="bg-hue-1-v5-c5"></td>
+                    <td class="bg-hue-1-v5-c6"></td>
+                    <td class="bg-hue-1-v5-c7"></td>
+                    <td class="bg-hue-1-v5-c8"></td>
+                    <td class="bg-hue-1-v5-c9"></td>
+                    <td class="bg-hue-1-v5-c10"></td>
+                    <td class="bg-hue-1-v5-c11"></td>
+                    <td class="bg-hue-1-v5-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-4">V4</td>
+                    <td class="bg-hue-1-v4-c1"></td>
+                    <td class="bg-hue-1-v4-c2"></td>
+                    <td class="bg-hue-1-v4-c3"></td>
+                    <td class="bg-hue-1-v4-c4"></td>
+                    <td class="bg-hue-1-v4-c5"></td>
+                    <td class="bg-hue-1-v4-c6"></td>
+                    <td class="bg-hue-1-v4-c7"></td>
+                    <td class="bg-hue-1-v4-c8"></td>
+                    <td class="bg-hue-1-v4-c9"></td>
+                    <td class="bg-hue-1-v4-c10"></td>
+                    <td class="bg-hue-1-v4-c11"></td>
+                    <td class="bg-hue-1-v4-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-3">V3</td>
+                    <td class="bg-hue-1-v3-c1"></td>
+                    <td class="bg-hue-1-v3-c2"></td>
+                    <td class="bg-hue-1-v3-c3"></td>
+                    <td class="bg-hue-1-v3-c4"></td>
+                    <td class="bg-hue-1-v3-c5"></td>
+                    <td class="bg-hue-1-v3-c6"></td>
+                    <td class="bg-hue-1-v3-c7"></td>
+                    <td class="bg-hue-1-v3-c8"></td>
+                    <td class="bg-hue-1-v3-c9"></td>
+                    <td class="bg-hue-1-v3-c10"></td>
+                    <td class="bg-hue-1-v3-c11"></td>
+                    <td class="bg-hue-1-v3-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-2">V2</td>
+                    <td class="bg-hue-1-v2-c1"></td>
+                    <td class="bg-hue-1-v2-c2"></td>
+                    <td class="bg-hue-1-v2-c3"></td>
+                    <td class="bg-hue-1-v2-c4"></td>
+                    <td class="bg-hue-1-v2-c5"></td>
+                    <td class="bg-hue-1-v2-c6"></td>
+                    <td class="bg-hue-1-v2-c7"></td>
+                    <td class="bg-hue-1-v2-c8"></td>
+                    <td class="bg-hue-1-v2-c9"></td>
+                    <td class="bg-hue-1-v2-c10"></td>
+                    <td class="bg-hue-1-v2-c11"></td>
+                    <td class="bg-hue-1-v2-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-1">V1</td>
+                    <td class="bg-hue-1-v1-c1"></td>
+                    <td class="bg-hue-1-v1-c2"></td>
+                    <td class="bg-hue-1-v1-c3"></td>
+                    <td class="bg-hue-1-v1-c4"></td>
+                    <td class="bg-hue-1-v1-c5"></td>
+                    <td class="bg-hue-1-v1-c6"></td>
+                    <td class="bg-hue-1-v1-c7"></td>
+                    <td class="bg-hue-1-v1-c8"></td>
+                    <td class="bg-hue-1-v1-c9"></td>
+                    <td class="bg-hue-1-v1-c10"></td>
+                    <td class="bg-hue-1-v1-c11"></td>
+                    <td class="bg-hue-1-v1-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-0">V0</td>
+                    <td class="bg-hue-1-v0-c1"></td>
+                    <td class="bg-hue-1-v0-c2"></td>
+                    <td class="bg-hue-1-v0-c3"></td>
+                    <td class="bg-hue-1-v0-c4"></td>
+                    <td class="bg-hue-1-v0-c5"></td>
+                    <td class="bg-hue-1-v0-c6"></td>
+                    <td class="bg-hue-1-v0-c7"></td>
+                    <td class="bg-hue-1-v0-c8"></td>
+                    <td class="bg-hue-1-v0-c9"></td>
+                    <td class="bg-hue-1-v0-c10"></td>
+                    <td class="bg-hue-1-v0-c11"></td>
+                    <td class="bg-hue-1-v0-c12"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="tab__hue2" class="hide">
+        <table class="table demo-colorspectrum-table">
+            <tbody>
+                <tr>
+                    <td class="bg-value-10"></td>
+                    <td>C1</td>
+                    <td>C2</td>
+                    <td>C3</td>
+                    <td>C4</td>
+                    <td>C5</td>
+                    <td>C6</td>
+                    <td>C7</td>
+                    <td>C8</td>
+                    <td>C9</td>
+                    <td>C10</td>
+                    <td>C11</td>
+                    <td>C12</td>
+                </tr>
+                <tr>
+                    <td class="bg-value-10">V10</td>
+                    <td class="bg-hue-2-v10-c1"></td>
+                    <td class="bg-hue-2-v10-c2"></td>
+                    <td class="bg-hue-2-v10-c3"></td>
+                    <td class="bg-hue-2-v10-c4"></td>
+                    <td class="bg-hue-2-v10-c5"></td>
+                    <td class="bg-hue-2-v10-c6"></td>
+                    <td class="bg-hue-2-v10-c7"></td>
+                    <td class="bg-hue-2-v10-c8"></td>
+                    <td class="bg-hue-2-v10-c9"></td>
+                    <td class="bg-hue-2-v10-c10"></td>
+                    <td class="bg-hue-2-v10-c11"></td>
+                    <td class="bg-hue-2-v10-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-9">V9</td>
+                    <td class="bg-hue-2-v9-c1"></td>
+                    <td class="bg-hue-2-v9-c2"></td>
+                    <td class="bg-hue-2-v9-c3"></td>
+                    <td class="bg-hue-2-v9-c4"></td>
+                    <td class="bg-hue-2-v9-c5"></td>
+                    <td class="bg-hue-2-v9-c6"></td>
+                    <td class="bg-hue-2-v9-c7"></td>
+                    <td class="bg-hue-2-v9-c8"></td>
+                    <td class="bg-hue-2-v9-c9"></td>
+                    <td class="bg-hue-2-v9-c10"></td>
+                    <td class="bg-hue-2-v9-c11"></td>
+                    <td class="bg-hue-2-v9-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-8">V8</td>
+                    <td class="bg-hue-2-v8-c1"></td>
+                    <td class="bg-hue-2-v8-c2"></td>
+                    <td class="bg-hue-2-v8-c3"></td>
+                    <td class="bg-hue-2-v8-c4"></td>
+                    <td class="bg-hue-2-v8-c5"></td>
+                    <td class="bg-hue-2-v8-c6"></td>
+                    <td class="bg-hue-2-v8-c7"></td>
+                    <td class="bg-hue-2-v8-c8"></td>
+                    <td class="bg-hue-2-v8-c9"></td>
+                    <td class="bg-hue-2-v8-c10"></td>
+                    <td class="bg-hue-2-v8-c11"></td>
+                    <td class="bg-hue-2-v8-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-7">V7</td>
+                    <td class="bg-hue-2-v7-c1"></td>
+                    <td class="bg-hue-2-v7-c2"></td>
+                    <td class="bg-hue-2-v7-c3"></td>
+                    <td class="bg-hue-2-v7-c4"></td>
+                    <td class="bg-hue-2-v7-c5"></td>
+                    <td class="bg-hue-2-v7-c6"></td>
+                    <td class="bg-hue-2-v7-c7"></td>
+                    <td class="bg-hue-2-v7-c8"></td>
+                    <td class="bg-hue-2-v7-c9"></td>
+                    <td class="bg-hue-2-v7-c10"></td>
+                    <td class="bg-hue-2-v7-c11"></td>
+                    <td class="bg-hue-2-v7-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-6">V6</td>
+                    <td class="bg-hue-2-v6-c1"></td>
+                    <td class="bg-hue-2-v6-c2"></td>
+                    <td class="bg-hue-2-v6-c3"></td>
+                    <td class="bg-hue-2-v6-c4"></td>
+                    <td class="bg-hue-2-v6-c5"></td>
+                    <td class="bg-hue-2-v6-c6"></td>
+                    <td class="bg-hue-2-v6-c7"></td>
+                    <td class="bg-hue-2-v6-c8"></td>
+                    <td class="bg-hue-2-v6-c9"></td>
+                    <td class="bg-hue-2-v6-c10"></td>
+                    <td class="bg-hue-2-v6-c11"></td>
+                    <td class="bg-hue-2-v6-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-5">V5</td>
+                    <td class="bg-hue-2-v5-c1"></td>
+                    <td class="bg-hue-2-v5-c2"></td>
+                    <td class="bg-hue-2-v5-c3"></td>
+                    <td class="bg-hue-2-v5-c4"></td>
+                    <td class="bg-hue-2-v5-c5"></td>
+                    <td class="bg-hue-2-v5-c6"></td>
+                    <td class="bg-hue-2-v5-c7"></td>
+                    <td class="bg-hue-2-v5-c8"></td>
+                    <td class="bg-hue-2-v5-c9"></td>
+                    <td class="bg-hue-2-v5-c10"></td>
+                    <td class="bg-hue-2-v5-c11"></td>
+                    <td class="bg-hue-2-v5-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-4">V4</td>
+                    <td class="bg-hue-2-v4-c1"></td>
+                    <td class="bg-hue-2-v4-c2"></td>
+                    <td class="bg-hue-2-v4-c3"></td>
+                    <td class="bg-hue-2-v4-c4"></td>
+                    <td class="bg-hue-2-v4-c5"></td>
+                    <td class="bg-hue-2-v4-c6"></td>
+                    <td class="bg-hue-2-v4-c7"></td>
+                    <td class="bg-hue-2-v4-c8"></td>
+                    <td class="bg-hue-2-v4-c9"></td>
+                    <td class="bg-hue-2-v4-c10"></td>
+                    <td class="bg-hue-2-v4-c11"></td>
+                    <td class="bg-hue-2-v4-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-3">V3</td>
+                    <td class="bg-hue-2-v3-c1"></td>
+                    <td class="bg-hue-2-v3-c2"></td>
+                    <td class="bg-hue-2-v3-c3"></td>
+                    <td class="bg-hue-2-v3-c4"></td>
+                    <td class="bg-hue-2-v3-c5"></td>
+                    <td class="bg-hue-2-v3-c6"></td>
+                    <td class="bg-hue-2-v3-c7"></td>
+                    <td class="bg-hue-2-v3-c8"></td>
+                    <td class="bg-hue-2-v3-c9"></td>
+                    <td class="bg-hue-2-v3-c10"></td>
+                    <td class="bg-hue-2-v3-c11"></td>
+                    <td class="bg-hue-2-v3-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-2">V2</td>
+                    <td class="bg-hue-2-v2-c1"></td>
+                    <td class="bg-hue-2-v2-c2"></td>
+                    <td class="bg-hue-2-v2-c3"></td>
+                    <td class="bg-hue-2-v2-c4"></td>
+                    <td class="bg-hue-2-v2-c5"></td>
+                    <td class="bg-hue-2-v2-c6"></td>
+                    <td class="bg-hue-2-v2-c7"></td>
+                    <td class="bg-hue-2-v2-c8"></td>
+                    <td class="bg-hue-2-v2-c9"></td>
+                    <td class="bg-hue-2-v2-c10"></td>
+                    <td class="bg-hue-2-v2-c11"></td>
+                    <td class="bg-hue-2-v2-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-1">V1</td>
+                    <td class="bg-hue-2-v1-c1"></td>
+                    <td class="bg-hue-2-v1-c2"></td>
+                    <td class="bg-hue-2-v1-c3"></td>
+                    <td class="bg-hue-2-v1-c4"></td>
+                    <td class="bg-hue-2-v1-c5"></td>
+                    <td class="bg-hue-2-v1-c6"></td>
+                    <td class="bg-hue-2-v1-c7"></td>
+                    <td class="bg-hue-2-v1-c8"></td>
+                    <td class="bg-hue-2-v1-c9"></td>
+                    <td class="bg-hue-2-v1-c10"></td>
+                    <td class="bg-hue-2-v1-c11"></td>
+                    <td class="bg-hue-2-v1-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-0">V0</td>
+                    <td class="bg-hue-2-v0-c1"></td>
+                    <td class="bg-hue-2-v0-c2"></td>
+                    <td class="bg-hue-2-v0-c3"></td>
+                    <td class="bg-hue-2-v0-c4"></td>
+                    <td class="bg-hue-2-v0-c5"></td>
+                    <td class="bg-hue-2-v0-c6"></td>
+                    <td class="bg-hue-2-v0-c7"></td>
+                    <td class="bg-hue-2-v0-c8"></td>
+                    <td class="bg-hue-2-v0-c9"></td>
+                    <td class="bg-hue-2-v0-c10"></td>
+                    <td class="bg-hue-2-v0-c11"></td>
+                    <td class="bg-hue-2-v0-c12"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="tab__hue3" class="hide">
+        <table class="table demo-colorspectrum-table">
+            <tbody>
+                <tr>
+                    <td class="bg-value-10"></td>
+                    <td>C1</td>
+                    <td>C2</td>
+                    <td>C3</td>
+                    <td>C4</td>
+                    <td>C5</td>
+                    <td>C6</td>
+                    <td>C7</td>
+                    <td>C8</td>
+                    <td>C9</td>
+                    <td>C10</td>
+                    <td>C11</td>
+                    <td>C12</td>
+                </tr>
+                <tr>
+                    <td class="bg-value-10">V10</td>
+                    <td class="bg-hue-3-v10-c1"></td>
+                    <td class="bg-hue-3-v10-c2"></td>
+                    <td class="bg-hue-3-v10-c3"></td>
+                    <td class="bg-hue-3-v10-c4"></td>
+                    <td class="bg-hue-3-v10-c5"></td>
+                    <td class="bg-hue-3-v10-c6"></td>
+                    <td class="bg-hue-3-v10-c7"></td>
+                    <td class="bg-hue-3-v10-c8"></td>
+                    <td class="bg-hue-3-v10-c9"></td>
+                    <td class="bg-hue-3-v10-c10"></td>
+                    <td class="bg-hue-3-v10-c11"></td>
+                    <td class="bg-hue-3-v10-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-9">V9</td>
+                    <td class="bg-hue-3-v9-c1"></td>
+                    <td class="bg-hue-3-v9-c2"></td>
+                    <td class="bg-hue-3-v9-c3"></td>
+                    <td class="bg-hue-3-v9-c4"></td>
+                    <td class="bg-hue-3-v9-c5"></td>
+                    <td class="bg-hue-3-v9-c6"></td>
+                    <td class="bg-hue-3-v9-c7"></td>
+                    <td class="bg-hue-3-v9-c8"></td>
+                    <td class="bg-hue-3-v9-c9"></td>
+                    <td class="bg-hue-3-v9-c10"></td>
+                    <td class="bg-hue-3-v9-c11"></td>
+                    <td class="bg-hue-3-v9-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-8">V8</td>
+                    <td class="bg-hue-3-v8-c1"></td>
+                    <td class="bg-hue-3-v8-c2"></td>
+                    <td class="bg-hue-3-v8-c3"></td>
+                    <td class="bg-hue-3-v8-c4"></td>
+                    <td class="bg-hue-3-v8-c5"></td>
+                    <td class="bg-hue-3-v8-c6"></td>
+                    <td class="bg-hue-3-v8-c7"></td>
+                    <td class="bg-hue-3-v8-c8"></td>
+                    <td class="bg-hue-3-v8-c9"></td>
+                    <td class="bg-hue-3-v8-c10"></td>
+                    <td class="bg-hue-3-v8-c11"></td>
+                    <td class="bg-hue-3-v8-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-7">V7</td>
+                    <td class="bg-hue-3-v7-c1"></td>
+                    <td class="bg-hue-3-v7-c2"></td>
+                    <td class="bg-hue-3-v7-c3"></td>
+                    <td class="bg-hue-3-v7-c4"></td>
+                    <td class="bg-hue-3-v7-c5"></td>
+                    <td class="bg-hue-3-v7-c6"></td>
+                    <td class="bg-hue-3-v7-c7"></td>
+                    <td class="bg-hue-3-v7-c8"></td>
+                    <td class="bg-hue-3-v7-c9"></td>
+                    <td class="bg-hue-3-v7-c10"></td>
+                    <td class="bg-hue-3-v7-c11"></td>
+                    <td class="bg-hue-3-v7-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-6">V6</td>
+                    <td class="bg-hue-3-v6-c1"></td>
+                    <td class="bg-hue-3-v6-c2"></td>
+                    <td class="bg-hue-3-v6-c3"></td>
+                    <td class="bg-hue-3-v6-c4"></td>
+                    <td class="bg-hue-3-v6-c5"></td>
+                    <td class="bg-hue-3-v6-c6"></td>
+                    <td class="bg-hue-3-v6-c7"></td>
+                    <td class="bg-hue-3-v6-c8"></td>
+                    <td class="bg-hue-3-v6-c9"></td>
+                    <td class="bg-hue-3-v6-c10"></td>
+                    <td class="bg-hue-3-v6-c11"></td>
+                    <td class="bg-hue-3-v6-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-5">V5</td>
+                    <td class="bg-hue-3-v5-c1"></td>
+                    <td class="bg-hue-3-v5-c2"></td>
+                    <td class="bg-hue-3-v5-c3"></td>
+                    <td class="bg-hue-3-v5-c4"></td>
+                    <td class="bg-hue-3-v5-c5"></td>
+                    <td class="bg-hue-3-v5-c6"></td>
+                    <td class="bg-hue-3-v5-c7"></td>
+                    <td class="bg-hue-3-v5-c8"></td>
+                    <td class="bg-hue-3-v5-c9"></td>
+                    <td class="bg-hue-3-v5-c10"></td>
+                    <td class="bg-hue-3-v5-c11"></td>
+                    <td class="bg-hue-3-v5-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-4">V4</td>
+                    <td class="bg-hue-3-v4-c1"></td>
+                    <td class="bg-hue-3-v4-c2"></td>
+                    <td class="bg-hue-3-v4-c3"></td>
+                    <td class="bg-hue-3-v4-c4"></td>
+                    <td class="bg-hue-3-v4-c5"></td>
+                    <td class="bg-hue-3-v4-c6"></td>
+                    <td class="bg-hue-3-v4-c7"></td>
+                    <td class="bg-hue-3-v4-c8"></td>
+                    <td class="bg-hue-3-v4-c9"></td>
+                    <td class="bg-hue-3-v4-c10"></td>
+                    <td class="bg-hue-3-v4-c11"></td>
+                    <td class="bg-hue-3-v4-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-3">V3</td>
+                    <td class="bg-hue-3-v3-c1"></td>
+                    <td class="bg-hue-3-v3-c2"></td>
+                    <td class="bg-hue-3-v3-c3"></td>
+                    <td class="bg-hue-3-v3-c4"></td>
+                    <td class="bg-hue-3-v3-c5"></td>
+                    <td class="bg-hue-3-v3-c6"></td>
+                    <td class="bg-hue-3-v3-c7"></td>
+                    <td class="bg-hue-3-v3-c8"></td>
+                    <td class="bg-hue-3-v3-c9"></td>
+                    <td class="bg-hue-3-v3-c10"></td>
+                    <td class="bg-hue-3-v3-c11"></td>
+                    <td class="bg-hue-3-v3-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-2">V2</td>
+                    <td class="bg-hue-3-v2-c1"></td>
+                    <td class="bg-hue-3-v2-c2"></td>
+                    <td class="bg-hue-3-v2-c3"></td>
+                    <td class="bg-hue-3-v2-c4"></td>
+                    <td class="bg-hue-3-v2-c5"></td>
+                    <td class="bg-hue-3-v2-c6"></td>
+                    <td class="bg-hue-3-v2-c7"></td>
+                    <td class="bg-hue-3-v2-c8"></td>
+                    <td class="bg-hue-3-v2-c9"></td>
+                    <td class="bg-hue-3-v2-c10"></td>
+                    <td class="bg-hue-3-v2-c11"></td>
+                    <td class="bg-hue-3-v2-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-1">V1</td>
+                    <td class="bg-hue-3-v1-c1"></td>
+                    <td class="bg-hue-3-v1-c2"></td>
+                    <td class="bg-hue-3-v1-c3"></td>
+                    <td class="bg-hue-3-v1-c4"></td>
+                    <td class="bg-hue-3-v1-c5"></td>
+                    <td class="bg-hue-3-v1-c6"></td>
+                    <td class="bg-hue-3-v1-c7"></td>
+                    <td class="bg-hue-3-v1-c8"></td>
+                    <td class="bg-hue-3-v1-c9"></td>
+                    <td class="bg-hue-3-v1-c10"></td>
+                    <td class="bg-hue-3-v1-c11"></td>
+                    <td class="bg-hue-3-v1-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-0">V0</td>
+                    <td class="bg-hue-3-v0-c1"></td>
+                    <td class="bg-hue-3-v0-c2"></td>
+                    <td class="bg-hue-3-v0-c3"></td>
+                    <td class="bg-hue-3-v0-c4"></td>
+                    <td class="bg-hue-3-v0-c5"></td>
+                    <td class="bg-hue-3-v0-c6"></td>
+                    <td class="bg-hue-3-v0-c7"></td>
+                    <td class="bg-hue-3-v0-c8"></td>
+                    <td class="bg-hue-3-v0-c9"></td>
+                    <td class="bg-hue-3-v0-c10"></td>
+                    <td class="bg-hue-3-v0-c11"></td>
+                    <td class="bg-hue-3-v0-c12"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="tab__hue4" class="hide">
+        <table class="table demo-colorspectrum-table">
+            <tbody>
+                <tr>
+                    <td class="bg-value-10"></td>
+                    <td>C1</td>
+                    <td>C2</td>
+                    <td>C3</td>
+                    <td>C4</td>
+                    <td>C5</td>
+                    <td>C6</td>
+                    <td>C7</td>
+                    <td>C8</td>
+                    <td>C9</td>
+                    <td>C10</td>
+                    <td>C11</td>
+                    <td>C12</td>
+                </tr>
+                <tr>
+                    <td class="bg-value-10">V10</td>
+                    <td class="bg-hue-4-v10-c1"></td>
+                    <td class="bg-hue-4-v10-c2"></td>
+                    <td class="bg-hue-4-v10-c3"></td>
+                    <td class="bg-hue-4-v10-c4"></td>
+                    <td class="bg-hue-4-v10-c5"></td>
+                    <td class="bg-hue-4-v10-c6"></td>
+                    <td class="bg-hue-4-v10-c7"></td>
+                    <td class="bg-hue-4-v10-c8"></td>
+                    <td class="bg-hue-4-v10-c9"></td>
+                    <td class="bg-hue-4-v10-c10"></td>
+                    <td class="bg-hue-4-v10-c11"></td>
+                    <td class="bg-hue-4-v10-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-9">V9</td>
+                    <td class="bg-hue-4-v9-c1"></td>
+                    <td class="bg-hue-4-v9-c2"></td>
+                    <td class="bg-hue-4-v9-c3"></td>
+                    <td class="bg-hue-4-v9-c4"></td>
+                    <td class="bg-hue-4-v9-c5"></td>
+                    <td class="bg-hue-4-v9-c6"></td>
+                    <td class="bg-hue-4-v9-c7"></td>
+                    <td class="bg-hue-4-v9-c8"></td>
+                    <td class="bg-hue-4-v9-c9"></td>
+                    <td class="bg-hue-4-v9-c10"></td>
+                    <td class="bg-hue-4-v9-c11"></td>
+                    <td class="bg-hue-4-v9-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-8">V8</td>
+                    <td class="bg-hue-4-v8-c1"></td>
+                    <td class="bg-hue-4-v8-c2"></td>
+                    <td class="bg-hue-4-v8-c3"></td>
+                    <td class="bg-hue-4-v8-c4"></td>
+                    <td class="bg-hue-4-v8-c5"></td>
+                    <td class="bg-hue-4-v8-c6"></td>
+                    <td class="bg-hue-4-v8-c7"></td>
+                    <td class="bg-hue-4-v8-c8"></td>
+                    <td class="bg-hue-4-v8-c9"></td>
+                    <td class="bg-hue-4-v8-c10"></td>
+                    <td class="bg-hue-4-v8-c11"></td>
+                    <td class="bg-hue-4-v8-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-7">V7</td>
+                    <td class="bg-hue-4-v7-c1"></td>
+                    <td class="bg-hue-4-v7-c2"></td>
+                    <td class="bg-hue-4-v7-c3"></td>
+                    <td class="bg-hue-4-v7-c4"></td>
+                    <td class="bg-hue-4-v7-c5"></td>
+                    <td class="bg-hue-4-v7-c6"></td>
+                    <td class="bg-hue-4-v7-c7"></td>
+                    <td class="bg-hue-4-v7-c8"></td>
+                    <td class="bg-hue-4-v7-c9"></td>
+                    <td class="bg-hue-4-v7-c10"></td>
+                    <td class="bg-hue-4-v7-c11"></td>
+                    <td class="bg-hue-4-v7-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-6">V6</td>
+                    <td class="bg-hue-4-v6-c1"></td>
+                    <td class="bg-hue-4-v6-c2"></td>
+                    <td class="bg-hue-4-v6-c3"></td>
+                    <td class="bg-hue-4-v6-c4"></td>
+                    <td class="bg-hue-4-v6-c5"></td>
+                    <td class="bg-hue-4-v6-c6"></td>
+                    <td class="bg-hue-4-v6-c7"></td>
+                    <td class="bg-hue-4-v6-c8"></td>
+                    <td class="bg-hue-4-v6-c9"></td>
+                    <td class="bg-hue-4-v6-c10"></td>
+                    <td class="bg-hue-4-v6-c11"></td>
+                    <td class="bg-hue-4-v6-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-5">V5</td>
+                    <td class="bg-hue-4-v5-c1"></td>
+                    <td class="bg-hue-4-v5-c2"></td>
+                    <td class="bg-hue-4-v5-c3"></td>
+                    <td class="bg-hue-4-v5-c4"></td>
+                    <td class="bg-hue-4-v5-c5"></td>
+                    <td class="bg-hue-4-v5-c6"></td>
+                    <td class="bg-hue-4-v5-c7"></td>
+                    <td class="bg-hue-4-v5-c8"></td>
+                    <td class="bg-hue-4-v5-c9"></td>
+                    <td class="bg-hue-4-v5-c10"></td>
+                    <td class="bg-hue-4-v5-c11"></td>
+                    <td class="bg-hue-4-v5-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-4">V4</td>
+                    <td class="bg-hue-4-v4-c1"></td>
+                    <td class="bg-hue-4-v4-c2"></td>
+                    <td class="bg-hue-4-v4-c3"></td>
+                    <td class="bg-hue-4-v4-c4"></td>
+                    <td class="bg-hue-4-v4-c5"></td>
+                    <td class="bg-hue-4-v4-c6"></td>
+                    <td class="bg-hue-4-v4-c7"></td>
+                    <td class="bg-hue-4-v4-c8"></td>
+                    <td class="bg-hue-4-v4-c9"></td>
+                    <td class="bg-hue-4-v4-c10"></td>
+                    <td class="bg-hue-4-v4-c11"></td>
+                    <td class="bg-hue-4-v4-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-3">V3</td>
+                    <td class="bg-hue-4-v3-c1"></td>
+                    <td class="bg-hue-4-v3-c2"></td>
+                    <td class="bg-hue-4-v3-c3"></td>
+                    <td class="bg-hue-4-v3-c4"></td>
+                    <td class="bg-hue-4-v3-c5"></td>
+                    <td class="bg-hue-4-v3-c6"></td>
+                    <td class="bg-hue-4-v3-c7"></td>
+                    <td class="bg-hue-4-v3-c8"></td>
+                    <td class="bg-hue-4-v3-c9"></td>
+                    <td class="bg-hue-4-v3-c10"></td>
+                    <td class="bg-hue-4-v3-c11"></td>
+                    <td class="bg-hue-4-v3-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-2">V2</td>
+                    <td class="bg-hue-4-v2-c1"></td>
+                    <td class="bg-hue-4-v2-c2"></td>
+                    <td class="bg-hue-4-v2-c3"></td>
+                    <td class="bg-hue-4-v2-c4"></td>
+                    <td class="bg-hue-4-v2-c5"></td>
+                    <td class="bg-hue-4-v2-c6"></td>
+                    <td class="bg-hue-4-v2-c7"></td>
+                    <td class="bg-hue-4-v2-c8"></td>
+                    <td class="bg-hue-4-v2-c9"></td>
+                    <td class="bg-hue-4-v2-c10"></td>
+                    <td class="bg-hue-4-v2-c11"></td>
+                    <td class="bg-hue-4-v2-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-1">V1</td>
+                    <td class="bg-hue-4-v1-c1"></td>
+                    <td class="bg-hue-4-v1-c2"></td>
+                    <td class="bg-hue-4-v1-c3"></td>
+                    <td class="bg-hue-4-v1-c4"></td>
+                    <td class="bg-hue-4-v1-c5"></td>
+                    <td class="bg-hue-4-v1-c6"></td>
+                    <td class="bg-hue-4-v1-c7"></td>
+                    <td class="bg-hue-4-v1-c8"></td>
+                    <td class="bg-hue-4-v1-c9"></td>
+                    <td class="bg-hue-4-v1-c10"></td>
+                    <td class="bg-hue-4-v1-c11"></td>
+                    <td class="bg-hue-4-v1-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-0">V0</td>
+                    <td class="bg-hue-4-v0-c1"></td>
+                    <td class="bg-hue-4-v0-c2"></td>
+                    <td class="bg-hue-4-v0-c3"></td>
+                    <td class="bg-hue-4-v0-c4"></td>
+                    <td class="bg-hue-4-v0-c5"></td>
+                    <td class="bg-hue-4-v0-c6"></td>
+                    <td class="bg-hue-4-v0-c7"></td>
+                    <td class="bg-hue-4-v0-c8"></td>
+                    <td class="bg-hue-4-v0-c9"></td>
+                    <td class="bg-hue-4-v0-c10"></td>
+                    <td class="bg-hue-4-v0-c11"></td>
+                    <td class="bg-hue-4-v0-c12"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="tab__hue5" class="hide">
+        <table class="table demo-colorspectrum-table">
+            <tbody>
+                <tr>
+                    <td class="bg-value-10"></td>
+                    <td>C1</td>
+                    <td>C2</td>
+                    <td>C3</td>
+                    <td>C4</td>
+                    <td>C5</td>
+                    <td>C6</td>
+                    <td>C7</td>
+                    <td>C8</td>
+                    <td>C9</td>
+                    <td>C10</td>
+                    <td>C11</td>
+                    <td>C12</td>
+                </tr>
+                <tr>
+                    <td class="bg-value-10">V10</td>
+                    <td class="bg-hue-5-v10-c1"></td>
+                    <td class="bg-hue-5-v10-c2"></td>
+                    <td class="bg-hue-5-v10-c3"></td>
+                    <td class="bg-hue-5-v10-c4"></td>
+                    <td class="bg-hue-5-v10-c5"></td>
+                    <td class="bg-hue-5-v10-c6"></td>
+                    <td class="bg-hue-5-v10-c7"></td>
+                    <td class="bg-hue-5-v10-c8"></td>
+                    <td class="bg-hue-5-v10-c9"></td>
+                    <td class="bg-hue-5-v10-c10"></td>
+                    <td class="bg-hue-5-v10-c11"></td>
+                    <td class="bg-hue-5-v10-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-9">V9</td>
+                    <td class="bg-hue-5-v9-c1"></td>
+                    <td class="bg-hue-5-v9-c2"></td>
+                    <td class="bg-hue-5-v9-c3"></td>
+                    <td class="bg-hue-5-v9-c4"></td>
+                    <td class="bg-hue-5-v9-c5"></td>
+                    <td class="bg-hue-5-v9-c6"></td>
+                    <td class="bg-hue-5-v9-c7"></td>
+                    <td class="bg-hue-5-v9-c8"></td>
+                    <td class="bg-hue-5-v9-c9"></td>
+                    <td class="bg-hue-5-v9-c10"></td>
+                    <td class="bg-hue-5-v9-c11"></td>
+                    <td class="bg-hue-5-v9-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-8">V8</td>
+                    <td class="bg-hue-5-v8-c1"></td>
+                    <td class="bg-hue-5-v8-c2"></td>
+                    <td class="bg-hue-5-v8-c3"></td>
+                    <td class="bg-hue-5-v8-c4"></td>
+                    <td class="bg-hue-5-v8-c5"></td>
+                    <td class="bg-hue-5-v8-c6"></td>
+                    <td class="bg-hue-5-v8-c7"></td>
+                    <td class="bg-hue-5-v8-c8"></td>
+                    <td class="bg-hue-5-v8-c9"></td>
+                    <td class="bg-hue-5-v8-c10"></td>
+                    <td class="bg-hue-5-v8-c11"></td>
+                    <td class="bg-hue-5-v8-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-7">V7</td>
+                    <td class="bg-hue-5-v7-c1"></td>
+                    <td class="bg-hue-5-v7-c2"></td>
+                    <td class="bg-hue-5-v7-c3"></td>
+                    <td class="bg-hue-5-v7-c4"></td>
+                    <td class="bg-hue-5-v7-c5"></td>
+                    <td class="bg-hue-5-v7-c6"></td>
+                    <td class="bg-hue-5-v7-c7"></td>
+                    <td class="bg-hue-5-v7-c8"></td>
+                    <td class="bg-hue-5-v7-c9"></td>
+                    <td class="bg-hue-5-v7-c10"></td>
+                    <td class="bg-hue-5-v7-c11"></td>
+                    <td class="bg-hue-5-v7-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-6">V6</td>
+                    <td class="bg-hue-5-v6-c1"></td>
+                    <td class="bg-hue-5-v6-c2"></td>
+                    <td class="bg-hue-5-v6-c3"></td>
+                    <td class="bg-hue-5-v6-c4"></td>
+                    <td class="bg-hue-5-v6-c5"></td>
+                    <td class="bg-hue-5-v6-c6"></td>
+                    <td class="bg-hue-5-v6-c7"></td>
+                    <td class="bg-hue-5-v6-c8"></td>
+                    <td class="bg-hue-5-v6-c9"></td>
+                    <td class="bg-hue-5-v6-c10"></td>
+                    <td class="bg-hue-5-v6-c11"></td>
+                    <td class="bg-hue-5-v6-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-5">V5</td>
+                    <td class="bg-hue-5-v5-c1"></td>
+                    <td class="bg-hue-5-v5-c2"></td>
+                    <td class="bg-hue-5-v5-c3"></td>
+                    <td class="bg-hue-5-v5-c4"></td>
+                    <td class="bg-hue-5-v5-c5"></td>
+                    <td class="bg-hue-5-v5-c6"></td>
+                    <td class="bg-hue-5-v5-c7"></td>
+                    <td class="bg-hue-5-v5-c8"></td>
+                    <td class="bg-hue-5-v5-c9"></td>
+                    <td class="bg-hue-5-v5-c10"></td>
+                    <td class="bg-hue-5-v5-c11"></td>
+                    <td class="bg-hue-5-v5-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-4">V4</td>
+                    <td class="bg-hue-5-v4-c1"></td>
+                    <td class="bg-hue-5-v4-c2"></td>
+                    <td class="bg-hue-5-v4-c3"></td>
+                    <td class="bg-hue-5-v4-c4"></td>
+                    <td class="bg-hue-5-v4-c5"></td>
+                    <td class="bg-hue-5-v4-c6"></td>
+                    <td class="bg-hue-5-v4-c7"></td>
+                    <td class="bg-hue-5-v4-c8"></td>
+                    <td class="bg-hue-5-v4-c9"></td>
+                    <td class="bg-hue-5-v4-c10"></td>
+                    <td class="bg-hue-5-v4-c11"></td>
+                    <td class="bg-hue-5-v4-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-3">V3</td>
+                    <td class="bg-hue-5-v3-c1"></td>
+                    <td class="bg-hue-5-v3-c2"></td>
+                    <td class="bg-hue-5-v3-c3"></td>
+                    <td class="bg-hue-5-v3-c4"></td>
+                    <td class="bg-hue-5-v3-c5"></td>
+                    <td class="bg-hue-5-v3-c6"></td>
+                    <td class="bg-hue-5-v3-c7"></td>
+                    <td class="bg-hue-5-v3-c8"></td>
+                    <td class="bg-hue-5-v3-c9"></td>
+                    <td class="bg-hue-5-v3-c10"></td>
+                    <td class="bg-hue-5-v3-c11"></td>
+                    <td class="bg-hue-5-v3-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-2">V2</td>
+                    <td class="bg-hue-5-v2-c1"></td>
+                    <td class="bg-hue-5-v2-c2"></td>
+                    <td class="bg-hue-5-v2-c3"></td>
+                    <td class="bg-hue-5-v2-c4"></td>
+                    <td class="bg-hue-5-v2-c5"></td>
+                    <td class="bg-hue-5-v2-c6"></td>
+                    <td class="bg-hue-5-v2-c7"></td>
+                    <td class="bg-hue-5-v2-c8"></td>
+                    <td class="bg-hue-5-v2-c9"></td>
+                    <td class="bg-hue-5-v2-c10"></td>
+                    <td class="bg-hue-5-v2-c11"></td>
+                    <td class="bg-hue-5-v2-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-1">V1</td>
+                    <td class="bg-hue-5-v1-c1"></td>
+                    <td class="bg-hue-5-v1-c2"></td>
+                    <td class="bg-hue-5-v1-c3"></td>
+                    <td class="bg-hue-5-v1-c4"></td>
+                    <td class="bg-hue-5-v1-c5"></td>
+                    <td class="bg-hue-5-v1-c6"></td>
+                    <td class="bg-hue-5-v1-c7"></td>
+                    <td class="bg-hue-5-v1-c8"></td>
+                    <td class="bg-hue-5-v1-c9"></td>
+                    <td class="bg-hue-5-v1-c10"></td>
+                    <td class="bg-hue-5-v1-c11"></td>
+                    <td class="bg-hue-5-v1-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-0">V0</td>
+                    <td class="bg-hue-5-v0-c1"></td>
+                    <td class="bg-hue-5-v0-c2"></td>
+                    <td class="bg-hue-5-v0-c3"></td>
+                    <td class="bg-hue-5-v0-c4"></td>
+                    <td class="bg-hue-5-v0-c5"></td>
+                    <td class="bg-hue-5-v0-c6"></td>
+                    <td class="bg-hue-5-v0-c7"></td>
+                    <td class="bg-hue-5-v0-c8"></td>
+                    <td class="bg-hue-5-v0-c9"></td>
+                    <td class="bg-hue-5-v0-c10"></td>
+                    <td class="bg-hue-5-v0-c11"></td>
+                    <td class="bg-hue-5-v0-c12"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="tab__hue6" class="hide">
+        <table class="table demo-colorspectrum-table">
+            <tbody>
+                <tr>
+                    <td class="bg-value-10"></td>
+                    <td>C1</td>
+                    <td>C2</td>
+                    <td>C3</td>
+                    <td>C4</td>
+                    <td>C5</td>
+                    <td>C6</td>
+                    <td>C7</td>
+                    <td>C8</td>
+                    <td>C9</td>
+                    <td>C10</td>
+                    <td>C11</td>
+                    <td>C12</td>
+                </tr>
+                <tr>
+                    <td class="bg-value-10">V10</td>
+                    <td class="bg-hue-6-v10-c1"></td>
+                    <td class="bg-hue-6-v10-c2"></td>
+                    <td class="bg-hue-6-v10-c3"></td>
+                    <td class="bg-hue-6-v10-c4"></td>
+                    <td class="bg-hue-6-v10-c5"></td>
+                    <td class="bg-hue-6-v10-c6"></td>
+                    <td class="bg-hue-6-v10-c7"></td>
+                    <td class="bg-hue-6-v10-c8"></td>
+                    <td class="bg-hue-6-v10-c9"></td>
+                    <td class="bg-hue-6-v10-c10"></td>
+                    <td class="bg-hue-6-v10-c11"></td>
+                    <td class="bg-hue-6-v10-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-9">V9</td>
+                    <td class="bg-hue-6-v9-c1"></td>
+                    <td class="bg-hue-6-v9-c2"></td>
+                    <td class="bg-hue-6-v9-c3"></td>
+                    <td class="bg-hue-6-v9-c4"></td>
+                    <td class="bg-hue-6-v9-c5"></td>
+                    <td class="bg-hue-6-v9-c6"></td>
+                    <td class="bg-hue-6-v9-c7"></td>
+                    <td class="bg-hue-6-v9-c8"></td>
+                    <td class="bg-hue-6-v9-c9"></td>
+                    <td class="bg-hue-6-v9-c10"></td>
+                    <td class="bg-hue-6-v9-c11"></td>
+                    <td class="bg-hue-6-v9-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-8">V8</td>
+                    <td class="bg-hue-6-v8-c1"></td>
+                    <td class="bg-hue-6-v8-c2"></td>
+                    <td class="bg-hue-6-v8-c3"></td>
+                    <td class="bg-hue-6-v8-c4"></td>
+                    <td class="bg-hue-6-v8-c5"></td>
+                    <td class="bg-hue-6-v8-c6"></td>
+                    <td class="bg-hue-6-v8-c7"></td>
+                    <td class="bg-hue-6-v8-c8"></td>
+                    <td class="bg-hue-6-v8-c9"></td>
+                    <td class="bg-hue-6-v8-c10"></td>
+                    <td class="bg-hue-6-v8-c11"></td>
+                    <td class="bg-hue-6-v8-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-7">V7</td>
+                    <td class="bg-hue-6-v7-c1"></td>
+                    <td class="bg-hue-6-v7-c2"></td>
+                    <td class="bg-hue-6-v7-c3"></td>
+                    <td class="bg-hue-6-v7-c4"></td>
+                    <td class="bg-hue-6-v7-c5"></td>
+                    <td class="bg-hue-6-v7-c6"></td>
+                    <td class="bg-hue-6-v7-c7"></td>
+                    <td class="bg-hue-6-v7-c8"></td>
+                    <td class="bg-hue-6-v7-c9"></td>
+                    <td class="bg-hue-6-v7-c10"></td>
+                    <td class="bg-hue-6-v7-c11"></td>
+                    <td class="bg-hue-6-v7-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-6">V6</td>
+                    <td class="bg-hue-6-v6-c1"></td>
+                    <td class="bg-hue-6-v6-c2"></td>
+                    <td class="bg-hue-6-v6-c3"></td>
+                    <td class="bg-hue-6-v6-c4"></td>
+                    <td class="bg-hue-6-v6-c5"></td>
+                    <td class="bg-hue-6-v6-c6"></td>
+                    <td class="bg-hue-6-v6-c7"></td>
+                    <td class="bg-hue-6-v6-c8"></td>
+                    <td class="bg-hue-6-v6-c9"></td>
+                    <td class="bg-hue-6-v6-c10"></td>
+                    <td class="bg-hue-6-v6-c11"></td>
+                    <td class="bg-hue-6-v6-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-5">V5</td>
+                    <td class="bg-hue-6-v5-c1"></td>
+                    <td class="bg-hue-6-v5-c2"></td>
+                    <td class="bg-hue-6-v5-c3"></td>
+                    <td class="bg-hue-6-v5-c4"></td>
+                    <td class="bg-hue-6-v5-c5"></td>
+                    <td class="bg-hue-6-v5-c6"></td>
+                    <td class="bg-hue-6-v5-c7"></td>
+                    <td class="bg-hue-6-v5-c8"></td>
+                    <td class="bg-hue-6-v5-c9"></td>
+                    <td class="bg-hue-6-v5-c10"></td>
+                    <td class="bg-hue-6-v5-c11"></td>
+                    <td class="bg-hue-6-v5-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-4">V4</td>
+                    <td class="bg-hue-6-v4-c1"></td>
+                    <td class="bg-hue-6-v4-c2"></td>
+                    <td class="bg-hue-6-v4-c3"></td>
+                    <td class="bg-hue-6-v4-c4"></td>
+                    <td class="bg-hue-6-v4-c5"></td>
+                    <td class="bg-hue-6-v4-c6"></td>
+                    <td class="bg-hue-6-v4-c7"></td>
+                    <td class="bg-hue-6-v4-c8"></td>
+                    <td class="bg-hue-6-v4-c9"></td>
+                    <td class="bg-hue-6-v4-c10"></td>
+                    <td class="bg-hue-6-v4-c11"></td>
+                    <td class="bg-hue-6-v4-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-3">V3</td>
+                    <td class="bg-hue-6-v3-c1"></td>
+                    <td class="bg-hue-6-v3-c2"></td>
+                    <td class="bg-hue-6-v3-c3"></td>
+                    <td class="bg-hue-6-v3-c4"></td>
+                    <td class="bg-hue-6-v3-c5"></td>
+                    <td class="bg-hue-6-v3-c6"></td>
+                    <td class="bg-hue-6-v3-c7"></td>
+                    <td class="bg-hue-6-v3-c8"></td>
+                    <td class="bg-hue-6-v3-c9"></td>
+                    <td class="bg-hue-6-v3-c10"></td>
+                    <td class="bg-hue-6-v3-c11"></td>
+                    <td class="bg-hue-6-v3-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-2">V2</td>
+                    <td class="bg-hue-6-v2-c1"></td>
+                    <td class="bg-hue-6-v2-c2"></td>
+                    <td class="bg-hue-6-v2-c3"></td>
+                    <td class="bg-hue-6-v2-c4"></td>
+                    <td class="bg-hue-6-v2-c5"></td>
+                    <td class="bg-hue-6-v2-c6"></td>
+                    <td class="bg-hue-6-v2-c7"></td>
+                    <td class="bg-hue-6-v2-c8"></td>
+                    <td class="bg-hue-6-v2-c9"></td>
+                    <td class="bg-hue-6-v2-c10"></td>
+                    <td class="bg-hue-6-v2-c11"></td>
+                    <td class="bg-hue-6-v2-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-1">V1</td>
+                    <td class="bg-hue-6-v1-c1"></td>
+                    <td class="bg-hue-6-v1-c2"></td>
+                    <td class="bg-hue-6-v1-c3"></td>
+                    <td class="bg-hue-6-v1-c4"></td>
+                    <td class="bg-hue-6-v1-c5"></td>
+                    <td class="bg-hue-6-v1-c6"></td>
+                    <td class="bg-hue-6-v1-c7"></td>
+                    <td class="bg-hue-6-v1-c8"></td>
+                    <td class="bg-hue-6-v1-c9"></td>
+                    <td class="bg-hue-6-v1-c10"></td>
+                    <td class="bg-hue-6-v1-c11"></td>
+                    <td class="bg-hue-6-v1-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-0">V0</td>
+                    <td class="bg-hue-6-v0-c1"></td>
+                    <td class="bg-hue-6-v0-c2"></td>
+                    <td class="bg-hue-6-v0-c3"></td>
+                    <td class="bg-hue-6-v0-c4"></td>
+                    <td class="bg-hue-6-v0-c5"></td>
+                    <td class="bg-hue-6-v0-c6"></td>
+                    <td class="bg-hue-6-v0-c7"></td>
+                    <td class="bg-hue-6-v0-c8"></td>
+                    <td class="bg-hue-6-v0-c9"></td>
+                    <td class="bg-hue-6-v0-c10"></td>
+                    <td class="bg-hue-6-v0-c11"></td>
+                    <td class="bg-hue-6-v0-c12"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="tab__hue7" class="hide">
+        <table class="table demo-colorspectrum-table">
+            <tbody>
+                <tr>
+                    <td class="bg-value-10"></td>
+                    <td>C1</td>
+                    <td>C2</td>
+                    <td>C3</td>
+                    <td>C4</td>
+                    <td>C5</td>
+                    <td>C6</td>
+                    <td>C7</td>
+                    <td>C8</td>
+                    <td>C9</td>
+                    <td>C10</td>
+                    <td>C11</td>
+                    <td>C12</td>
+                </tr>
+                <tr>
+                    <td class="bg-value-10">V10</td>
+                    <td class="bg-hue-7-v10-c1"></td>
+                    <td class="bg-hue-7-v10-c2"></td>
+                    <td class="bg-hue-7-v10-c3"></td>
+                    <td class="bg-hue-7-v10-c4"></td>
+                    <td class="bg-hue-7-v10-c5"></td>
+                    <td class="bg-hue-7-v10-c6"></td>
+                    <td class="bg-hue-7-v10-c7"></td>
+                    <td class="bg-hue-7-v10-c8"></td>
+                    <td class="bg-hue-7-v10-c9"></td>
+                    <td class="bg-hue-7-v10-c10"></td>
+                    <td class="bg-hue-7-v10-c11"></td>
+                    <td class="bg-hue-7-v10-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-9">V9</td>
+                    <td class="bg-hue-7-v9-c1"></td>
+                    <td class="bg-hue-7-v9-c2"></td>
+                    <td class="bg-hue-7-v9-c3"></td>
+                    <td class="bg-hue-7-v9-c4"></td>
+                    <td class="bg-hue-7-v9-c5"></td>
+                    <td class="bg-hue-7-v9-c6"></td>
+                    <td class="bg-hue-7-v9-c7"></td>
+                    <td class="bg-hue-7-v9-c8"></td>
+                    <td class="bg-hue-7-v9-c9"></td>
+                    <td class="bg-hue-7-v9-c10"></td>
+                    <td class="bg-hue-7-v9-c11"></td>
+                    <td class="bg-hue-7-v9-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-8">V8</td>
+                    <td class="bg-hue-7-v8-c1"></td>
+                    <td class="bg-hue-7-v8-c2"></td>
+                    <td class="bg-hue-7-v8-c3"></td>
+                    <td class="bg-hue-7-v8-c4"></td>
+                    <td class="bg-hue-7-v8-c5"></td>
+                    <td class="bg-hue-7-v8-c6"></td>
+                    <td class="bg-hue-7-v8-c7"></td>
+                    <td class="bg-hue-7-v8-c8"></td>
+                    <td class="bg-hue-7-v8-c9"></td>
+                    <td class="bg-hue-7-v8-c10"></td>
+                    <td class="bg-hue-7-v8-c11"></td>
+                    <td class="bg-hue-7-v8-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-7">V7</td>
+                    <td class="bg-hue-7-v7-c1"></td>
+                    <td class="bg-hue-7-v7-c2"></td>
+                    <td class="bg-hue-7-v7-c3"></td>
+                    <td class="bg-hue-7-v7-c4"></td>
+                    <td class="bg-hue-7-v7-c5"></td>
+                    <td class="bg-hue-7-v7-c6"></td>
+                    <td class="bg-hue-7-v7-c7"></td>
+                    <td class="bg-hue-7-v7-c8"></td>
+                    <td class="bg-hue-7-v7-c9"></td>
+                    <td class="bg-hue-7-v7-c10"></td>
+                    <td class="bg-hue-7-v7-c11"></td>
+                    <td class="bg-hue-7-v7-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-6">V6</td>
+                    <td class="bg-hue-7-v6-c1"></td>
+                    <td class="bg-hue-7-v6-c2"></td>
+                    <td class="bg-hue-7-v6-c3"></td>
+                    <td class="bg-hue-7-v6-c4"></td>
+                    <td class="bg-hue-7-v6-c5"></td>
+                    <td class="bg-hue-7-v6-c6"></td>
+                    <td class="bg-hue-7-v6-c7"></td>
+                    <td class="bg-hue-7-v6-c8"></td>
+                    <td class="bg-hue-7-v6-c9"></td>
+                    <td class="bg-hue-7-v6-c10"></td>
+                    <td class="bg-hue-7-v6-c11"></td>
+                    <td class="bg-hue-7-v6-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-5">V5</td>
+                    <td class="bg-hue-7-v5-c1"></td>
+                    <td class="bg-hue-7-v5-c2"></td>
+                    <td class="bg-hue-7-v5-c3"></td>
+                    <td class="bg-hue-7-v5-c4"></td>
+                    <td class="bg-hue-7-v5-c5"></td>
+                    <td class="bg-hue-7-v5-c6"></td>
+                    <td class="bg-hue-7-v5-c7"></td>
+                    <td class="bg-hue-7-v5-c8"></td>
+                    <td class="bg-hue-7-v5-c9"></td>
+                    <td class="bg-hue-7-v5-c10"></td>
+                    <td class="bg-hue-7-v5-c11"></td>
+                    <td class="bg-hue-7-v5-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-4">V4</td>
+                    <td class="bg-hue-7-v4-c1"></td>
+                    <td class="bg-hue-7-v4-c2"></td>
+                    <td class="bg-hue-7-v4-c3"></td>
+                    <td class="bg-hue-7-v4-c4"></td>
+                    <td class="bg-hue-7-v4-c5"></td>
+                    <td class="bg-hue-7-v4-c6"></td>
+                    <td class="bg-hue-7-v4-c7"></td>
+                    <td class="bg-hue-7-v4-c8"></td>
+                    <td class="bg-hue-7-v4-c9"></td>
+                    <td class="bg-hue-7-v4-c10"></td>
+                    <td class="bg-hue-7-v4-c11"></td>
+                    <td class="bg-hue-7-v4-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-3">V3</td>
+                    <td class="bg-hue-7-v3-c1"></td>
+                    <td class="bg-hue-7-v3-c2"></td>
+                    <td class="bg-hue-7-v3-c3"></td>
+                    <td class="bg-hue-7-v3-c4"></td>
+                    <td class="bg-hue-7-v3-c5"></td>
+                    <td class="bg-hue-7-v3-c6"></td>
+                    <td class="bg-hue-7-v3-c7"></td>
+                    <td class="bg-hue-7-v3-c8"></td>
+                    <td class="bg-hue-7-v3-c9"></td>
+                    <td class="bg-hue-7-v3-c10"></td>
+                    <td class="bg-hue-7-v3-c11"></td>
+                    <td class="bg-hue-7-v3-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-2">V2</td>
+                    <td class="bg-hue-7-v2-c1"></td>
+                    <td class="bg-hue-7-v2-c2"></td>
+                    <td class="bg-hue-7-v2-c3"></td>
+                    <td class="bg-hue-7-v2-c4"></td>
+                    <td class="bg-hue-7-v2-c5"></td>
+                    <td class="bg-hue-7-v2-c6"></td>
+                    <td class="bg-hue-7-v2-c7"></td>
+                    <td class="bg-hue-7-v2-c8"></td>
+                    <td class="bg-hue-7-v2-c9"></td>
+                    <td class="bg-hue-7-v2-c10"></td>
+                    <td class="bg-hue-7-v2-c11"></td>
+                    <td class="bg-hue-7-v2-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-1">V1</td>
+                    <td class="bg-hue-7-v1-c1"></td>
+                    <td class="bg-hue-7-v1-c2"></td>
+                    <td class="bg-hue-7-v1-c3"></td>
+                    <td class="bg-hue-7-v1-c4"></td>
+                    <td class="bg-hue-7-v1-c5"></td>
+                    <td class="bg-hue-7-v1-c6"></td>
+                    <td class="bg-hue-7-v1-c7"></td>
+                    <td class="bg-hue-7-v1-c8"></td>
+                    <td class="bg-hue-7-v1-c9"></td>
+                    <td class="bg-hue-7-v1-c10"></td>
+                    <td class="bg-hue-7-v1-c11"></td>
+                    <td class="bg-hue-7-v1-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-0">V0</td>
+                    <td class="bg-hue-7-v0-c1"></td>
+                    <td class="bg-hue-7-v0-c2"></td>
+                    <td class="bg-hue-7-v0-c3"></td>
+                    <td class="bg-hue-7-v0-c4"></td>
+                    <td class="bg-hue-7-v0-c5"></td>
+                    <td class="bg-hue-7-v0-c6"></td>
+                    <td class="bg-hue-7-v0-c7"></td>
+                    <td class="bg-hue-7-v0-c8"></td>
+                    <td class="bg-hue-7-v0-c9"></td>
+                    <td class="bg-hue-7-v0-c10"></td>
+                    <td class="bg-hue-7-v0-c11"></td>
+                    <td class="bg-hue-7-v0-c12"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="tab__hue8" class="hide">
+        <table class="table demo-colorspectrum-table">
+            <tbody>
+                <tr>
+                    <td class="bg-value-10"></td>
+                    <td>C1</td>
+                    <td>C2</td>
+                    <td>C3</td>
+                    <td>C4</td>
+                    <td>C5</td>
+                    <td>C6</td>
+                    <td>C7</td>
+                    <td>C8</td>
+                    <td>C9</td>
+                    <td>C10</td>
+                    <td>C11</td>
+                    <td>C12</td>
+                </tr>
+                <tr>
+                    <td class="bg-value-10">V10</td>
+                    <td class="bg-hue-8-v10-c1"></td>
+                    <td class="bg-hue-8-v10-c2"></td>
+                    <td class="bg-hue-8-v10-c3"></td>
+                    <td class="bg-hue-8-v10-c4"></td>
+                    <td class="bg-hue-8-v10-c5"></td>
+                    <td class="bg-hue-8-v10-c6"></td>
+                    <td class="bg-hue-8-v10-c7"></td>
+                    <td class="bg-hue-8-v10-c8"></td>
+                    <td class="bg-hue-8-v10-c9"></td>
+                    <td class="bg-hue-8-v10-c10"></td>
+                    <td class="bg-hue-8-v10-c11"></td>
+                    <td class="bg-hue-8-v10-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-9">V9</td>
+                    <td class="bg-hue-8-v9-c1"></td>
+                    <td class="bg-hue-8-v9-c2"></td>
+                    <td class="bg-hue-8-v9-c3"></td>
+                    <td class="bg-hue-8-v9-c4"></td>
+                    <td class="bg-hue-8-v9-c5"></td>
+                    <td class="bg-hue-8-v9-c6"></td>
+                    <td class="bg-hue-8-v9-c7"></td>
+                    <td class="bg-hue-8-v9-c8"></td>
+                    <td class="bg-hue-8-v9-c9"></td>
+                    <td class="bg-hue-8-v9-c10"></td>
+                    <td class="bg-hue-8-v9-c11"></td>
+                    <td class="bg-hue-8-v9-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-8">V8</td>
+                    <td class="bg-hue-8-v8-c1"></td>
+                    <td class="bg-hue-8-v8-c2"></td>
+                    <td class="bg-hue-8-v8-c3"></td>
+                    <td class="bg-hue-8-v8-c4"></td>
+                    <td class="bg-hue-8-v8-c5"></td>
+                    <td class="bg-hue-8-v8-c6"></td>
+                    <td class="bg-hue-8-v8-c7"></td>
+                    <td class="bg-hue-8-v8-c8"></td>
+                    <td class="bg-hue-8-v8-c9"></td>
+                    <td class="bg-hue-8-v8-c10"></td>
+                    <td class="bg-hue-8-v8-c11"></td>
+                    <td class="bg-hue-8-v8-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-7">V7</td>
+                    <td class="bg-hue-8-v7-c1"></td>
+                    <td class="bg-hue-8-v7-c2"></td>
+                    <td class="bg-hue-8-v7-c3"></td>
+                    <td class="bg-hue-8-v7-c4"></td>
+                    <td class="bg-hue-8-v7-c5"></td>
+                    <td class="bg-hue-8-v7-c6"></td>
+                    <td class="bg-hue-8-v7-c7"></td>
+                    <td class="bg-hue-8-v7-c8"></td>
+                    <td class="bg-hue-8-v7-c9"></td>
+                    <td class="bg-hue-8-v7-c10"></td>
+                    <td class="bg-hue-8-v7-c11"></td>
+                    <td class="bg-hue-8-v7-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-6">V6</td>
+                    <td class="bg-hue-8-v6-c1"></td>
+                    <td class="bg-hue-8-v6-c2"></td>
+                    <td class="bg-hue-8-v6-c3"></td>
+                    <td class="bg-hue-8-v6-c4"></td>
+                    <td class="bg-hue-8-v6-c5"></td>
+                    <td class="bg-hue-8-v6-c6"></td>
+                    <td class="bg-hue-8-v6-c7"></td>
+                    <td class="bg-hue-8-v6-c8"></td>
+                    <td class="bg-hue-8-v6-c9"></td>
+                    <td class="bg-hue-8-v6-c10"></td>
+                    <td class="bg-hue-8-v6-c11"></td>
+                    <td class="bg-hue-8-v6-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-5">V5</td>
+                    <td class="bg-hue-8-v5-c1"></td>
+                    <td class="bg-hue-8-v5-c2"></td>
+                    <td class="bg-hue-8-v5-c3"></td>
+                    <td class="bg-hue-8-v5-c4"></td>
+                    <td class="bg-hue-8-v5-c5"></td>
+                    <td class="bg-hue-8-v5-c6"></td>
+                    <td class="bg-hue-8-v5-c7"></td>
+                    <td class="bg-hue-8-v5-c8"></td>
+                    <td class="bg-hue-8-v5-c9"></td>
+                    <td class="bg-hue-8-v5-c10"></td>
+                    <td class="bg-hue-8-v5-c11"></td>
+                    <td class="bg-hue-8-v5-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-4">V4</td>
+                    <td class="bg-hue-8-v4-c1"></td>
+                    <td class="bg-hue-8-v4-c2"></td>
+                    <td class="bg-hue-8-v4-c3"></td>
+                    <td class="bg-hue-8-v4-c4"></td>
+                    <td class="bg-hue-8-v4-c5"></td>
+                    <td class="bg-hue-8-v4-c6"></td>
+                    <td class="bg-hue-8-v4-c7"></td>
+                    <td class="bg-hue-8-v4-c8"></td>
+                    <td class="bg-hue-8-v4-c9"></td>
+                    <td class="bg-hue-8-v4-c10"></td>
+                    <td class="bg-hue-8-v4-c11"></td>
+                    <td class="bg-hue-8-v4-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-3">V3</td>
+                    <td class="bg-hue-8-v3-c1"></td>
+                    <td class="bg-hue-8-v3-c2"></td>
+                    <td class="bg-hue-8-v3-c3"></td>
+                    <td class="bg-hue-8-v3-c4"></td>
+                    <td class="bg-hue-8-v3-c5"></td>
+                    <td class="bg-hue-8-v3-c6"></td>
+                    <td class="bg-hue-8-v3-c7"></td>
+                    <td class="bg-hue-8-v3-c8"></td>
+                    <td class="bg-hue-8-v3-c9"></td>
+                    <td class="bg-hue-8-v3-c10"></td>
+                    <td class="bg-hue-8-v3-c11"></td>
+                    <td class="bg-hue-8-v3-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-2">V2</td>
+                    <td class="bg-hue-8-v2-c1"></td>
+                    <td class="bg-hue-8-v2-c2"></td>
+                    <td class="bg-hue-8-v2-c3"></td>
+                    <td class="bg-hue-8-v2-c4"></td>
+                    <td class="bg-hue-8-v2-c5"></td>
+                    <td class="bg-hue-8-v2-c6"></td>
+                    <td class="bg-hue-8-v2-c7"></td>
+                    <td class="bg-hue-8-v2-c8"></td>
+                    <td class="bg-hue-8-v2-c9"></td>
+                    <td class="bg-hue-8-v2-c10"></td>
+                    <td class="bg-hue-8-v2-c11"></td>
+                    <td class="bg-hue-8-v2-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-1">V1</td>
+                    <td class="bg-hue-8-v1-c1"></td>
+                    <td class="bg-hue-8-v1-c2"></td>
+                    <td class="bg-hue-8-v1-c3"></td>
+                    <td class="bg-hue-8-v1-c4"></td>
+                    <td class="bg-hue-8-v1-c5"></td>
+                    <td class="bg-hue-8-v1-c6"></td>
+                    <td class="bg-hue-8-v1-c7"></td>
+                    <td class="bg-hue-8-v1-c8"></td>
+                    <td class="bg-hue-8-v1-c9"></td>
+                    <td class="bg-hue-8-v1-c10"></td>
+                    <td class="bg-hue-8-v1-c11"></td>
+                    <td class="bg-hue-8-v1-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-0">V0</td>
+                    <td class="bg-hue-8-v0-c1"></td>
+                    <td class="bg-hue-8-v0-c2"></td>
+                    <td class="bg-hue-8-v0-c3"></td>
+                    <td class="bg-hue-8-v0-c4"></td>
+                    <td class="bg-hue-8-v0-c5"></td>
+                    <td class="bg-hue-8-v0-c6"></td>
+                    <td class="bg-hue-8-v0-c7"></td>
+                    <td class="bg-hue-8-v0-c8"></td>
+                    <td class="bg-hue-8-v0-c9"></td>
+                    <td class="bg-hue-8-v0-c10"></td>
+                    <td class="bg-hue-8-v0-c11"></td>
+                    <td class="bg-hue-8-v0-c12"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="tab__hue9" class="hide">
+        <table class="table demo-colorspectrum-table">
+            <tbody>
+                <tr>
+                    <td class="bg-value-10"></td>
+                    <td>C1</td>
+                    <td>C2</td>
+                    <td>C3</td>
+                    <td>C4</td>
+                    <td>C5</td>
+                    <td>C6</td>
+                    <td>C7</td>
+                    <td>C8</td>
+                    <td>C9</td>
+                    <td>C10</td>
+                    <td>C11</td>
+                    <td>C12</td>
+                </tr>
+                <tr>
+                    <td class="bg-value-10">V10</td>
+                    <td class="bg-hue-9-v10-c1"></td>
+                    <td class="bg-hue-9-v10-c2"></td>
+                    <td class="bg-hue-9-v10-c3"></td>
+                    <td class="bg-hue-9-v10-c4"></td>
+                    <td class="bg-hue-9-v10-c5"></td>
+                    <td class="bg-hue-9-v10-c6"></td>
+                    <td class="bg-hue-9-v10-c7"></td>
+                    <td class="bg-hue-9-v10-c8"></td>
+                    <td class="bg-hue-9-v10-c9"></td>
+                    <td class="bg-hue-9-v10-c10"></td>
+                    <td class="bg-hue-9-v10-c11"></td>
+                    <td class="bg-hue-9-v10-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-9">V9</td>
+                    <td class="bg-hue-9-v9-c1"></td>
+                    <td class="bg-hue-9-v9-c2"></td>
+                    <td class="bg-hue-9-v9-c3"></td>
+                    <td class="bg-hue-9-v9-c4"></td>
+                    <td class="bg-hue-9-v9-c5"></td>
+                    <td class="bg-hue-9-v9-c6"></td>
+                    <td class="bg-hue-9-v9-c7"></td>
+                    <td class="bg-hue-9-v9-c8"></td>
+                    <td class="bg-hue-9-v9-c9"></td>
+                    <td class="bg-hue-9-v9-c10"></td>
+                    <td class="bg-hue-9-v9-c11"></td>
+                    <td class="bg-hue-9-v9-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-8">V8</td>
+                    <td class="bg-hue-9-v8-c1"></td>
+                    <td class="bg-hue-9-v8-c2"></td>
+                    <td class="bg-hue-9-v8-c3"></td>
+                    <td class="bg-hue-9-v8-c4"></td>
+                    <td class="bg-hue-9-v8-c5"></td>
+                    <td class="bg-hue-9-v8-c6"></td>
+                    <td class="bg-hue-9-v8-c7"></td>
+                    <td class="bg-hue-9-v8-c8"></td>
+                    <td class="bg-hue-9-v8-c9"></td>
+                    <td class="bg-hue-9-v8-c10"></td>
+                    <td class="bg-hue-9-v8-c11"></td>
+                    <td class="bg-hue-9-v8-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-7">V7</td>
+                    <td class="bg-hue-9-v7-c1"></td>
+                    <td class="bg-hue-9-v7-c2"></td>
+                    <td class="bg-hue-9-v7-c3"></td>
+                    <td class="bg-hue-9-v7-c4"></td>
+                    <td class="bg-hue-9-v7-c5"></td>
+                    <td class="bg-hue-9-v7-c6"></td>
+                    <td class="bg-hue-9-v7-c7"></td>
+                    <td class="bg-hue-9-v7-c8"></td>
+                    <td class="bg-hue-9-v7-c9"></td>
+                    <td class="bg-hue-9-v7-c10"></td>
+                    <td class="bg-hue-9-v7-c11"></td>
+                    <td class="bg-hue-9-v7-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-6">V6</td>
+                    <td class="bg-hue-9-v6-c1"></td>
+                    <td class="bg-hue-9-v6-c2"></td>
+                    <td class="bg-hue-9-v6-c3"></td>
+                    <td class="bg-hue-9-v6-c4"></td>
+                    <td class="bg-hue-9-v6-c5"></td>
+                    <td class="bg-hue-9-v6-c6"></td>
+                    <td class="bg-hue-9-v6-c7"></td>
+                    <td class="bg-hue-9-v6-c8"></td>
+                    <td class="bg-hue-9-v6-c9"></td>
+                    <td class="bg-hue-9-v6-c10"></td>
+                    <td class="bg-hue-9-v6-c11"></td>
+                    <td class="bg-hue-9-v6-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-5">V5</td>
+                    <td class="bg-hue-9-v5-c1"></td>
+                    <td class="bg-hue-9-v5-c2"></td>
+                    <td class="bg-hue-9-v5-c3"></td>
+                    <td class="bg-hue-9-v5-c4"></td>
+                    <td class="bg-hue-9-v5-c5"></td>
+                    <td class="bg-hue-9-v5-c6"></td>
+                    <td class="bg-hue-9-v5-c7"></td>
+                    <td class="bg-hue-9-v5-c8"></td>
+                    <td class="bg-hue-9-v5-c9"></td>
+                    <td class="bg-hue-9-v5-c10"></td>
+                    <td class="bg-hue-9-v5-c11"></td>
+                    <td class="bg-hue-9-v5-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-4">V4</td>
+                    <td class="bg-hue-9-v4-c1"></td>
+                    <td class="bg-hue-9-v4-c2"></td>
+                    <td class="bg-hue-9-v4-c3"></td>
+                    <td class="bg-hue-9-v4-c4"></td>
+                    <td class="bg-hue-9-v4-c5"></td>
+                    <td class="bg-hue-9-v4-c6"></td>
+                    <td class="bg-hue-9-v4-c7"></td>
+                    <td class="bg-hue-9-v4-c8"></td>
+                    <td class="bg-hue-9-v4-c9"></td>
+                    <td class="bg-hue-9-v4-c10"></td>
+                    <td class="bg-hue-9-v4-c11"></td>
+                    <td class="bg-hue-9-v4-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-3">V3</td>
+                    <td class="bg-hue-9-v3-c1"></td>
+                    <td class="bg-hue-9-v3-c2"></td>
+                    <td class="bg-hue-9-v3-c3"></td>
+                    <td class="bg-hue-9-v3-c4"></td>
+                    <td class="bg-hue-9-v3-c5"></td>
+                    <td class="bg-hue-9-v3-c6"></td>
+                    <td class="bg-hue-9-v3-c7"></td>
+                    <td class="bg-hue-9-v3-c8"></td>
+                    <td class="bg-hue-9-v3-c9"></td>
+                    <td class="bg-hue-9-v3-c10"></td>
+                    <td class="bg-hue-9-v3-c11"></td>
+                    <td class="bg-hue-9-v3-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-2">V2</td>
+                    <td class="bg-hue-9-v2-c1"></td>
+                    <td class="bg-hue-9-v2-c2"></td>
+                    <td class="bg-hue-9-v2-c3"></td>
+                    <td class="bg-hue-9-v2-c4"></td>
+                    <td class="bg-hue-9-v2-c5"></td>
+                    <td class="bg-hue-9-v2-c6"></td>
+                    <td class="bg-hue-9-v2-c7"></td>
+                    <td class="bg-hue-9-v2-c8"></td>
+                    <td class="bg-hue-9-v2-c9"></td>
+                    <td class="bg-hue-9-v2-c10"></td>
+                    <td class="bg-hue-9-v2-c11"></td>
+                    <td class="bg-hue-9-v2-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-1">V1</td>
+                    <td class="bg-hue-9-v1-c1"></td>
+                    <td class="bg-hue-9-v1-c2"></td>
+                    <td class="bg-hue-9-v1-c3"></td>
+                    <td class="bg-hue-9-v1-c4"></td>
+                    <td class="bg-hue-9-v1-c5"></td>
+                    <td class="bg-hue-9-v1-c6"></td>
+                    <td class="bg-hue-9-v1-c7"></td>
+                    <td class="bg-hue-9-v1-c8"></td>
+                    <td class="bg-hue-9-v1-c9"></td>
+                    <td class="bg-hue-9-v1-c10"></td>
+                    <td class="bg-hue-9-v1-c11"></td>
+                    <td class="bg-hue-9-v1-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-0">V0</td>
+                    <td class="bg-hue-9-v0-c1"></td>
+                    <td class="bg-hue-9-v0-c2"></td>
+                    <td class="bg-hue-9-v0-c3"></td>
+                    <td class="bg-hue-9-v0-c4"></td>
+                    <td class="bg-hue-9-v0-c5"></td>
+                    <td class="bg-hue-9-v0-c6"></td>
+                    <td class="bg-hue-9-v0-c7"></td>
+                    <td class="bg-hue-9-v0-c8"></td>
+                    <td class="bg-hue-9-v0-c9"></td>
+                    <td class="bg-hue-9-v0-c10"></td>
+                    <td class="bg-hue-9-v0-c11"></td>
+                    <td class="bg-hue-9-v0-c12"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="tab__hue10" class="hide">
+        <table class="table demo-colorspectrum-table">
+            <tbody>
+                <tr>
+                    <td class="bg-value-10"></td>
+                    <td>C1</td>
+                    <td>C2</td>
+                    <td>C3</td>
+                    <td>C4</td>
+                    <td>C5</td>
+                    <td>C6</td>
+                    <td>C7</td>
+                    <td>C8</td>
+                    <td>C9</td>
+                    <td>C10</td>
+                    <td>C11</td>
+                    <td>C12</td>
+                </tr>
+                <tr>
+                    <td class="bg-value-10">V10</td>
+                    <td class="bg-hue-10-v10-c1"></td>
+                    <td class="bg-hue-10-v10-c2"></td>
+                    <td class="bg-hue-10-v10-c3"></td>
+                    <td class="bg-hue-10-v10-c4"></td>
+                    <td class="bg-hue-10-v10-c5"></td>
+                    <td class="bg-hue-10-v10-c6"></td>
+                    <td class="bg-hue-10-v10-c7"></td>
+                    <td class="bg-hue-10-v10-c8"></td>
+                    <td class="bg-hue-10-v10-c9"></td>
+                    <td class="bg-hue-10-v10-c10"></td>
+                    <td class="bg-hue-10-v10-c11"></td>
+                    <td class="bg-hue-10-v10-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-9">V9</td>
+                    <td class="bg-hue-10-v9-c1"></td>
+                    <td class="bg-hue-10-v9-c2"></td>
+                    <td class="bg-hue-10-v9-c3"></td>
+                    <td class="bg-hue-10-v9-c4"></td>
+                    <td class="bg-hue-10-v9-c5"></td>
+                    <td class="bg-hue-10-v9-c6"></td>
+                    <td class="bg-hue-10-v9-c7"></td>
+                    <td class="bg-hue-10-v9-c8"></td>
+                    <td class="bg-hue-10-v9-c9"></td>
+                    <td class="bg-hue-10-v9-c10"></td>
+                    <td class="bg-hue-10-v9-c11"></td>
+                    <td class="bg-hue-10-v9-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-8">V8</td>
+                    <td class="bg-hue-10-v8-c1"></td>
+                    <td class="bg-hue-10-v8-c2"></td>
+                    <td class="bg-hue-10-v8-c3"></td>
+                    <td class="bg-hue-10-v8-c4"></td>
+                    <td class="bg-hue-10-v8-c5"></td>
+                    <td class="bg-hue-10-v8-c6"></td>
+                    <td class="bg-hue-10-v8-c7"></td>
+                    <td class="bg-hue-10-v8-c8"></td>
+                    <td class="bg-hue-10-v8-c9"></td>
+                    <td class="bg-hue-10-v8-c10"></td>
+                    <td class="bg-hue-10-v8-c11"></td>
+                    <td class="bg-hue-10-v8-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-7">V7</td>
+                    <td class="bg-hue-10-v7-c1"></td>
+                    <td class="bg-hue-10-v7-c2"></td>
+                    <td class="bg-hue-10-v7-c3"></td>
+                    <td class="bg-hue-10-v7-c4"></td>
+                    <td class="bg-hue-10-v7-c5"></td>
+                    <td class="bg-hue-10-v7-c6"></td>
+                    <td class="bg-hue-10-v7-c7"></td>
+                    <td class="bg-hue-10-v7-c8"></td>
+                    <td class="bg-hue-10-v7-c9"></td>
+                    <td class="bg-hue-10-v7-c10"></td>
+                    <td class="bg-hue-10-v7-c11"></td>
+                    <td class="bg-hue-10-v7-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-6">V6</td>
+                    <td class="bg-hue-10-v6-c1"></td>
+                    <td class="bg-hue-10-v6-c2"></td>
+                    <td class="bg-hue-10-v6-c3"></td>
+                    <td class="bg-hue-10-v6-c4"></td>
+                    <td class="bg-hue-10-v6-c5"></td>
+                    <td class="bg-hue-10-v6-c6"></td>
+                    <td class="bg-hue-10-v6-c7"></td>
+                    <td class="bg-hue-10-v6-c8"></td>
+                    <td class="bg-hue-10-v6-c9"></td>
+                    <td class="bg-hue-10-v6-c10"></td>
+                    <td class="bg-hue-10-v6-c11"></td>
+                    <td class="bg-hue-10-v6-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-5">V5</td>
+                    <td class="bg-hue-10-v5-c1"></td>
+                    <td class="bg-hue-10-v5-c2"></td>
+                    <td class="bg-hue-10-v5-c3"></td>
+                    <td class="bg-hue-10-v5-c4"></td>
+                    <td class="bg-hue-10-v5-c5"></td>
+                    <td class="bg-hue-10-v5-c6"></td>
+                    <td class="bg-hue-10-v5-c7"></td>
+                    <td class="bg-hue-10-v5-c8"></td>
+                    <td class="bg-hue-10-v5-c9"></td>
+                    <td class="bg-hue-10-v5-c10"></td>
+                    <td class="bg-hue-10-v5-c11"></td>
+                    <td class="bg-hue-10-v5-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-4">V4</td>
+                    <td class="bg-hue-10-v4-c1"></td>
+                    <td class="bg-hue-10-v4-c2"></td>
+                    <td class="bg-hue-10-v4-c3"></td>
+                    <td class="bg-hue-10-v4-c4"></td>
+                    <td class="bg-hue-10-v4-c5"></td>
+                    <td class="bg-hue-10-v4-c6"></td>
+                    <td class="bg-hue-10-v4-c7"></td>
+                    <td class="bg-hue-10-v4-c8"></td>
+                    <td class="bg-hue-10-v4-c9"></td>
+                    <td class="bg-hue-10-v4-c10"></td>
+                    <td class="bg-hue-10-v4-c11"></td>
+                    <td class="bg-hue-10-v4-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-3">V3</td>
+                    <td class="bg-hue-10-v3-c1"></td>
+                    <td class="bg-hue-10-v3-c2"></td>
+                    <td class="bg-hue-10-v3-c3"></td>
+                    <td class="bg-hue-10-v3-c4"></td>
+                    <td class="bg-hue-10-v3-c5"></td>
+                    <td class="bg-hue-10-v3-c6"></td>
+                    <td class="bg-hue-10-v3-c7"></td>
+                    <td class="bg-hue-10-v3-c8"></td>
+                    <td class="bg-hue-10-v3-c9"></td>
+                    <td class="bg-hue-10-v3-c10"></td>
+                    <td class="bg-hue-10-v3-c11"></td>
+                    <td class="bg-hue-10-v3-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-2">V2</td>
+                    <td class="bg-hue-10-v2-c1"></td>
+                    <td class="bg-hue-10-v2-c2"></td>
+                    <td class="bg-hue-10-v2-c3"></td>
+                    <td class="bg-hue-10-v2-c4"></td>
+                    <td class="bg-hue-10-v2-c5"></td>
+                    <td class="bg-hue-10-v2-c6"></td>
+                    <td class="bg-hue-10-v2-c7"></td>
+                    <td class="bg-hue-10-v2-c8"></td>
+                    <td class="bg-hue-10-v2-c9"></td>
+                    <td class="bg-hue-10-v2-c10"></td>
+                    <td class="bg-hue-10-v2-c11"></td>
+                    <td class="bg-hue-10-v2-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-1">V1</td>
+                    <td class="bg-hue-10-v1-c1"></td>
+                    <td class="bg-hue-10-v1-c2"></td>
+                    <td class="bg-hue-10-v1-c3"></td>
+                    <td class="bg-hue-10-v1-c4"></td>
+                    <td class="bg-hue-10-v1-c5"></td>
+                    <td class="bg-hue-10-v1-c6"></td>
+                    <td class="bg-hue-10-v1-c7"></td>
+                    <td class="bg-hue-10-v1-c8"></td>
+                    <td class="bg-hue-10-v1-c9"></td>
+                    <td class="bg-hue-10-v1-c10"></td>
+                    <td class="bg-hue-10-v1-c11"></td>
+                    <td class="bg-hue-10-v1-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-0">V0</td>
+                    <td class="bg-hue-10-v0-c1"></td>
+                    <td class="bg-hue-10-v0-c2"></td>
+                    <td class="bg-hue-10-v0-c3"></td>
+                    <td class="bg-hue-10-v0-c4"></td>
+                    <td class="bg-hue-10-v0-c5"></td>
+                    <td class="bg-hue-10-v0-c6"></td>
+                    <td class="bg-hue-10-v0-c7"></td>
+                    <td class="bg-hue-10-v0-c8"></td>
+                    <td class="bg-hue-10-v0-c9"></td>
+                    <td class="bg-hue-10-v0-c10"></td>
+                    <td class="bg-hue-10-v0-c11"></td>
+                    <td class="bg-hue-10-v0-c12"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="tab__hue11" class="hide">
+        <table class="table demo-colorspectrum-table">
+            <tbody>
+                <tr>
+                    <td class="bg-value-10"></td>
+                    <td>C1</td>
+                    <td>C2</td>
+                    <td>C3</td>
+                    <td>C4</td>
+                    <td>C5</td>
+                    <td>C6</td>
+                    <td>C7</td>
+                    <td>C8</td>
+                    <td>C9</td>
+                    <td>C10</td>
+                    <td>C11</td>
+                    <td>C12</td>
+                </tr>
+                <tr>
+                    <td class="bg-value-10">V10</td>
+                    <td class="bg-hue-11-v10-c1"></td>
+                    <td class="bg-hue-11-v10-c2"></td>
+                    <td class="bg-hue-11-v10-c3"></td>
+                    <td class="bg-hue-11-v10-c4"></td>
+                    <td class="bg-hue-11-v10-c5"></td>
+                    <td class="bg-hue-11-v10-c6"></td>
+                    <td class="bg-hue-11-v10-c7"></td>
+                    <td class="bg-hue-11-v10-c8"></td>
+                    <td class="bg-hue-11-v10-c9"></td>
+                    <td class="bg-hue-11-v10-c10"></td>
+                    <td class="bg-hue-11-v10-c11"></td>
+                    <td class="bg-hue-11-v10-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-9">V9</td>
+                    <td class="bg-hue-11-v9-c1"></td>
+                    <td class="bg-hue-11-v9-c2"></td>
+                    <td class="bg-hue-11-v9-c3"></td>
+                    <td class="bg-hue-11-v9-c4"></td>
+                    <td class="bg-hue-11-v9-c5"></td>
+                    <td class="bg-hue-11-v9-c6"></td>
+                    <td class="bg-hue-11-v9-c7"></td>
+                    <td class="bg-hue-11-v9-c8"></td>
+                    <td class="bg-hue-11-v9-c9"></td>
+                    <td class="bg-hue-11-v9-c10"></td>
+                    <td class="bg-hue-11-v9-c11"></td>
+                    <td class="bg-hue-11-v9-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-8">V8</td>
+                    <td class="bg-hue-11-v8-c1"></td>
+                    <td class="bg-hue-11-v8-c2"></td>
+                    <td class="bg-hue-11-v8-c3"></td>
+                    <td class="bg-hue-11-v8-c4"></td>
+                    <td class="bg-hue-11-v8-c5"></td>
+                    <td class="bg-hue-11-v8-c6"></td>
+                    <td class="bg-hue-11-v8-c7"></td>
+                    <td class="bg-hue-11-v8-c8"></td>
+                    <td class="bg-hue-11-v8-c9"></td>
+                    <td class="bg-hue-11-v8-c10"></td>
+                    <td class="bg-hue-11-v8-c11"></td>
+                    <td class="bg-hue-11-v8-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-7">V7</td>
+                    <td class="bg-hue-11-v7-c1"></td>
+                    <td class="bg-hue-11-v7-c2"></td>
+                    <td class="bg-hue-11-v7-c3"></td>
+                    <td class="bg-hue-11-v7-c4"></td>
+                    <td class="bg-hue-11-v7-c5"></td>
+                    <td class="bg-hue-11-v7-c6"></td>
+                    <td class="bg-hue-11-v7-c7"></td>
+                    <td class="bg-hue-11-v7-c8"></td>
+                    <td class="bg-hue-11-v7-c9"></td>
+                    <td class="bg-hue-11-v7-c10"></td>
+                    <td class="bg-hue-11-v7-c11"></td>
+                    <td class="bg-hue-11-v7-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-6">V6</td>
+                    <td class="bg-hue-11-v6-c1"></td>
+                    <td class="bg-hue-11-v6-c2"></td>
+                    <td class="bg-hue-11-v6-c3"></td>
+                    <td class="bg-hue-11-v6-c4"></td>
+                    <td class="bg-hue-11-v6-c5"></td>
+                    <td class="bg-hue-11-v6-c6"></td>
+                    <td class="bg-hue-11-v6-c7"></td>
+                    <td class="bg-hue-11-v6-c8"></td>
+                    <td class="bg-hue-11-v6-c9"></td>
+                    <td class="bg-hue-11-v6-c10"></td>
+                    <td class="bg-hue-11-v6-c11"></td>
+                    <td class="bg-hue-11-v6-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-5">V5</td>
+                    <td class="bg-hue-11-v5-c1"></td>
+                    <td class="bg-hue-11-v5-c2"></td>
+                    <td class="bg-hue-11-v5-c3"></td>
+                    <td class="bg-hue-11-v5-c4"></td>
+                    <td class="bg-hue-11-v5-c5"></td>
+                    <td class="bg-hue-11-v5-c6"></td>
+                    <td class="bg-hue-11-v5-c7"></td>
+                    <td class="bg-hue-11-v5-c8"></td>
+                    <td class="bg-hue-11-v5-c9"></td>
+                    <td class="bg-hue-11-v5-c10"></td>
+                    <td class="bg-hue-11-v5-c11"></td>
+                    <td class="bg-hue-11-v5-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-4">V4</td>
+                    <td class="bg-hue-11-v4-c1"></td>
+                    <td class="bg-hue-11-v4-c2"></td>
+                    <td class="bg-hue-11-v4-c3"></td>
+                    <td class="bg-hue-11-v4-c4"></td>
+                    <td class="bg-hue-11-v4-c5"></td>
+                    <td class="bg-hue-11-v4-c6"></td>
+                    <td class="bg-hue-11-v4-c7"></td>
+                    <td class="bg-hue-11-v4-c8"></td>
+                    <td class="bg-hue-11-v4-c9"></td>
+                    <td class="bg-hue-11-v4-c10"></td>
+                    <td class="bg-hue-11-v4-c11"></td>
+                    <td class="bg-hue-11-v4-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-3">V3</td>
+                    <td class="bg-hue-11-v3-c1"></td>
+                    <td class="bg-hue-11-v3-c2"></td>
+                    <td class="bg-hue-11-v3-c3"></td>
+                    <td class="bg-hue-11-v3-c4"></td>
+                    <td class="bg-hue-11-v3-c5"></td>
+                    <td class="bg-hue-11-v3-c6"></td>
+                    <td class="bg-hue-11-v3-c7"></td>
+                    <td class="bg-hue-11-v3-c8"></td>
+                    <td class="bg-hue-11-v3-c9"></td>
+                    <td class="bg-hue-11-v3-c10"></td>
+                    <td class="bg-hue-11-v3-c11"></td>
+                    <td class="bg-hue-11-v3-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-2">V2</td>
+                    <td class="bg-hue-11-v2-c1"></td>
+                    <td class="bg-hue-11-v2-c2"></td>
+                    <td class="bg-hue-11-v2-c3"></td>
+                    <td class="bg-hue-11-v2-c4"></td>
+                    <td class="bg-hue-11-v2-c5"></td>
+                    <td class="bg-hue-11-v2-c6"></td>
+                    <td class="bg-hue-11-v2-c7"></td>
+                    <td class="bg-hue-11-v2-c8"></td>
+                    <td class="bg-hue-11-v2-c9"></td>
+                    <td class="bg-hue-11-v2-c10"></td>
+                    <td class="bg-hue-11-v2-c11"></td>
+                    <td class="bg-hue-11-v2-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-1">V1</td>
+                    <td class="bg-hue-11-v1-c1"></td>
+                    <td class="bg-hue-11-v1-c2"></td>
+                    <td class="bg-hue-11-v1-c3"></td>
+                    <td class="bg-hue-11-v1-c4"></td>
+                    <td class="bg-hue-11-v1-c5"></td>
+                    <td class="bg-hue-11-v1-c6"></td>
+                    <td class="bg-hue-11-v1-c7"></td>
+                    <td class="bg-hue-11-v1-c8"></td>
+                    <td class="bg-hue-11-v1-c9"></td>
+                    <td class="bg-hue-11-v1-c10"></td>
+                    <td class="bg-hue-11-v1-c11"></td>
+                    <td class="bg-hue-11-v1-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-0">V0</td>
+                    <td class="bg-hue-11-v0-c1"></td>
+                    <td class="bg-hue-11-v0-c2"></td>
+                    <td class="bg-hue-11-v0-c3"></td>
+                    <td class="bg-hue-11-v0-c4"></td>
+                    <td class="bg-hue-11-v0-c5"></td>
+                    <td class="bg-hue-11-v0-c6"></td>
+                    <td class="bg-hue-11-v0-c7"></td>
+                    <td class="bg-hue-11-v0-c8"></td>
+                    <td class="bg-hue-11-v0-c9"></td>
+                    <td class="bg-hue-11-v0-c10"></td>
+                    <td class="bg-hue-11-v0-c11"></td>
+                    <td class="bg-hue-11-v0-c12"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="tab__hue12" class="hide">
+        <table class="table demo-colorspectrum-table">
+            <tbody>
+                <tr>
+                    <td class="bg-value-10"></td>
+                    <td>C1</td>
+                    <td>C2</td>
+                    <td>C3</td>
+                    <td>C4</td>
+                    <td>C5</td>
+                    <td>C6</td>
+                    <td>C7</td>
+                    <td>C8</td>
+                    <td>C9</td>
+                    <td>C10</td>
+                    <td>C11</td>
+                    <td>C12</td>
+                </tr>
+                <tr>
+                    <td class="bg-value-10">V10</td>
+                    <td class="bg-hue-12-v10-c1"></td>
+                    <td class="bg-hue-12-v10-c2"></td>
+                    <td class="bg-hue-12-v10-c3"></td>
+                    <td class="bg-hue-12-v10-c4"></td>
+                    <td class="bg-hue-12-v10-c5"></td>
+                    <td class="bg-hue-12-v10-c6"></td>
+                    <td class="bg-hue-12-v10-c7"></td>
+                    <td class="bg-hue-12-v10-c8"></td>
+                    <td class="bg-hue-12-v10-c9"></td>
+                    <td class="bg-hue-12-v10-c10"></td>
+                    <td class="bg-hue-12-v10-c11"></td>
+                    <td class="bg-hue-12-v10-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-9">V9</td>
+                    <td class="bg-hue-12-v9-c1"></td>
+                    <td class="bg-hue-12-v9-c2"></td>
+                    <td class="bg-hue-12-v9-c3"></td>
+                    <td class="bg-hue-12-v9-c4"></td>
+                    <td class="bg-hue-12-v9-c5"></td>
+                    <td class="bg-hue-12-v9-c6"></td>
+                    <td class="bg-hue-12-v9-c7"></td>
+                    <td class="bg-hue-12-v9-c8"></td>
+                    <td class="bg-hue-12-v9-c9"></td>
+                    <td class="bg-hue-12-v9-c10"></td>
+                    <td class="bg-hue-12-v9-c11"></td>
+                    <td class="bg-hue-12-v9-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-8">V8</td>
+                    <td class="bg-hue-12-v8-c1"></td>
+                    <td class="bg-hue-12-v8-c2"></td>
+                    <td class="bg-hue-12-v8-c3"></td>
+                    <td class="bg-hue-12-v8-c4"></td>
+                    <td class="bg-hue-12-v8-c5"></td>
+                    <td class="bg-hue-12-v8-c6"></td>
+                    <td class="bg-hue-12-v8-c7"></td>
+                    <td class="bg-hue-12-v8-c8"></td>
+                    <td class="bg-hue-12-v8-c9"></td>
+                    <td class="bg-hue-12-v8-c10"></td>
+                    <td class="bg-hue-12-v8-c11"></td>
+                    <td class="bg-hue-12-v8-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-7">V7</td>
+                    <td class="bg-hue-12-v7-c1"></td>
+                    <td class="bg-hue-12-v7-c2"></td>
+                    <td class="bg-hue-12-v7-c3"></td>
+                    <td class="bg-hue-12-v7-c4"></td>
+                    <td class="bg-hue-12-v7-c5"></td>
+                    <td class="bg-hue-12-v7-c6"></td>
+                    <td class="bg-hue-12-v7-c7"></td>
+                    <td class="bg-hue-12-v7-c8"></td>
+                    <td class="bg-hue-12-v7-c9"></td>
+                    <td class="bg-hue-12-v7-c10"></td>
+                    <td class="bg-hue-12-v7-c11"></td>
+                    <td class="bg-hue-12-v7-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-6">V6</td>
+                    <td class="bg-hue-12-v6-c1"></td>
+                    <td class="bg-hue-12-v6-c2"></td>
+                    <td class="bg-hue-12-v6-c3"></td>
+                    <td class="bg-hue-12-v6-c4"></td>
+                    <td class="bg-hue-12-v6-c5"></td>
+                    <td class="bg-hue-12-v6-c6"></td>
+                    <td class="bg-hue-12-v6-c7"></td>
+                    <td class="bg-hue-12-v6-c8"></td>
+                    <td class="bg-hue-12-v6-c9"></td>
+                    <td class="bg-hue-12-v6-c10"></td>
+                    <td class="bg-hue-12-v6-c11"></td>
+                    <td class="bg-hue-12-v6-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-5">V5</td>
+                    <td class="bg-hue-12-v5-c1"></td>
+                    <td class="bg-hue-12-v5-c2"></td>
+                    <td class="bg-hue-12-v5-c3"></td>
+                    <td class="bg-hue-12-v5-c4"></td>
+                    <td class="bg-hue-12-v5-c5"></td>
+                    <td class="bg-hue-12-v5-c6"></td>
+                    <td class="bg-hue-12-v5-c7"></td>
+                    <td class="bg-hue-12-v5-c8"></td>
+                    <td class="bg-hue-12-v5-c9"></td>
+                    <td class="bg-hue-12-v5-c10"></td>
+                    <td class="bg-hue-12-v5-c11"></td>
+                    <td class="bg-hue-12-v5-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-4">V4</td>
+                    <td class="bg-hue-12-v4-c1"></td>
+                    <td class="bg-hue-12-v4-c2"></td>
+                    <td class="bg-hue-12-v4-c3"></td>
+                    <td class="bg-hue-12-v4-c4"></td>
+                    <td class="bg-hue-12-v4-c5"></td>
+                    <td class="bg-hue-12-v4-c6"></td>
+                    <td class="bg-hue-12-v4-c7"></td>
+                    <td class="bg-hue-12-v4-c8"></td>
+                    <td class="bg-hue-12-v4-c9"></td>
+                    <td class="bg-hue-12-v4-c10"></td>
+                    <td class="bg-hue-12-v4-c11"></td>
+                    <td class="bg-hue-12-v4-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-3">V3</td>
+                    <td class="bg-hue-12-v3-c1"></td>
+                    <td class="bg-hue-12-v3-c2"></td>
+                    <td class="bg-hue-12-v3-c3"></td>
+                    <td class="bg-hue-12-v3-c4"></td>
+                    <td class="bg-hue-12-v3-c5"></td>
+                    <td class="bg-hue-12-v3-c6"></td>
+                    <td class="bg-hue-12-v3-c7"></td>
+                    <td class="bg-hue-12-v3-c8"></td>
+                    <td class="bg-hue-12-v3-c9"></td>
+                    <td class="bg-hue-12-v3-c10"></td>
+                    <td class="bg-hue-12-v3-c11"></td>
+                    <td class="bg-hue-12-v3-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-2">V2</td>
+                    <td class="bg-hue-12-v2-c1"></td>
+                    <td class="bg-hue-12-v2-c2"></td>
+                    <td class="bg-hue-12-v2-c3"></td>
+                    <td class="bg-hue-12-v2-c4"></td>
+                    <td class="bg-hue-12-v2-c5"></td>
+                    <td class="bg-hue-12-v2-c6"></td>
+                    <td class="bg-hue-12-v2-c7"></td>
+                    <td class="bg-hue-12-v2-c8"></td>
+                    <td class="bg-hue-12-v2-c9"></td>
+                    <td class="bg-hue-12-v2-c10"></td>
+                    <td class="bg-hue-12-v2-c11"></td>
+                    <td class="bg-hue-12-v2-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-1">V1</td>
+                    <td class="bg-hue-12-v1-c1"></td>
+                    <td class="bg-hue-12-v1-c2"></td>
+                    <td class="bg-hue-12-v1-c3"></td>
+                    <td class="bg-hue-12-v1-c4"></td>
+                    <td class="bg-hue-12-v1-c5"></td>
+                    <td class="bg-hue-12-v1-c6"></td>
+                    <td class="bg-hue-12-v1-c7"></td>
+                    <td class="bg-hue-12-v1-c8"></td>
+                    <td class="bg-hue-12-v1-c9"></td>
+                    <td class="bg-hue-12-v1-c10"></td>
+                    <td class="bg-hue-12-v1-c11"></td>
+                    <td class="bg-hue-12-v1-c12"></td>
+                </tr>
+                <tr>
+                    <td class="bg-value-0">V0</td>
+                    <td class="bg-hue-12-v0-c1"></td>
+                    <td class="bg-hue-12-v0-c2"></td>
+                    <td class="bg-hue-12-v0-c3"></td>
+                    <td class="bg-hue-12-v0-c4"></td>
+                    <td class="bg-hue-12-v0-c5"></td>
+                    <td class="bg-hue-12-v0-c6"></td>
+                    <td class="bg-hue-12-v0-c7"></td>
+                    <td class="bg-hue-12-v0-c8"></td>
+                    <td class="bg-hue-12-v0-c9"></td>
+                    <td class="bg-hue-12-v0-c10"></td>
+                    <td class="bg-hue-12-v0-c11"></td>
+                    <td class="bg-hue-12-v0-c12"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            function rgb2hex(rgb) {
+                rgb = rgb.match(
+                    /^rgb?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i
+                );
+                return rgb && rgb.length === 4 ?
+                    `#${(`0${parseInt(rgb[1], 10).toString(16)}`).slice(-2)}${(`0${parseInt(rgb[2], 10).toString(16)}`).slice(-2)}${(`0${parseInt(rgb[3], 10).toString(16)}`).slice(-2)}` :
+                    "";
+            }
+
+            $(".scheme-wrapper").each(function(a){
+
+                const schemeName = $(this).data("scheme-name");
+                
+                if ( $(this).data("scheme-type") == "neutral" ) {
+                    const schemeWrapper = `<div class="scheme-wrapper--name"><span>Neutral</span></div><div class="scheme-wrapper--colors" data-color-name="${schemeName}"></div>`;
+                    $(this).append(schemeWrapper);
+                } 
+
+                else {
+                    const schemeWrapper = `<div class="scheme-wrapper--name"><span>${schemeName}</span></div><div class="scheme-wrapper--colors" data-color-name="${schemeName}"></div>`;
+                    $(this).append(schemeWrapper);
+
+                }
+
+
+            });
+
+            $(".scheme-wrapper--colors").each(function(a){
+                const schemeColorName = $(this).data("color-name");
+
+                if ( $(this).parent().data("scheme-type") == "alpha" ) {
+                    const schemeColorHtml = `<div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-50-a);"></div><div class="scheme-color--depth">50<span></span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-100-a);"></div><div class="scheme-color--depth"><span>100</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-200-a);"></div><div class="scheme-color--depth"><span>200</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-300-a);"></div><div class="scheme-color--depth"><span>300</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-400-a);"></div><div class="scheme-color--depth"><span>400</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-500-a);"></div><div class="scheme-color--depth"><span>500</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-600-a);"></div><div class="scheme-color--depth"><span>600</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-700-a);"></div><div class="scheme-color--depth"><span>700</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-800-a);"></div><div class="scheme-color--depth"><span>800</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-900-a);"></div><div class="scheme-color--depth"><span>900</span></div><div class="scheme-color--hex"><span></span></div></div>`;
+                    $(this).append(schemeColorHtml);
+                }
+
+                else if ($(this).parent().data("scheme-type") == "neutral") {
+                    const schemeColorHtml = `<div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-50-n);"></div><div class="scheme-color--depth">50<span></span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-100-n);"></div><div class="scheme-color--depth"><span>100</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-200-n);"></div><div class="scheme-color--depth"><span>200</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-300-n);"></div><div class="scheme-color--depth"><span>300</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-400-n);"></div><div class="scheme-color--depth"><span>400</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-500-n);"></div><div class="scheme-color--depth"><span>500</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-600-n);"></div><div class="scheme-color--depth"><span>600</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-700-n);"></div><div class="scheme-color--depth"><span>700</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-800-n);"></div><div class="scheme-color--depth"><span>800</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-900-n);"></div><div class="scheme-color--depth"><span>900</span></div><div class="scheme-color--hex"><span></span></div></div>`;
+                        $(this).append(schemeColorHtml);
+                }
+
+                else {
+                    const schemeColorHtml = `<div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-50);"></div><div class="scheme-color--depth">50<span></span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-100);"></div><div class="scheme-color--depth"><span>100</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-200);"></div><div class="scheme-color--depth"><span>200</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-300);"></div><div class="scheme-color--depth"><span>300</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-400);"></div><div class="scheme-color--depth"><span>400</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-500);"></div><div class="scheme-color--depth"><span>500</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-600);"></div><div class="scheme-color--depth"><span>600</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-700);"></div><div class="scheme-color--depth"><span>700</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-800);"></div><div class="scheme-color--depth"><span>800</span></div><div class="scheme-color--hex"><span></span></div></div><div class="scheme-color"><div class="scheme-color--preview" style="background-color: var(--${schemeColorName}-900);"></div><div class="scheme-color--depth"><span>900</span></div><div class="scheme-color--hex"><span></span></div></div>`;
+                        $(this).append(schemeColorHtml);
+                }
+
+                
+                
+            });
+
+            $(".scheme-color").each(function(a){
+                const schemeColorHex = $(this).find(".scheme-color--preview").css("background-color");
+                const schemeType = $(this).parent().parent().data("scheme-type") == "alpha";
+
+                if (schemeType) {                    
+                    $(this).find(".scheme-color--hex span").text(schemeColorHex);
+                } else {
+                    $(this).find(".scheme-color--hex span").text(rgb2hex(schemeColorHex));                    
+                }
+            });
+
+
+                document.querySelectorAll(".particle-tabs > div").forEach(el => {
+                    el.classList.add('particle-item--' + el.id);
+                });
+
+                function clickParticleTab(e) {
+                    document.querySelectorAll(".particle-tabs > div").forEach(el => {
+                        el.classList.add("hide");
+                    });
+
+                    document.querySelectorAll("a[data-tab-id]").forEach(el => {
+                        el.classList.remove("active");
+                    });                
+
+                    const eTab = document.querySelector('.particle-item--' + e.getAttribute("data-tab-id"));
+                    e.classList.add("active");
+                    eTab.classList.remove("hide")
+                }
+        </script>
+    </body>
+</html>

@@ -48,6 +48,9 @@ $enable-utility-border: true !default; // [true | false] => `.border-` classes
 $enable-utility-fill: false !default; // [true | false] => `.fill-` classes
 $enable-utility-stroke: false !default; // [true | false] => `.stroke-` classes
 
+// 
+$enable-utility-docs: false !default; // [true | false] => table utilieis (for docs)
+
 // ==========================================================================
 // # Color Schemes
 // ============================================================================

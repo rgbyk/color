@@ -2,8 +2,10 @@
 // # Utilities
 // ============================================================================
 
-@use "../functions"as functions;
-@use "../core"as core;
+@use "../functions" as functions;
+@use "../core" as core;
+@use "../schemes" as scheme;
+
 @use "maps";
 
 @function is-root-or-hex($name, $hex) {
@@ -141,4 +143,78 @@
 	// 		}
 	// 	}
 	// }
+}
+
+
+@if (core.$enable-utility-docs) {
+	.bg-primary-v0 {
+	    &-c1 {background-color: mix(core.$brand-color, core.$value-0, core.$chroma-1) !important;}
+	    &-c2 {background-color: mix(core.$brand-color, core.$value-0, core.$chroma-2) !important;}
+	    &-c3 {background-color: mix(core.$brand-color, core.$value-0, core.$chroma-3) !important;}
+	    &-c4 {background-color: mix(core.$brand-color, core.$value-0, core.$chroma-4) !important;}
+	    &-c5 {background-color: mix(core.$brand-color, core.$value-0, core.$chroma-5) !important;}
+	    &-c6 {background-color: mix(core.$brand-color, core.$value-0, core.$chroma-6) !important;}
+	    &-c7 {background-color: mix(core.$brand-color, core.$value-0, core.$chroma-7) !important;}
+	    &-c8 {background-color: mix(core.$brand-color, core.$value-0, core.$chroma-8) !important;}
+	    &-c9 {background-color: mix(core.$brand-color, core.$value-0, core.$chroma-9) !important;}
+	    &-c10 {background-color: mix(core.$brand-color, core.$value-0, core.$chroma-10) !important;}
+	    &-c11 {background-color: mix(core.$brand-color, core.$value-0, core.$chroma-11) !important;}
+	    &-c12 {background-color: mix(core.$brand-color, core.$value-0, core.$chroma-12) !important;}
+	}
+	.bg-value-0 {background-color: core.$value-0 !important;}
+
+	@each $name, $hex in maps.$map-top-hues {
+		.bg-#{$name}-v0 {
+		    &-c1 {background-color: mix($hex, core.$value-0, core.$chroma-1) !important;}
+		    &-c2 {background-color: mix($hex, core.$value-0, core.$chroma-2) !important;}
+		    &-c3 {background-color: mix($hex, core.$value-0, core.$chroma-3) !important;}
+		    &-c4 {background-color: mix($hex, core.$value-0, core.$chroma-4) !important;}
+		    &-c5 {background-color: mix($hex, core.$value-0, core.$chroma-5) !important;}
+		    &-c6 {background-color: mix($hex, core.$value-0, core.$chroma-6) !important;}
+		    &-c7 {background-color: mix($hex, core.$value-0, core.$chroma-7) !important;}
+		    &-c8 {background-color: mix($hex, core.$value-0, core.$chroma-8) !important;}
+		    &-c9 {background-color: mix($hex, core.$value-0, core.$chroma-9) !important;}
+		    &-c10 {background-color: mix($hex, core.$value-0, core.$chroma-10) !important;}
+		    &-c11 {background-color: mix($hex, core.$value-0, core.$chroma-11) !important;}
+		    &-c12 {background-color: mix($hex, core.$value-0, core.$chroma-12) !important;}
+		}
+	}
+
+	$docs-value-map: core.$value-1, core.$value-2, core.$value-3, core.$value-4, core.$value-5, core.$value-6, core.$value-7, core.$value-8, core.$value-9, core.$value-10;
+
+	@for $i from 1 through length($docs-value-map) {
+	    .bg-primary {
+	        &-v#{$i}-c1 {background-color: mix(core.$brand-color, nth($docs-value-map, $i), core.$chroma-1) !important;}
+	        &-v#{$i}-c2 {background-color: mix(core.$brand-color, nth($docs-value-map, $i), core.$chroma-2) !important;}
+	        &-v#{$i}-c3 {background-color: mix(core.$brand-color, nth($docs-value-map, $i), core.$chroma-3) !important;}
+	        &-v#{$i}-c4 {background-color: mix(core.$brand-color, nth($docs-value-map, $i), core.$chroma-4) !important;}
+	        &-v#{$i}-c5 {background-color: mix(core.$brand-color, nth($docs-value-map, $i), core.$chroma-5) !important;}
+	        &-v#{$i}-c6 {background-color: mix(core.$brand-color, nth($docs-value-map, $i), core.$chroma-6) !important;}
+	        &-v#{$i}-c7 {background-color: mix(core.$brand-color, nth($docs-value-map, $i), core.$chroma-7) !important;}
+	        &-v#{$i}-c8 {background-color: mix(core.$brand-color, nth($docs-value-map, $i), core.$chroma-8) !important;}
+	        &-v#{$i}-c9 {background-color: mix(core.$brand-color, nth($docs-value-map, $i), core.$chroma-9) !important;}
+	        &-v#{$i}-c10 {background-color: mix(core.$brand-color, nth($docs-value-map, $i), core.$chroma-10) !important;}
+	        &-v#{$i}-c11 {background-color: mix(core.$brand-color, nth($docs-value-map, $i), core.$chroma-11) !important;}
+	        &-v#{$i}-c12 {background-color: mix(core.$brand-color, nth($docs-value-map, $i), core.$chroma-12) !important;}
+	    }
+
+	    @each $name, $color in maps.$map-top-hues {
+	        .bg-#{$name} {
+	            &-v#{$i}-c1 {background-color: mix($color, nth($docs-value-map, $i), core.$chroma-1) !important;}
+	            &-v#{$i}-c2 {background-color: mix($color, nth($docs-value-map, $i), core.$chroma-2) !important;}
+	            &-v#{$i}-c3 {background-color: mix($color, nth($docs-value-map, $i), core.$chroma-3) !important;}
+	            &-v#{$i}-c4 {background-color: mix($color, nth($docs-value-map, $i), core.$chroma-4) !important;}
+	            &-v#{$i}-c5 {background-color: mix($color, nth($docs-value-map, $i), core.$chroma-5) !important;}
+	            &-v#{$i}-c6 {background-color: mix($color, nth($docs-value-map, $i), core.$chroma-6) !important;}
+	            &-v#{$i}-c7 {background-color: mix($color, nth($docs-value-map, $i), core.$chroma-7) !important;}
+	            &-v#{$i}-c8 {background-color: mix($color, nth($docs-value-map, $i), core.$chroma-8) !important;}
+	            &-v#{$i}-c9 {background-color: mix($color, nth($docs-value-map, $i), core.$chroma-9) !important;}
+	            &-v#{$i}-c10 {background-color: mix($color, nth($docs-value-map, $i), core.$chroma-10) !important;}
+	            &-v#{$i}-c11 {background-color: mix($color, nth($docs-value-map, $i), core.$chroma-11) !important;}
+	            &-v#{$i}-c12 {background-color: mix($color, nth($docs-value-map, $i), core.$chroma-12) !important;}
+	        }
+	    }
+	}
+
+
 }

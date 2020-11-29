@@ -7,12 +7,38 @@
     $color-model: ryb,
 
     $color-mode-harmony: false,
-    $color-scheme-achromatic: false,
     $color-mode-harmony-grayscale: false,
+    $color-mode-harmony-grayscale-cool-mix: 3%,
+    $color-mode-harmony-grayscale-warm-mix: 2%,
+
     $enable-utility-classes: false,
+    $enable-utility-bg: false,
+    $enable-utility-color: false,
+    $enable-utility-border: false,
+    $enable-utility-fill: false,
+    $enable-utility-stroke: false,
+
+    $color-scheme-primary: false,
+    $color-scheme-achromatic: false,
+
+    $color-scheme-analogous: false,
+    $color-scheme-complementary: false,
+    $color-scheme-hues: false,
+    $color-scheme-split: false,
+    $color-scheme-square: false,
+    $color-scheme-tetradic: false,
+    $color-scheme-triadic: false,
+
+    $color-scheme-danger: false,
+    $color-scheme-warning: false,
+    $color-scheme-success: false,
+    $color-scheme-info: false,
+
     $color-scheme-neutral: false,
+    $color-scheme-pastel: false,
     $color-scheme-alpha: false,
-    $color-scheme-pastel: false
+
+    $enable-root-colors: true
 );
 
 @use "functions";

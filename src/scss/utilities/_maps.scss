@@ -108,3 +108,7 @@ $color-scheme-map-boolean: (
 }
 
 $color-scheme-map: enabled-palettes($color-scheme-map-boolean);
+
+
+// For Documentation Only
+$map-top-hues: schemes.$map-hue-top;

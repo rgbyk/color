@@ -29,6 +29,7 @@ $-value-9: core.$value-9;
   $-value-9: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-9);
 } @else {}
 
+$grey-50: functions.make-color-mono($-value-9, 100) !default;
 $grey-100: functions.make-color-mono($-value-9, 100) !default;
 $grey-200: functions.make-color-mono($-value-8, 200) !default;
 $grey-300: functions.make-color-mono($-value-7, 300) !default;
@@ -46,6 +47,7 @@ $grey-900: functions.make-color-mono($-value-3, 900) !default;
 $map-achromatic: (
   "white": core.$value-10,
   "black": core.$value-0,
+  "grey-50": $grey-50,
   "grey-100": $grey-100,
   "grey-200": $grey-200,
   "grey-300": $grey-300,

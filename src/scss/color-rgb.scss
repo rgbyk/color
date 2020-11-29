@@ -3,16 +3,44 @@
 // ==========================================================================
 
 @forward "core" with ( 
-    $brand-color: #8e43e7,
+    $brand-color: #7759F7,
     $color-model: rgb,
 
-    $color-mode-harmony: false,
-    $color-scheme-achromatic: false,
-    $color-mode-harmony-grayscale: false,
+    $color-mode-harmony: true,
+    $color-mode-harmony-grayscale: true,
+    $color-mode-harmony-grayscale-cool-mix: 3%,
+    $color-mode-harmony-grayscale-warm-mix: 3%,
+    
+    $enable-utility-docs: true,
+
     $enable-utility-classes: false,
-    $color-scheme-neutral: false,
-    $color-scheme-alpha: false,
-    $color-scheme-pastel: false
+    $enable-utility-bg: false,
+    $enable-utility-color: false,
+    $enable-utility-border: false,
+    $enable-utility-fill: false,
+    $enable-utility-stroke: false,
+
+    $color-scheme-primary: true,
+    $color-scheme-achromatic: false,
+
+    $color-scheme-analogous: true,
+    $color-scheme-complementary: true,
+    $color-scheme-hues: true,
+    $color-scheme-split: true,
+    $color-scheme-square: true,
+    $color-scheme-tetradic: true,
+    $color-scheme-triadic: true,
+
+    $color-scheme-danger: false,
+    $color-scheme-warning: false,
+    $color-scheme-success: false,
+    $color-scheme-info: false,
+
+    $color-scheme-neutral: true,
+    $color-scheme-pastel: false,
+    $color-scheme-alpha: true,
+
+    $enable-root-colors: true
 );
 
 @use "functions";
