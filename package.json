@@ -33,22 +33,22 @@
     "watch:color-ryb": "nodemon --watch src/scss -e scss -x \"npm run color-ryb\""
   },
   "dependencies": {
-    "autoprefixer": "^10.0.2",
-    "browserslist": "^4.14.7",
-    "caniuse-lite": "^1.0.30001157",
+    "autoprefixer": "^10.2.6",
+    "browserslist": "^4.16.6",
+    "caniuse-lite": "^1.0.30001241",
     "css-declaration-sorter": "^6.0.2",
-    "cssnano": "^4.1.10",
+    "cssnano": "^5.0.6",
     "minimist": ">=1.2.2",
-    "nodemon": "^2.0.6",
-    "postcss-cli": "^8.2.0",
-    "postcss-combine-duplicated-selectors": "^10.0.2",
-    "postcss-merge-idents": "^4.0.1",
-    "postcss-merge-rules": "^4.0.3",
+    "nodemon": "^2.0.9",
+    "postcss-cli": "^8.3.1",
+    "postcss-combine-duplicated-selectors": "^10.0.3",
+    "postcss-merge-idents": "^5.0.1",
+    "postcss-merge-rules": "^5.0.2",
     "postcss-merge-selectors": "0.0.6",
     "postcss-sorting": "^6.0.0",
-    "sass": "^1.29.0"
+    "sass": "^1.35.1"
   },
   "devDependencies": {
-    "postcss": "^8.1.7"
+    "postcss": "^8.3.5"
   }
 }
