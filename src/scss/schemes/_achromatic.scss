@@ -29,7 +29,7 @@ $-value-9: core.$value-9;
   $-value-9: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-9);
 } @else {}
 
-$grey-50: functions.make-color-mono($-value-9, 100) !default;
+$grey-50: functions.make-color-mono($-value-9, 50) !default;
 $grey-100: functions.make-color-mono($-value-9, 100) !default;
 $grey-200: functions.make-color-mono($-value-8, 200) !default;
 $grey-300: functions.make-color-mono($-value-7, 300) !default;

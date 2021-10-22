@@ -74,7 +74,7 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
   }
 
   // find out how many units in each stop
-  $deg: 360 / list.length($ryb-interpolation);
+  $deg: math.div(360, list.length($ryb-interpolation));
 
   // ! count through stops
   $deg-count: $deg;
@@ -88,7 +88,8 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
   @for $i from 0 through list.length($ryb-interpolation) {
     @if $value < $deg-count {
 
-      $-n: math.percentage(($deg-count - $value) / $deg);
+      // $-n: math.percentage(($deg-count - $value) / $deg);
+      $-n: math.div(abs($deg-count - $value), $deg);
 
       @return color-mix(
         nth($ryb-interpolation, $stop-count + 1),
@@ -161,7 +162,9 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
     $degrees: 360 * ($degrees / 100%);
   }
 
-  $hue-adjust: (ryb-hue($color) + $degrees) / 1deg;
+  // $hue-adjust: (ryb-hue($color) + $degrees) / 1deg;
+  $hue-adjust: math.div(abs(ryb-hue($color) + $degrees), 1deg);
+
   @return hsl(color.hue(ryb-interpolate($hue-adjust)), color.saturation($color), color.lightness($color));
 }
 
@@ -187,7 +190,9 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
 // 
 
 @function color-mix($color1, $color2, $percent: 50%, $model: null) {  
-  $decimal: abs($percent - 100%) / 100%;
+  // $decimal: abs($percent - 100%) / 100%;
+  $decimal: math.div(abs($percent - 100%), 100%);
+  
   $hue-offset: ();
 
   @if $model == rgb {
