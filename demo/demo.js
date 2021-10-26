@@ -1,42 +1,6 @@
-//
-// Scheme Menus
-//
-document.querySelectorAll("[aria-controls]").forEach(e => {
-  e.addEventListener("click", () => {
-
-    let ariaPressed = e.getAttribute("aria-pressed");
-    const ariaControls = e.getAttribute("aria-controls");
-    const ariaTarget = document.getElementById(ariaControls);
-    const buttons = e.parentNode.querySelectorAll("[aria-controls]");
-
-    [].forEach.call(buttons, (button) => {
-      button.setAttribute("aria-pressed", false);
-        const buttonControls = button.getAttribute("aria-controls");
-        const buttonTarget = document.getElementById(buttonControls);
-        buttonTarget.setAttribute("aria-hidden", true);
-    });
-
-    // [].forEach.call(control, (schemeContainer) => {
-    //     console.log(schemeContainer);
-    //   schemeContainer.setAttribute("aria-hidden", true);
-    // });
-
-    switch (ariaPressed) {
-      case "true":
-        e.setAttribute("aria-pressed", false);
-        ariaTarget.setAttribute("aria-hidden", true);
-        break;
-      case "false":
-
-        e.setAttribute("aria-pressed", true);
-        ariaTarget.setAttribute("aria-hidden", false);
-        break;
-    }
-
-  });
-});
-
-
+// --------------------------------
+// isMobile()
+// --------------------------------
 
 let isMobile = false;
 
@@ -45,15 +9,19 @@ if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elain
     isMobile = true;
 }
 
-//
-// Function
+// --------------------------------
 // setAttributes([], [])
-//
+// --------------------------------
+
 function setAttributes(el, attrs) {
     for(const key in attrs) {
         el.setAttribute(key, attrs[key]);
     }
 }
+
+// --------------------------------
+// ready({ ... });
+// --------------------------------
 
 const ready = callback => {
     if (document.readyState !== "loading") {
@@ -62,6 +30,45 @@ const ready = callback => {
         document.addEventListener("DOMContentLoaded", callback);
     }
 };
+
+
+//
+// Scheme Menus
+//
+// document.querySelectorAll("[aria-controls]").forEach(e => {
+//   e.addEventListener("click", () => {
+
+//     let ariaPressed = e.getAttribute("aria-pressed");
+//     const ariaControls = e.getAttribute("aria-controls");
+//     const ariaTarget = document.getElementById(ariaControls);
+//     const buttons = e.parentNode.querySelectorAll("[aria-controls]");
+
+//     [].forEach.call(buttons, (button) => {
+//       button.setAttribute("aria-pressed", false);
+//         const buttonControls = button.getAttribute("aria-controls");
+//         const buttonTarget = document.getElementById(buttonControls);
+//         buttonTarget.setAttribute("aria-hidden", true);
+//     });
+
+//     switch (ariaPressed) {
+//       case "true":
+//         e.setAttribute("aria-pressed", false);
+//         ariaTarget.setAttribute("aria-hidden", true);
+//         break;
+//       case "false":
+
+//         e.setAttribute("aria-pressed", true);
+//         ariaTarget.setAttribute("aria-hidden", false);
+//         break;
+//     }
+
+//   });
+// });
+
+
+// --------------------------------
+// rgb2hex()
+// --------------------------------
 
 function rgb2hex(rgb) {
     rgb = rgb.match(
@@ -72,9 +79,10 @@ function rgb2hex(rgb) {
         "";
 }
 
-//
-// Generate Scheme Row
-//
+// --------------------------------
+// generateSchemeRow()
+// --------------------------------
+
 function generateSchemeRow() {
     const schemeRow = document.querySelectorAll(".scheme-row");
     const schemeRowDepth = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'];
@@ -98,21 +106,22 @@ function generateSchemeRow() {
                     return `${schemeRowName}-${depth}`; }
             })();
 
-            let x = `
-                <div class="scheme-row--color" data-cs-num="${depth}" data-cs-hex data-cs-rgb data-cs-var="${schemeColorType}">
-                    <div class="scheme-color--preview" style="background-color: var(--${schemeColorType})"></div>
-                    <div class="scheme-color--meta">
-                        <div class="scheme-color--num"><span>${depth}</span></div>
-                        <div class="scheme-color--hex"></div>
-                        <div class="scheme-color--rgb"></div>
-                        <div class="scheme-color--rgba"></div>
-                        <div class="scheme-color--var"></div>
-                    </div>
-                </div>`;
+            let x = `<li>
+                    <figure class="scheme-row--figure" data-cs-num="${depth}" data-cs-hex data-cs-rgb data-cs-var="${schemeColorType}">
+                        <div class="scheme-color--preview" style="background-color: var(--${schemeColorType})"></div>
+                        <figcaption class="scheme-color--meta">
+                            <div class="scheme-color--num"><span>${depth}</span></div>
+                            <div class="scheme-color--hex"></div>
+                            <div class="scheme-color--rgb"></div>
+                            <div class="scheme-color--rgba"></div>
+                            <div class="scheme-color--var"></div>
+                        </figcaption>
+                    </figure>
+                </li>`;
             row.innerHTML += x;
         });
 
-        const schemeRowColor = row.querySelectorAll(".scheme-row--color");
+        const schemeRowColor = row.querySelectorAll(".scheme-row--figure");
 
         [].forEach.call(schemeRowColor, color => {
             let schemeColorPreview = color.querySelector(".scheme-color--preview");
@@ -148,15 +157,40 @@ function generateSchemeRow() {
     });
 }
 
+// Fire
 generateSchemeRow();
 
-//
-// Color Scheme Table
-//
+// --------------------------------
+// Generate Unique IDs
+// --------------------------------
+
+function makeSchemeIds(){
+     const __SCHEME_ROW = document.querySelectorAll(".scheme-row");
+     i = 1;
+
+     [].forEach.call(__SCHEME_ROW, __ROW => {
+        const b = __ROW.getAttribute("data-scheme-name");
+        const c = b.split(' ');
+        const d = c[0].substr(0, 5).replace('#','').replace('-','');
+
+        __ROW.setAttribute("id", d + i++);
+
+        const e = __ROW.getAttribute("id");
+     });
+}
+
+// --------------------------------
+// getScheme
+// --------------------------------
+
 function getScheme() {
     let cs_value_rgb = window.getComputedStyle(e).getPropertyValue("background-color");
     let cs_value_hex = rgb2hex(cs_value_rgb);   
 }
+
+// --------------------------------
+// colorSpectrumTable()
+// --------------------------------
 
 function colorSpectrumTable() {
     let selector = document.querySelector("#spectrum-options");
@@ -173,21 +207,21 @@ function colorSpectrumTable() {
         if ( type == 'hex' ) {
             e.innerHTML = cs_value_hex;
         }
+
         if ( type == 'rgb' ) {
             e.innerHTML = cs_value_rgb;
         }
 
-        if ( type == 'pos' ) {
-            console.log("something");
-        }
+        if ( type == 'pos' ) { }
 
     });
 }
 
-//
-// colorSpectrumPosition
-//
-function getColorSpectrumPosition() { 
+// --------------------------------
+// getColorPosition()
+// --------------------------------
+
+function getColorPosition() { 
     const csSelector = document.getElementById("cs-options");
     let csSelected = csSelector.options[csSelector.selectedIndex];
     const csScheme = document.querySelector(`[data-scheme-name=${csSelected.value}]`);
@@ -206,8 +240,11 @@ function getColorSpectrumPosition() {
     const hex_50 = window.getComputedStyle(csScheme_50).getPropertyValue("background-color");
 }
 
-// getColorSpectrumPosition();
-function selectColorSpectrum(e) {
+// --------------------------------
+// getColorSelected()
+// --------------------------------
+
+function getColorSelected(e) {
     const selector = e;
     let selected = selector.options[selector.selectedIndex];
     const options = Array.from(selector.options).map(({value}) => value);
@@ -226,9 +263,10 @@ function selectColorSpectrum(e) {
     }
 }
 
-//
-// Ready
-//
+// --------------------------------
+// ready function
+// --------------------------------
+
 ready(() => {
-    // selectColorSpectrum("primary");
+// getColorSelected("primary");
 });

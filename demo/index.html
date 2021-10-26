@@ -11,242 +11,146 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap">
    </head>
    <body>
-      <header>
-         <h1>
-            <span>Color Schemes</span>
-         </h1>
-      </header>
+      <div class="docs-grid">
+         <figure class="docs-grid--rainbow"> ... </figure>
+         <header class="docs-grid--header"> ... </header>
+         <aside class="docs-grid--aside"> ... </aside>
+         <div class="docs-grid--main">
+            <header class="docs-header">
+               <div class="docs-header--title">
+                  <h1><span>Color Schemes</span></h1>
+               </div>         
+            </header>
 
-      <!-- Grayscale -->
-      <section>
-         <header class="scheme-row--header">
-            <h2>
-               <span>Greyscale</span>
-            </h2>
-            <menu>
-               <button type="button" aria-pressed="true" aria-controls="schemeGrayscale"><span>Pure</span></button>
-               <button type="button" aria-pressed="false" aria-controls="schemeGrayscaleAlpha"><span>Alpha</span></button>
-            </menu>
-         </header>
-         <div id="schemeGrayscale" aria-hidden="false">
-            <div class="scheme-row" data-scheme-name="grey"></div>
-         </div>
-         <div id="schemeGrayscaleAlpha" aria-hidden="true">
-            <div class="scheme-row" data-scheme-name="grey" data-scheme-type="alpha"></div>
-         </div>
-      </section>
+            <section class="docs-section">
+               <header class="scheme-row--header">
+                  <h2><span>Greyscale</span></h2>
+               </header>
+               <article class="scheme-row--article">
+                  <ol class="scheme-row" data-scheme-name="primary" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="primary" data-scheme-type="neutral" aria-hidden="true"></ol>
+               </article>
+            </section>
 
-      <!-- Primary -->
-      <section>
-         <header class="scheme-row--header">
-            <h2>
-               <span>Primary</span>
-            </h2>
-            <menu>
-               <button type="button" aria-pressed="true" aria-controls="schemePrimary"><span>Pure</span></button>
-               <button type="button" aria-pressed="false" aria-controls="schemePrimaryNeutral"><span>Neutral</span></button>
-               <button type="button" aria-pressed="false" aria-controls="schemePrimaryAlpha"><span>Alpha</span></button>
-            </menu>
-         </header>
-         <div id="schemePrimary" aria-hidden="false">
-            <div class="scheme-row" data-scheme-name="primary"></div>
-         </div>
-         <div id="schemePrimaryNeutral" aria-hidden="true">
-            <div class="scheme-row" data-scheme-name="primary" data-scheme-type="neutral"></div>
-         </div>
-         <div id="schemePrimaryAlpha" aria-hidden="true">
-            <div class="scheme-row" data-scheme-name="primary" data-scheme-type="alpha"></div>
-         </div>
-      </section>
+            <section class="docs-section">
+               <header class="scheme-row--header">
+                  <h2><span>Primary</span></h2>
+               </header>
+               <article class="scheme-row--article">
+                  <ol class="scheme-row" data-scheme-name="primary" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="primary" data-scheme-type="neutral"></ol>
+               </article>
+            </section>
 
-      <!-- Complementary -->
-      <section>
-         <header class="scheme-row--header">
-            <h2>
-               <span>Complementary</span>
-            </h2>
-            <menu>
-               <button type="button" aria-pressed="true" aria-controls="schemeComplementary"><span>Pure</span></button>
-               <button type="button" aria-pressed="false" aria-controls="schemeComplementaryNeutral"><span>Neutral</span></button>
-               <button type="button" aria-pressed="false" aria-controls="schemeComplementaryAlpha"><span>Alpha</span></button>
-            </menu>
-         </header>
-         <div id="schemeComplementary" aria-hidden="false">
-            <div class="scheme-row" data-scheme-name="complementary"></div>
-         </div>
-         <div id="schemeComplementaryNeutral" aria-hidden="true">
-            <div class="scheme-row" data-scheme-name="complementary" data-scheme-type="neutral"></div>
-         </div>
-         <div id="schemeComplementaryAlpha" aria-hidden="true">
-            <div class="scheme-row" data-scheme-name="complementary" data-scheme-type="alpha"></div>
-         </div>
-      </section>
+            <section class="docs-section">
+               <header class="scheme-row--header">
+                  <h2><span>Complementary</span></h2>
+               </header>
+               <article class="scheme-row--article">
+                  <ol class="scheme-row" data-scheme-name="complementary" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="complementary" data-scheme-type="neutral"></ol>
+               </article>
+            </section>
 
-      <!-- Analogous -->
-      <section>
-         <header class="scheme-row--header">
-            <h2>
-               <span>Analogous</span>
-            </h2>
-            <menu>
-               <button type="button" aria-pressed="true" aria-controls="schemeAnalogous"><span>Pure</span></button>
-               <button type="button" aria-pressed="false" aria-controls="schemeAnalogousNeutral"><span>Neutral</span></button>
-               <button type="button" aria-pressed="false" aria-controls="schemeAnalogousAlpha"><span>Alpha</span></button>
-            </menu>
-         </header>
-         <div id="schemeAnalogous" aria-hidden="false">
-            <div class="scheme-row" data-scheme-name="analogous-1"></div>
-            <div class="scheme-row" data-scheme-name="analogous-2"></div>
-            <div class="scheme-row" data-scheme-name="analogous-3"></div>
-         </div>
-         <div id="schemeAnalogousNeutral" aria-hidden="true">
-            <div class="scheme-row" data-scheme-name="analogous-1" data-scheme-type="neutral"></div>
-            <div class="scheme-row" data-scheme-name="analogous-2" data-scheme-type="neutral"></div>
-            <div class="scheme-row" data-scheme-name="analogous-3" data-scheme-type="neutral"></div>
-         </div>
-         <div id="schemeAnalogousAlpha" aria-hidden="true">
-            <div class="scheme-row" data-scheme-name="analogous-1" data-scheme-type="alpha"></div>
-            <div class="scheme-row" data-scheme-name="analogous-2" data-scheme-type="alpha"></div>
-            <div class="scheme-row" data-scheme-name="analogous-3" data-scheme-type="alpha"></div>
-         </div>
-      </section>
+            <section class="docs-section">
+               <header class="scheme-row--header">
+                  <h2><span>Analogous</span></h2>
+               </header>
+               <article class="scheme-row--article">            
+                  <ol class="scheme-row" data-scheme-name="analogous-1" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="analogous-2" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="analogous-3" data-scheme-type="pure"></ol>
 
-      <!-- Split -->
-      <section>
-         <header class="scheme-row--header">
-            <h2>
-               <span>Split</span>
-            </h2>
-            <menu>
-               <button type="button" aria-pressed="true" aria-controls="schemeSplit"><span>Pure</span></button>
-               <button type="button" aria-pressed="false" aria-controls="schemeSplitNeutral"><span>Neutral</span></button>
-               <button type="button" aria-pressed="false" aria-controls="schemeSplitAlpha"><span>Alpha</span></button>
-            </menu>
-         </header>
-         <div id="schemeSplit" aria-hidden="false">
-            <div class="scheme-row" data-scheme-name="split-1"></div>
-            <div class="scheme-row" data-scheme-name="split-2"></div>
-         </div>
-         <div id="schemeSplitNeutral" aria-hidden="true">
-            <div class="scheme-row" data-scheme-name="split-1" data-scheme-type="neutral"></div>
-            <div class="scheme-row" data-scheme-name="split-2" data-scheme-type="neutral"></div>
-         </div>
-         <div id="schemeSplitAlpha" aria-hidden="true">
-            <div class="scheme-row" data-scheme-name="split-1" data-scheme-type="alpha"></div>
-            <div class="scheme-row" data-scheme-name="split-2" data-scheme-type="alpha"></div>
-         </div>
-      </section>
+                  <ol class="scheme-row" data-scheme-name="analogous-1" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="analogous-2" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="analogous-3" data-scheme-type="neutral"></ol>
+               </article>
+            </section>
 
-      <!-- Square -->
-      <section>
-         <header class="scheme-row--header">
-            <h2>
-               <span>Square</span>
-            </h2>
-            <menu>
-               <button type="button" aria-pressed="true" aria-controls="schemeSquare"><span>Pure</span></button>
-               <button type="button" aria-pressed="false" aria-controls="schemeSquareNeutral"><span>Neutral</span></button>
-               <button type="button" aria-pressed="false" aria-controls="schemeSquareAlpha"><span>Alpha</span></button>
-            </menu>
-         </header>
-         <div id="schemeSquare" aria-hidden="false">
-            <div class="scheme-row" data-scheme-name="square-1"></div>
-            <div class="scheme-row" data-scheme-name="square-2"></div>
-            <div class="scheme-row" data-scheme-name="square-3"></div>
-         </div>
-         <div id="schemeSquareNeutral" aria-hidden="true">
-            <div class="scheme-row" data-scheme-name="square-1" data-scheme-type="neutral"></div>
-            <div class="scheme-row" data-scheme-name="square-2" data-scheme-type="neutral"></div>
-            <div class="scheme-row" data-scheme-name="square-3" data-scheme-type="neutral"></div>
-         </div>
-         <div id="schemeSquareAlpha" aria-hidden="true">
-            <div class="scheme-row" data-scheme-name="square-1" data-scheme-type="alpha"></div>
-            <div class="scheme-row" data-scheme-name="square-2" data-scheme-type="alpha"></div>
-            <div class="scheme-row" data-scheme-name="square-3" data-scheme-type="alpha"></div>
-         </div>
-      </section>
+            <section class="docs-section">
+               <header class="scheme-row--header">
+                  <h2><span>Split</span></h2>
+               </header>
+               <article class="scheme-row--article">            
+                  <ol class="scheme-row" data-scheme-name="split-1" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="split-2" data-scheme-type="pure"></ol>
 
-      <!-- Triadic -->
-      <section>
-         <header class="scheme-row--header">
-            <h2>
-               <span>Triadic</span>
-            </h2>
-            <menu>
-               <button type="button" aria-pressed="true" aria-controls="schemeTriadic"><span>Pure</span></button>
-               <button type="button" aria-pressed="false" aria-controls="schemeTriadicNeutral"><span>Neutral</span></button>
-               <button type="button" aria-pressed="false" aria-controls="schemeTriadicAlpha"><span>Alpha</span></button>
-            </menu>
-         </header>
-         <div id="schemeTriadic" aria-hidden="false">
-            <div class="scheme-row" data-scheme-name="triadic-1"></div>
-            <div class="scheme-row" data-scheme-name="triadic-2"></div>
-         </div>
-         <div id="schemeTriadicNeutral" aria-hidden="true">
-            <div class="scheme-row" data-scheme-name="triadic-1" data-scheme-type="neutral"></div>
-            <div class="scheme-row" data-scheme-name="triadic-2" data-scheme-type="neutral"></div>
-         </div>
-         <div id="schemeTriadicAlpha" aria-hidden="true">
-            <div class="scheme-row" data-scheme-name="triadic-1" data-scheme-type="alpha"></div>
-            <div class="scheme-row" data-scheme-name="triadic-2" data-scheme-type="alpha"></div>
-         </div>
-      </section>
+                  <ol class="scheme-row" data-scheme-name="split-1" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="split-2" data-scheme-type="neutral"></ol>
+               </article>
+            </section>
 
-      <!-- Hues -->
-      <section>
-         <header class="scheme-row--header">
-            <h2>
-               <span>12 Hues</span>
-            </h2>
-            <menu>
-               <button type="button" aria-pressed="true" aria-controls="schemeHue"><span>Pure</span></button>
-               <button type="button" aria-pressed="false" aria-controls="schemeHueNeutral"><span>Neutral</span></button>
-               <button type="button" aria-pressed="false" aria-controls="schemeHueAlpha"><span>Alpha</span></button>
-            </menu>
-         </header>
-         <div id="schemeHue" aria-hidden="false">
-            <div class="scheme-row" data-scheme-name="hue-1"></div>
-            <div class="scheme-row" data-scheme-name="hue-2"></div>
-            <div class="scheme-row" data-scheme-name="hue-3"></div>
-            <div class="scheme-row" data-scheme-name="hue-4"></div>
-            <div class="scheme-row" data-scheme-name="hue-5"></div>
-            <div class="scheme-row" data-scheme-name="hue-6"></div>
-            <div class="scheme-row" data-scheme-name="hue-7"></div>
-            <div class="scheme-row" data-scheme-name="hue-8"></div>
-            <div class="scheme-row" data-scheme-name="hue-9"></div>
-            <div class="scheme-row" data-scheme-name="hue-10"></div>
-            <div class="scheme-row" data-scheme-name="hue-11"></div>
-            <div class="scheme-row" data-scheme-name="hue-12"></div>
+            <section class="docs-section">
+               <header class="scheme-row--header">
+                  <h2><span>Square</span></h2>
+               </header>
+               <article class="scheme-row--article">            
+                  <ol class="scheme-row" data-scheme-name="square-1" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="square-2" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="square-3" data-scheme-type="pure"></ol>
+
+                  <ol class="scheme-row" data-scheme-name="square-1" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="square-2" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="square-3" data-scheme-type="neutral"></ol>
+               </article>
+            </section>
+
+            <section class="docs-section">
+               <header class="scheme-row--header">
+                  <h2><span>Triadic</span></h2>
+               </header>
+               <article class="scheme-row--article">            
+                  <ol class="scheme-row" data-scheme-name="triadic-1" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="triadic-2" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="triadic-3" data-scheme-type="pure"></ol>
+
+                  <ol class="scheme-row" data-scheme-name="triadic-1" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="triadic-2" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="triadic-3" data-scheme-type="neutral"></ol>
+               </article>
+            </section>
+
+            <section class="docs-section">
+               <header class="scheme-row--header">
+                  <h2><span>12 Hues</span></h2>
+               </header>
+               <article class="scheme-row--article">            
+                  <ol class="scheme-row" data-scheme-name="hue-1" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-2" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-3" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-4" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-5" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-6" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-7" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-8" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-9" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-10" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-11" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-12" data-scheme-type="pure"></ol>
+
+                  <ol class="scheme-row" data-scheme-name="hue-1" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-2" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-3" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-4" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-5" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-6" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-7" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-8" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-9" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-10" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-11" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-12" data-scheme-type="neutral"></ol>
+               </article>
+            </section>
          </div>
-         <div id="schemeHueNeutral" aria-hidden="true">
-            <div class="scheme-row" data-scheme-name="hue-1" data-scheme-type="neutral"></div>
-            <div class="scheme-row" data-scheme-name="hue-2" data-scheme-type="neutral"></div>
-            <div class="scheme-row" data-scheme-name="hue-3" data-scheme-type="neutral"></div>
-            <div class="scheme-row" data-scheme-name="hue-4" data-scheme-type="neutral"></div>
-            <div class="scheme-row" data-scheme-name="hue-5" data-scheme-type="neutral"></div>
-            <div class="scheme-row" data-scheme-name="hue-6" data-scheme-type="neutral"></div>
-            <div class="scheme-row" data-scheme-name="hue-7" data-scheme-type="neutral"></div>
-            <div class="scheme-row" data-scheme-name="hue-8" data-scheme-type="neutral"></div>
-            <div class="scheme-row" data-scheme-name="hue-9" data-scheme-type="neutral"></div>
-            <div class="scheme-row" data-scheme-name="hue-10" data-scheme-type="neutral"></div>
-            <div class="scheme-row" data-scheme-name="hue-11" data-scheme-type="neutral"></div>
-            <div class="scheme-row" data-scheme-name="hue-12" data-scheme-type="neutral"></div>
-         </div>
-         <div id="schemeHueAlpha" aria-hidden="true">
-            <div class="scheme-row" data-scheme-name="hue-1" data-scheme-type="alpha"></div>
-            <div class="scheme-row" data-scheme-name="hue-2" data-scheme-type="alpha"></div>
-            <div class="scheme-row" data-scheme-name="hue-3" data-scheme-type="alpha"></div>
-            <div class="scheme-row" data-scheme-name="hue-4" data-scheme-type="alpha"></div>
-            <div class="scheme-row" data-scheme-name="hue-5" data-scheme-type="alpha"></div>
-            <div class="scheme-row" data-scheme-name="hue-6" data-scheme-type="alpha"></div>
-            <div class="scheme-row" data-scheme-name="hue-7" data-scheme-type="alpha"></div>
-            <div class="scheme-row" data-scheme-name="hue-8" data-scheme-type="alpha"></div>
-            <div class="scheme-row" data-scheme-name="hue-9" data-scheme-type="alpha"></div>
-            <div class="scheme-row" data-scheme-name="hue-10" data-scheme-type="alpha"></div>
-            <div class="scheme-row" data-scheme-name="hue-11" data-scheme-type="alpha"></div>
-            <div class="scheme-row" data-scheme-name="hue-12" data-scheme-type="alpha"></div>
-         </div>
-      </section>
+      </div>
+      <aside class="docs-aside">
+         ...
+      </aside>
+      <main class="docs-main">
+         
+      </main>
+
 
       <!-- Spectrum Table -->
       <table class="table demo-colorspectrum-table primary chroma-show--var value-show--var" style="display: none;">
