@@ -35,17 +35,17 @@ $grey-200: functions.make-color-mono($-value-8, 200) !default;
 $grey-300: functions.make-color-mono($-value-7, 300) !default;
 $grey-400: functions.make-color-mono($-value-6, 400) !default;
 $grey-500: functions.make-color-mono($-value-5, 500) !default;
-$grey-600: functions.make-color-mono($-value-4, 600) !default;
-$grey-700: functions.make-color-mono($-value-3, 700) !default;
-$grey-800: functions.make-color-mono($-value-3, 800) !default;
-$grey-900: functions.make-color-mono($-value-3, 900) !default;
+$grey-600: functions.make-color-mono($-value-5, 600) !default;
+$grey-700: functions.make-color-mono($-value-5, 700) !default;
+$grey-800: functions.make-color-mono($-value-5, 800) !default;
+$grey-900: functions.make-color-mono($-value-5, 900) !default;
 
 // =============================================================================
 // # Map
 // =============================================================================
 
 $map-achromatic: (
-  "white": core.$value-10,
+  "white": core.$value-24,
   "black": core.$value-0,
   "grey-50": $grey-50,
   "grey-100": $grey-100,

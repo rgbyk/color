@@ -3,14 +3,15 @@ html, body{
 }
 
 body {
-    background-color: var(--primary-900);
-    color:  var(--white);
+    background-color: var(--white);
+    color:  var(--grey-900);
 
-    padding: 1rem;
     font-family: Sofia Pro, sans-serif;
     font-weight: normal;
-    margin:  0;
+    margin: 0 auto;
     padding: 0;
+
+    max-width: 1500px;
 
     text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
@@ -39,8 +40,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-[aria-hidden="true"] { display: none; }
+[aria-hidden="true"] { display: none !important; }
 
+
+
+.sr-only,
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
 
 /*====================================
 =            Main Styling            =
@@ -55,7 +71,6 @@ h1, h2, h3, h4, h5, h6 {
         "aside"
         "main";
     grid-template-columns: 100%;
-    overflow-x: hidden;
 }
 
 @media (min-width:  768px) {
@@ -71,7 +86,6 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 330px 1fr 1fr;
         margin-left: auto;
         margin-right: auto;
-        max-width: 1500px;
     }
 }
 
@@ -79,8 +93,13 @@ h1, h2, h3, h4, h5, h6 {
     grid-area:  rainbow;
     margin: 0;
     padding: 0;
-    height: 2rem;
+    height: 7rem;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% ;
     background-image: linear-gradient( -90deg, var(--hue-1-400), var(--hue-2-400), var(--hue-3-400), var(--hue-4-400), var(--hue-5-400), var(--hue-6-400), var(--hue-7-400), var(--hue-8-400), var(--hue-9-400), var(--hue-10-400), var(--hue-11-400), var(--hue-12-400));
+    margin-bottom: -5rem;
+    width: calc(100% - 2rem);
+    margin-left: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .docs-grid--header { grid-area: header; }
@@ -88,24 +107,27 @@ h1, h2, h3, h4, h5, h6 {
 .docs-grid--main { grid-area:  main; }
 
 .docs-grid--header,
-.docs-grid--aside,
-.docs-grid--main {
-    background-color: var(--primary-700-a);
+.docs-grid--main,
+.docs-grid--menu {
+    background-color: var(--white);
     padding:  1rem;
-    border:  1px solid var(--primary-700);
-    border-radius:  .25rem;
+    border:  1px solid var(--grey-100);
+    border-radius: 0.25rem;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 }
 
+.docs-grid--menu { 
+     margin: 0;
+}
 
-
-.docs-header { margin: 0 0 1rem; }
-.docs-header--title h1 { font-size: 18px; }
+.docs-header { margin: 0 0 1.563rem; }
+.docs-header--title h1 { font-size: 1.25rem; }
 
 .docs-aside {}
 .docs-main {}
 
 .docs-section {}
-.docs-section + .docs-section { margin-top: 1rem; }
+.docs-section + .docs-section { margin-top: 1.563rem; }
 
 /*==================================
 =            Scheme Row            =
@@ -136,11 +158,11 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 0 1rem;
+    margin: 0 0 0.328rem;
 }
 
 .scheme-row--header h2 {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.215;
     display: flex;
     position: relative;
@@ -193,7 +215,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
-    font-size: 12.22px;
+    font-size: 0.8rem;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -228,7 +250,7 @@ table.demo-colorspectrum-table {
     border-collapse: collapse;
     width: 100%;
     border: 1px solid;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     overflow: hidden;
 }
 

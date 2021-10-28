@@ -12,9 +12,262 @@
    </head>
    <body>
       <div class="docs-grid">
-         <figure class="docs-grid--rainbow"> ... </figure>
-         <header class="docs-grid--header"> ... </header>
-         <aside class="docs-grid--aside"> ... </aside>
+         <figure class="docs-grid--rainbow"></figure>
+
+         <!-- Docs Header -->
+         <header class="docs-grid--header">
+            <div class="docs-header--logo">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                  <polygon class="id1" fill="var(--grey-500-a)" points="41,13.667 24,23.333 24,44 41,33.444"></polygon>
+                  <polygon class="id2" fill="var(--grey-400-a)" points="24,23.333 7,13.667 7,33.444 24,44"></polygon>
+                  <polygon class="id2" fill="var(--grey-400-a)" points="24,23.333 7,13.667 24,4 41,13.667"></polygon>
+                  <polygon class="id3" fill="var(--grey-300-a)" points="33,18.216 24,13 24,4 41,13.667"></polygon>
+                  <polygon class="id4" fill="var(--grey-800-a)" points="41,13.667 24,23.333 33,30.444 41,33.444"></polygon>
+                  <polygon class="id5" fill="var(--grey-600-a)" points="24,23.333 7,13.667 7,33.444 24,44"></polygon>
+                  <polygon class="id6" fill="var(--grey-700-a)" points="24,23.333 7,13.667 7,33.444 15,30.444"></polygon>
+                  <polygon fill="var(--primary-400)" points="15,30.444 24,36.033 24,23.333 15,18.216"></polygon>
+                  <polygon fill="var(--primary-500)" points="33,30.444 24,36.033 24,23.333 33,18.216"></polygon>
+                  <polygon fill="var(--primary-300)" points="14.914,18.167 24,23.333 33.086,18.167 24,13"></polygon>
+               </svg>
+               <span>rgbyk/color</span>
+            </div>
+            <div class="docs-header--btn">
+               <a href="#">Browse Code</a>
+            </div>
+         </header>
+
+         <style>
+            .docs-grid--header {
+               display: flex;
+               align-items:  center;
+               justify-content: space-between;
+            }
+
+            .docs-header--logo {
+               display:  flex;
+               align-items: center;
+               font-size: 1rem;
+               font-weight: bold;
+            }
+
+            .docs-header--logo svg {
+               display:  block;
+               width:  3.052rem;
+               height: 3.052rem;
+               margin-right: 0.328rem;
+            }
+
+            .docs-header--btn a {
+               display:  flex;
+               align-items: center;
+               text-align: left;
+               white-space: nowrap;
+               vertical-align: middle;
+               user-select: none;
+               border: 1px solid transparent;
+               font-size: 1rem;
+               font-weight: bold;
+               line-height: 1.5;
+               border-radius: 0.328rem;
+               transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+               padding: 0.375rem 0.75rem;
+               text-decoration: none;
+            }
+
+
+            .docs-grid--menu {}
+            .docs-grid--menu form { }
+
+            .docs-grid--menu h3 { font-size:  1rem; position: relative; margin-bottom: 0.328rem;  }
+            .docs-grid--menu h3:not(:first-child) { margin-top: 1.953rem; }
+
+            .docs-grid--menu h3 span {
+               position:  relative;
+               text-transform: lowercase;
+               font-variant-caps: small-caps;
+               display: inline-block;
+               padding-right: 0.328rem;
+            }
+
+            .docs-grid--menu h3:before {
+               width: 100%;
+               height: 1px;
+               content: '';
+               position: absolute;
+               left: 0;
+               top: 50%;
+               transform: translateY(-50%);
+            }
+
+
+            .docs-label {
+               display: flex;
+               align-items: center;
+               line-height: 1;
+               width: 100%;
+               justify-content: space-between;
+               margin-bottom: 0.328rem;
+               margin-top: 0.64rem;
+               font-size: 1rem;
+            }
+
+            .docs-label--text { margin-right:  0.328rem; }
+            .docs-label--icon { position: relative; }
+
+            .docs-label--icon a {
+               position: absolute;
+               left: 0;
+               right: 0;
+               top: 0;
+               bottom: 0;
+               width: 100%;
+               height: 100%;
+            }
+
+            .docs-label--icon svg{
+               display: block;
+               width: 16px;
+               height: 16px;
+            }
+
+            .docs-label--select {
+               width: 100%;
+               display:  flex;
+               align-items: center;
+               text-align: left;
+               white-space: nowrap;
+               vertical-align: middle;
+               user-select: none;
+               border: 1px solid transparent;
+               padding: 0.375rem;
+               font-size: 0.8rem;
+               font-weight: bold;
+               line-height: 1.5;
+               border-radius: 0.328rem;
+               transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            }
+
+
+
+
+            .docs-grid--menu h3 { color: var(--grey-400) }
+            .docs-grid--menu h3 span { background-color: var(--white); }
+            .docs-grid--menu h3:before { background-color: var(--grey-100); }
+
+            .docs-label--icon svg {
+               fill:  var(--grey-400);
+            }
+
+            .docs-header--btn a,
+            .docs-label--select {
+               background-color: var(--grey-50);
+               border-color: var(--grey-200);
+               color: var(--grey-900);
+               box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+            }
+
+         </style>
+
+         <!-- Docs Aside -->
+         <aside class="docs-grid--aside"> 
+            <div class="docs-grid--menu">
+               <form>
+                  <h3><span>Settings</span></h3>
+                  <div class="">
+                     <label class="docs-label" for="">
+                        <span class="docs-label--text">Color</span>
+                        <span class="docs-label--icon">
+                           <a href="#">
+                              <span class="sr-only"> ... </span>
+                           </a>
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><path d="M13 1.188C6.477 1.188 1.187 6.476 1.187 13S6.478 24.813 13 24.813c6.523 0 11.813-5.29 11.813-11.813 0-6.523-5.29-11.813-11.813-11.813Zm2.46 18.308c-.608.238-1.093.422-1.456.547a3.864 3.864 0 0 1-1.262.187c-.734 0-1.308-.18-1.719-.539-.406-.355-.609-.812-.609-1.367 0-.215.016-.433.047-.656.027-.227.078-.477.144-.762l.762-2.687c.067-.258.125-.5.172-.73.047-.231.066-.442.066-.634 0-.34-.07-.582-.21-.714-.145-.137-.415-.204-.813-.204a2.23 2.23 0 0 0-.605.09 9.443 9.443 0 0 0-.532.176l.203-.828c.497-.203.973-.375 1.43-.52a4.27 4.27 0 0 1 1.29-.218c.73 0 1.296.18 1.69.531.395.352.594.812.594 1.375 0 .117-.011.324-.039.617a4.225 4.225 0 0 1-.152.813l-.758 2.68c-.062.214-.117.46-.168.734a4.05 4.05 0 0 0-.07.625c0 .355.078.601.238.73.156.13.434.192.828.192.184 0 .39-.032.625-.094a3.59 3.59 0 0 0 .504-.172Zm-.136-10.879a1.802 1.802 0 0 1-1.273.492c-.496 0-.926-.164-1.281-.492a1.563 1.563 0 0 1-.532-1.191c0-.465.18-.867.532-1.2a1.813 1.813 0 0 1 1.28-.496c.497 0 .923.165 1.274.497.356.332.531.734.531 1.199 0 .465-.175.863-.53 1.191Z"/></svg>
+                        </span>
+                     </label>
+                     <select class="docs-label--select" name="" id="">
+                        <option value="default" selected="selected">#111111</option>
+                        <option value="default1">#222222</option>
+                        <option value="default2">#333333</option>
+                        <option value="default3">#444444</option>
+                     </select>
+                  </div>
+
+                  <h3><span>Options</span></h3>
+                  <div class="">
+                     <label class="docs-label" for="">
+                        <span class="docs-label--text">Model</span>
+                        <span class="docs-label--icon">
+                           <a href="#">
+                              <span class="sr-only"> ... </span>
+                           </a>
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><path d="M13 1.188C6.477 1.188 1.187 6.476 1.187 13S6.478 24.813 13 24.813c6.523 0 11.813-5.29 11.813-11.813 0-6.523-5.29-11.813-11.813-11.813Zm2.46 18.308c-.608.238-1.093.422-1.456.547a3.864 3.864 0 0 1-1.262.187c-.734 0-1.308-.18-1.719-.539-.406-.355-.609-.812-.609-1.367 0-.215.016-.433.047-.656.027-.227.078-.477.144-.762l.762-2.687c.067-.258.125-.5.172-.73.047-.231.066-.442.066-.634 0-.34-.07-.582-.21-.714-.145-.137-.415-.204-.813-.204a2.23 2.23 0 0 0-.605.09 9.443 9.443 0 0 0-.532.176l.203-.828c.497-.203.973-.375 1.43-.52a4.27 4.27 0 0 1 1.29-.218c.73 0 1.296.18 1.69.531.395.352.594.812.594 1.375 0 .117-.011.324-.039.617a4.225 4.225 0 0 1-.152.813l-.758 2.68c-.062.214-.117.46-.168.734a4.05 4.05 0 0 0-.07.625c0 .355.078.601.238.73.156.13.434.192.828.192.184 0 .39-.032.625-.094a3.59 3.59 0 0 0 .504-.172Zm-.136-10.879a1.802 1.802 0 0 1-1.273.492c-.496 0-.926-.164-1.281-.492a1.563 1.563 0 0 1-.532-1.191c0-.465.18-.867.532-1.2a1.813 1.813 0 0 1 1.28-.496c.497 0 .923.165 1.274.497.356.332.531.734.531 1.199 0 .465-.175.863-.53 1.191Z"/></svg>
+                        </span>
+                     </label>
+                     <select class="docs-label--select" name="" id="">
+                        <option value="rgb" selected="selected">RGB</option>
+                        <option value="ryb">RYB</option>
+                     </select>
+                  </div>
+                  <div class="">
+                     <label class="docs-label" for="">
+                        <span class="docs-label--text">Harmonized</span>
+                        <span class="docs-label--icon">
+                           <a href="#">
+                              <span class="sr-only"> ... </span>
+                           </a>
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><path d="M13 1.188C6.477 1.188 1.187 6.476 1.187 13S6.478 24.813 13 24.813c6.523 0 11.813-5.29 11.813-11.813 0-6.523-5.29-11.813-11.813-11.813Zm2.46 18.308c-.608.238-1.093.422-1.456.547a3.864 3.864 0 0 1-1.262.187c-.734 0-1.308-.18-1.719-.539-.406-.355-.609-.812-.609-1.367 0-.215.016-.433.047-.656.027-.227.078-.477.144-.762l.762-2.687c.067-.258.125-.5.172-.73.047-.231.066-.442.066-.634 0-.34-.07-.582-.21-.714-.145-.137-.415-.204-.813-.204a2.23 2.23 0 0 0-.605.09 9.443 9.443 0 0 0-.532.176l.203-.828c.497-.203.973-.375 1.43-.52a4.27 4.27 0 0 1 1.29-.218c.73 0 1.296.18 1.69.531.395.352.594.812.594 1.375 0 .117-.011.324-.039.617a4.225 4.225 0 0 1-.152.813l-.758 2.68c-.062.214-.117.46-.168.734a4.05 4.05 0 0 0-.07.625c0 .355.078.601.238.73.156.13.434.192.828.192.184 0 .39-.032.625-.094a3.59 3.59 0 0 0 .504-.172Zm-.136-10.879a1.802 1.802 0 0 1-1.273.492c-.496 0-.926-.164-1.281-.492a1.563 1.563 0 0 1-.532-1.191c0-.465.18-.867.532-1.2a1.813 1.813 0 0 1 1.28-.496c.497 0 .923.165 1.274.497.356.332.531.734.531 1.199 0 .465-.175.863-.53 1.191Z"/></svg>
+                        </span>
+                     </label>
+                     <select class="docs-label--select" name="" id="">
+                        <option value="true">True</option>
+                        <option value="false" selected="selected">False</option>
+                     </select>
+                  </div>
+                  <div class="">
+                     <label class="docs-label" for="">
+                        <span class="docs-label--text">Neutralized</span>
+                        <span class="docs-label--icon">
+                           <a href="#">
+                              <span class="sr-only"> ... </span>
+                           </a>
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><path d="M13 1.188C6.477 1.188 1.187 6.476 1.187 13S6.478 24.813 13 24.813c6.523 0 11.813-5.29 11.813-11.813 0-6.523-5.29-11.813-11.813-11.813Zm2.46 18.308c-.608.238-1.093.422-1.456.547a3.864 3.864 0 0 1-1.262.187c-.734 0-1.308-.18-1.719-.539-.406-.355-.609-.812-.609-1.367 0-.215.016-.433.047-.656.027-.227.078-.477.144-.762l.762-2.687c.067-.258.125-.5.172-.73.047-.231.066-.442.066-.634 0-.34-.07-.582-.21-.714-.145-.137-.415-.204-.813-.204a2.23 2.23 0 0 0-.605.09 9.443 9.443 0 0 0-.532.176l.203-.828c.497-.203.973-.375 1.43-.52a4.27 4.27 0 0 1 1.29-.218c.73 0 1.296.18 1.69.531.395.352.594.812.594 1.375 0 .117-.011.324-.039.617a4.225 4.225 0 0 1-.152.813l-.758 2.68c-.062.214-.117.46-.168.734a4.05 4.05 0 0 0-.07.625c0 .355.078.601.238.73.156.13.434.192.828.192.184 0 .39-.032.625-.094a3.59 3.59 0 0 0 .504-.172Zm-.136-10.879a1.802 1.802 0 0 1-1.273.492c-.496 0-.926-.164-1.281-.492a1.563 1.563 0 0 1-.532-1.191c0-.465.18-.867.532-1.2a1.813 1.813 0 0 1 1.28-.496c.497 0 .923.165 1.274.497.356.332.531.734.531 1.199 0 .465-.175.863-.53 1.191Z"/></svg>
+                        </span>
+                     </label>
+                     <select class="docs-label--select" name="" id="">
+                        <option value="true">True</option>
+                        <option value="false" selected="selected">False</option>
+                     </select>
+                  </div>
+
+                  <h3><span>Accessibility Mode</span></h3>
+                  <!-- Accessibility -->
+                  <div class="">
+                     <label class="docs-label" for="">
+                        <span class="docs-label--text">Color Blindness</span>
+                        <span class="docs-label--icon">
+                           <a href="#">
+                              <span class="sr-only"> ... </span>
+                           </a>
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><path d="M13 1.188C6.477 1.188 1.187 6.476 1.187 13S6.478 24.813 13 24.813c6.523 0 11.813-5.29 11.813-11.813 0-6.523-5.29-11.813-11.813-11.813Zm2.46 18.308c-.608.238-1.093.422-1.456.547a3.864 3.864 0 0 1-1.262.187c-.734 0-1.308-.18-1.719-.539-.406-.355-.609-.812-.609-1.367 0-.215.016-.433.047-.656.027-.227.078-.477.144-.762l.762-2.687c.067-.258.125-.5.172-.73.047-.231.066-.442.066-.634 0-.34-.07-.582-.21-.714-.145-.137-.415-.204-.813-.204a2.23 2.23 0 0 0-.605.09 9.443 9.443 0 0 0-.532.176l.203-.828c.497-.203.973-.375 1.43-.52a4.27 4.27 0 0 1 1.29-.218c.73 0 1.296.18 1.69.531.395.352.594.812.594 1.375 0 .117-.011.324-.039.617a4.225 4.225 0 0 1-.152.813l-.758 2.68c-.062.214-.117.46-.168.734a4.05 4.05 0 0 0-.07.625c0 .355.078.601.238.73.156.13.434.192.828.192.184 0 .39-.032.625-.094a3.59 3.59 0 0 0 .504-.172Zm-.136-10.879a1.802 1.802 0 0 1-1.273.492c-.496 0-.926-.164-1.281-.492a1.563 1.563 0 0 1-.532-1.191c0-.465.18-.867.532-1.2a1.813 1.813 0 0 1 1.28-.496c.497 0 .923.165 1.274.497.356.332.531.734.531 1.199 0 .465-.175.863-.53 1.191Z"/></svg>
+                        </span>
+                     </label>
+                     <select class="docs-label--select" name="" id="">
+                        <option selected="selected">None</option>
+                        <option value="achromatopsia">Achromatopsia</option>
+                        <option value="achromatomaly">Achromatomaly</option>
+                        <option value="deuteranopia">Deuteranopia</option>
+                        <option value="deuteranomaly">Deuteranomaly</option>
+                        <option value="protanopia">Protanopia</option>
+                        <option value="protanomaly">Protanomaly</option>
+                        <option value="tritanopia">Tritanopia</option>
+                        <option value="tritanomaly">Tritanomaly</option>
+                     </select>
+                  </div>
+
+               </form>
+            </div>
+         </aside>
+
+         <!-- Docs Main -->
          <div class="docs-grid--main">
             <header class="docs-header">
                <div class="docs-header--title">
@@ -27,8 +280,7 @@
                   <h2><span>Greyscale</span></h2>
                </header>
                <article class="scheme-row--article">
-                  <ol class="scheme-row" data-scheme-name="primary" data-scheme-type="pure" aria-hidden="false"></ol>
-                  <ol class="scheme-row" data-scheme-name="primary" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="grey" data-scheme-type="pure" aria-hidden="false"></ol>
                </article>
             </section>
 
@@ -37,8 +289,8 @@
                   <h2><span>Primary</span></h2>
                </header>
                <article class="scheme-row--article">
-                  <ol class="scheme-row" data-scheme-name="primary" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="primary" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="primary" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="primary" data-scheme-type="neutral" aria-hidden="true"></ol>
                </article>
             </section>
 
@@ -47,8 +299,8 @@
                   <h2><span>Complementary</span></h2>
                </header>
                <article class="scheme-row--article">
-                  <ol class="scheme-row" data-scheme-name="complementary" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="complementary" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="complementary" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="complementary" data-scheme-type="neutral" aria-hidden="true"></ol>
                </article>
             </section>
 
@@ -57,13 +309,13 @@
                   <h2><span>Analogous</span></h2>
                </header>
                <article class="scheme-row--article">            
-                  <ol class="scheme-row" data-scheme-name="analogous-1" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="analogous-2" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="analogous-3" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="analogous-1" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="analogous-2" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="analogous-3" data-scheme-type="pure" aria-hidden="false"></ol>
 
-                  <ol class="scheme-row" data-scheme-name="analogous-1" data-scheme-type="neutral"></ol>
-                  <ol class="scheme-row" data-scheme-name="analogous-2" data-scheme-type="neutral"></ol>
-                  <ol class="scheme-row" data-scheme-name="analogous-3" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="analogous-1" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="analogous-2" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="analogous-3" data-scheme-type="neutral" aria-hidden="true"></ol>
                </article>
             </section>
 
@@ -72,11 +324,11 @@
                   <h2><span>Split</span></h2>
                </header>
                <article class="scheme-row--article">            
-                  <ol class="scheme-row" data-scheme-name="split-1" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="split-2" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="split-1" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="split-2" data-scheme-type="pure" aria-hidden="false"></ol>
 
-                  <ol class="scheme-row" data-scheme-name="split-1" data-scheme-type="neutral"></ol>
-                  <ol class="scheme-row" data-scheme-name="split-2" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="split-1" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="split-2" data-scheme-type="neutral" aria-hidden="true"></ol>
                </article>
             </section>
 
@@ -85,13 +337,13 @@
                   <h2><span>Square</span></h2>
                </header>
                <article class="scheme-row--article">            
-                  <ol class="scheme-row" data-scheme-name="square-1" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="square-2" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="square-3" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="square-1" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="square-2" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="square-3" data-scheme-type="pure" aria-hidden="false"></ol>
 
-                  <ol class="scheme-row" data-scheme-name="square-1" data-scheme-type="neutral"></ol>
-                  <ol class="scheme-row" data-scheme-name="square-2" data-scheme-type="neutral"></ol>
-                  <ol class="scheme-row" data-scheme-name="square-3" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="square-1" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="square-2" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="square-3" data-scheme-type="neutral" aria-hidden="true"></ol>
                </article>
             </section>
 
@@ -100,13 +352,11 @@
                   <h2><span>Triadic</span></h2>
                </header>
                <article class="scheme-row--article">            
-                  <ol class="scheme-row" data-scheme-name="triadic-1" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="triadic-2" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="triadic-3" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="triadic-1" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="triadic-2" data-scheme-type="pure" aria-hidden="false"></ol>
 
-                  <ol class="scheme-row" data-scheme-name="triadic-1" data-scheme-type="neutral"></ol>
-                  <ol class="scheme-row" data-scheme-name="triadic-2" data-scheme-type="neutral"></ol>
-                  <ol class="scheme-row" data-scheme-name="triadic-3" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="triadic-1" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="triadic-2" data-scheme-type="neutral" aria-hidden="true"></ol>
                </article>
             </section>
 
@@ -115,42 +365,35 @@
                   <h2><span>12 Hues</span></h2>
                </header>
                <article class="scheme-row--article">            
-                  <ol class="scheme-row" data-scheme-name="hue-1" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-2" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-3" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-4" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-5" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-6" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-7" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-8" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-9" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-10" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-11" data-scheme-type="pure"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-12" data-scheme-type="pure"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-1" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-2" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-3" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-4" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-5" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-6" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-7" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-8" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-9" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-10" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-11" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-12" data-scheme-type="pure" aria-hidden="false"></ol>
 
-                  <ol class="scheme-row" data-scheme-name="hue-1" data-scheme-type="neutral"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-2" data-scheme-type="neutral"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-3" data-scheme-type="neutral"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-4" data-scheme-type="neutral"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-5" data-scheme-type="neutral"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-6" data-scheme-type="neutral"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-7" data-scheme-type="neutral"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-8" data-scheme-type="neutral"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-9" data-scheme-type="neutral"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-10" data-scheme-type="neutral"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-11" data-scheme-type="neutral"></ol>
-                  <ol class="scheme-row" data-scheme-name="hue-12" data-scheme-type="neutral"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-1" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-2" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-3" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-4" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-5" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-6" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-7" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-8" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-9" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-10" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-11" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-12" data-scheme-type="neutral" aria-hidden="true"></ol>
                </article>
             </section>
          </div>
       </div>
-      <aside class="docs-aside">
-         ...
-      </aside>
-      <main class="docs-main">
-         
-      </main>
-
 
       <!-- Spectrum Table -->
       <table class="table demo-colorspectrum-table primary chroma-show--var value-show--var" style="display: none;">
