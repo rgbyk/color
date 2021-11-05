@@ -192,81 +192,81 @@ function getScheme() {
 // colorSpectrumTable()
 // --------------------------------
 
-function colorSpectrumTable() {
-    let selector = document.querySelector("#spectrum-options");
-    let selected = selector.options[selector.selectedIndex];
+// function colorSpectrumTable() {
+//     let selector = document.querySelector("#spectrum-options");
+//     let selected = selector.options[selector.selectedIndex];
 
-    // t g(selected.value);
+//     // t g(selected.value);
 
-    let type = selected.value;
+//     let type = selected.value;
 
-    document.querySelectorAll("[data-color]").forEach((e) => {
-        let cs_value_rgb = window.getComputedStyle(e).getPropertyValue("background-color");
-        let cs_value_hex = rgb2hex(cs_value_rgb);
+//     document.querySelectorAll("[data-color]").forEach((e) => {
+//         let cs_value_rgb = window.getComputedStyle(e).getPropertyValue("background-color");
+//         let cs_value_hex = rgb2hex(cs_value_rgb);
 
-        if ( type == 'hex' ) {
-            e.innerHTML = cs_value_hex;
-        }
+//         if ( type == 'hex' ) {
+//             e.innerHTML = cs_value_hex;
+//         }
 
-        if ( type == 'rgb' ) {
-            e.innerHTML = cs_value_rgb;
-        }
+//         if ( type == 'rgb' ) {
+//             e.innerHTML = cs_value_rgb;
+//         }
 
-        if ( type == 'pos' ) { }
+//         if ( type == 'pos' ) { }
 
-    });
-}
+//     });
+// }
 
 // --------------------------------
 // getColorPosition()
 // --------------------------------
 
-function getColorPosition() { 
-    const csSelector = document.getElementById("cs-options");
-    let csSelected = csSelector.options[csSelector.selectedIndex];
-    const csScheme = document.querySelector(`[data-scheme-name=${csSelected.value}]`);
+// function getColorPosition() { 
+//     const csSelector = document.getElementById("cs-options");
+//     let csSelected = csSelector.options[csSelector.selectedIndex];
+//     const csScheme = document.querySelector(`[data-scheme-name=${csSelected.value}]`);
 
-    const csScheme_50 = csScheme.querySelectorAll(".scheme-color")[0].querySelector(".scheme-color--preview");
-    const csScheme_100 = csScheme.querySelectorAll(".scheme-color")[1];
-    const csScheme_200 = csScheme.querySelectorAll(".scheme-color")[2];
-    const csScheme_300 = csScheme.querySelectorAll(".scheme-color")[3];
-    const csScheme_400 = csScheme.querySelectorAll(".scheme-color")[4];
-    const csScheme_500 = csScheme.querySelectorAll(".scheme-color")[5];
-    const csScheme_600 = csScheme.querySelectorAll(".scheme-color")[6];
-    const csScheme_700 = csScheme.querySelectorAll(".scheme-color")[7];
-    const csScheme_800 = csScheme.querySelectorAll(".scheme-color")[8];
-    const csScheme_900 = csScheme.querySelectorAll(".scheme-color")[9];
+//     const csScheme_50 = csScheme.querySelectorAll(".scheme-color")[0].querySelector(".scheme-color--preview");
+//     const csScheme_100 = csScheme.querySelectorAll(".scheme-color")[1];
+//     const csScheme_200 = csScheme.querySelectorAll(".scheme-color")[2];
+//     const csScheme_300 = csScheme.querySelectorAll(".scheme-color")[3];
+//     const csScheme_400 = csScheme.querySelectorAll(".scheme-color")[4];
+//     const csScheme_500 = csScheme.querySelectorAll(".scheme-color")[5];
+//     const csScheme_600 = csScheme.querySelectorAll(".scheme-color")[6];
+//     const csScheme_700 = csScheme.querySelectorAll(".scheme-color")[7];
+//     const csScheme_800 = csScheme.querySelectorAll(".scheme-color")[8];
+//     const csScheme_900 = csScheme.querySelectorAll(".scheme-color")[9];
 
-    const hex_50 = window.getComputedStyle(csScheme_50).getPropertyValue("background-color");
-}
+//     const hex_50 = window.getComputedStyle(csScheme_50).getPropertyValue("background-color");
+// }
 
 // --------------------------------
 // getColorSelected()
 // --------------------------------
 
-function getColorSelected(e) {
-    const selector = e;
-    let selected = selector.options[selector.selectedIndex];
-    const options = Array.from(selector.options).map(({value}) => value);
+// function getColorSelected(e) {
+//     const selector = e;
+//     let selected = selector.options[selector.selectedIndex];
+//     const options = Array.from(selector.options).map(({value}) => value);
 
-    document.querySelectorAll(".demo-colorspectrum-table").forEach(({classList}) => {
-        classList.remove(...options);
-        classList.add(selected.value);
-    });
+//     document.querySelectorAll(".demo-colorspectrum-table").forEach(({classList}) => {
+//         classList.remove(...options);
+//         classList.add(selected.value);
+//     });
 
-    if ( e.id == 'cs-options' ) {
-        document.querySelectorAll("td[data-color]").forEach((e) => {
-            e.setAttribute("data-color", selected.value);
-        });
+//     if ( e.id == 'cs-options' ) {
+//         document.querySelectorAll("td[data-color]").forEach((e) => {
+//             e.setAttribute("data-color", selected.value);
+//         });
 
-        colorSpectrumTable();
-    }
-}
+//         colorSpectrumTable();
+//     }
+// }
 
 // --------------------------------
 // ready function
 // --------------------------------
 
-ready(() => {
-// getColorSelected("primary");
-});
+// ready(() => {
+//     getColorSelected("primary");
+// });

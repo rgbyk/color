@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US" dir="ltr" prefix="og: http://ogp.me/ns#">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+      <meta name="robots" content="all" />
+      <link rel="stylesheet" type="text/css" href="../dist/assets/css/color-ryb.css">
+      <link rel="stylesheet" href="demo.css">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap">
+   </head>
+   <body>
+      <div class="docs-grid">
+         <figure class="docs-grid--rainbow"></figure>
+
+         <!-- Docs Header -->
+         <header class="docs-grid--header">
+            <div class="docs-header--logo">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                  <polygon class="id1" fill="var(--grey-500-a)" points="41,13.667 24,23.333 24,44 41,33.444"></polygon>
+                  <polygon class="id2" fill="var(--grey-400-a)" points="24,23.333 7,13.667 7,33.444 24,44"></polygon>
+                  <polygon class="id2" fill="var(--grey-400-a)" points="24,23.333 7,13.667 24,4 41,13.667"></polygon>
+                  <polygon class="id3" fill="var(--grey-300-a)" points="33,18.216 24,13 24,4 41,13.667"></polygon>
+                  <polygon class="id4" fill="var(--grey-800-a)" points="41,13.667 24,23.333 33,30.444 41,33.444"></polygon>
+                  <polygon class="id5" fill="var(--grey-600-a)" points="24,23.333 7,13.667 7,33.444 24,44"></polygon>
+                  <polygon class="id6" fill="var(--grey-700-a)" points="24,23.333 7,13.667 7,33.444 15,30.444"></polygon>
+                  <polygon fill="var(--primary-400)" points="15,30.444 24,36.033 24,23.333 15,18.216"></polygon>
+                  <polygon fill="var(--primary-500)" points="33,30.444 24,36.033 24,23.333 33,18.216"></polygon>
+                  <polygon fill="var(--primary-300)" points="14.914,18.167 24,23.333 33.086,18.167 24,13"></polygon>
+               </svg>
+               <span>rgbyk/color</span>
+            </div>
+            <div class="docs-header--btn">
+               <a target="_blank" href="https://github.com/rgbyk/color">Browse Code</a>
+            </div>
+         </header>
+
+         <!-- Docs Aside -->
+         <aside class="docs-grid--aside"> 
+            <div class="docs-grid--menu">
+               <form>
+                  <h3><span>Settings</span></h3>
+                  <div class="">
+                     <label class="docs-label" for="">
+                        <span class="docs-label--text">Color</span>
+                        <span class="docs-label--icon">
+                           <a>
+                              <span class="sr-only"> ... </span>
+                           </a>
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><path d="M13 1.188C6.477 1.188 1.187 6.476 1.187 13S6.478 24.813 13 24.813c6.523 0 11.813-5.29 11.813-11.813 0-6.523-5.29-11.813-11.813-11.813Zm2.46 18.308c-.608.238-1.093.422-1.456.547a3.864 3.864 0 0 1-1.262.187c-.734 0-1.308-.18-1.719-.539-.406-.355-.609-.812-.609-1.367 0-.215.016-.433.047-.656.027-.227.078-.477.144-.762l.762-2.687c.067-.258.125-.5.172-.73.047-.231.066-.442.066-.634 0-.34-.07-.582-.21-.714-.145-.137-.415-.204-.813-.204a2.23 2.23 0 0 0-.605.09 9.443 9.443 0 0 0-.532.176l.203-.828c.497-.203.973-.375 1.43-.52a4.27 4.27 0 0 1 1.29-.218c.73 0 1.296.18 1.69.531.395.352.594.812.594 1.375 0 .117-.011.324-.039.617a4.225 4.225 0 0 1-.152.813l-.758 2.68c-.062.214-.117.46-.168.734a4.05 4.05 0 0 0-.07.625c0 .355.078.601.238.73.156.13.434.192.828.192.184 0 .39-.032.625-.094a3.59 3.59 0 0 0 .504-.172Zm-.136-10.879a1.802 1.802 0 0 1-1.273.492c-.496 0-.926-.164-1.281-.492a1.563 1.563 0 0 1-.532-1.191c0-.465.18-.867.532-1.2a1.813 1.813 0 0 1 1.28-.496c.497 0 .923.165 1.274.497.356.332.531.734.531 1.199 0 .465-.175.863-.53 1.191Z"/></svg>
+                        </span>
+                     </label>
+                     <select class="docs-label--select" name="" id="" disabled>
+                        <option value="default0" selected="selected">N/A</option>
+                        <option value="default1">#000000</option>
+                        <option value="default2">#111111</option>
+                        <option value="default3">#222222</option>
+                     </select>
+                  </div>
+
+                  <h3><span>Options</span></h3>
+                  <div class="">
+                     <label class="docs-label" for="">
+                        <span class="docs-label--text">Model</span>
+                        <span class="docs-label--icon">
+                           <a>
+                              <span class="sr-only"> ... </span>
+                           </a>
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><path d="M13 1.188C6.477 1.188 1.187 6.476 1.187 13S6.478 24.813 13 24.813c6.523 0 11.813-5.29 11.813-11.813 0-6.523-5.29-11.813-11.813-11.813Zm2.46 18.308c-.608.238-1.093.422-1.456.547a3.864 3.864 0 0 1-1.262.187c-.734 0-1.308-.18-1.719-.539-.406-.355-.609-.812-.609-1.367 0-.215.016-.433.047-.656.027-.227.078-.477.144-.762l.762-2.687c.067-.258.125-.5.172-.73.047-.231.066-.442.066-.634 0-.34-.07-.582-.21-.714-.145-.137-.415-.204-.813-.204a2.23 2.23 0 0 0-.605.09 9.443 9.443 0 0 0-.532.176l.203-.828c.497-.203.973-.375 1.43-.52a4.27 4.27 0 0 1 1.29-.218c.73 0 1.296.18 1.69.531.395.352.594.812.594 1.375 0 .117-.011.324-.039.617a4.225 4.225 0 0 1-.152.813l-.758 2.68c-.062.214-.117.46-.168.734a4.05 4.05 0 0 0-.07.625c0 .355.078.601.238.73.156.13.434.192.828.192.184 0 .39-.032.625-.094a3.59 3.59 0 0 0 .504-.172Zm-.136-10.879a1.802 1.802 0 0 1-1.273.492c-.496 0-.926-.164-1.281-.492a1.563 1.563 0 0 1-.532-1.191c0-.465.18-.867.532-1.2a1.813 1.813 0 0 1 1.28-.496c.497 0 .923.165 1.274.497.356.332.531.734.531 1.199 0 .465-.175.863-.53 1.191Z"/></svg>
+                        </span>
+                     </label>
+                     <select class="docs-label--select" name="" id="" disabled>
+                        <option value="" selected="selected">N/A</option>
+                        <option value="rgb">RGB</option>
+                        <option value="ryb">RYB</option>
+                     </select>
+                  </div>
+                  <div class="">
+                     <label class="docs-label" for="">
+                        <span class="docs-label--text">Harmonized</span>
+                        <span class="docs-label--icon">
+                           <a>
+                              <span class="sr-only"> ... </span>
+                           </a>
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><path d="M13 1.188C6.477 1.188 1.187 6.476 1.187 13S6.478 24.813 13 24.813c6.523 0 11.813-5.29 11.813-11.813 0-6.523-5.29-11.813-11.813-11.813Zm2.46 18.308c-.608.238-1.093.422-1.456.547a3.864 3.864 0 0 1-1.262.187c-.734 0-1.308-.18-1.719-.539-.406-.355-.609-.812-.609-1.367 0-.215.016-.433.047-.656.027-.227.078-.477.144-.762l.762-2.687c.067-.258.125-.5.172-.73.047-.231.066-.442.066-.634 0-.34-.07-.582-.21-.714-.145-.137-.415-.204-.813-.204a2.23 2.23 0 0 0-.605.09 9.443 9.443 0 0 0-.532.176l.203-.828c.497-.203.973-.375 1.43-.52a4.27 4.27 0 0 1 1.29-.218c.73 0 1.296.18 1.69.531.395.352.594.812.594 1.375 0 .117-.011.324-.039.617a4.225 4.225 0 0 1-.152.813l-.758 2.68c-.062.214-.117.46-.168.734a4.05 4.05 0 0 0-.07.625c0 .355.078.601.238.73.156.13.434.192.828.192.184 0 .39-.032.625-.094a3.59 3.59 0 0 0 .504-.172Zm-.136-10.879a1.802 1.802 0 0 1-1.273.492c-.496 0-.926-.164-1.281-.492a1.563 1.563 0 0 1-.532-1.191c0-.465.18-.867.532-1.2a1.813 1.813 0 0 1 1.28-.496c.497 0 .923.165 1.274.497.356.332.531.734.531 1.199 0 .465-.175.863-.53 1.191Z"/></svg>
+                        </span>
+                     </label>
+                     <select class="docs-label--select" name="" id="" disabled>
+                        <option value="" selected="selected">N/A</option>
+                        <option value="true">True</option>
+                        <option value="false">False</option>
+                     </select>
+                  </div>
+                  <div class="">
+                     <label class="docs-label" for="">
+                        <span class="docs-label--text">Neutralized</span>
+                        <span class="docs-label--icon">
+                           <a>
+                              <span class="sr-only"> ... </span>
+                           </a>
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><path d="M13 1.188C6.477 1.188 1.187 6.476 1.187 13S6.478 24.813 13 24.813c6.523 0 11.813-5.29 11.813-11.813 0-6.523-5.29-11.813-11.813-11.813Zm2.46 18.308c-.608.238-1.093.422-1.456.547a3.864 3.864 0 0 1-1.262.187c-.734 0-1.308-.18-1.719-.539-.406-.355-.609-.812-.609-1.367 0-.215.016-.433.047-.656.027-.227.078-.477.144-.762l.762-2.687c.067-.258.125-.5.172-.73.047-.231.066-.442.066-.634 0-.34-.07-.582-.21-.714-.145-.137-.415-.204-.813-.204a2.23 2.23 0 0 0-.605.09 9.443 9.443 0 0 0-.532.176l.203-.828c.497-.203.973-.375 1.43-.52a4.27 4.27 0 0 1 1.29-.218c.73 0 1.296.18 1.69.531.395.352.594.812.594 1.375 0 .117-.011.324-.039.617a4.225 4.225 0 0 1-.152.813l-.758 2.68c-.062.214-.117.46-.168.734a4.05 4.05 0 0 0-.07.625c0 .355.078.601.238.73.156.13.434.192.828.192.184 0 .39-.032.625-.094a3.59 3.59 0 0 0 .504-.172Zm-.136-10.879a1.802 1.802 0 0 1-1.273.492c-.496 0-.926-.164-1.281-.492a1.563 1.563 0 0 1-.532-1.191c0-.465.18-.867.532-1.2a1.813 1.813 0 0 1 1.28-.496c.497 0 .923.165 1.274.497.356.332.531.734.531 1.199 0 .465-.175.863-.53 1.191Z"/></svg>
+                        </span>
+                     </label>
+                     <select class="docs-label--select" name="" id="" disabled>
+                        <option value="" selected="selected">N/A</option>
+                        <option value="true">True</option>
+                        <option value="false">False</option>
+                     </select>
+                  </div>
+
+                  <h3><span>Accessibility Mode</span></h3>
+                  <!-- Accessibility -->
+                  <div class="">
+                     <label class="docs-label" for="">
+                        <span class="docs-label--text">Color Blindness</span>
+                        <span class="docs-label--icon">
+                           <a>
+                              <span class="sr-only"> ... </span>
+                           </a>
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><path d="M13 1.188C6.477 1.188 1.187 6.476 1.187 13S6.478 24.813 13 24.813c6.523 0 11.813-5.29 11.813-11.813 0-6.523-5.29-11.813-11.813-11.813Zm2.46 18.308c-.608.238-1.093.422-1.456.547a3.864 3.864 0 0 1-1.262.187c-.734 0-1.308-.18-1.719-.539-.406-.355-.609-.812-.609-1.367 0-.215.016-.433.047-.656.027-.227.078-.477.144-.762l.762-2.687c.067-.258.125-.5.172-.73.047-.231.066-.442.066-.634 0-.34-.07-.582-.21-.714-.145-.137-.415-.204-.813-.204a2.23 2.23 0 0 0-.605.09 9.443 9.443 0 0 0-.532.176l.203-.828c.497-.203.973-.375 1.43-.52a4.27 4.27 0 0 1 1.29-.218c.73 0 1.296.18 1.69.531.395.352.594.812.594 1.375 0 .117-.011.324-.039.617a4.225 4.225 0 0 1-.152.813l-.758 2.68c-.062.214-.117.46-.168.734a4.05 4.05 0 0 0-.07.625c0 .355.078.601.238.73.156.13.434.192.828.192.184 0 .39-.032.625-.094a3.59 3.59 0 0 0 .504-.172Zm-.136-10.879a1.802 1.802 0 0 1-1.273.492c-.496 0-.926-.164-1.281-.492a1.563 1.563 0 0 1-.532-1.191c0-.465.18-.867.532-1.2a1.813 1.813 0 0 1 1.28-.496c.497 0 .923.165 1.274.497.356.332.531.734.531 1.199 0 .465-.175.863-.53 1.191Z"/></svg>
+                        </span>
+                     </label>
+                     <select class="docs-label--select" name="" id="" disabled>
+                        <option value="" selected="selected">N/A</option>
+                        <option>None</option>
+                        <option value="achromatopsia">Achromatopsia</option>
+                        <option value="achromatomaly">Achromatomaly</option>
+                        <option value="deuteranopia">Deuteranopia</option>
+                        <option value="deuteranomaly">Deuteranomaly</option>
+                        <option value="protanopia">Protanopia</option>
+                        <option value="protanomaly">Protanomaly</option>
+                        <option value="tritanopia">Tritanopia</option>
+                        <option value="tritanomaly">Tritanomaly</option>
+                     </select>
+                  </div>
+
+               </form>
+            </div>
+         </aside>
+
+         <!-- Docs Main -->
+         <div class="docs-grid--main">
+            <header class="docs-header">
+               <div class="docs-header--title">
+                  <h1><span>Color Schemes</span></h1>
+               </div>         
+            </header>
+
+            <section class="docs-section">
+               <header class="scheme-row--header">
+                  <h2><span>Greyscale</span></h2>
+               </header>
+               <article class="scheme-row--article">
+                  <ol class="scheme-row" data-scheme-name="grey" data-scheme-type="pure" aria-hidden="false"></ol>
+               </article>
+            </section>
+
+            <section class="docs-section">
+               <header class="scheme-row--header">
+                  <h2><span>Primary</span></h2>
+               </header>
+               <article class="scheme-row--article">
+                  <ol class="scheme-row" data-scheme-name="primary" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="primary" data-scheme-type="neutral" aria-hidden="true"></ol>
+               </article>
+            </section>
+
+            <section class="docs-section">
+               <header class="scheme-row--header">
+                  <h2><span>Complementary</span></h2>
+               </header>
+               <article class="scheme-row--article">
+                  <ol class="scheme-row" data-scheme-name="complementary" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="complementary" data-scheme-type="neutral" aria-hidden="true"></ol>
+               </article>
+            </section>
+
+            <section class="docs-section">
+               <header class="scheme-row--header">
+                  <h2><span>Analogous</span></h2>
+               </header>
+               <article class="scheme-row--article">            
+                  <ol class="scheme-row" data-scheme-name="analogous-1" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="analogous-2" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="analogous-3" data-scheme-type="pure" aria-hidden="false"></ol>
+
+                  <ol class="scheme-row" data-scheme-name="analogous-1" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="analogous-2" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="analogous-3" data-scheme-type="neutral" aria-hidden="true"></ol>
+               </article>
+            </section>
+
+            <section class="docs-section">
+               <header class="scheme-row--header">
+                  <h2><span>Split</span></h2>
+               </header>
+               <article class="scheme-row--article">            
+                  <ol class="scheme-row" data-scheme-name="split-1" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="split-2" data-scheme-type="pure" aria-hidden="false"></ol>
+
+                  <ol class="scheme-row" data-scheme-name="split-1" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="split-2" data-scheme-type="neutral" aria-hidden="true"></ol>
+               </article>
+            </section>
+
+            <section class="docs-section">
+               <header class="scheme-row--header">
+                  <h2><span>Square</span></h2>
+               </header>
+               <article class="scheme-row--article">            
+                  <ol class="scheme-row" data-scheme-name="square-1" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="square-2" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="square-3" data-scheme-type="pure" aria-hidden="false"></ol>
+
+                  <ol class="scheme-row" data-scheme-name="square-1" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="square-2" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="square-3" data-scheme-type="neutral" aria-hidden="true"></ol>
+               </article>
+            </section>
+
+            <section class="docs-section">
+               <header class="scheme-row--header">
+                  <h2><span>Triadic</span></h2>
+               </header>
+               <article class="scheme-row--article">            
+                  <ol class="scheme-row" data-scheme-name="triadic-1" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="triadic-2" data-scheme-type="pure" aria-hidden="false"></ol>
+
+                  <ol class="scheme-row" data-scheme-name="triadic-1" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="triadic-2" data-scheme-type="neutral" aria-hidden="true"></ol>
+               </article>
+            </section>
+
+            <section class="docs-section">
+               <header class="scheme-row--header">
+                  <h2><span>12 Hues</span></h2>
+               </header>
+               <article class="scheme-row--article">            
+                  <ol class="scheme-row" data-scheme-name="hue-1" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-2" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-3" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-4" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-5" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-6" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-7" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-8" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-9" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-10" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-11" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-12" data-scheme-type="pure" aria-hidden="false"></ol>
+
+                  <ol class="scheme-row" data-scheme-name="hue-1" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-2" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-3" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-4" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-5" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-6" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-7" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-8" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-9" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-10" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-11" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="hue-12" data-scheme-type="neutral" aria-hidden="true"></ol>
+               </article>
+            </section>
+
+
+            <section class="docs-section">
+               <header class="scheme-row--header">
+                  <h2><span>GUI Colors</span></h2>
+               </header>
+               <article class="scheme-row--article">            
+                  <ol class="scheme-row" data-scheme-name="success" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="info" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="danger" data-scheme-type="pure" aria-hidden="false"></ol>
+                  <ol class="scheme-row" data-scheme-name="warning" data-scheme-type="pure" aria-hidden="false"></ol>
+
+                  <ol class="scheme-row" data-scheme-name="success" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="info" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="danger" data-scheme-type="neutral" aria-hidden="true"></ol>
+                  <ol class="scheme-row" data-scheme-name="warning" data-scheme-type="neutral" aria-hidden="true"></ol>
+               </article>
+            </section>
+         </div>
+      </div>
+
+      <!-- Spectrum Table -->
+      <table class="table demo-colorspectrum-table primary chroma-show--var value-show--var" style="display: none;">
+         <thead>
+            <tr>
+               <td colspan="4">
+                  <h2>Color Spectrum</h2>
+               </td>
+               <td colspan="8">
+                  <menu>
+                     <div>
+                        <label for="cs-options">Color Spectrum:</label>
+                        <select id="cs-options" onchange="selectColorSpectrum(this);">
+                           <option value="primary">Primary Color</option>
+                           <option value="hue-1">Hue 1</option>
+                           <option value="hue-2">Hue 2</option>
+                           <option value="hue-3">Hue 3</option>
+                           <option value="hue-4">Hue 4</option>
+                           <option value="hue-5">Hue 5</option>
+                           <option value="hue-6">Hue 6</option>
+                           <option value="hue-7">Hue 7</option>
+                           <option value="hue-8">Hue 8</option>
+                           <option value="hue-9">Hue 9</option>
+                           <option value="hue-10">Hue 10</option>
+                           <option value="hue-11">Hue 11</option>
+                           <option value="hue-12">Hue 12</option>
+                        </select>
+                     </div>
+                     <div>
+                        <label for="value-options">Display Values As:</label>
+                        <select id="value-options" onchange="selectColorSpectrum(this);">
+                           <option value="value-show--var">Variable</option>
+                           <option value="value-show--hex">Hex Decimal</option>
+                        </select>
+                     </div>
+                     <div>
+                        <label for="chroma-options">Display Chromas As:</label>
+                        <select id="chroma-options" onchange="selectColorSpectrum(this);">
+                           <option value="chroma-show--var">Variable</option>
+                           <option value="chroma-show--num">Percentage</option>
+                        </select>
+                     </div>
+                     <div>
+                        <label for="spectrum-options">Colors:</label>
+                        <select id="spectrum-options" onchange="colorSpectrumTable();">
+                           <option value="hex" selected="selected">Hexdecimal</option>
+                           <option value="rgb">RGB</option>
+                        </select>
+                     </div>
+                     <!--                     <div>
+                        <label for="position-options">Color Positions:</label>
+                        <select id="position-options" onchange="colorSpectrumPosition();">
+                            <option value="position-option--show" selected="selected">Show</option>
+                            <option value="position-option--hide">Hide</option>
+                        </select>
+                        </div> -->
+                  </menu>
+               </td>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th></th>
+               <th>
+                  <code class="the-chroma--var">$chroma-1</code>
+                  <span class="the-chroma--num">8.33%</span>
+               </th>
+               <th>
+                  <code class="the-chroma--var">$chroma-2</code>
+                  <span class="the-chroma--num">16.66%</span>
+               </th>
+               <th>
+                  <code class="the-chroma--var">$chroma-3</code>
+                  <span class="the-chroma--num">25%</span>
+               </th>
+               <th>
+                  <code class="the-chroma--var">$chroma-4</code>
+                  <span class="the-chroma--num">33.33%</span>
+               </th>
+               <th>
+                  <code class="the-chroma--var">$chroma-5</code>
+                  <span class="the-chroma--num">41.66%</span>
+               </th>
+               <th>
+                  <code class="the-chroma--var">$chroma-6</code>
+                  <span class="the-chroma--num">50%</span>
+               </th>
+               <th>
+                  <code class="the-chroma--var">$chroma-7</code>
+                  <span class="the-chroma--num">58.33%</span></span>
+               </th>
+               <th>
+                  <code class="the-chroma--var">$chroma-8</code>
+                  <span class="the-chroma--num">66.66%</span>
+               </th>
+               <th>
+                  <code class="the-chroma--var">$chroma-9</code>
+                  <span class="the-chroma--num">75%</span>
+               </th>
+               <th>
+                  <code class="the-chroma--var">$chroma-10</code>
+                  <span class="the-chroma--num">83.33%</span>
+               </th>
+               <th>
+                  <code class="the-chroma--var">$chroma-11</code>
+                  <span class="the-chroma--num">91.66%</span>
+               </th>
+               <th>
+                  <code class="the-chroma--var">$chroma-12</code>
+                  <span class="the-chroma--num">100%</span>
+               </th>
+            </tr>
+            <tr>
+               <th class="bg-value-24">
+                  <code class="the-value--var">$value-24</code>
+                  <code class="the-value--hex">#FFFFFF</code>
+               </th>
+               <td data-chroma="1" data-value="24" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="24" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="24" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="24" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="24" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="24" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="24" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="24" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="24" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="24" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="24" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="24" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-23">
+                  <code class="the-value--var">$value-23</code>
+                  <code class="the-value--hex">#FFFFFF</code>
+               </th>
+               <td data-chroma="1" data-value="23" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="23" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="23" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="23" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="23" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="23" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="23" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="23" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="23" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="23" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="23" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="23" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-22">
+                  <code class="the-value--var">$value-22</code>
+                  <code class="the-value--hex">#FFFFFF</code>
+               </th>
+               <td data-chroma="1" data-value="22" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="22" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="22" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="22" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="22" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="22" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="22" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="22" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="22" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="22" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="22" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="22" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-21">
+                  <code class="the-value--var">$value-21</code>
+                  <code class="the-value--hex">#FFFFFF</code>
+               </th>
+               <td data-chroma="1" data-value="21" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="21" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="21" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="21" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="21" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="21" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="21" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="21" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="21" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="21" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="21" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="21" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-20">
+                  <code class="the-value--var">$value-20</code>
+                  <code class="the-value--hex">#FFFFFF</code>
+               </th>
+               <td data-chroma="1" data-value="20" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="20" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="20" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="20" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="20" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="20" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="20" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="20" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="20" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="20" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="20" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="20" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-19">
+                  <code class="the-value--var">$value-19</code>
+                  <code class="the-value--hex">#FFFFFF</code>
+               </th>
+               <td data-chroma="1" data-value="19" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="19" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="19" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="19" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="19" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="19" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="19" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="19" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="19" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="19" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="19" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="19" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-18">
+                  <code class="the-value--var">$value-18</code>
+                  <code class="the-value--hex">#FFFFFF</code>
+               </th>
+               <td data-chroma="1" data-value="18" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="18" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="18" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="18" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="18" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="18" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="18" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="18" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="18" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="18" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="18" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="18" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-17">
+                  <code class="the-value--var">$value-17</code>
+                  <code class="the-value--hex">#FFFFFF</code>
+               </th>
+               <td data-chroma="1" data-value="17" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="17" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="17" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="17" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="17" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="17" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="17" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="17" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="17" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="17" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="17" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="17" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-16">
+                  <code class="the-value--var">$value-16</code>
+                  <code class="the-value--hex">#FFFFFF</code>
+               </th>
+               <td data-chroma="1" data-value="16" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="16" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="16" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="16" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="16" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="16" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="16" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="16" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="16" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="16" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="16" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="16" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-15">
+                  <code class="the-value--var">$value-15</code>
+                  <code class="the-value--hex">#FFFFFF</code>
+               </th>
+               <td data-chroma="1" data-value="15" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="15" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="15" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="15" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="15" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="15" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="15" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="15" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="15" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="15" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="15" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="15" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-14">
+                  <code class="the-value--var">$value-14</code>
+                  <code class="the-value--hex">#EEEEEE</code>
+               </th>
+               <td data-chroma="1" data-value="14" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="14" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="14" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="14" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="14" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="14" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="14" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="14" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="14" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="14" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="14" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="14" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-13">
+                  <code class="the-value--var">$value-13</code>
+                  <code class="the-value--hex">#DDDDDD</code>
+               </th>
+               <td data-chroma="1" data-value="13" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="13" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="13" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="13" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="13" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="13" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="13" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="13" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="13" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="13" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="13" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="13" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-12">
+                  <code class="the-value--var">$value-12</code>
+                  <code class="the-value--hex">#CCCCCC</code>
+               </th>
+               <td data-chroma="1" data-value="12" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="12" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="12" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="12" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="12" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="12" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="12" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="12" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="12" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="12" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="12" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="12" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-11">
+                  <code class="the-value--var">$value-11</code>
+                  <code class="the-value--hex">#BBBBBB</code>
+               </th>
+               <td data-chroma="1" data-value="11" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="11" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="11" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="11" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="11" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="11" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="11" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="11" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="11" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="11" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="11" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="11" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-10">
+                  <code class="the-value--var">$value-10</code>
+                  <code class="the-value--hex">#AAAAAA</code>
+               </th>
+               <td data-chroma="1" data-value="10" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="10" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="10" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="10" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="10" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="10" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="10" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="10" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="10" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="10" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="10" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="10" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-9">
+                  <code class="the-value--var">$value-9</code>
+                  <code class="the-value--hex">#999999</code>
+               </th>
+               <td data-chroma="1" data-value="9" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="9" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="9" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="9" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="9" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="9" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="9" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="9" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="9" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="9" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="9" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="9" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-8">
+                  <code class="the-value--var">$value-8</code>
+                  <code class="the-value--hex">#888888</code>
+               </th>
+               <td data-chroma="1" data-value="8" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="8" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="8" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="8" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="8" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="8" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="8" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="8" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="8" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="8" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="8" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="8" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-7">
+                  <code class="the-value--var">$value-7</code>
+                  <code class="the-value--hex">#777777</code>
+               </th>
+               <td data-chroma="1" data-value="7" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="7" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="7" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="7" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="7" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="7" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="7" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="7" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="7" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="7" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="7" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="7" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-6">
+                  <code class="the-value--var">$value-6</code>
+                  <code class="the-value--hex">#666666</code>
+               </th>
+               <td data-chroma="1" data-value="6" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="6" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="6" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="6" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="6" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="6" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="6" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="6" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="6" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="6" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="6" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="6" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-5">
+                  <code class="the-value--var">$value-5</code>
+                  <code class="the-value--hex">#555555</code>
+               </th>
+               <td data-chroma="1" data-value="5" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="5" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="5" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="5" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="5" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="5" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="5" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="5" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="5" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="5" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="5" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="5" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-4">
+                  <code class="the-value--var">$value-4</code>
+                  <code class="the-value--hex">#444444</code>
+               </th>
+               <td data-chroma="1" data-value="4" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="4" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="4" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="4" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="4" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="4" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="4" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="4" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="4" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="4" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="4" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="4" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-3">
+                  <code class="the-value--var">$value-3</code>
+                  <code class="the-value--hex">#333333</code>
+               </th>
+               <td data-chroma="1" data-value="3" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="3" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="3" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="3" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="3" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="3" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="3" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="3" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="3" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="3" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="3" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="3" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-2">
+                  <code class="the-value--var">$value-2</code>
+                  <code class="the-value--hex">#222222</code>
+               </th>
+               <td data-chroma="1" data-value="2" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="2" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="2" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="2" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="2" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="2" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="2" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="2" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="2" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="2" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="2" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="2" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-1">
+                  <code class="the-value--var">$value-1</code>
+                  <code class="the-value--hex">#111111</code>
+               </th>
+               <td data-chroma="1" data-value="1" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="1" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="1" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="1" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="1" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="1" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="1" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="1" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="1" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="1" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="1" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="1" data-color="primary"><span></span></td>
+            </tr>
+            <tr>
+               <th class="bg-value-0">
+                  <code class="the-value--var">$value-0</code>
+                  <code class="the-value--hex">#000000</code>
+               </th>
+               <td data-chroma="1" data-value="0" data-color="primary"><span></span></td>
+               <td data-chroma="2" data-value="0" data-color="primary"><span></span></td>
+               <td data-chroma="3" data-value="0" data-color="primary"><span></span></td>
+               <td data-chroma="4" data-value="0" data-color="primary"><span></span></td>
+               <td data-chroma="5" data-value="0" data-color="primary"><span></span></td>
+               <td data-chroma="6" data-value="0" data-color="primary"><span></span></td>
+               <td data-chroma="7" data-value="0" data-color="primary"><span></span></td>
+               <td data-chroma="8" data-value="0" data-color="primary"><span></span></td>
+               <td data-chroma="9" data-value="0" data-color="primary"><span></span></td>
+               <td data-chroma="10" data-value="0" data-color="primary"><span></span></td>
+               <td data-chroma="11" data-value="0" data-color="primary"><span></span></td>
+               <td data-chroma="12" data-value="0" data-color="primary"><span></span></td>
+            </tr>
+         </tbody>
+      </table>
+
+      <script src="demo.js"></script>
+   </body>
+</html>

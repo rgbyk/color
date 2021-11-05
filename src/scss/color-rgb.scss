@@ -3,15 +3,14 @@
 // ==========================================================================
 
 @forward "core" with ( 
-    $brand-color: #7552cc,
+    $brand-color: #34bf49,
 
     $color-model: rgb,
-    $color-mode-harmony: false,
+    $color-mode-harmony: true,
     $color-mode-harmony-grayscale: false,
     $color-mode-harmony-grayscale-cool-mix: 3%,
     $color-mode-harmony-grayscale-warm-mix: 3%,
 
-    $enable-utility-docs: false,
     $enable-utility-classes: false,
     $enable-utility-bg: false,
     $enable-utility-color: false,
@@ -29,16 +28,16 @@
     $color-scheme-tetradic: true,
     $color-scheme-triadic: true,
 
-    $color-scheme-danger: false,
-    $color-scheme-warning: false,
-    $color-scheme-success: false,
-    $color-scheme-info: false,
+    $color-scheme-danger: true,
+    $color-scheme-warning: true,
+    $color-scheme-success: true,
+    $color-scheme-info: true,
 
-    $color-scheme-neutral: false,
+    $color-scheme-neutral: true,
     $color-scheme-pastel: false,
     $color-scheme-alpha: true,
 
-    $enable-root-colors: true
+    $enable-root-colors: true,
 );
 
 @use "functions";
