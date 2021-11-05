@@ -48,17 +48,48 @@
 // # Values
 // ==========================================================================
 
-$value-0: #000000 !default; // #000000
-$value-1: color.scale($value-0, $lightness: 10%) !default; // #1A1A1A
-$value-2: color.scale($value-0, $lightness: 20%) !default; // #333333
-$value-3: color.scale($value-0, $lightness: 30%) !default; // #4D4D4D
-$value-4: color.scale($value-0, $lightness: 40%) !default; // #666666
-$value-5: color.scale($value-0, $lightness: 50%) !default; // #808080
-$value-6: color.scale($value-0, $lightness: 60%) !default; // #999999
-$value-7: color.scale($value-0, $lightness: 70%) !default; // #B3B3B3
-$value-8: color.scale($value-0, $lightness: 80%) !default; // #CCCCCC
-$value-9: color.scale($value-0, $lightness: 90%) !default; // #E6E6E6
-$value-10: color.scale($value-0, $lightness: 100%) !default; // #FFFFFF
+$value-0: #000000 !default;                                          
+$value-1: color.scale($value-0, $lightness: 4.166666666666667%) !default;         
+$value-2: color.scale($value-0, $lightness: 8.333333333333333%) !default;         
+$value-3: color.scale($value-0, $lightness: 12.500000000000001%) !default;        
+$value-4: color.scale($value-0, $lightness: 16.666666666666668%) !default;        
+$value-5: color.scale($value-0, $lightness: 20.833333333333335%) !default;        
+$value-6: color.scale($value-0, $lightness: 25%) !default;                        
+$value-7: color.scale($value-0, $lightness: 29.166666666666667%) !default;        
+$value-8: color.scale($value-0, $lightness: 33.333333333333334%) !default;        
+$value-9: color.scale($value-0, $lightness: 37.500000000000001%) !default;        
+$value-10: color.scale($value-0, $lightness: 41.666666666666668%) !default;       
+$value-11: color.scale($value-0, $lightness: 45.833333333333335%) !default;       
+$value-12: color.scale($value-0, $lightness: 50%) !default;                       
+$value-13: color.scale($value-0, $lightness: 54.166666666666667%) !default;       
+$value-14: color.scale($value-0, $lightness: 58.333333333333334%) !default;       
+$value-15: color.scale($value-0, $lightness: 62.500000000000001%) !default;       
+$value-16: color.scale($value-0, $lightness: 66.666666666666668%) !default;       
+$value-17: color.scale($value-0, $lightness: 70.833333333333335%) !default;       
+$value-18: color.scale($value-0, $lightness: 75%) !default;                       
+$value-19: color.scale($value-0, $lightness: 79.166666666666667%) !default;       
+$value-20: color.scale($value-0, $lightness: 83.333333333333334%) !default;       
+$value-21: color.scale($value-0, $lightness: 87.500000000000001%) !default;       
+$value-22: color.scale($value-0, $lightness: 91.666666666666668%) !default;       
+$value-23: color.scale($value-0, $lightness: 95.833333333333335%) !default;       
+$value-24: color.scale($value-0, $lightness: 100%) !default;                      
+
+// $value-15: #FFFFFF !default;
+// $value-14: #EEEEEE !default;
+// $value-13: #DDDDDD !default;
+// $value-12: #CCCCCC !default;
+// $value-11: #BBBBBB !default;
+// $value-10: #AAAAAA !default;
+// $value-9: #999999 !default;
+// $value-8: #888888 !default;
+// $value-7: #777777 !default;
+// $value-6: #666666 !default;
+// $value-5: #555555 !default;
+// $value-4: #444444 !default;
+// $value-3: #333333 !default;
+// $value-2: #222222 !default;
+// $value-1: #111111 !default;
+// $value-0: #000000 !default;
 
 // ==========================================================================
 // # Chromas

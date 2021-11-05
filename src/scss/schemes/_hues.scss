@@ -11,120 +11,132 @@
 // # Variables
 // ==========================================================================
 
+$hue-1-50: functions.make-color-mono(core.$hue-1, 50) !default;
 $hue-1-100: functions.make-color-mono(core.$hue-1, 100) !default;
 $hue-1-200: functions.make-color-mono(core.$hue-1, 200) !default;
 $hue-1-300: functions.make-color-mono(core.$hue-1, 300) !default;
-$hue-1-400: core.$hue-1 !default;
+$hue-1-400: functions.make-color-mono(core.$hue-1, 400) !default;
 $hue-1-500: functions.make-color-mono(core.$hue-1, 500) !default;
 $hue-1-600: functions.make-color-mono(core.$hue-1, 600) !default;
 $hue-1-700: functions.make-color-mono(core.$hue-1, 700) !default;
 $hue-1-800: functions.make-color-mono(core.$hue-1, 800) !default;
 $hue-1-900: functions.make-color-mono(core.$hue-1, 900) !default;
 
+$hue-2-50: functions.make-color-mono(core.$hue-2, 50) !default;
 $hue-2-100: functions.make-color-mono(core.$hue-2, 100) !default;
 $hue-2-200: functions.make-color-mono(core.$hue-2, 200) !default;
 $hue-2-300: functions.make-color-mono(core.$hue-2, 300) !default;
-$hue-2-400: core.$hue-2 !default;
+$hue-2-400: functions.make-color-mono(core.$hue-2, 400) !default;
 $hue-2-500: functions.make-color-mono(core.$hue-2, 500) !default;
 $hue-2-600: functions.make-color-mono(core.$hue-2, 600) !default;
 $hue-2-700: functions.make-color-mono(core.$hue-2, 700) !default;
 $hue-2-800: functions.make-color-mono(core.$hue-2, 800) !default;
 $hue-2-900: functions.make-color-mono(core.$hue-2, 900) !default;
 
+$hue-3-50: functions.make-color-mono(core.$hue-3, 50) !default;
 $hue-3-100: functions.make-color-mono(core.$hue-3, 100) !default;
 $hue-3-200: functions.make-color-mono(core.$hue-3, 200) !default;
 $hue-3-300: functions.make-color-mono(core.$hue-3, 300) !default;
-$hue-3-400: core.$hue-3 !default;
+$hue-3-400: functions.make-color-mono(core.$hue-3, 400) !default;
 $hue-3-500: functions.make-color-mono(core.$hue-3, 500) !default;
 $hue-3-600: functions.make-color-mono(core.$hue-3, 600) !default;
 $hue-3-700: functions.make-color-mono(core.$hue-3, 700) !default;
 $hue-3-800: functions.make-color-mono(core.$hue-3, 800) !default;
 $hue-3-900: functions.make-color-mono(core.$hue-3, 900) !default;
 
+$hue-4-50: functions.make-color-mono(core.$hue-4, 50) !default;
 $hue-4-100: functions.make-color-mono(core.$hue-4, 100) !default;
 $hue-4-200: functions.make-color-mono(core.$hue-4, 200) !default;
 $hue-4-300: functions.make-color-mono(core.$hue-4, 300) !default;
-$hue-4-400: core.$hue-4 !default;
+$hue-4-400: functions.make-color-mono(core.$hue-4, 400) !default;
 $hue-4-500: functions.make-color-mono(core.$hue-4, 500) !default;
 $hue-4-600: functions.make-color-mono(core.$hue-4, 600) !default;
 $hue-4-700: functions.make-color-mono(core.$hue-4, 700) !default;
 $hue-4-800: functions.make-color-mono(core.$hue-4, 800) !default;
 $hue-4-900: functions.make-color-mono(core.$hue-4, 900) !default;
 
+$hue-5-50: functions.make-color-mono(core.$hue-5, 50) !default;
 $hue-5-100: functions.make-color-mono(core.$hue-5, 100) !default;
 $hue-5-200: functions.make-color-mono(core.$hue-5, 200) !default;
 $hue-5-300: functions.make-color-mono(core.$hue-5, 300) !default;
-$hue-5-400: core.$hue-5 !default;
+$hue-5-400: functions.make-color-mono(core.$hue-5, 400) !default;
 $hue-5-500: functions.make-color-mono(core.$hue-5, 500) !default;
 $hue-5-600: functions.make-color-mono(core.$hue-5, 600) !default;
 $hue-5-700: functions.make-color-mono(core.$hue-5, 700) !default;
 $hue-5-800: functions.make-color-mono(core.$hue-5, 800) !default;
 $hue-5-900: functions.make-color-mono(core.$hue-5, 900) !default;
 
+$hue-6-50: functions.make-color-mono(core.$hue-6, 50) !default;
 $hue-6-100: functions.make-color-mono(core.$hue-6, 100) !default;
 $hue-6-200: functions.make-color-mono(core.$hue-6, 200) !default;
 $hue-6-300: functions.make-color-mono(core.$hue-6, 300) !default;
-$hue-6-400: core.$hue-6 !default;
+$hue-6-400: functions.make-color-mono(core.$hue-6, 400) !default;
 $hue-6-500: functions.make-color-mono(core.$hue-6, 500) !default;
 $hue-6-600: functions.make-color-mono(core.$hue-6, 600) !default;
 $hue-6-700: functions.make-color-mono(core.$hue-6, 700) !default;
 $hue-6-800: functions.make-color-mono(core.$hue-6, 800) !default;
 $hue-6-900: functions.make-color-mono(core.$hue-6, 900) !default;
 
+$hue-7-50: functions.make-color-mono(core.$hue-7, 50) !default;
 $hue-7-100: functions.make-color-mono(core.$hue-7, 100) !default;
 $hue-7-200: functions.make-color-mono(core.$hue-7, 200) !default;
 $hue-7-300: functions.make-color-mono(core.$hue-7, 300) !default;
-$hue-7-400: core.$hue-7 !default;
+$hue-7-400: functions.make-color-mono(core.$hue-7, 400) !default;
 $hue-7-500: functions.make-color-mono(core.$hue-7, 500) !default;
 $hue-7-600: functions.make-color-mono(core.$hue-7, 600) !default;
 $hue-7-700: functions.make-color-mono(core.$hue-7, 700) !default;
 $hue-7-800: functions.make-color-mono(core.$hue-7, 800) !default;
 $hue-7-900: functions.make-color-mono(core.$hue-7, 900) !default;
 
+$hue-8-50: functions.make-color-mono(core.$hue-8, 50) !default;
 $hue-8-100: functions.make-color-mono(core.$hue-8, 100) !default;
 $hue-8-200: functions.make-color-mono(core.$hue-8, 200) !default;
 $hue-8-300: functions.make-color-mono(core.$hue-8, 300) !default;
-$hue-8-400: core.$hue-8 !default;
+$hue-8-400: functions.make-color-mono(core.$hue-8, 400) !default;
 $hue-8-500: functions.make-color-mono(core.$hue-8, 500) !default;
 $hue-8-600: functions.make-color-mono(core.$hue-8, 600) !default;
 $hue-8-700: functions.make-color-mono(core.$hue-8, 700) !default;
 $hue-8-800: functions.make-color-mono(core.$hue-8, 800) !default;
 $hue-8-900: functions.make-color-mono(core.$hue-8, 900) !default;
 
+$hue-9-50: functions.make-color-mono(core.$hue-9, 50) !default;
 $hue-9-100: functions.make-color-mono(core.$hue-9, 100) !default;
 $hue-9-200: functions.make-color-mono(core.$hue-9, 200) !default;
 $hue-9-300: functions.make-color-mono(core.$hue-9, 300) !default;
-$hue-9-400: core.$hue-9 !default;
+$hue-9-400: functions.make-color-mono(core.$hue-9, 400) !default;
 $hue-9-500: functions.make-color-mono(core.$hue-9, 500) !default;
 $hue-9-600: functions.make-color-mono(core.$hue-9, 600) !default;
 $hue-9-700: functions.make-color-mono(core.$hue-9, 700) !default;
 $hue-9-800: functions.make-color-mono(core.$hue-9, 800) !default;
 $hue-9-900: functions.make-color-mono(core.$hue-9, 900) !default;
 
+$hue-10-50: functions.make-color-mono(core.$hue-10, 50) !default;
 $hue-10-100: functions.make-color-mono(core.$hue-10, 100) !default;
 $hue-10-200: functions.make-color-mono(core.$hue-10, 200) !default;
 $hue-10-300: functions.make-color-mono(core.$hue-10, 300) !default;
-$hue-10-400: core.$hue-10 !default;
+$hue-10-400: functions.make-color-mono(core.$hue-10, 400) !default;
 $hue-10-500: functions.make-color-mono(core.$hue-10, 500) !default;
 $hue-10-600: functions.make-color-mono(core.$hue-10, 600) !default;
 $hue-10-700: functions.make-color-mono(core.$hue-10, 700) !default;
 $hue-10-800: functions.make-color-mono(core.$hue-10, 800) !default;
 $hue-10-900: functions.make-color-mono(core.$hue-10, 900) !default;
 
+$hue-11-50: functions.make-color-mono(core.$hue-11, 50) !default;
 $hue-11-100: functions.make-color-mono(core.$hue-11, 100) !default;
 $hue-11-200: functions.make-color-mono(core.$hue-11, 200) !default;
 $hue-11-300: functions.make-color-mono(core.$hue-11, 300) !default;
-$hue-11-400: core.$hue-11 !default;
+$hue-11-400: functions.make-color-mono(core.$hue-11, 400) !default;
 $hue-11-500: functions.make-color-mono(core.$hue-11, 500) !default;
 $hue-11-600: functions.make-color-mono(core.$hue-11, 600) !default;
 $hue-11-700: functions.make-color-mono(core.$hue-11, 700) !default;
 $hue-11-800: functions.make-color-mono(core.$hue-11, 800) !default;
 $hue-11-900: functions.make-color-mono(core.$hue-11, 900) !default;
 
+$hue-12-50: functions.make-color-mono(core.$hue-12, 50) !default;
 $hue-12-100: functions.make-color-mono(core.$hue-12, 100) !default;
 $hue-12-200: functions.make-color-mono(core.$hue-12, 200) !default;
 $hue-12-300: functions.make-color-mono(core.$hue-12, 300) !default;
-$hue-12-400: core.$hue-12 !default;
+$hue-12-400: functions.make-color-mono(core.$hue-12, 400) !default;
 $hue-12-500: functions.make-color-mono(core.$hue-12, 500) !default;
 $hue-12-600: functions.make-color-mono(core.$hue-12, 600) !default;
 $hue-12-700: functions.make-color-mono(core.$hue-12, 700) !default;
@@ -136,6 +148,7 @@ $hue-12-900: functions.make-color-mono(core.$hue-12, 900) !default;
 // =============================================================================
 
 $map-hue-1: (
+  "hue-1-50": $hue-1-50,
   "hue-1-100": $hue-1-100,
   "hue-1-200": $hue-1-200,
   "hue-1-300": $hue-1-300,
@@ -148,6 +161,7 @@ $map-hue-1: (
 ) !default;
 
 $map-hue-2: (
+  "hue-2-50": $hue-2-50,
   "hue-2-100": $hue-2-100,
   "hue-2-200": $hue-2-200,
   "hue-2-300": $hue-2-300,
@@ -160,6 +174,7 @@ $map-hue-2: (
 ) !default;
 
 $map-hue-3: (
+  "hue-3-50": $hue-3-50,
   "hue-3-100": $hue-3-100,
   "hue-3-200": $hue-3-200,
   "hue-3-300": $hue-3-300,
@@ -172,6 +187,7 @@ $map-hue-3: (
 ) !default;
 
 $map-hue-4: (
+  "hue-4-50": $hue-4-50,
   "hue-4-100": $hue-4-100,
   "hue-4-200": $hue-4-200,
   "hue-4-300": $hue-4-300,
@@ -184,6 +200,7 @@ $map-hue-4: (
 ) !default;
 
 $map-hue-5: (
+  "hue-5-50": $hue-5-50,
   "hue-5-100": $hue-5-100,
   "hue-5-200": $hue-5-200,
   "hue-5-300": $hue-5-300,
@@ -196,6 +213,7 @@ $map-hue-5: (
 ) !default;
 
 $map-hue-6: (
+  "hue-6-50": $hue-6-50,
   "hue-6-100": $hue-6-100,
   "hue-6-200": $hue-6-200,
   "hue-6-300": $hue-6-300,
@@ -208,6 +226,7 @@ $map-hue-6: (
 ) !default;
 
 $map-hue-7: (
+  "hue-7-50": $hue-7-50,
   "hue-7-100": $hue-7-100,
   "hue-7-200": $hue-7-200,
   "hue-7-300": $hue-7-300,
@@ -220,6 +239,7 @@ $map-hue-7: (
 ) !default;
 
 $map-hue-8: (
+  "hue-8-50": $hue-8-50,
   "hue-8-100": $hue-8-100,
   "hue-8-200": $hue-8-200,
   "hue-8-300": $hue-8-300,
@@ -232,6 +252,7 @@ $map-hue-8: (
 ) !default;
 
 $map-hue-9: (
+  "hue-9-50": $hue-9-50,
   "hue-9-100": $hue-9-100,
   "hue-9-200": $hue-9-200,
   "hue-9-300": $hue-9-300,
@@ -244,6 +265,7 @@ $map-hue-9: (
 ) !default;
 
 $map-hue-10: (
+  "hue-10-50": $hue-10-50,
   "hue-10-100": $hue-10-100,
   "hue-10-200": $hue-10-200,
   "hue-10-300": $hue-10-300,
@@ -256,6 +278,7 @@ $map-hue-10: (
 ) !default;
 
 $map-hue-11: (
+  "hue-11-50": $hue-11-50,
   "hue-11-100": $hue-11-100,
   "hue-11-200": $hue-11-200,
   "hue-11-300": $hue-11-300,
@@ -268,6 +291,7 @@ $map-hue-11: (
 ) !default;
 
 $map-hue-12: (
+  "hue-12-50": $hue-12-50,
   "hue-12-100": $hue-12-100,
   "hue-12-200": $hue-12-200,
   "hue-12-300": $hue-12-300,
@@ -277,6 +301,21 @@ $map-hue-12: (
   "hue-12-700": $hue-12-700,
   "hue-12-800": $hue-12-800,
   "hue-12-900": $hue-12-900
+) !default;
+
+$map-hue-top: (
+  "hue-1": $hue-1-500,
+  "hue-2": $hue-2-500,
+  "hue-3": $hue-3-500,
+  "hue-4": $hue-4-500,
+  "hue-5": $hue-5-500,
+  "hue-6": $hue-6-500,
+  "hue-7": $hue-7-500,
+  "hue-8": $hue-8-500,
+  "hue-9": $hue-9-500,
+  "hue-10": $hue-10-500,
+  "hue-11": $hue-11-500,
+  "hue-12": $hue-12-500
 ) !default;
 
 $map-hues: core.map-collect(

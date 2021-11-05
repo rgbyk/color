@@ -3,6 +3,7 @@
 // ==========================================================================
 
 @use "sass:color";
+@use "sass:math";
 @use "sass:map";
 
 @use "../core";
@@ -244,10 +245,10 @@
   $g: color.green($color);
   $b: color.blue($color);
   
-  $r: ($r + 255) / 2;
-  $g: ($g + 255) / 2;
-  $b: ($b + 255) / 2;
-  
+  $r: math.div($r + 255, 2);
+  $g: math.div($g + 255, 2);
+  $b: math.div($b + 255, 2);
+
   $hue: color.hue(rgb($r, $g, $b));
   $color: hsl($hue, 100%, 87.5%);
   

@@ -30,35 +30,37 @@
 // # Variables
 // ==========================================================================
 
-$-complementary-400: color.adjust(core.$brand-color, $hue: 180);
+$-complementary-500: color.adjust(core.$brand-color, $hue: 180);
 
 @if (core.$color-model == ryb) {
-  $-complementary-400: functions.adjust-hue-ryb(core.$brand-color, 180);
+  $-complementary-500: functions.adjust-hue-ryb(core.$brand-color, 180);
 } @else {}
 
 @if core.$color-mode-harmony {
-  $-complementary-400: functions.make-color-harmony(core.$brand-color, $-complementary-400);
+  $-complementary-500: functions.make-color-harmony(core.$brand-color, $-complementary-500);
 } @else {}
 
 // ==========================================================================
 // # Monochromatic
 // ==========================================================================
 
-$complementary-100: functions.make-color-mono($-complementary-400, 100) !default;
-$complementary-200: functions.make-color-mono($-complementary-400, 200) !default;
-$complementary-300: functions.make-color-mono($-complementary-400, 300) !default;
-$complementary-400: $-complementary-400 !default;
-$complementary-500: functions.make-color-mono($-complementary-400, 500) !default;
-$complementary-600: functions.make-color-mono($-complementary-400, 600) !default;
-$complementary-700: functions.make-color-mono($-complementary-400, 700) !default;
-$complementary-800: functions.make-color-mono($-complementary-400, 800) !default;
-$complementary-900: functions.make-color-mono($-complementary-400, 900) !default;
+$complementary-50: functions.make-color-mono($-complementary-500, 50) !default;
+$complementary-100: functions.make-color-mono($-complementary-500, 100) !default;
+$complementary-200: functions.make-color-mono($-complementary-500, 200) !default;
+$complementary-300: functions.make-color-mono($-complementary-500, 300) !default;
+$complementary-400: functions.make-color-mono($-complementary-500, 400) !default;
+$complementary-500: functions.make-color-mono($-complementary-500, 500) !default;
+$complementary-600: functions.make-color-mono($-complementary-500, 600) !default;
+$complementary-700: functions.make-color-mono($-complementary-500, 700) !default;
+$complementary-800: functions.make-color-mono($-complementary-500, 800) !default;
+$complementary-900: functions.make-color-mono($-complementary-500, 900) !default;
 
 // =============================================================================
 // # Map
 // =============================================================================
 
 $map-complementary: (
+  "complementary-50": $complementary-50,
   "complementary-100": $complementary-100,
   "complementary-200": $complementary-200,
   "complementary-300": $complementary-300,

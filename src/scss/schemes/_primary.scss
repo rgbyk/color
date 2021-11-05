@@ -11,27 +11,29 @@
 // # Variables
 // ==========================================================================
 
-$-primary-400: core.$brand-color;
+$-primary-500: core.$brand-color;
 
 // ==========================================================================
 // # Monochromatic
 // ==========================================================================
 
-$primary-100: functions.make-color-mono($-primary-400, 100) !default;
-$primary-200: functions.make-color-mono($-primary-400, 200) !default;
-$primary-300: functions.make-color-mono($-primary-400, 300) !default;
-$primary-400: $-primary-400 !default;
-$primary-500: functions.make-color-mono($-primary-400, 500) !default;
-$primary-600: functions.make-color-mono($-primary-400, 600) !default;
-$primary-700: functions.make-color-mono($-primary-400, 700) !default;
-$primary-800: functions.make-color-mono($-primary-400, 800) !default;
-$primary-900: functions.make-color-mono($-primary-400, 900) !default;
+$primary-50: functions.make-color-mono($-primary-500, 50) !default;
+$primary-100: functions.make-color-mono($-primary-500, 100) !default;
+$primary-200: functions.make-color-mono($-primary-500, 200) !default;
+$primary-300: functions.make-color-mono($-primary-500, 300) !default;
+$primary-400: functions.make-color-mono($-primary-500, 400) !default;
+$primary-500: functions.make-color-mono($-primary-500, 500) !default;
+$primary-600: functions.make-color-mono($-primary-500, 600) !default;
+$primary-700: functions.make-color-mono($-primary-500, 700) !default;
+$primary-800: functions.make-color-mono($-primary-500, 800) !default;
+$primary-900: functions.make-color-mono($-primary-500, 900) !default;
 
 // =============================================================================
 // # Map
 // =============================================================================
 
 $map-primary: (
+  "primary-50": $primary-50,
   "primary-100": $primary-100,
   "primary-200": $primary-200,
   "primary-300": $primary-300,

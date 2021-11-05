@@ -4,6 +4,11 @@ A color model system that generates a full range of accessible color palettes, a
 
 [View simulator](https://rgbyk.com/color/)
 
+-- 
+
+You can view the generated color schemes by visiting `./demo/[rgb|ryb].html`
+Please note that documentation for `v1.4.6` are in development and will be released shortly.
+
 ----
 
 ## Command Line

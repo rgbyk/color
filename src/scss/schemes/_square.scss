@@ -35,20 +35,20 @@
 // # Variables
 // ==========================================================================
 
-$-square-1-400: color.adjust(core.$brand-color, $hue: 90);
-$-square-2-400: color.adjust(core.$brand-color, $hue: 180);
-$-square-3-400: color.adjust(core.$brand-color, $hue: 270);
+$-square-1-500: color.adjust(core.$brand-color, $hue: 90);
+$-square-2-500: color.adjust(core.$brand-color, $hue: 180);
+$-square-3-500: color.adjust(core.$brand-color, $hue: 270);
 
 @if (core.$color-model == ryb) {
-  $-square-1-400: functions.adjust-hue-ryb(core.$brand-color, 90);
-  $-square-2-400: functions.adjust-hue-ryb(core.$brand-color, 180);
-  $-square-3-400: functions.adjust-hue-ryb(core.$brand-color, 270);
+  $-square-1-500: functions.adjust-hue-ryb(core.$brand-color, 90);
+  $-square-2-500: functions.adjust-hue-ryb(core.$brand-color, 180);
+  $-square-3-500: functions.adjust-hue-ryb(core.$brand-color, 270);
 } @else {}
 
 @if core.$color-mode-harmony {
-  $-square-1-400: functions.make-color-harmony(core.$brand-color, $-square-1-400);
-  $-square-2-400: functions.make-color-harmony(core.$brand-color, $-square-2-400);
-  $-square-3-400: functions.make-color-harmony(core.$brand-color, $-square-3-400);
+  $-square-1-500: functions.make-color-harmony(core.$brand-color, $-square-1-500);
+  $-square-2-500: functions.make-color-harmony(core.$brand-color, $-square-2-500);
+  $-square-3-500: functions.make-color-harmony(core.$brand-color, $-square-3-500);
 } @else {}
 
 // ==========================================================================
@@ -56,43 +56,47 @@ $-square-3-400: color.adjust(core.$brand-color, $hue: 270);
 // ==========================================================================
 
 // ## Tetradic (1) @ 90°
-$square-1-100: functions.make-color-mono($-square-1-400, 100) !default;
-$square-1-200: functions.make-color-mono($-square-1-400, 200) !default;
-$square-1-300: functions.make-color-mono($-square-1-400, 300) !default;
-$square-1-400: $-square-1-400 !default;
-$square-1-500: functions.make-color-mono($-square-1-400, 500) !default;
-$square-1-600: functions.make-color-mono($-square-1-400, 600) !default;
-$square-1-700: functions.make-color-mono($-square-1-400, 700) !default;
-$square-1-800: functions.make-color-mono($-square-1-400, 800) !default;
-$square-1-900: functions.make-color-mono($-square-1-400, 900) !default;
+$square-1-50: functions.make-color-mono($-square-1-500, 50) !default;
+$square-1-100: functions.make-color-mono($-square-1-500, 100) !default;
+$square-1-200: functions.make-color-mono($-square-1-500, 200) !default;
+$square-1-300: functions.make-color-mono($-square-1-500, 300) !default;
+$square-1-400: functions.make-color-mono($-square-1-500, 400) !default;
+$square-1-500: functions.make-color-mono($-square-1-500, 500) !default;
+$square-1-600: functions.make-color-mono($-square-1-500, 600) !default;
+$square-1-700: functions.make-color-mono($-square-1-500, 700) !default;
+$square-1-800: functions.make-color-mono($-square-1-500, 800) !default;
+$square-1-900: functions.make-color-mono($-square-1-500, 900) !default;
 
 // ## Tetradic (2) @ 180°
-$square-2-100: functions.make-color-mono($-square-2-400, 100) !default;
-$square-2-200: functions.make-color-mono($-square-2-400, 200) !default;
-$square-2-300: functions.make-color-mono($-square-2-400, 300) !default;
-$square-2-400: $-square-2-400 !default;
-$square-2-500: functions.make-color-mono($-square-2-400, 500) !default;
-$square-2-600: functions.make-color-mono($-square-2-400, 600) !default;
-$square-2-700: functions.make-color-mono($-square-2-400, 700) !default;
-$square-2-800: functions.make-color-mono($-square-2-400, 800) !default;
-$square-2-900: functions.make-color-mono($-square-2-400, 900) !default;
+$square-2-50: functions.make-color-mono($-square-2-500, 50) !default;
+$square-2-100: functions.make-color-mono($-square-2-500, 100) !default;
+$square-2-200: functions.make-color-mono($-square-2-500, 200) !default;
+$square-2-300: functions.make-color-mono($-square-2-500, 300) !default;
+$square-2-400: functions.make-color-mono($-square-2-500, 400) !default;
+$square-2-500: functions.make-color-mono($-square-2-500, 500) !default;
+$square-2-600: functions.make-color-mono($-square-2-500, 600) !default;
+$square-2-700: functions.make-color-mono($-square-2-500, 700) !default;
+$square-2-800: functions.make-color-mono($-square-2-500, 800) !default;
+$square-2-900: functions.make-color-mono($-square-2-500, 900) !default;
 
 // ## Tetradic (3) @ 270°
-$square-3-100: functions.make-color-mono($-square-3-400, 100) !default;
-$square-3-200: functions.make-color-mono($-square-3-400, 200) !default;
-$square-3-300: functions.make-color-mono($-square-3-400, 300) !default;
-$square-3-400: $-square-3-400 !default;
-$square-3-500: functions.make-color-mono($-square-3-400, 500) !default;
-$square-3-600: functions.make-color-mono($-square-3-400, 600) !default;
-$square-3-700: functions.make-color-mono($-square-3-400, 700) !default;
-$square-3-800: functions.make-color-mono($-square-3-400, 800) !default;
-$square-3-900: functions.make-color-mono($-square-3-400, 900) !default;
+$square-3-50: functions.make-color-mono($-square-3-500, 50) !default;
+$square-3-100: functions.make-color-mono($-square-3-500, 100) !default;
+$square-3-200: functions.make-color-mono($-square-3-500, 200) !default;
+$square-3-300: functions.make-color-mono($-square-3-500, 300) !default;
+$square-3-400: functions.make-color-mono($-square-3-500, 400) !default;
+$square-3-500: functions.make-color-mono($-square-3-500, 500) !default;
+$square-3-600: functions.make-color-mono($-square-3-500, 600) !default;
+$square-3-700: functions.make-color-mono($-square-3-500, 700) !default;
+$square-3-800: functions.make-color-mono($-square-3-500, 800) !default;
+$square-3-900: functions.make-color-mono($-square-3-500, 900) !default;
 
 // ==========================================================================
 // # Map
 // ==========================================================================
 
 $map-square-1: (
+  "square-1-50": $square-1-50,
   "square-1-100": $square-1-100,
   "square-1-200": $square-1-200,
   "square-1-300": $square-1-300,
@@ -105,6 +109,7 @@ $map-square-1: (
 ) !default;
 
 $map-square-2: (
+  "square-2-50": $square-2-50,
   "square-2-100": $square-2-100,
   "square-2-200": $square-2-200,
   "square-2-300": $square-2-300,
@@ -117,6 +122,7 @@ $map-square-2: (
 ) !default;
 
 $map-square-3: (
+  "square-3-50": $square-3-50,
   "square-3-100": $square-3-100,
   "square-3-200": $square-3-200,
   "square-3-300": $square-3-300,

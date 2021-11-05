@@ -11,66 +11,71 @@
 // # Variables
 // ==========================================================================
 
-$-danger-400: color.mix(core.$hue-1, core.$value-0, $weight: core.$chroma-12);
-$-warning-400: color.mix(core.$hue-2, core.$value-0, $weight: core.$chroma-12);
-$-success-400: color.mix(core.$hue-5, core.$value-0, $weight: core.$chroma-12);
-$-info-400: color.mix(core.$hue-8, core.$value-0, $weight: core.$chroma-12);
+$-danger-500: color.mix(core.$hue-1, core.$value-0, $weight: core.$chroma-12);
+$-warning-500: color.mix(core.$hue-2, core.$value-0, $weight: core.$chroma-12);
+$-success-500: color.mix(core.$hue-5, core.$value-0, $weight: core.$chroma-12);
+$-info-500: color.mix(core.$hue-8, core.$value-0, $weight: core.$chroma-12);
 
 @if (core.$color-model == ryb) {
-  $-warning-400: color.mix(core.$hue-3, core.$value-0, $weight: core.$chroma-12);
-  $-success-400: color.mix(core.$hue-7, core.$value-0, $weight: core.$chroma-12);
-  $-info-400: color.mix(core.$hue-9, core.$value-0, $weight: core.$chroma-12);
+  $-warning-500: color.mix(core.$hue-3, core.$value-0, $weight: core.$chroma-12);
+  $-success-500: color.mix(core.$hue-7, core.$value-0, $weight: core.$chroma-12);
+  $-info-500: color.mix(core.$hue-9, core.$value-0, $weight: core.$chroma-12);
 } @else {}
 
 // ==========================================================================
 // # Monochromatic
 // ==========================================================================
 
-$danger-100: functions.make-color-mono($-danger-400, 100) !default;
-$danger-200: functions.make-color-mono($-danger-400, 200) !default;
-$danger-300: functions.make-color-mono($-danger-400, 300) !default;
-$danger-400: $-danger-400 !default;
-$danger-500: functions.make-color-mono($-danger-400, 500) !default;
-$danger-600: functions.make-color-mono($-danger-400, 600) !default;
-$danger-700: functions.make-color-mono($-danger-400, 700) !default;
-$danger-800: functions.make-color-mono($-danger-400, 800) !default;
-$danger-900: functions.make-color-mono($-danger-400, 900) !default;
+$danger-50: functions.make-color-mono($-danger-500, 50) !default;
+$danger-100: functions.make-color-mono($-danger-500, 100) !default;
+$danger-200: functions.make-color-mono($-danger-500, 200) !default;
+$danger-300: functions.make-color-mono($-danger-500, 300) !default;
+$danger-400: functions.make-color-mono($-danger-500, 400) !default;
+$danger-500: functions.make-color-mono($-danger-500, 500) !default;
+$danger-600: functions.make-color-mono($-danger-500, 600) !default;
+$danger-700: functions.make-color-mono($-danger-500, 700) !default;
+$danger-800: functions.make-color-mono($-danger-500, 800) !default;
+$danger-900: functions.make-color-mono($-danger-500, 900) !default;
 
-$warning-100: functions.make-color-mono($-warning-400, 100) !default;
-$warning-200: functions.make-color-mono($-warning-400, 200) !default;
-$warning-300: functions.make-color-mono($-warning-400, 300) !default;
-$warning-400: $-warning-400 !default;
-$warning-500: functions.make-color-mono($-warning-400, 500) !default;
-$warning-600: functions.make-color-mono($-warning-400, 600) !default;
-$warning-700: functions.make-color-mono($-warning-400, 700) !default;
-$warning-800: functions.make-color-mono($-warning-400, 800) !default;
-$warning-900: functions.make-color-mono($-warning-400, 900) !default;
+$warning-50: functions.make-color-mono($-warning-500, 50) !default;
+$warning-100: functions.make-color-mono($-warning-500, 100) !default;
+$warning-200: functions.make-color-mono($-warning-500, 200) !default;
+$warning-300: functions.make-color-mono($-warning-500, 300) !default;
+$warning-400: functions.make-color-mono($-warning-500, 400) !default;
+$warning-500: functions.make-color-mono($-warning-500, 500) !default;
+$warning-600: functions.make-color-mono($-warning-500, 600) !default;
+$warning-700: functions.make-color-mono($-warning-500, 700) !default;
+$warning-800: functions.make-color-mono($-warning-500, 800) !default;
+$warning-900: functions.make-color-mono($-warning-500, 900) !default;
 
-$success-100: functions.make-color-mono($-success-400, 100) !default;
-$success-200: functions.make-color-mono($-success-400, 200) !default;
-$success-300: functions.make-color-mono($-success-400, 300) !default;
-$success-400: $-success-400 !default;
-$success-500: functions.make-color-mono($-success-400, 500) !default;
-$success-600: functions.make-color-mono($-success-400, 600) !default;
-$success-700: functions.make-color-mono($-success-400, 700) !default;
-$success-800: functions.make-color-mono($-success-400, 800) !default;
-$success-900: functions.make-color-mono($-success-400, 900) !default;
+$success-50: functions.make-color-mono($-success-500, 50) !default;
+$success-100: functions.make-color-mono($-success-500, 100) !default;
+$success-200: functions.make-color-mono($-success-500, 200) !default;
+$success-300: functions.make-color-mono($-success-500, 300) !default;
+$success-400: functions.make-color-mono($-success-500, 400) !default;
+$success-500: functions.make-color-mono($-success-500, 500) !default;
+$success-600: functions.make-color-mono($-success-500, 600) !default;
+$success-700: functions.make-color-mono($-success-500, 700) !default;
+$success-800: functions.make-color-mono($-success-500, 800) !default;
+$success-900: functions.make-color-mono($-success-500, 900) !default;
 
-$info-100: functions.make-color-mono($-info-400, 100) !default;
-$info-200: functions.make-color-mono($-info-400, 200) !default;
-$info-300: functions.make-color-mono($-info-400, 300) !default;
-$info-400: $-info-400 !default;
-$info-500: functions.make-color-mono($-info-400, 500) !default;
-$info-600: functions.make-color-mono($-info-400, 600) !default;
-$info-700: functions.make-color-mono($-info-400, 700) !default;
-$info-800: functions.make-color-mono($-info-400, 800) !default;
-$info-900: functions.make-color-mono($-info-400, 900) !default;
+$info-50: functions.make-color-mono($-info-500, 50) !default;
+$info-100: functions.make-color-mono($-info-500, 100) !default;
+$info-200: functions.make-color-mono($-info-500, 200) !default;
+$info-300: functions.make-color-mono($-info-500, 300) !default;
+$info-400: functions.make-color-mono($-info-500, 400) !default;
+$info-500: functions.make-color-mono($-info-500, 500) !default;
+$info-600: functions.make-color-mono($-info-500, 600) !default;
+$info-700: functions.make-color-mono($-info-500, 700) !default;
+$info-800: functions.make-color-mono($-info-500, 800) !default;
+$info-900: functions.make-color-mono($-info-500, 900) !default;
 
 // =============================================================================
 // # Map
 // =============================================================================
 
 $map-success: (
+  "success-50": $success-50,
   "success-100": $success-100,
   "success-200": $success-200,
   "success-300": $success-300,
@@ -83,6 +88,7 @@ $map-success: (
 ) !default;
 
 $map-danger: (
+  "danger-50": $danger-50,
   "danger-100": $danger-100,
   "danger-200": $danger-200,
   "danger-300": $danger-300,
@@ -95,6 +101,7 @@ $map-danger: (
 ) !default;
 
 $map-warning: (
+  "warning-50": $warning-50,
   "warning-100": $warning-100,
   "warning-200": $warning-200,
   "warning-300": $warning-300,
@@ -107,6 +114,7 @@ $map-warning: (
 ) !default;
 
 $map-info: (
+  "info-50": $info-50,
   "info-100": $info-100,
   "info-200": $info-200,
   "info-300": $info-300,

@@ -31,17 +31,17 @@
 // # Variables
 // ==========================================================================
 
-$-split-1-400: color.adjust(core.$brand-color, $hue: 150);
-$-split-2-400: color.adjust(core.$brand-color, $hue: 210);
+$-split-1-500: color.adjust(core.$brand-color, $hue: 150);
+$-split-2-500: color.adjust(core.$brand-color, $hue: 210);
 
 @if (core.$color-model == ryb) {
-  $-split-1-400: functions.adjust-hue-ryb(core.$brand-color, 150);
-  $-split-2-400: functions.adjust-hue-ryb(core.$brand-color, 210);
+  $-split-1-500: functions.adjust-hue-ryb(core.$brand-color, 150);
+  $-split-2-500: functions.adjust-hue-ryb(core.$brand-color, 210);
 } @else {}
 
 @if core.$color-mode-harmony {
-  $-split-1-400: functions.make-color-harmony(core.$brand-color, $-split-1-400);
-  $-split-2-400: functions.make-color-harmony(core.$brand-color, $-split-2-400);
+  $-split-1-500: functions.make-color-harmony(core.$brand-color, $-split-1-500);
+  $-split-2-500: functions.make-color-harmony(core.$brand-color, $-split-2-500);
 } @else {}
 
 // ==========================================================================
@@ -49,32 +49,35 @@ $-split-2-400: color.adjust(core.$brand-color, $hue: 210);
 // ==========================================================================
 
 // ## Split (1) @ 150°
-$split-1-100: functions.make-color-mono($-split-1-400, 100) !default;
-$split-1-200: functions.make-color-mono($-split-1-400, 200) !default;
-$split-1-300: functions.make-color-mono($-split-1-400, 300) !default;
-$split-1-400: $-split-1-400 !default;
-$split-1-500: functions.make-color-mono($-split-1-400, 500) !default;
-$split-1-600: functions.make-color-mono($-split-1-400, 600) !default;
-$split-1-700: functions.make-color-mono($-split-1-400, 700) !default;
-$split-1-800: functions.make-color-mono($-split-1-400, 800) !default;
-$split-1-900: functions.make-color-mono($-split-1-400, 900) !default;
+$split-1-50: functions.make-color-mono($-split-1-500, 50) !default;
+$split-1-100: functions.make-color-mono($-split-1-500, 100) !default;
+$split-1-200: functions.make-color-mono($-split-1-500, 200) !default;
+$split-1-300: functions.make-color-mono($-split-1-500, 300) !default;
+$split-1-400: functions.make-color-mono($-split-1-500, 400) !default;
+$split-1-500: functions.make-color-mono($-split-1-500, 500) !default;
+$split-1-600: functions.make-color-mono($-split-1-500, 600) !default;
+$split-1-700: functions.make-color-mono($-split-1-500, 700) !default;
+$split-1-800: functions.make-color-mono($-split-1-500, 800) !default;
+$split-1-900: functions.make-color-mono($-split-1-500, 900) !default;
 
 // ## Split (2) @ 210°
-$split-2-100: functions.make-color-mono($-split-2-400, 100) !default;
-$split-2-200: functions.make-color-mono($-split-2-400, 200) !default;
-$split-2-300: functions.make-color-mono($-split-2-400, 300) !default;
-$split-2-400: $-split-2-400 !default;
-$split-2-500: functions.make-color-mono($-split-2-400, 500) !default;
-$split-2-600: functions.make-color-mono($-split-2-400, 600) !default;
-$split-2-700: functions.make-color-mono($-split-2-400, 700) !default;
-$split-2-800: functions.make-color-mono($-split-2-400, 800) !default;
-$split-2-900: functions.make-color-mono($-split-2-400, 900) !default;
+$split-2-50: functions.make-color-mono($-split-2-500, 50) !default;
+$split-2-100: functions.make-color-mono($-split-2-500, 100) !default;
+$split-2-200: functions.make-color-mono($-split-2-500, 200) !default;
+$split-2-300: functions.make-color-mono($-split-2-500, 300) !default;
+$split-2-400: functions.make-color-mono($-split-2-500, 400) !default;
+$split-2-500: functions.make-color-mono($-split-2-500, 500) !default;
+$split-2-600: functions.make-color-mono($-split-2-500, 600) !default;
+$split-2-700: functions.make-color-mono($-split-2-500, 700) !default;
+$split-2-800: functions.make-color-mono($-split-2-500, 800) !default;
+$split-2-900: functions.make-color-mono($-split-2-500, 900) !default;
 
 // =============================================================================
 // # Map
 // =============================================================================
 
 $map-split-1: (
+  "split-1-50": $split-1-50,
   "split-1-100": $split-1-100,
   "split-1-200": $split-1-200,
   "split-1-300": $split-1-300,
@@ -87,6 +90,7 @@ $map-split-1: (
 ) !default;
 
 $map-split-2: (
+  "split-2-50": $split-2-50,
   "split-2-100": $split-2-100,
   "split-2-200": $split-2-200,
   "split-2-300": $split-2-300,

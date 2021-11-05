@@ -15,7 +15,7 @@ set -e
 echo $white_ "... $ color.sh;" $reset
 
 echo $black_ "... $ sass $FILE_STYLE_RGB;" $reset
-sass $FOLDER_SRC_SCSS/$FILE_STYLE_RGB.scss $FOLDER_DIST_ASSETS_CSS/$FILE_STYLE_RGB.css --no-source-map --charset --style=compressed
+sass $FOLDER_SRC_SCSS/$FILE_STYLE_RGB.scss $FOLDER_DIST_ASSETS_CSS/$FILE_STYLE_RGB.css --no-source-map --charset
 
 echo $black_ "... $ postcss $FILE_STYLE_RGB;" $reset
 postcss $FOLDER_DIST_ASSETS_CSS/$FILE_STYLE_RGB.css -o $FOLDER_DIST_ASSETS_CSS/$FILE_STYLE_RGB.min.css
