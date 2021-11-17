@@ -50,7 +50,23 @@ h1, h2, h3, h4, h5, h6 {
 
 [aria-hidden="true"] { display: none !important; }
 
+i[class^="icon-"],
+i[class*=" icon-"]{    
+display: inline-block;
+width: 1em;
+height: 1em;
+vertical-align: -0.1em;
+fill: currentColor;
+}
 
+i[class^="icon-"] > svg,
+i[class*=" icon-"] > svg{
+  display: block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.1em;
+  fill: currentColor;
+}
 
 .sr-only,
 .sr-only-focusable:active,
@@ -140,7 +156,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .docs-header { margin: 0 0 1.563rem; }
+
 .docs-header--title h1 { font-size: 1.25rem; }
+.docs-header--title a {
+    text-decoration: none;
+    color: inherit;
+}
 
 .docs-aside {}
 .docs-main {}
@@ -154,11 +175,13 @@ h1, h2, h3, h4, h5, h6 {
    justify-content: space-between;
 }
 
-.docs-header--logo {
+.docs-header--logo a {
    display:  flex;
    align-items: center;
    font-size: 1rem;
    font-weight: bold;
+   text-decoration: none;
+   color:  inherit;
 }
 
 .docs-header--logo svg {
@@ -308,6 +331,13 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: space-between;
     margin: 0 0 0.328rem;
 }
+
+.scheme-row--header a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.scheme-row--header a i {}
 
 .scheme-row--header h2 {
     font-size: 1rem;
