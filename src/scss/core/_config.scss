@@ -49,7 +49,7 @@ $enable-utility-fill: false !default; // [true | false] => `.fill-` classes
 $enable-utility-stroke: false !default; // [true | false] => `.stroke-` classes
 
 // 
-$enable-utility-docs: false !default; // [true | false] => table utilieis (for docs)
+$enable-utility-docs: true !default; // [true | false] => table utilieis (for docs)
 
 // ==========================================================================
 // # Color Schemes
@@ -57,6 +57,10 @@ $enable-utility-docs: false !default; // [true | false] => table utilieis (for d
 
 $color-scheme-primary: true !default; // [true | false] => primary scheme
 $color-scheme-achromatic: true !default; // [true | false] => achromatic scheme
+$color-scheme-achromatic-slate: false !default;
+$color-scheme-achromatic-stone: false !default;
+$color-scheme-achromatic-neutral: false !default;
+
 $color-scheme-analogous: false !default; // [true | false] => analogous scheme
 $color-scheme-complementary: false !default; // [true | false] => complementary scheme
 $color-scheme-hues: false !default; // [true | false] => hue scheme

@@ -18,6 +18,21 @@ $-value-6: core.$value-6;
 $-value-7: core.$value-7;
 $-value-8: core.$value-8;
 $-value-9: core.$value-9;
+$-value-10: core.$value-10;
+$-value-11: core.$value-11;
+$-value-12: core.$value-12;
+$-value-13: core.$value-13;
+$-value-14: core.$value-14;
+$-value-15: core.$value-15;
+$-value-16: core.$value-16;
+$-value-17: core.$value-17;
+$-value-18: core.$value-18;
+$-value-19: core.$value-19;
+$-value-20: core.$value-20;
+$-value-21: core.$value-21;
+$-value-22: core.$value-22;
+$-value-23: core.$value-23;
+$-value-24: core.$value-24;
 
 @if core.$color-mode-harmony-grayscale {
   $-value-3: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-3);
@@ -27,18 +42,33 @@ $-value-9: core.$value-9;
   $-value-7: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-7);
   $-value-8: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-8);
   $-value-9: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-9);
+  $-value-10: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-10);
+  $-value-11: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-11);
+  $-value-12: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-12);
+  $-value-13: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-13);
+  $-value-14: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-14);
+  $-value-15: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-15);
+  $-value-16: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-16);
+  $-value-17: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-17);
+  $-value-18: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-18);
+  $-value-19: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-19);
+  $-value-20: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-20);
+  $-value-21: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-21);
+  $-value-22: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-22);
+  $-value-23: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-23);
+  $-value-24: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-24);
 } @else {}
 
-$grey-50: functions.make-color-mono($-value-9, 50) !default;
-$grey-100: functions.make-color-mono($-value-9, 100) !default;
-$grey-200: functions.make-color-mono($-value-8, 200) !default;
-$grey-300: functions.make-color-mono($-value-7, 300) !default;
-$grey-400: functions.make-color-mono($-value-6, 400) !default;
-$grey-500: functions.make-color-mono($-value-5, 500) !default;
-$grey-600: functions.make-color-mono($-value-5, 600) !default;
-$grey-700: functions.make-color-mono($-value-5, 700) !default;
-$grey-800: functions.make-color-mono($-value-5, 800) !default;
-$grey-900: functions.make-color-mono($-value-5, 900) !default;
+$grey-50: functions.make-color-mono($-value-22, 100) !default;
+$grey-100: functions.make-color-mono($-value-13, 50) !default;
+$grey-200: functions.make-color-mono($-value-20, 200) !default;
+$grey-300: functions.make-color-mono($-value-16, 300) !default;
+$grey-400: functions.make-color-mono($-value-21, 600) !default;
+$grey-500: functions.make-color-mono($-value-4, 400) !default;
+$grey-600: functions.make-color-mono($-value-10, 600) !default;
+$grey-700: functions.make-color-mono($-value-10, 700) !default;
+$grey-800: functions.make-color-mono($-value-11, 800) !default;
+$grey-900: functions.make-color-mono($-value-8, 800) !default;
 
 // =============================================================================
 // # Map
@@ -57,31 +87,34 @@ $map-achromatic: (
   "grey-700": $grey-700,
   "grey-800": $grey-800,
   "grey-900": $grey-900,
-
-  "value-0": core.$value-0,
-  "value-1": core.$value-1,
-  "value-2": core.$value-2,
-  "value-3": core.$value-3,
-  "value-4": core.$value-4,
-  "value-5": core.$value-5,
-  "value-6": core.$value-6,
-  "value-7": core.$value-7,
-  "value-8": core.$value-8,
-  "value-9": core.$value-9,
-  "value-10": core.$value-10,
-  "value-11": core.$value-11,
-  "value-12": core.$value-12,
-  "value-13": core.$value-13,
-  "value-14": core.$value-14,
-  "value-15": core.$value-15,
-  "value-16": core.$value-16,
-  "value-17": core.$value-17,
-  "value-18": core.$value-18,
-  "value-19": core.$value-19,
-  "value-20": core.$value-20,
-  "value-21": core.$value-21,
-  "value-22": core.$value-22,
-  "value-23": core.$value-23,
-  "value-24": core.$value-24,
-
 ) !default;
+
+// @if core.$enable-utility-docs {
+  // $map-achromatic: (
+  //   "value-0": core.$value-0,
+  //   "value-1": core.$value-1,
+  //   "value-2": core.$value-2,
+  //   "value-3": core.$value-3,
+  //   "value-4": core.$value-4,
+  //   "value-5": core.$value-5,
+  //   "value-6": core.$value-6,
+  //   "value-7": core.$value-7,
+  //   "value-8": core.$value-8,
+  //   "value-9": core.$value-9,
+  //   "value-10": core.$value-10,
+  //   "value-11": core.$value-11,
+  //   "value-12": core.$value-12,
+  //   "value-13": core.$value-13,
+  //   "value-14": core.$value-14,
+  //   "value-15": core.$value-15,
+  //   "value-16": core.$value-16,
+  //   "value-17": core.$value-17,
+  //   "value-18": core.$value-18,
+  //   "value-19": core.$value-19,
+  //   "value-20": core.$value-20,
+  //   "value-21": core.$value-21,
+  //   "value-22": core.$value-22,
+  //   "value-23": core.$value-23,
+  //   "value-24": core.$value-24,
+  // ) !default;
+// } @else {}

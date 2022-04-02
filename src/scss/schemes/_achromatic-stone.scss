@@ -1,0 +1,63 @@
+// ==========================================================================
+// # Achromatic Slate
+// ==========================================================================
+
+@use "sass:color";
+
+@use "../core";
+@use "../functions";
+
+// ==========================================================================
+// # Variables
+// ==========================================================================
+
+$-stone-value-3: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-3);
+$-stone-value-4: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-4);
+$-stone-value-5: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-5);
+$-stone-value-6: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-6);
+$-stone-value-7: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-7);
+$-stone-value-8: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-8);
+$-stone-value-9: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-9);
+$-stone-value-10: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-10);
+$-stone-value-11: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-11);
+$-stone-value-12: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-12);
+$-stone-value-13: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-13);
+$-stone-value-14: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-14);
+$-stone-value-15: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-15);
+$-stone-value-16: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-16);
+$-stone-value-17: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-17);
+$-stone-value-18: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-18);
+$-stone-value-19: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-19);
+$-stone-value-20: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-20);
+$-stone-value-21: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-21);
+$-stone-value-22: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-22);
+$-stone-value-23: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-23);
+$-stone-value-24: functions.make-color-harmony-grayscale(core.$hue-1, core.$value-24);
+
+$stone-50: functions.make-color-mono($-stone-value-22, 100) !default;
+$stone-100: functions.make-color-mono($-stone-value-13, 50) !default;
+$stone-200: functions.make-color-mono($-stone-value-20, 200) !default;
+$stone-300: functions.make-color-mono($-stone-value-16, 300) !default;
+$stone-400: functions.make-color-mono($-stone-value-21, 600) !default;
+$stone-500: functions.make-color-mono($-stone-value-4, 400) !default;
+$stone-600: functions.make-color-mono($-stone-value-10, 600) !default;
+$stone-700: functions.make-color-mono($-stone-value-10, 700) !default;
+$stone-800: functions.make-color-mono($-stone-value-11, 800) !default;
+$stone-900: functions.make-color-mono($-stone-value-8, 800) !default;
+
+// =============================================================================
+// # Map
+// =============================================================================
+
+$map-achromatic-stone: (
+  "stone-50": $stone-50,
+  "stone-100": $stone-100,
+  "stone-200": $stone-200,
+  "stone-300": $stone-300,
+  "stone-400": $stone-400,
+  "stone-500": $stone-500,
+  "stone-600": $stone-600,
+  "stone-700": $stone-700,
+  "stone-800": $stone-800,
+  "stone-900": $stone-900,
+) !default;

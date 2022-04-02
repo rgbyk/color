@@ -67,15 +67,15 @@
 
 				@else {
 					$hex-neutral: functions.make-color-neutral($hex);
-					--#{$name}-n: #{$hex-neutral};
+					--#{$name}n: #{$hex-neutral};
 				}
 			}
 		}
 
 		@if core.$color-scheme-alpha {
 			@each $name, $hex in maps.$color-scheme-map {
-				$hex-alpha: rgba($hex, 0.3);
-				--#{$name}-a: #{$hex-alpha};
+				$hex-alpha: color.red($hex), color.green($hex), color.blue($hex);
+				--#{$name}a: #{$hex-alpha};
 			}
 		}
 
@@ -87,7 +87,7 @@
 
 				@else if (str-index($name, "400")) {
 					$hex-pastel: functions.make-color-pastel($hex);
-					--#{$name}-p: #{$hex-pastel};
+					--#{$name}p: #{$hex-pastel};
 				}
 				
 				@else {}
@@ -102,7 +102,7 @@
 
 				@else if (str-index($name, "400")) {
 					$hex-equal: functions.color-equalize($hex);
-					--#{$name}-e: #{$hex-equal};
+					--#{$name}e: #{$hex-equal};
 				}
 
 				@else {}
@@ -123,7 +123,7 @@
 			@if (str-index($name, "black")) or (str-index($name, "white")) or (str-index($name, "grey")) {}
 			@else {
 				$hex-neutral: functions.make-color-neutral($hex);
-				@include make-utilities(#{$name}-n, $hex-neutral);
+				@include make-utilities(#{$name}n, $hex-neutral);
 			}
 		}
 	}
@@ -131,7 +131,7 @@
 	@if core.$color-scheme-alpha {
 		@each $name, $hex in maps.$color-scheme-map {
 			$hex-alpha: rgba($hex, 0.3);
-			@include make-utilities(#{$name}-a, $hex-alpha);
+			@include make-utilities(#{$name}a, $hex-alpha);
 		}
 	}
 
@@ -141,95 +141,95 @@
 
 	// 		@else {
 	// 			$hex-pastel: functions.make-color-pastel($hex);
-	// 			@include make-utilities(#{$name}-p, $hex-pastel);
+	// 			@include make-utilities(#{$name}p, $hex-pastel);
 	// 		}
 	// 	}
 	// }
 }
 
 
-@if (core.$enable-utility-docs) {
-	.bg-value-24 { background-color: core.$value-24 !important; }
-	.bg-value-23 { background-color: core.$value-23 !important; }
-	.bg-value-22 { background-color: core.$value-22 !important; }
-	.bg-value-21 { background-color: core.$value-21 !important; }
-	.bg-value-20 { background-color: core.$value-20 !important; }
-	.bg-value-19 { background-color: core.$value-19 !important; }
-	.bg-value-18 { background-color: core.$value-18 !important; }
-	.bg-value-17 { background-color: core.$value-17 !important; }
-	.bg-value-16 { background-color: core.$value-16 !important; }
-	.bg-value-15 { background-color: core.$value-15 !important; }
-	.bg-value-14 { background-color: core.$value-14 !important; }
-	.bg-value-13 { background-color: core.$value-13 !important; }
-	.bg-value-12 { background-color: core.$value-12 !important; }
-	.bg-value-11 { background-color: core.$value-11 !important; }
-	.bg-value-10 { background-color: core.$value-10 !important; }
-	.bg-value-9 { background-color: core.$value-9 !important; }
-	.bg-value-8 { background-color: core.$value-8 !important; }
-	.bg-value-7 { background-color: core.$value-7 !important; }
-	.bg-value-6 { background-color: core.$value-6 !important; }
-	.bg-value-5 { background-color: core.$value-5 !important; }
-	.bg-value-4 { background-color: core.$value-4 !important; }
-	.bg-value-3 { background-color: core.$value-3 !important; }
-	.bg-value-2 { background-color: core.$value-2 !important; }
-	.bg-value-1 { background-color: core.$value-1 !important; }
-	.bg-value-0 { background-color: core.$value-0 !important; }
+// @if (core.$enable-utility-docs) {
+// 	.bg-value-24 { background-color: core.$value-24 !important; }
+// 	.bg-value-23 { background-color: core.$value-23 !important; }
+// 	.bg-value-22 { background-color: core.$value-22 !important; }
+// 	.bg-value-21 { background-color: core.$value-21 !important; }
+// 	.bg-value-20 { background-color: core.$value-20 !important; }
+// 	.bg-value-19 { background-color: core.$value-19 !important; }
+// 	.bg-value-18 { background-color: core.$value-18 !important; }
+// 	.bg-value-17 { background-color: core.$value-17 !important; }
+// 	.bg-value-16 { background-color: core.$value-16 !important; }
+// 	.bg-value-15 { background-color: core.$value-15 !important; }
+// 	.bg-value-14 { background-color: core.$value-14 !important; }
+// 	.bg-value-13 { background-color: core.$value-13 !important; }
+// 	.bg-value-12 { background-color: core.$value-12 !important; }
+// 	.bg-value-11 { background-color: core.$value-11 !important; }
+// 	.bg-value-10 { background-color: core.$value-10 !important; }
+// 	.bg-value-9 { background-color: core.$value-9 !important; }
+// 	.bg-value-8 { background-color: core.$value-8 !important; }
+// 	.bg-value-7 { background-color: core.$value-7 !important; }
+// 	.bg-value-6 { background-color: core.$value-6 !important; }
+// 	.bg-value-5 { background-color: core.$value-5 !important; }
+// 	.bg-value-4 { background-color: core.$value-4 !important; }
+// 	.bg-value-3 { background-color: core.$value-3 !important; }
+// 	.bg-value-2 { background-color: core.$value-2 !important; }
+// 	.bg-value-1 { background-color: core.$value-1 !important; }
+// 	.bg-value-0 { background-color: core.$value-0 !important; }
 
-	[data-value="0"][data-chroma="1"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-1) !important;}
-	[data-value="0"][data-chroma="2"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-2) !important;}
-	[data-value="0"][data-chroma="3"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-3) !important;}
-	[data-value="0"][data-chroma="4"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-4) !important;}
-	[data-value="0"][data-chroma="5"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-5) !important;}
-	[data-value="0"][data-chroma="6"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-6) !important;}
-	[data-value="0"][data-chroma="7"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-7) !important;}
-	[data-value="0"][data-chroma="8"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-8) !important;}
-	[data-value="0"][data-chroma="9"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-9) !important;}
-	[data-value="0"][data-chroma="10"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-10) !important;}
-	[data-value="0"][data-chroma="11"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-11) !important;}
-	[data-value="0"][data-chroma="12"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-12) !important;}
+// 	[data-value="0"][data-chroma="1"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-1) !important;}
+// 	[data-value="0"][data-chroma="2"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-2) !important;}
+// 	[data-value="0"][data-chroma="3"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-3) !important;}
+// 	[data-value="0"][data-chroma="4"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-4) !important;}
+// 	[data-value="0"][data-chroma="5"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-5) !important;}
+// 	[data-value="0"][data-chroma="6"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-6) !important;}
+// 	[data-value="0"][data-chroma="7"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-7) !important;}
+// 	[data-value="0"][data-chroma="8"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-8) !important;}
+// 	[data-value="0"][data-chroma="9"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-9) !important;}
+// 	[data-value="0"][data-chroma="10"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-10) !important;}
+// 	[data-value="0"][data-chroma="11"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-11) !important;}
+// 	[data-value="0"][data-chroma="12"][data-color="primary"] {background-color: color.mix(core.$brand-color, core.$value-0, core.$chroma-12) !important;}
 
-	@each $name, $hex in maps.$map-core-hues {
-		[data-value="0"][data-chroma="1"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-1) !important;}
-		[data-value="0"][data-chroma="2"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-2) !important;}
-		[data-value="0"][data-chroma="3"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-3) !important;}
-		[data-value="0"][data-chroma="4"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-4) !important;}
-		[data-value="0"][data-chroma="5"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-5) !important;}
-		[data-value="0"][data-chroma="6"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-6) !important;}
-		[data-value="0"][data-chroma="7"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-7) !important;}
-		[data-value="0"][data-chroma="8"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-8) !important;}
-		[data-value="0"][data-chroma="9"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-9) !important;}
-		[data-value="0"][data-chroma="10"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-10) !important;}
-		[data-value="0"][data-chroma="11"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-11) !important;}
-		[data-value="0"][data-chroma="12"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-12) !important;}
-	}
+// 	@each $name, $hex in maps.$map-core-hues {
+// 		[data-value="0"][data-chroma="1"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-1) !important;}
+// 		[data-value="0"][data-chroma="2"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-2) !important;}
+// 		[data-value="0"][data-chroma="3"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-3) !important;}
+// 		[data-value="0"][data-chroma="4"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-4) !important;}
+// 		[data-value="0"][data-chroma="5"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-5) !important;}
+// 		[data-value="0"][data-chroma="6"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-6) !important;}
+// 		[data-value="0"][data-chroma="7"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-7) !important;}
+// 		[data-value="0"][data-chroma="8"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-8) !important;}
+// 		[data-value="0"][data-chroma="9"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-9) !important;}
+// 		[data-value="0"][data-chroma="10"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-10) !important;}
+// 		[data-value="0"][data-chroma="11"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-11) !important;}
+// 		[data-value="0"][data-chroma="12"][data-color=#{$name}] {background-color: color.mix($hex, core.$value-0, core.$chroma-12) !important;}
+// 	}
 
-	@for $i from 1 through length(maps.$map-core-values) {
-		[data-value="#{$i}"][data-chroma="1"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-1) !important;}
-		[data-value="#{$i}"][data-chroma="2"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-2) !important;}
-		[data-value="#{$i}"][data-chroma="3"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-3) !important;}
-		[data-value="#{$i}"][data-chroma="4"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-4) !important;}
-		[data-value="#{$i}"][data-chroma="5"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-5) !important;}
-		[data-value="#{$i}"][data-chroma="6"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-6) !important;}
-		[data-value="#{$i}"][data-chroma="7"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-7) !important;}
-		[data-value="#{$i}"][data-chroma="8"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-8) !important;}
-		[data-value="#{$i}"][data-chroma="9"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-9) !important;}
-		[data-value="#{$i}"][data-chroma="10"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-10) !important;}
-		[data-value="#{$i}"][data-chroma="11"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-11) !important;}
-		[data-value="#{$i}"][data-chroma="12"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-12) !important;}
+// 	@for $i from 1 through length(maps.$map-core-values) {
+// 		[data-value="#{$i}"][data-chroma="1"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-1) !important;}
+// 		[data-value="#{$i}"][data-chroma="2"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-2) !important;}
+// 		[data-value="#{$i}"][data-chroma="3"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-3) !important;}
+// 		[data-value="#{$i}"][data-chroma="4"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-4) !important;}
+// 		[data-value="#{$i}"][data-chroma="5"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-5) !important;}
+// 		[data-value="#{$i}"][data-chroma="6"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-6) !important;}
+// 		[data-value="#{$i}"][data-chroma="7"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-7) !important;}
+// 		[data-value="#{$i}"][data-chroma="8"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-8) !important;}
+// 		[data-value="#{$i}"][data-chroma="9"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-9) !important;}
+// 		[data-value="#{$i}"][data-chroma="10"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-10) !important;}
+// 		[data-value="#{$i}"][data-chroma="11"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-11) !important;}
+// 		[data-value="#{$i}"][data-chroma="12"][data-color="primary"] {background-color: color.mix(core.$brand-color, nth(maps.$map-core-values, $i), core.$chroma-12) !important;}
 
-		@each $name, $color in maps.$map-core-hues {
-			[data-value="#{$i}"][data-chroma="1"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-1) !important;}
-			[data-value="#{$i}"][data-chroma="2"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-2) !important;}
-			[data-value="#{$i}"][data-chroma="3"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-3) !important;}
-			[data-value="#{$i}"][data-chroma="4"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-4) !important;}
-			[data-value="#{$i}"][data-chroma="5"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-5) !important;}
-			[data-value="#{$i}"][data-chroma="6"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-6) !important;}
-			[data-value="#{$i}"][data-chroma="7"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-7) !important;}
-			[data-value="#{$i}"][data-chroma="8"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-8) !important;}
-			[data-value="#{$i}"][data-chroma="9"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-9) !important;}
-			[data-value="#{$i}"][data-chroma="10"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-10) !important;}
-			[data-value="#{$i}"][data-chroma="11"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-11) !important;}
-			[data-value="#{$i}"][data-chroma="12"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-12) !important;}
-		}
-	}
-}
+// 		@each $name, $color in maps.$map-core-hues {
+// 			[data-value="#{$i}"][data-chroma="1"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-1) !important;}
+// 			[data-value="#{$i}"][data-chroma="2"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-2) !important;}
+// 			[data-value="#{$i}"][data-chroma="3"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-3) !important;}
+// 			[data-value="#{$i}"][data-chroma="4"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-4) !important;}
+// 			[data-value="#{$i}"][data-chroma="5"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-5) !important;}
+// 			[data-value="#{$i}"][data-chroma="6"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-6) !important;}
+// 			[data-value="#{$i}"][data-chroma="7"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-7) !important;}
+// 			[data-value="#{$i}"][data-chroma="8"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-8) !important;}
+// 			[data-value="#{$i}"][data-chroma="9"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-9) !important;}
+// 			[data-value="#{$i}"][data-chroma="10"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-10) !important;}
+// 			[data-value="#{$i}"][data-chroma="11"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-11) !important;}
+// 			[data-value="#{$i}"][data-chroma="12"][data-color=#{$name}] {background-color: color.mix($color, nth(maps.$map-core-values, $i), core.$chroma-12) !important;}
+// 		}
+// 	}
+// }

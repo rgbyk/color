@@ -99,9 +99,9 @@ function generateSchemeRow() {
 
             const schemeColorType = (() => {
                 if (schemeTypeAlpha) {
-                    return `${schemeRowName}-${depth}-a`;
+                    return `${schemeRowName}-${depth}a`;
                 } else if (schemeTypeNeutral) {
-                    return `${schemeRowName}-${depth}-n`;
+                    return `${schemeRowName}-${depth}n`;
                 } else { 
                     return `${schemeRowName}-${depth}`; }
             })();
@@ -131,8 +131,9 @@ function generateSchemeRow() {
 
             let getSchemeColorVariable = schemeColor.getAttribute("data-cs-var");
             let getSchemeColorRgb = window.getComputedStyle(schemeColorPreview, null).getPropertyValue("background-color");
+            let = rgbString = getSchemeColorRgb.substring(4, getSchemeColorRgb.length-1).replace(/ /g, '').split(', ');
 
-            schemeColor.querySelector(".scheme-color--var").innerHTML = `<span>var(--${getSchemeColorVariable})</span>`;
+            schemeColor.querySelector(".scheme-color--var").innerHTML = `<span>--${getSchemeColorVariable}</span>`;
 
             if ( schemeTypeAlpha ) {
                 setAttributes(schemeColor, { 'data-cs-rgba': getSchemeColorRgb });
@@ -149,7 +150,7 @@ function generateSchemeRow() {
                     'data-cs-rgb': getSchemeColorRgb
                 });
 
-                schemeColor.querySelector(".scheme-color--rgb").innerHTML = `<span>${getSchemeColorRgb}</span>`;
+                schemeColor.querySelector(".scheme-color--rgb").innerHTML = `<span>${rgbString}</span>`;
                 schemeColor.querySelector(".scheme-color--hex").innerHTML = `<span>${colorhex}</span>`;
             }
 

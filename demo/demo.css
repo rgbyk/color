@@ -11,10 +11,10 @@ html, body{
 }
 
 body {
-    background-color: var(--white);
-    color:  var(--grey-900);
+    background-color: var(--grey-900);
+    color:  var(--white);
 
-    font-family: Sofia Pro, sans-serif;
+    font-family: Circular Std, sans-serif;
     font-weight: normal;
     margin: 0 auto;
     padding: 0;
@@ -52,11 +52,11 @@ h1, h2, h3, h4, h5, h6 {
 
 i[class^="icon-"],
 i[class*=" icon-"]{    
-display: inline-block;
-width: 1em;
-height: 1em;
-vertical-align: -0.1em;
-fill: currentColor;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.1em;
+    fill: currentColor;
 }
 
 i[class^="icon-"] > svg,
@@ -143,9 +143,9 @@ i[class*=" icon-"] > svg{
 .docs-grid--header,
 .docs-grid--main,
 .docs-grid--menu {
-    background-color: var(--white);
+    background-color: rgba(var(--grey-600a), 0.2);
     padding:  var(--grid-pad);
-    border:  1px solid var(--grey-100);
+    border:  1px solid var(--grey-900);
     border-radius: var(--grid-radius);
     box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
 }
@@ -157,7 +157,7 @@ i[class*=" icon-"] > svg{
 
 .docs-header { margin: 0 0 1.563rem; }
 
-.docs-header--title h1 { font-size: 1.25rem; }
+.docs-header--title h2 { font-size: 18px; }
 .docs-header--title a {
     text-decoration: none;
     color: inherit;
@@ -166,8 +166,11 @@ i[class*=" icon-"] > svg{
 .docs-aside {}
 .docs-main {}
 
-.docs-section {}
-.docs-section + .docs-section { margin-top: 1.563rem; }
+.docs-section {
+    display: grid;
+    grid-template-columns: 200px auto;
+}
+.docs-section + .docs-section { margin-top: 2rem; }
 
 .docs-grid--header {
    display: flex;
@@ -306,14 +309,14 @@ i[class*=" icon-"] > svg{
 
 .scheme-row {
     display: grid;
-    grid-template-columns: repeat(10, minmax(100px, 1fr));
-    grid-gap: 0px;
+    grid-template-columns: repeat(10, minmax(60px, 1fr));
+    grid-gap: 1rem;
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.scheme-row + .scheme-row { margin-top: 0px; }
+.scheme-row + .scheme-row { margin-top: 1.563rem; }
 
 .scheme-row[data-scheme-type="neutral"] {}
 .scheme-row[data-scheme-type="alpha"] .scheme-color--preview {
@@ -327,14 +330,26 @@ i[class*=" icon-"] > svg{
 
 .scheme-row--header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    margin: 0 0 0.328rem;
+    margin: 0;
+}
+
+.scheme-row--header h3 { 
+    font-size: 14.44px;
+    font-weight: 700;
 }
 
 .scheme-row--header a {
+    display: flex;
     color: inherit;
     text-decoration: none;
+}
+
+.scheme-row--header a svg {
+    display: block;
+    width: 16px;
+    height: 16px;
 }
 
 .scheme-row--header a i {}
@@ -361,13 +376,12 @@ i[class*=" icon-"] > svg{
 .scheme-row--figure[data-cs-num="100"],
 .scheme-row--figure[data-cs-num="200"],
 .scheme-row--figure[data-cs-num="300"],
-.scheme-row--figure[data-cs-num="400"] { color: rgba(0, 0, 0, 0.6); }
-
+.scheme-row--figure[data-cs-num="400"],
 .scheme-row--figure[data-cs-num="500"],
 .scheme-row--figure[data-cs-num="600"],
 .scheme-row--figure[data-cs-num="700"],
 .scheme-row--figure[data-cs-num="800"],
-.scheme-row--figure[data-cs-num="900"] { color: rgba(255, 255, 255, 0.6); }
+.scheme-row--figure[data-cs-num="900"] { color: #000; }
 
 /*============================================
 =            Scheme Color Preview            =
@@ -379,13 +393,14 @@ i[class*=" icon-"] > svg{
     width: 100%;
     border-radius: 0px;
     text-align: center;
-    padding: 24px 0;
-    min-height:  120px;
+    min-height:  42px;
     transition: all 200ms ease;
+    border-radius: 5px;
+    border:  1px solid var(--grey-700);
 }
 
-.scheme-color--preview:hover { box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; }
-.scheme-color--preview:active { box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px; }
+/*.scheme-color--preview:hover { box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; }
+.scheme-color--preview:active { box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px; }*/
 
 /*=========================================
 =            Scheme Color Meta            =
@@ -397,15 +412,14 @@ i[class*=" icon-"] > svg{
     justify-content: space-between;
     flex-direction: column;
     font-size: 0.8rem;
-    padding: 0;
     margin: 0;
     box-sizing: border-box;
     text-align: left;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height: 100%;
+    padding: 6px;
+    color: var(--white);
 }
+.scheme-color--meta .scheme-color--hex { opacity: 0.65; }
 
 .scheme-color--meta div > span {
     overflow: hidden !important;
@@ -413,15 +427,14 @@ i[class*=" icon-"] > svg{
     text-overflow: ellipsis !important;
     max-width: 80px;
     display: block;
+    line-height: 1.415;
 }
 
-.scheme-color--meta .scheme-color--hex,
 .scheme-color--meta .scheme-color--rgb,
 .scheme-color--meta .scheme-color--rgba,
-.scheme-color--meta .scheme-color--var { /*display: none;*/ }
+.scheme-color--meta .scheme-color--var { display: none; }
 
-.scheme-color--meta .scheme-color--num { font-weight: bold; margin-bottom: 1.5rem }
-.scheme-color--meta .scheme-color--hex { text-transform: uppercase; }
+
 
 /*======================================
 =            Color Spectrum            =

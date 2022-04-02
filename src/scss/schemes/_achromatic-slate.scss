@@ -1,0 +1,63 @@
+// ==========================================================================
+// # Achromatic Slate
+// ==========================================================================
+
+@use "sass:color";
+
+@use "../core";
+@use "../functions";
+
+// ==========================================================================
+// # Variables
+// ==========================================================================
+
+$-slate-value-3: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-3);
+$-slate-value-4: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-4);
+$-slate-value-5: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-5);
+$-slate-value-6: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-6);
+$-slate-value-7: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-7);
+$-slate-value-8: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-8);
+$-slate-value-9: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-9);
+$-slate-value-10: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-10);
+$-slate-value-11: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-11);
+$-slate-value-12: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-12);
+$-slate-value-13: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-13);
+$-slate-value-14: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-14);
+$-slate-value-15: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-15);
+$-slate-value-16: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-16);
+$-slate-value-17: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-17);
+$-slate-value-18: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-18);
+$-slate-value-19: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-19);
+$-slate-value-20: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-20);
+$-slate-value-21: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-21);
+$-slate-value-22: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-22);
+$-slate-value-23: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-23);
+$-slate-value-24: functions.make-color-harmony-grayscale(core.$hue-8, core.$value-24);
+
+$slate-50: functions.make-color-mono($-slate-value-22, 100) !default;
+$slate-100: functions.make-color-mono($-slate-value-13, 50) !default;
+$slate-200: functions.make-color-mono($-slate-value-20, 200) !default;
+$slate-300: functions.make-color-mono($-slate-value-16, 300) !default;
+$slate-400: functions.make-color-mono($-slate-value-21, 600) !default;
+$slate-500: functions.make-color-mono($-slate-value-4, 400) !default;
+$slate-600: functions.make-color-mono($-slate-value-10, 600) !default;
+$slate-700: functions.make-color-mono($-slate-value-10, 700) !default;
+$slate-800: functions.make-color-mono($-slate-value-11, 800) !default;
+$slate-900: functions.make-color-mono($-slate-value-8, 800) !default;
+
+// =============================================================================
+// # Map
+// =============================================================================
+
+$map-achromatic-slate: (
+  "slate-50": $slate-50,
+  "slate-100": $slate-100,
+  "slate-200": $slate-200,
+  "slate-300": $slate-300,
+  "slate-400": $slate-400,
+  "slate-500": $slate-500,
+  "slate-600": $slate-600,
+  "slate-700": $slate-700,
+  "slate-800": $slate-800,
+  "slate-900": $slate-900,
+) !default;
