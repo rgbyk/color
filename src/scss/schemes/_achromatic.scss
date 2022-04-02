@@ -34,30 +34,30 @@ $-value-22: core.$value-22;
 $-value-23: core.$value-23;
 $-value-24: core.$value-24;
 
-@if core.$color-mode-harmony-grayscale {
-  $-value-3: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-3);
-  $-value-4: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-4);
-  $-value-5: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-5);
-  $-value-6: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-6);
-  $-value-7: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-7);
-  $-value-8: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-8);
-  $-value-9: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-9);
-  $-value-10: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-10);
-  $-value-11: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-11);
-  $-value-12: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-12);
-  $-value-13: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-13);
-  $-value-14: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-14);
-  $-value-15: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-15);
-  $-value-16: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-16);
-  $-value-17: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-17);
-  $-value-18: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-18);
-  $-value-19: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-19);
-  $-value-20: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-20);
-  $-value-21: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-21);
-  $-value-22: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-22);
-  $-value-23: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-23);
-  $-value-24: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-24);
-} @else {}
+// @if core.$color-mode-harmony-grayscale {
+//   $-value-3: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-3);
+//   $-value-4: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-4);
+//   $-value-5: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-5);
+//   $-value-6: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-6);
+//   $-value-7: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-7);
+//   $-value-8: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-8);
+//   $-value-9: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-9);
+//   $-value-10: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-10);
+//   $-value-11: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-11);
+//   $-value-12: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-12);
+//   $-value-13: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-13);
+//   $-value-14: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-14);
+//   $-value-15: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-15);
+//   $-value-16: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-16);
+//   $-value-17: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-17);
+//   $-value-18: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-18);
+//   $-value-19: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-19);
+//   $-value-20: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-20);
+//   $-value-21: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-21);
+//   $-value-22: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-22);
+//   $-value-23: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-23);
+//   $-value-24: functions.make-color-harmony-grayscale(core.$brand-color, core.$value-24);
+// } @else {}
 
 $grey-50: functions.make-color-mono($-value-22, 100) !default;
 $grey-100: functions.make-color-mono($-value-13, 50) !default;
