@@ -84,7 +84,7 @@ function rgb2hex(rgb) {
 // --------------------------------
 
 function generateSchemeRow() {
-    const schemeRow = document.querySelectorAll(".scheme-row");
+    const schemeRow = document.querySelectorAll(".scheme-row--js");
     const schemeRowDepth = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'];
     
     [].forEach.call(schemeRow, row => {
@@ -96,7 +96,6 @@ function generateSchemeRow() {
         const schemeTypeNeutral = schemeRowType == "neutral";
         
         [].forEach.call(schemeRowDepth, depth => {
-
             const schemeColorType = (() => {
                 if (schemeTypeAlpha) {
                     return `${schemeRowName}-${depth}a`;

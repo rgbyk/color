@@ -313,7 +313,8 @@ i[class*=" icon-"] > svg{
     margin: 0;
 }
 
-.scheme-row li { transition: all 0.25s 0s ease-in-out }
+.scheme-row li { transition: all 0.25s 0s ease-in-out;     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; 
+ }
 .scheme-row:hover li { transition: all 0.25s 1s ease-in-out }
 .scheme-row:hover li { opacity: 0.25; transition-delay:  1s; }
 .scheme-row:hover li:hover { opacity: 1; transition: all 0.25s .01s ease-in-out  }

@@ -3,7 +3,7 @@
 // ==========================================================================
 
 @forward "core" with ( 
-    $brand-color: #0169ff,
+    $brand-color: #f79f76,
 
     $color-model: ryb,
     $color-mode-harmony: true,
@@ -21,28 +21,28 @@
     $enable-utility-fill: false,
     $enable-utility-stroke: false,
 
-    $color-scheme-primary: true,
-    $color-scheme-achromatic: true,
-    $color-scheme-achromatic-slate: true,
-    $color-scheme-achromatic-stone: true,
+    $color-scheme-primary: false,
+    $color-scheme-achromatic: false,
+    $color-scheme-achromatic-slate: false,
+    $color-scheme-achromatic-stone: false,
 
     $color-scheme-analogous: true,
-    $color-scheme-complementary: true,
-    $color-scheme-hues: true,
-    $color-scheme-split: true,
-    $color-scheme-square: true,
-    $color-scheme-tetradic: true,
-    $color-scheme-triadic: true,
+    $color-scheme-complementary: false,
+    $color-scheme-hues: false,
+    $color-scheme-split: false,
+    $color-scheme-square: false,
+    $color-scheme-tetradic: false,
+    $color-scheme-triadic: false,
 
-    $color-scheme-danger: true,
-    $color-scheme-warning: true,
-    $color-scheme-success: true,
-    $color-scheme-info: true,
+    $color-scheme-danger: false,
+    $color-scheme-warning: false,
+    $color-scheme-success: false,
+    $color-scheme-info: false,
 
-    $color-scheme-neutral: false,
-    $color-scheme-pastel: false,
+    $color-scheme-neutral: true,
+    $color-scheme-pastel: true,
     $color-scheme-alpha: true,
-    $color-scheme-equal: false,
+    $color-scheme-equal: true,
 
     $enable-root-colors: true,
 );
