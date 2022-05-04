@@ -23,8 +23,8 @@ $color-scheme-map-merge: core.map-collect(
   schemes.$map-tetradic,
   schemes.$map-triadic,
   schemes.$map-achromatic,
-  schemes.$map-achromatic-slate,
-  schemes.$map-achromatic-stone,
+  schemes.$map-slate,
+  schemes.$map-stone,
   schemes.$map-primary,
   schemes.$map-success,
   schemes.$map-danger,
@@ -40,13 +40,13 @@ $color-scheme-map-boolean: (
     "state": core.$color-scheme-achromatic,
     "colors": schemes.$map-achromatic
   ),
-  "achromatic-slate": (
-    "state": core.$color-scheme-achromatic-slate,
-    "colors": schemes.$map-achromatic-slate
+  "slate": (
+    "state": core.$color-scheme-slate,
+    "colors": schemes.$map-slate
   ),
-  "achromatic-stone": (
-    "state": core.$color-scheme-achromatic-stone,
-    "colors": schemes.$map-achromatic-stone
+  "stone": (
+    "state": core.$color-scheme-stone,
+    "colors": schemes.$map-stone
   ),
   "primary": (
     "state": core.$color-scheme-primary,

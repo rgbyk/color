@@ -52,22 +52,40 @@
 	}
 }
 
+
+/// Replace `$search` with `$replace` in `$string`
+/// @author Kitty Giraudel
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  
+  @return $string;
+}
+
 @if (core.$enable-root-colors) {
 	:root {
 
 		@each $name, $hex in maps.$color-scheme-map {
-			--#{$name}: #{$hex};
+			--color-#{$name}: #{$hex};
 		}
 
-		@if core.$color-scheme-neutral {
 			@each $name, $hex in maps.$color-scheme-map {
 				@if (str-index($name, "black")) or 
-					(str-index($name, "white")) or 
-					(str-index($name, "grey")) {}
-
+						(str-index($name, "white")) or
+						(str-index($name, "grey")) or
+						(str-index($name, "slate")) or
+						(str-index($name, "stone")) {}
 				@else {
-					$hex-neutral: functions.make-color-neutral($hex);
-					--#{$name}n: #{$hex-neutral};
+					@if core.$color-scheme-neutral {
+						$hex-neutral: functions.make-color-neutral($hex);
+						--color-#{$name}-neutral: #{$hex-neutral};
 				}
 			}
 		}
@@ -75,19 +93,21 @@
 		@if core.$color-scheme-alpha {
 			@each $name, $hex in maps.$color-scheme-map {
 				$hex-alpha: color.red($hex), color.green($hex), color.blue($hex);
-				--#{$name}a: #{$hex-alpha};
+				--color-#{$name}-rgb: #{$hex-alpha};
 			}
 		}
 
 		@if core.$color-scheme-pastel {
 			@each $name, $hex in maps.$color-scheme-map {
 				@if (str-index($name, "black")) or 
-					(str-index($name, "white")) or 
-					(str-index($name, "grey")){}
-
+						(str-index($name, "white")) or
+						(str-index($name, "grey")) or
+						(str-index($name, "slate")) or
+						(str-index($name, "stone")) {}
 				@else if (str-index($name, "400")) {
 					$hex-pastel: functions.make-color-pastel($hex);
-					--#{$name}p: #{$hex-pastel};
+					$name: str-replace($name, '-400', '');
+					--color-#{$name}-pastel: #{$hex-pastel};
 				}
 				
 				@else {}
@@ -96,13 +116,12 @@
 
 		@if core.$color-scheme-equal {
 			@each $name, $hex in maps.$color-scheme-map {
-				@if (str-index($name, "black")) or 
-					(str-index($name, "white")) or 
-					(str-index($name, "grey")){}
+				@if (str-index($name, "black")) or  (str-index($name, "white")) or  (str-index($name, "grey")) or (str-index($name, "slate")) or (str-index($name, "stone")) or (str-index($name, "success")) or (str-index($name, "danger")) or  (str-index($name, "warning")) or  (str-index($name, "info")) {}
 
 				@else if (str-index($name, "400")) {
 					$hex-equal: functions.color-equalize($hex);
-					--#{$name}e: #{$hex-equal};
+					$name: str-replace($name, '-400', '');
+					--#{$name}-equal: #{$hex-equal};
 				}
 
 				@else {}
@@ -120,10 +139,15 @@
 
 	@if core.$color-scheme-neutral {
 		@each $name, $hex in maps.$color-scheme-map {
-			@if (str-index($name, "black")) or (str-index($name, "white")) or (str-index($name, "grey")) {}
+			@if (str-index($name, "black")) or
+				(str-index($name, "white")) or
+				(str-index($name, "grey")) or
+				(str-index($name, "slate")) or
+				(str-index($name, "stone")) {}
+
 			@else {
 				$hex-neutral: functions.make-color-neutral($hex);
-				@include make-utilities(#{$name}n, $hex-neutral);
+				@include make-utilities(--color-#{$name}-neutral, $hex-neutral);
 			}
 		}
 	}

@@ -57,9 +57,8 @@ $enable-utility-docs: true !default; // [true | false] => table utilieis (for do
 
 $color-scheme-primary: true !default; // [true | false] => primary scheme
 $color-scheme-achromatic: true !default; // [true | false] => achromatic scheme
-$color-scheme-achromatic-slate: false !default;
-$color-scheme-achromatic-stone: false !default;
-$color-scheme-achromatic-neutral: false !default;
+$color-scheme-slate: false !default;
+$color-scheme-stone: false !default;
 
 $color-scheme-analogous: false !default; // [true | false] => analogous scheme
 $color-scheme-complementary: false !default; // [true | false] => complementary scheme

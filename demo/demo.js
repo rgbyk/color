@@ -98,25 +98,27 @@ function generateSchemeRow() {
         [].forEach.call(schemeRowDepth, depth => {
             const schemeColorType = (() => {
                 if (schemeTypeAlpha) {
-                    return `${schemeRowName}-${depth}a`;
+                    return `${schemeRowName}-${depth}-rgb`;
                 } else if (schemeTypeNeutral) {
-                    return `${schemeRowName}-${depth}n`;
+                    return `${schemeRowName}-${depth}-neutral`;
                 } else { 
                     return `${schemeRowName}-${depth}`; }
             })();
 
-            let x = `<li>
-                    <figure class="scheme-row--figure" data-cs-num="${depth}" data-cs-hex data-cs-rgb data-cs-var="${schemeColorType}">
-                        <div class="scheme-color--preview" style="background-color: var(--${schemeColorType})"></div>
-                        <figcaption class="scheme-color--meta">
-                            <div class="scheme-color--num"><span>${depth}</span></div>
-                            <div class="scheme-color--hex"></div>
-                            <div class="scheme-color--rgb"></div>
-                            <div class="scheme-color--rgba"></div>
-                            <div class="scheme-color--var"></div>
-                        </figcaption>
-                    </figure>
-                </li>`;
+            let x = `<li style="background-image: linear-gradient(-35deg, rgba(var(--color-${schemeColorType}-rgb), 0.4) 20%, rgba(var(--color-${schemeColorType}-rgb), 0.6));">
+                        <figure class="scheme-row--figure" data-cs-num="${depth}" data-cs-hex data-cs-rgb data-cs-var="${schemeColorType}">
+                            <button class="reset-button scheme-color--preview" data-clipboard-text style="background-color: var(--color-${schemeColorType})">
+                                <span class="copy-wrapper"><i class="icon-copy"><svg><use xlink:href="#icon-copy"></use></svg></i></span>
+                            </button>
+                            <figcaption class="scheme-color--meta">
+                                <div class="scheme-color--num"><span>${depth}</span></div>
+                                <div class="scheme-color--hex"></div>
+                                <div class="scheme-color--rgb"></div>
+                                <div class="scheme-color--rgba"></div>
+                                <div class="scheme-color--var"></div>
+                            </figcaption>
+                        </figure>
+                    </li>`;
             row.innerHTML += x;
         });
 
@@ -132,7 +134,7 @@ function generateSchemeRow() {
             let getSchemeColorRgb = window.getComputedStyle(schemeColorPreview, null).getPropertyValue("background-color");
             let = rgbString = getSchemeColorRgb.substring(4, getSchemeColorRgb.length-1).replace(/ /g, '').split(', ');
 
-            schemeColor.querySelector(".scheme-color--var").innerHTML = `<span>--${getSchemeColorVariable}</span>`;
+            schemeColor.querySelector(".scheme-color--var").innerHTML = `<span>--color-${getSchemeColorVariable}</span>`;
 
             if ( schemeTypeAlpha ) {
                 setAttributes(schemeColor, { 'data-cs-rgba': getSchemeColorRgb });
@@ -147,6 +149,9 @@ function generateSchemeRow() {
                 setAttributes(schemeColor, {
                     'data-cs-hex': colorhex,
                     'data-cs-rgb': getSchemeColorRgb
+                });
+                setAttributes(schemeColorPreview, {
+                    'data-clipboard-text': colorhex,
                 });
 
                 schemeColor.querySelector(".scheme-color--rgb").innerHTML = `<span>${rgbString}</span>`;
