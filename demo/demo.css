@@ -318,20 +318,20 @@ i[class*=" icon-"] > svg{
 }
 
 
-ol[data-scheme-name=hue-1]::before { content: 'Hue 1'; }
-ol[data-scheme-name=hue-2]::before { content: 'Hue 2'; }
-ol[data-scheme-name=hue-3]::before { content: 'Hue 3'; }
-ol[data-scheme-name=hue-4]::before { content: 'Hue 4'; }
-ol[data-scheme-name=hue-5]::before { content: 'Hue 5'; }
-ol[data-scheme-name=hue-6]::before { content: 'Hue 6'; }
-ol[data-scheme-name=hue-7]::before { content: 'Hue 7'; }
-ol[data-scheme-name=hue-8]::before { content: 'Hue 8'; }
-ol[data-scheme-name=hue-9]::before { content: 'Hue 9'; }
-ol[data-scheme-name=hue-10]::before { content: 'Hue 10'; }
-ol[data-scheme-name=hue-11]::before { content: 'Hue 11'; }
-ol[data-scheme-name=hue-12]::before { content: 'Hue 12'; }
+ol[data-scheme-name=hue-1]::before { content: '0°'; }
+ol[data-scheme-name=hue-2]::before { content: '30°'; }
+ol[data-scheme-name=hue-3]::before { content: '60°'; }
+ol[data-scheme-name=hue-4]::before { content: '90°'; }
+ol[data-scheme-name=hue-5]::before { content: '120°'; }
+ol[data-scheme-name=hue-6]::before { content: '150°'; }
+ol[data-scheme-name=hue-7]::before { content: '180°'; }
+ol[data-scheme-name=hue-8]::before { content: '210°'; }
+ol[data-scheme-name=hue-9]::before { content: '240°'; }
+ol[data-scheme-name=hue-10]::before { content: '270°'; }
+ol[data-scheme-name=hue-11]::before { content: '300°'; }
+ol[data-scheme-name=hue-12]::before { content: '330°'; }
 
-ol[data-scheme-name=primary]::before { content: '0°'; }
+ol[data-scheme-name=primary]::before { content: 'Base'; }
 ol[data-scheme-name=complementary]::before { content: '180°'; }
 
 ol[data-scheme-name=split-1]::before { content: '150°'; }
@@ -343,6 +343,10 @@ ol[data-scheme-name=triadic-2]::before { content: '240°'; }
 ol[data-scheme-name=square-1]::before { content: '90°'; }
 ol[data-scheme-name=square-2]::before { content: '180°'; }
 ol[data-scheme-name=square-3]::before { content: '270°'; }
+
+ol[data-scheme-name=tetradic-1]::before { content: '60°'; }
+ol[data-scheme-name=tetradic-2]::before { content: '180°'; }
+ol[data-scheme-name=tetradic-3]::before { content: '240°'; }
 
 ol[data-scheme-name=analogous-1]::before { content: '30°'; }
 ol[data-scheme-name=analogous-2]::before { content: '60°'; }
@@ -369,13 +373,13 @@ ol[data-scheme-name]::before {
  width: 55px;
  bottom: 0px;
  border-radius: 5px;
- color: var(--color-slate-800);
+ color: var(--color-slate-500);
  line-height: 24px;
  font-size: 11.11px;
  font-weight: bold;
  height: 30px;
  z-index: 0;
- background-color: var(--color-slate-800);
+ background-color: var(--color-slate-900);
  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
@@ -385,11 +389,18 @@ ol[data-scheme-name]::before {
 
 .scheme-row {
     display: grid;
-    grid-template-columns: repeat(10, minmax(60px, 1fr));
-    grid-gap: .875rem;
+    grid-template-columns: repeat(10, minmax(80px, 1fr));
+    grid-gap: 10px;
     list-style: none;
-    padding:  0 0 0 25px;
+    padding:  0;
     margin: 0;
+}
+
+@media screen and (min-width:  992px) {
+    .scheme-row {
+        grid-template-columns: repeat(10, minmax(70px, 1fr));
+        padding:  0 0 0 25px;
+    }
 }
 
 .scheme-row li { 
@@ -402,7 +413,7 @@ ol[data-scheme-name]::before {
     z-index: 1;
 }
 
-.scheme-row + .scheme-row { margin-top: 1rem; }
+.scheme-row + .scheme-row { margin-top: 10px; }
 
 .scheme-row[data-scheme-type="neutral"] {}
 .scheme-row[data-scheme-type="alpha"] .scheme-color--preview {

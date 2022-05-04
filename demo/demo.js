@@ -107,9 +107,7 @@ function generateSchemeRow() {
 
             let x = `<li style="background-image: linear-gradient(-35deg, rgba(var(--color-${schemeColorType}-rgb), 0.4) 20%, rgba(var(--color-${schemeColorType}-rgb), 0.6));">
                         <figure class="scheme-row--figure" data-cs-num="${depth}" data-cs-hex data-cs-rgb data-cs-var="${schemeColorType}">
-                            <button class="reset-button scheme-color--preview" data-clipboard-text style="background-color: var(--color-${schemeColorType})">
-                                <span class="copy-wrapper"><i class="icon-copy"><svg><use xlink:href="#icon-copy"></use></svg></i></span>
-                            </button>
+                            <button class="reset-button scheme-color--preview" data-clipboard-text style="background-color: var(--color-${schemeColorType})"></button>
                             <figcaption class="scheme-color--meta">
                                 <div class="scheme-color--num"><span>${depth}</span></div>
                                 <div class="scheme-color--hex"></div>

@@ -121,7 +121,7 @@
 				@else if (str-index($name, "400")) {
 					$hex-equal: functions.color-equalize($hex);
 					$name: str-replace($name, '-400', '');
-					--#{$name}-equal: #{$hex-equal};
+					--color-#{$name}-equal: #{$hex-equal};
 				}
 
 				@else {}
