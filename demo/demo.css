@@ -184,8 +184,8 @@ i[class*=" icon-"] > svg{
 .docs-section .scheme-row--article {}
 .docs-section + .docs-section { 
 
-    margin-top: 1.953rem;
-    padding-top: 1.953rem;
+    margin-top: 3rem;
+    padding-top: 3rem;
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
@@ -399,6 +399,7 @@ ol[data-scheme-name]::before {
 @media screen and (min-width:  992px) {
     .scheme-row {
         grid-template-columns: repeat(10, minmax(70px, 1fr));
+        grid-template-columns: .55fr .55fr .55fr .55fr .55fr 1fr .55fr .55fr .55fr .55fr;
         padding:  0 0 0 25px;
     }
 }
