@@ -1,6 +1,6 @@
 {
   "name": "@rgbyk/color",
-  "version": "1.4.7",
+  "version": "1.4.9",
   "description": "a node.js color model system.",
   "keywords": [
     "color",
@@ -43,7 +43,6 @@
     "postcss-combine-duplicated-selectors": "^10.0.3",
     "postcss-merge-idents": "^5.0.1",
     "postcss-merge-rules": "^5.0.2",
-    "postcss-merge-selectors": "0.0.6",
     "postcss-sorting": "^7.0.1",
     "sass": "^1.43.4"
   },

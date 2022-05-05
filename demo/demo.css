@@ -33,12 +33,11 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -46,7 +45,6 @@ body {
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
-
 
 .reset-button{
   border: none;
@@ -100,6 +98,7 @@ i[class*=" icon-"] > svg{
 /*====================================
 =            Main Styling            =
 ====================================*/
+
 .docs-grid {
     display: grid;
     padding: var(--grid-pad);
@@ -303,7 +302,7 @@ i[class*=" icon-"] > svg{
 
 .docs-grid--menu h3 { color: var(--color-slate-400) }
 .docs-grid--menu h3 span { background-color: var(--color-white); }
-.docs-grid--menu h3:before { background-color: var(--color-slate-100); }
+.docs-grid--menu h3::before { background-color: var(--color-slate-100); }
 
 .docs-label--icon svg {
    fill:  var(--color-slate-400);
@@ -389,7 +388,7 @@ ol[data-scheme-name]::before {
 
 .scheme-row {
     display: grid;
-    grid-template-columns: repeat(10, minmax(80px, 1fr));
+    grid-template-columns: repeat(10, 1fr);
     grid-gap: 10px;
     list-style: none;
     padding:  0;
@@ -399,14 +398,16 @@ ol[data-scheme-name]::before {
 @media screen and (min-width:  992px) {
     .scheme-row {
         grid-template-columns: repeat(10, minmax(70px, 1fr));
-        grid-template-columns: .55fr .55fr .55fr .55fr .55fr 1fr .55fr .55fr .55fr .55fr;
+        grid-template-columns: minmax(90px,1fr) minmax(90px,1fr) minmax(90px,1fr) minmax(90px,1fr) minmax(90px,1fr) minmax(150px, 1fr) minmax(90px,1fr) minmax(90px,1fr) minmax(90px,1fr) minmax(90px,1fr);
         padding:  0 0 0 25px;
     }
+    .scheme-row li { 
+    padding:  6px 6px 0 6px; }
+    .scheme-row--meta
 }
 
 .scheme-row li { 
     transition: all 0.25s 0s ease-in-out;
-    padding:  6px 6px 0 6px;
     border-radius: 5px;
     overflow: hidden;
     background-color: var(--color-slate-700);
@@ -613,7 +614,7 @@ ol[data-scheme-name]::before {
 .scheme-color--meta .scheme-color--hex,
 .scheme-color--meta .scheme-color--rgb,
 .scheme-color--meta .scheme-color--rgba,
-.scheme-color--meta .scheme-color--var { opacity: 0.65; }
+.scheme-color--meta .scheme-color--var { opacity: 0.4; }
 .scheme-color--meta div {
     user-select:  none;
 }
