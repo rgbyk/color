@@ -175,13 +175,14 @@
 // 
 // monochromatic scaling using the $chroma/$value system
 //
-// @param  {color}          $color  - the color to adjust
-// @param  {integer}        $weight - the integer (between 100 - 900)
-// @return {color}                  - the adjusted color
+// @param  {hex}          $color  - the color to adjust
+// @param  {integer}      $weight - the integer (between 50 - 900)
+// @return {color}                = the mixed color
 // 
 // Resources
 // - https://en.wikipedia.org/wiki/Color_solid
 // 
+// @debug functions.make-color-mono(#8e43e7, 50);
 // @debug functions.make-color-mono(#8e43e7, 100); // #f6effd
 // @debug functions.make-color-mono(#8e43e7, 200); // #e3d0f9
 // @debug functions.make-color-mono(#8e43e7, 300); // #c7a1f3
@@ -192,6 +193,7 @@
 // @debug functions.make-color-mono(#8e43e7, 800); // #24113a
 // @debug functions.make-color-mono(#8e43e7, 900); // #180b27
 //
+// @debug functions.make-color-mono(#1da1f2, 50);
 // @debug functions.make-color-mono(#1da1f2, 100); // #ecf7fe
 // @debug functions.make-color-mono(#1da1f2, 200); // #c7e8fc
 // @debug functions.make-color-mono(#1da1f2, 300); // #7bc8f7
@@ -202,6 +204,7 @@
 // @debug functions.make-color-mono(#1da1f2, 800); // #0a3651
 // @debug functions.make-color-mono(#1da1f2, 900); // #051b28
 //
+// @debug functions.make-color-mono(#0af167, 50);
 // @debug functions.make-color-mono(#0af167, 100); // #ebfef2
 // @debug functions.make-color-mono(#0af167, 200); // #c2fcd9
 // @debug functions.make-color-mono(#0af167, 300); // #70f7a6

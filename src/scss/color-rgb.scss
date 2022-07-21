@@ -3,23 +3,24 @@
 // ==========================================================================
 
 @forward "core" with (
-    $brand-color: #2d5be3,
+
+    $brand-color: #F46A25,
 
     $color-model: rgb,
-    $color-mode-harmony: true,
+    $color-mode-harmony: false,
 
-    $color-mode-harmony-grayscale: true,
-    $color-mode-harmony-grayscale-cool-mix: 5%,
+    $color-mode-harmony-grayscale: false,
+    $color-mode-harmony-grayscale-cool-mix: 3%,
     $color-mode-harmony-grayscale-warm-mix: 1%,
 
     $enable-utility-docs: true,
 
     $enable-utility-classes: false,
-    $enable-utility-bg: true,
-    $enable-utility-color: true,
-    $enable-utility-border: true,
-    $enable-utility-fill: true,
-    $enable-utility-stroke: true,
+    $enable-utility-bg: false,
+    $enable-utility-color: false,
+    $enable-utility-border: false,
+    $enable-utility-fill: false,
+    $enable-utility-stroke: false,
 
     $color-scheme-primary: true,
     $color-scheme-achromatic: true,

@@ -31,6 +31,27 @@ const ready = callback => {
     }
 };
 
+// ==========================================
+// ! Change Color Blindness
+// ==========================================
+
+// function onChangeColorBlindness() {
+//     let str = "";
+//     const select = document.getElementById("demo-color-cvd");
+//     const option = select.options[select.selectedIndex];
+
+//     document.querySelectorAll(".cvd").forEach(({
+//         style
+//     }) => {
+//         if ( style.filter != "None" ){
+//             style.filter = `url('.#${option.value}') grayscale(0)`;
+//         }
+//     });
+// }
+
+// ready(() => {
+//     onChangeColorBlindness();
+// });
 
 //
 // Scheme Menus

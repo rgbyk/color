@@ -18,3 +18,5 @@ _*.sh
 .cache
 .DS_Store
 Thumbs.db
+
+/jekyll
