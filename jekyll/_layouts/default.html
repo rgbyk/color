@@ -1,0 +1,31 @@
+---
+
+layout: compress
+
+---
+
+{%- assign FOLDER_JS = '/assets/js' | prepend: site.baseurl | prepend: site.url -%}
+{%- assign FOLDER_CSS = '/assets/css' | prepend: site.baseurl | prepend: site.url -%}
+{%- assign FOLDER_FONTS = '/assets/css/fonts' | prepend: site.baseurl | prepend: site.url -%}
+{%- assign time = site.time | date: '%Y%m%d%H%M%S' -%}
+
+<!DOCTYPE html>
+<html xml:lang="en" lang="en" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" class="theme-dark">
+    {% include meta.html %}
+    <body>
+        <main class="docs-grid">
+            <div class="docs-grid--rainbow cvd"></div>
+            <header class="docs-grid--header">
+                {% include header.html %}                
+            </header>
+            <aside class="docs-grid--aside">
+                {% include aside.html %}                
+            </aside>
+            <div class="docs-grid--main cvd">    
+                {{ content }}
+            </div>
+        </main>
+        {% include symbols.html %}
+        {% include scripts.html %}
+    </body>
+</html>

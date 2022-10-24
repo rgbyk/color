@@ -1,0 +1,190 @@
+<section class="api-section" id="api-section--cs.is">
+    <header class="api-header">
+        <div class="api-header--meta max-lf">
+            <h3 class="api-header--title">
+                <a class="api-header--title_link" href="#api-section--cs.is">
+                    <i class="ico-hashtag"></i>
+                </a>
+                <span class="api-header--title_text">Is Functions</span>
+            </h3>
+        </div>
+    </header>
+    <article class="api-article" id="cs.is.use">
+        <header class="api-article--header">
+            <h4><span>@use</span></h4>
+            <div class="btn-group">
+                <a class="btn btn-secondary" href="#cs.is.use">
+                    <i class="ico-hashtag"></i>
+                    <span class="sr-only">Link to code</span>
+                </a>
+            </div>
+        </header>
+        <div class="api-article--content">
+            <div class="api-article--content_code">
+{% highlight sass %}
+@use "@rgbyk/color/src/scss/functions/color-func-is" as *;
+{% endhighlight %}
+            </div>
+        </div>
+    </article>
+    <article class="api-article" id="cs.is.is-color-grayscale">
+        <header class="api-article--header">
+            <h4><span>is-color-grayscale($color)</span></h4>
+            <div class="btn-group">
+                <a class="btn btn-secondary" href="#cs.is.is-color-grayscale">
+                    <i class="ico-hashtag"></i>
+                    <span class="sr-only">Link to code</span>
+                </a>
+            </div>
+        </header>
+        <div class="api-article--content">
+            <div class="api-article--content_info">
+{% highlight sass %}
+// determine if color is grayscale
+{% endhighlight %}
+            </div>
+            <div class="api-article--content_code">
+{% highlight sass %}
+@debug is-color-grayscale(#DEDED9); // true
+@debug is-color-grayscale(#E2E2D5); // false
+{% endhighlight %}
+            </div>
+        </div>
+    </article>
+    <article class="api-article" id="cs.is.is-color-cool">
+        <header class="api-article--header">
+            <h4><span>is-color-cool($color)</span></h4>
+            <div class="btn-group">
+                <a class="btn btn-secondary" href="#cs.is.is-color-cool">
+                    <i class="ico-hashtag"></i>
+                    <span class="sr-only">Link to code</span>
+                </a>
+            </div>
+        </header>
+        <div class="api-article--content">
+            <div class="api-article--content_info">
+{% highlight sass %}
+// determine if color is "cool" or "warm"
+{% endhighlight %}
+            </div>
+            <div class="api-article--content_code">
+{% highlight sass %}
+@debug is-color-cool(#FF0000); // false
+@debug is-color-cool(#FF7F00); // false
+@debug is-color-cool(#FFFF00); // false
+@debug is-color-cool(#7FFF00); // false
+@debug is-color-cool(#00FF00); // false
+@debug is-color-cool(#00FF7F); // true
+@debug is-color-cool(#00FFFF); // true
+@debug is-color-cool(#007FFF); // true
+@debug is-color-cool(#0000FF); // true
+@debug is-color-cool(#7F00FF); // true
+@debug is-color-cool(#FF00FF); // false
+@debug is-color-cool(#FF007F); // false
+{% endhighlight %}
+            </div>
+        </div>
+    </article>
+    <article class="api-article" id="cs.is.is-color-high-key-value">
+        <header class="api-article--header">
+            <h4><span>is-color-high-key-value($color)</span></h4>
+            <div class="btn-group">
+                <a class="btn btn-secondary" href="#cs.is.is-color-high-key-value">
+                    <i class="ico-hashtag"></i>
+                    <span class="sr-only">Link to code</span>
+                </a>
+            </div>
+        </header>
+        <div class="api-article--content">
+            <div class="api-article--content_info">
+{% highlight sass %}
+// determine if color is high key value
+{% endhighlight %}
+            </div>
+            <div class="api-article--content_code">
+{% highlight sass %}
+@debug is-color-high-key-value(#FF0000); // false
+@debug is-color-high-key-value(#FF7F00); // false
+@debug is-color-high-key-value(#FFFF00); // true
+@debug is-color-high-key-value(#7FFF00); // true
+@debug is-color-high-key-value(#00FF00); // true
+@debug is-color-high-key-value(#00FF7F); // false
+@debug is-color-high-key-value(#00FFFF); // false
+@debug is-color-high-key-value(#007FFF); // false
+@debug is-color-high-key-value(#0000FF); // false
+@debug is-color-high-key-value(#7F00FF); // false
+@debug is-color-high-key-value(#FF00FF); // false
+@debug is-color-high-key-value(#FF007F); // false
+{% endhighlight %}
+            </div>
+        </div>
+    </article>
+    <article class="api-article" id="cs.is.is-color-highest-key-value">
+        <header class="api-article--header">
+            <h4><span>is-color-highest-key-value($color)</span></h4>
+            <div class="btn-group">
+                <a class="btn btn-secondary" href="#cs.is.is-color-highest-key-value">
+                    <i class="ico-hashtag"></i>
+                    <span class="sr-only">Link to code</span>
+                </a>
+            </div>
+        </header>
+        <div class="api-article--content">
+            <div class="api-article--content_info">
+{% highlight sass %}
+// determine if color is highest key value
+{% endhighlight %}
+            </div>
+            <div class="api-article--content_code">
+{% highlight sass %}
+@debug is-color-highest-key-value(#FF0000); // false
+@debug is-color-highest-key-value(#FF7F00); // false
+@debug is-color-highest-key-value(#FFFF00); // true
+@debug is-color-highest-key-value(#7FFF00); // false
+@debug is-color-highest-key-value(#00FF00); // false
+@debug is-color-highest-key-value(#00FF7F); // false
+@debug is-color-highest-key-value(#00FFFF); // false
+@debug is-color-highest-key-value(#007FFF); // false
+@debug is-color-highest-key-value(#0000FF); // false
+@debug is-color-highest-key-value(#7F00FF); // false
+@debug is-color-highest-key-value(#FF00FF); // false
+@debug is-color-highest-key-value(#FF007F); // false
+{% endhighlight %}
+            </div>
+        </div>
+    </article>
+    <article class="api-article" id="cs.is.is-color-dark">
+        <header class="api-article--header">
+            <h4><span>is-color-dark($color)</span></h4>
+            <div class="btn-group">
+                <a class="btn btn-secondary" href="#cs.is.is-color-dark">
+                    <i class="ico-hashtag"></i>
+                    <span class="sr-only">Link to code</span>
+                </a>
+            </div>
+        </header>
+        <div class="api-article--content">
+            <div class="api-article--content_info">
+{% highlight sass %}
+// determine if a color is dark (based on lightness and hue)
+{% endhighlight %}
+            </div>
+            <div class="api-article--content_code">
+{% highlight sass %}
+@debug is-color-dark(#FF0000); // true
+@debug is-color-dark(#FF7F00); // false
+@debug is-color-dark(#FFFF00); // false
+@debug is-color-dark(#7FFF00); // false
+@debug is-color-dark(#00FF00); // false
+@debug is-color-dark(#00FF7F); // false
+@debug is-color-dark(#00FFFF); // false
+@debug is-color-dark(#007FFF); // true
+@debug is-color-dark(#0000FF); // true
+@debug is-color-dark(#7F00FF); // true
+@debug is-color-dark(#FF00FF); // true
+@debug is-color-dark(#FF007F); // true
+{% endhighlight %}
+            </div>
+        </div>
+    </article>
+</section>

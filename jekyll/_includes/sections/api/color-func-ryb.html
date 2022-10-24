@@ -1,0 +1,230 @@
+<section class="api-section" id="api-section--cs.ryb">
+    <header class="api-header">
+        <div class="api-header--meta max-lf">
+            <h3 class="api-header--title">
+                <a class="api-header--title_link" href="#api-section--cs.ryb">
+                    <i class="ico-hashtag"></i>
+                </a>
+                <span class="api-header--title_text">RYB Functions</span>
+            </h3>
+        </div>
+    </header>
+    <article class="api-article" id="cs.ryb.use">
+        <header class="api-article--header">
+            <h4><span>@use</span></h4>
+            <div class="btn-group">
+                <a class="btn btn-secondary" href="#cs.ryb.use">
+                    <i class="ico-hashtag"></i>
+                    <span class="sr-only">Link to code</span>
+                </a>
+            </div>
+        </header>
+        <div class="api-article--content">
+            <div class="api-article--content_code">
+{% highlight sass %}
+@use "@rgbyk/color/src/scss/functions/color-func-ryb" as *;
+{% endhighlight %}
+            </div>
+        </div>
+    </article>
+    <article class="api-article" id="cs.ryb.color-mix">
+        <header class="api-article--header">
+            <h4><span>color-mix($color1, $color2, $percent, $model)</span></h4>
+            <div class="btn-group">
+                <a class="btn btn-secondary" href="#cs.ryb.color-mix">
+                    <i class="ico-hashtag"></i>
+                    <span class="sr-only">Link to code</span>
+                </a>
+            </div>
+        </header>
+        <div class="api-article--content">
+            <div class="api-article--content_info">
+{% highlight sass %}
+// mix two colors by percent in a color color model.
+{% endhighlight %}
+            </div>
+            <div class="api-article--content_code">
+{% highlight sass %}
+// RGB
+@debug color-mix(#FF4000, #00FF80, 50%, rgb); // #9fff00
+@debug color-mix(#800080, #158466, 60%, rgb); // #130882
+@debug color-mix(#FFBF00, #0247FE, 60%, rgb); // #10ff01
+
+// RYB
+@debug color-mix(#FF4000, #00FF80, 50%, ryb); // #ffdb00
+@debug color-mix(#800080, #158466, 60%, ryb); // #340882
+@debug color-mix(#FFBF00, #0247FE, 60%, ryb); // #d8ff01
+{% endhighlight %}
+            </div>
+        </div>
+    </article>
+    <article class="api-article" id="cs.ryb.find-hue-ryb">
+        <header class="api-article--header">
+            <h4><span>find-hue-ryb($degree);</span></h4>
+            <div class="btn-group">
+                <a class="btn btn-secondary" href="#cs.ryb.find-hue-ryb">
+                    <i class="ico-hashtag"></i>
+                    <span class="sr-only">Link to code</span>
+                </a>
+            </div>
+        </header>
+        <div class="api-article--content">
+            <div class="api-article--content_info">
+{% highlight sass %}
+// return the degree of rgb color in ryb
+{% endhighlight %}
+            </div>
+            <div class="api-article--content_code">
+{% highlight sass %}
+@debug find-hue-ryb(30);  // 27.2941176471deg
+@debug find-hue-ryb(60);  // 40deg
+@debug find-hue-ryb(90);  // 49.6470588235deg
+@debug find-hue-ryb(120); // 60deg
+@debug find-hue-ryb(150); // 79.9159663866deg
+@debug find-hue-ryb(180); // 120deg
+@debug find-hue-ryb(210); // 180deg
+@debug find-hue-ryb(240); // 221.9607843137deg
+@debug find-hue-ryb(270); // 254.3225806452deg
+@debug find-hue-ryb(300); // 278.7577639752deg
+@debug find-hue-ryb(330); // 326.0487804878deg
+{% endhighlight %}
+            </div>
+        </div>
+    </article>
+    <article class="api-article" id="cs.ryb.adjust-hue-ryb">
+        <header class="api-article--header">
+            <h4><span>adjust-hue-ryb($color, $degrees);</span></h4>
+            <div class="btn-group">
+                <a class="btn btn-secondary" href="#cs.ryb.adjust-hue-ryb">
+                    <i class="ico-hashtag"></i>
+                    <span class="sr-only">Link to code</span>
+                </a>
+            </div>
+        </header>
+        <div class="api-article--content">
+            <div class="api-article--content_info">
+{% highlight sass %}
+// return a color with adjusted hue
+{% endhighlight %}
+            </div>
+            <div class="api-article--content_code">
+{% highlight sass %}
+@debug adjust-hue-ryb(#8e43e7, 0);   // #bd43e7
+@debug adjust-hue-ryb(#8e43e7, 30);  // #e743b6
+@debug adjust-hue-ryb(#8e43e7, 60);  // #e74368
+@debug adjust-hue-ryb(#8e43e7, 90);  // #e75943
+@debug adjust-hue-ryb(#8e43e7, 120); // #e78243
+@debug adjust-hue-ryb(#8e43e7, 150); // #e7ab43
+@debug adjust-hue-ryb(#8e43e7, 180); // #e7d443
+@debug adjust-hue-ryb(#8e43e7, 210); // #d4e743
+@debug adjust-hue-ryb(#8e43e7, 240); // #a5e743
+@debug adjust-hue-ryb(#8e43e7, 270); // #43e788
+@debug adjust-hue-ryb(#8e43e7, 300); // #43b7e7
+@debug adjust-hue-ryb(#8e43e7, 330); // #434ee7
+{% endhighlight %}
+            </div>
+        </div>
+    </article>
+    <article class="api-article" id="cs.ryb.set-hue-ryb">
+        <header class="api-article--header">
+            <h4><span>set-hue-ryb($color, $degree)</span></h4>
+            <div class="btn-group">
+                <a class="btn btn-secondary" href="#cs.ryb.set-hue-ryb">
+                    <i class="ico-hashtag"></i>
+                    <span class="sr-only">Link to code</span>
+                </a>
+            </div>
+        </header>
+        <div class="api-article--content">
+            <div class="api-article--content_info">
+{% highlight sass %}
+// set a new hue in the ryb model
+{% endhighlight %}
+            </div>
+            <div class="api-article--content_code">
+{% highlight sass %}
+@debug set-hue-ryb(#FF0000, 0);   // #ff1700
+@debug set-hue-ryb(#FF0000, 30);  // #ff4000
+@debug set-hue-ryb(#FF0000, 60);  // #ff8000
+@debug set-hue-ryb(#FF0000, 90);  // #ffbf00
+@debug set-hue-ryb(#FF0000, 120); // #FFFF00
+@debug set-hue-ryb(#FF0000, 150); // #c5ff00
+@debug set-hue-ryb(#FF0000, 180); // #69ff00
+@debug set-hue-ryb(#FF0000, 210); // #00ffba
+@debug set-hue-ryb(#FF0000, 240); // #0046ff
+@debug set-hue-ryb(#FF0000, 270); // #6500ff
+@debug set-hue-ryb(#FF0000, 300); // #ff00ff
+@debug set-hue-ryb(#FF0000, 330); // #ff004f
+{% endhighlight %}
+            </div>
+        </div>
+    </article>
+    <article class="api-article" id="cs.ryb.complement-ryb">
+        <header class="api-article--header">
+            <h4><span>complement-ryb($color)</span></h4>
+            <div class="btn-group">
+                <a class="btn btn-secondary" href="#cs.ryb.complement-ryb">
+                    <i class="ico-hashtag"></i>
+                    <span class="sr-only">Link to code</span>
+                </a>
+            </div>
+        </header>
+        <div class="api-article--content">
+            <div class="api-article--content_info">
+{% highlight sass %}
+// return the complement of a color in ryb
+{% endhighlight %}
+            </div>
+            <div class="api-article--content_code">
+{% highlight sass %}
+@debug complement-ryb(#bd43e7); // #e2e743
+@debug complement-ryb(#e743b6); // #c8e743
+@debug complement-ryb(#e74368); // #a1e743
+@debug complement-ryb(#e75943); // #48e743
+@debug complement-ryb(#e78243); // #43e7a5
+@debug complement-ryb(#e7ab43); // #4384e7
+@debug complement-ryb(#e7d443); // #ac43e7
+@debug complement-ryb(#d4e743); // #e743cc
+@debug complement-ryb(#a5e743); // #e74373
+@debug complement-ryb(#43e788); // #e75643
+@debug complement-ryb(#43b7e7); // #e77943
+@debug complement-ryb(#434ee7); // #e7a443
+{% endhighlight %}
+            </div>
+        </div>
+    </article>
+    <article class="api-article" id="cs.ryb.invert-ryb">
+        <header class="api-article--header">
+            <h4><span>invert-ryb($color)</span></h4>
+            <div class="btn-group">
+                <a class="btn btn-secondary" href="#cs.ryb.invert-ryb">
+                    <i class="ico-hashtag"></i>
+                    <span class="sr-only">Link to code</span>
+                </a>
+            </div>
+        </header>
+        <div class="api-article--content">
+            <div class="api-article--content_info">
+{% highlight sass %}
+// return the inverse of a color in ryb
+{% endhighlight %}
+            </div>
+            <div class="api-article--content_code">
+{% highlight sass %}
+@debug invert-ryb(#bd43e7); // #b7bc18
+@debug invert-ryb(#e743b6); // #9dbc18
+@debug invert-ryb(#e74368); // #76bc18
+@debug invert-ryb(#e75943); // #1dbc18
+@debug invert-ryb(#e78243); // #18bc7a
+@debug invert-ryb(#e7ab43); // #1859bc
+@debug invert-ryb(#e7d443); // #8118bc
+@debug invert-ryb(#d4e743); // #bc18a1
+@debug invert-ryb(#a5e743); // #bc1848
+@debug invert-ryb(#43e788); // #bc2b18
+@debug invert-ryb(#43b7e7); // #bc4e18
+@debug invert-ryb(#434ee7); // #bc7918
+{% endhighlight %}
+            </div>
+        </div>
+    </article>
+</section>

@@ -1,0 +1,44 @@
+.cs-container + .cs-container {
+  margin-top: 1rem;
+}
+
+.cs-header {
+  margin-bottom: 1rem;
+}
+
+.cs-header--meta {
+  display: flex;
+  justify-content: space-between;
+}
+.cs-header--title {
+  // font-size: 16px;
+  line-height: 1.215;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+.cs-header--title_text {
+  order: 1;
+  padding-left: 16px;
+}
+.cs-header--title_link {
+  order: 0;
+  opacity: 0.3;
+  position: absolute;
+}
+.cs-header--title_desc {
+  margin-top: 0.5rem;
+  font-size: 16px;
+  line-height: 1.415;
+}
+
+@media (min-width: 992px) {
+  .cs-header--title_text {
+    padding-left: 0;
+  }
+  .cs-header--title_link {
+    left: -16px;
+  }
+}

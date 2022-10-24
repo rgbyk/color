@@ -1,0 +1,343 @@
+:root {
+  --gg: 0.8;
+}
+
+.ico-code {
+  transform: scale(var(--ggs, 1));
+}
+
+.ico-code,
+.ico-code::after,
+.ico-code::before {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  width: 8px;
+  height: 20px;
+}
+
+.ico-code::after,
+.ico-code::before {
+  content: "";
+  position: absolute;
+  height: 8px;
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  transform: rotate(45deg) scaleY(1);
+  left: -4px;
+  top: 6px;
+}
+
+.ico-code::after {
+  transform: rotate(-45deg) scaleX(-1);
+  left: 4px;
+}
+
+.ico-eye {
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 24px;
+  height: 18px;
+  border-bottom-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.ico-eye:after,
+.ico-eye:before {
+  content: "";
+  display: block;
+  border-radius: 100px;
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.ico-eye:after {
+  top: 2px;
+  box-shadow: inset 0 -8px 0 2px, inset 0 0 0 2px;
+  width: 24px;
+  height: 24px;
+}
+
+.ico-eye:before {
+  width: 8px;
+  height: 8px;
+  border: 2px solid;
+  bottom: 4px;
+  left: 8px;
+}
+
+.ico-right {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(0.7);
+  width: 22px;
+  height: 22px;
+}
+
+.ico-right::after,
+.ico-right::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  right: 3px;
+}
+
+.ico-right::after {
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid;
+  border-right: 2px solid;
+  transform: rotate(45deg);
+  bottom: 7px;
+}
+
+.ico-right::before {
+  width: 16px;
+  height: 2px;
+  bottom: 10px;
+  background: currentColor;
+}
+
+.ico-theme {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 24px;
+  height: 24px;
+  color: var(--primary-400);
+  transition: background 0.05s linear;
+  border-radius: 100px;
+  box-shadow: inset 0 0 0 2px;
+  border: 6px solid transparent;
+
+  &:after,
+  &:before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    left: -6px;
+    top: 5px;
+    transition: border 0.05s linear;
+  }
+
+  &:before {
+    transform: rotate(-45deg);
+  }
+
+  &:after {
+    transform: rotate(45deg);
+  }
+
+  .theme-light & {
+    background: linear-gradient(to bottom, currentColor 4px, transparent 0)
+        no-repeat 5px -6px/2px 6px,
+      linear-gradient(to bottom, currentColor 4px, transparent 0) no-repeat 5px
+        14px/2px 6px,
+      linear-gradient(to bottom, currentColor 4px, transparent 0) no-repeat -8px
+        5px/6px 2px,
+      linear-gradient(to bottom, currentColor 4px, transparent 0) no-repeat 14px
+        5px/6px 2px;
+  }
+
+  .theme-light &:before,
+  .theme-light &:after {
+    border-right: 4px solid;
+    border-left: 4px solid;
+  }
+
+  .theme-dark & {
+    background: linear-gradient(to bottom, currentColor 2px, transparent 0)
+        no-repeat 5px -6px/2px 6px,
+      linear-gradient(to bottom, currentColor 2px, transparent 0) no-repeat 5px
+        16px/2px 6px,
+      linear-gradient(to bottom, currentColor 2px, transparent 0) no-repeat -10px
+        5px/6px 2px,
+      linear-gradient(to bottom, currentColor 2px, transparent 0) no-repeat 16px
+        5px/2px 2px;
+  }
+
+  .theme-dark &:before,
+  .theme-dark &:after {
+    border-right: 2px solid;
+    border-left: 2px solid;
+  }
+}
+
+.ico-grid {
+  transform: scale(var(--ggs, 1));
+
+  &,
+  &:before {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 14px;
+    height: 14px;
+    border-right: 3px solid;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    border: 3px solid;
+    border-right: 0;
+    bottom: 0;
+    right: 2px;
+    opacity: 0.3;
+  }
+}
+
+.ico-copy {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  transform: scale(var(--ggs, 1));
+  width: 14px;
+  height: 14px;
+}
+
+.ico-copy::after,
+.ico-copy::before {
+  content: "";
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  border: 2px solid;
+  width: 10px;
+  height: 10px;
+}
+
+.ico-copy::after {
+  opacity: 0.5;
+}
+
+.ico-copy::before {
+  background: linear-gradient(to left, currentColor 4px, transparent 0)
+    no-repeat top left/4px 4px;
+  bottom: 0;
+  right: 0;
+}
+
+.ico-hashtag {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(0.7);
+  width: 8px;
+  height: 16px;
+  border-left: 2px solid;
+  border-right: 2px solid;
+
+  &:before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 16px;
+    height: 8px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    left: -6px;
+    top: 4px;
+  }
+}
+
+.ico-info {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 20px;
+  height: 20px;
+  border: 2px solid;
+  border-radius: 40px;
+
+  &:after,
+  &:before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    border-radius: 3px;
+    width: 2px;
+    background: currentColor;
+    left: 7px;
+  }
+
+  &:after {
+    bottom: 2px;
+    height: 8px;
+  }
+
+  &:before {
+    height: 2px;
+    top: 2px;
+  }
+}
+
+.ico-danger {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 20px;
+  height: 20px;
+  border: 2px solid;
+  border-radius: 40px;
+
+  &:after,
+  &:before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    border-radius: 3px;
+    width: 2px;
+    background: currentColor;
+    left: 7px;
+  }
+
+  &:after {
+    top: 2px;
+    height: 8px;
+  }
+
+  &:before {
+    height: 2px;
+    bottom: 2px;
+  }
+}
+
+.ico-external {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid;
+  transform: scale(var(--ggs, 1));
+  border-right: 2px solid;
+
+  &:after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background: currentColor;
+    transform: rotate(-45deg);
+    top: 3px;
+    right: -3px;
+  }
+}

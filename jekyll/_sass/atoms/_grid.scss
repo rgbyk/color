@@ -1,0 +1,115 @@
+body {
+}
+.site-grid {
+  padding: 1rem;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-areas:
+    "rainbow"
+    "header"
+    "aside"
+    "main";
+
+  grid-template-columns: 100%;
+  overflow-x: hidden;
+}
+
+.site-grid--main {
+  padding: 1rem;
+  border: 1px solid;
+  border-radius: 0.25rem;
+}
+
+.theme-light .site-grid--main {
+  background-color: rgba(var(--color-grey-100-rgb), 0.3);
+  border-color: var(--color-grey-200);
+}
+
+.theme-dark .site-grid--main {
+    background-color: rgba(var(--color-primary-800-rgb), 0.3);
+    border-color: rgba(var(--color-primary-400-rgb), 0.3);
+}
+
+.site-grid--rainbow{
+  grid-area: rainbow;
+}
+
+.site-grid--header {
+  grid-area: header;
+}
+.site-grid--aside {
+  grid-area: aside;
+}
+.site-grid--main {
+  grid-area: main;
+}
+
+@media (min-width: 768px) {
+  .site-grid {
+    grid-template-areas:
+      "rainbow rainbow rainbow"
+      "header header header"
+      "aside main main"
+      "aside main main"
+      "aside main main"
+      "aside main main"
+      "aside main main"
+      "aside main main";
+    grid-template-columns: 330px 1fr 1fr;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1500px;
+  }
+
+  .site-grid--header,
+  .site-grid--aside,
+  .site-grid--main {
+  }
+}
+
+.site-grid--asideList {
+  font-size: 16px;
+}
+.site-grid--asideList {
+  list-style: none;
+}
+
+.aside-list--section {
+  font-weight: bold;
+  border: 1px solid;
+  border-radius: 0.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1rem !important;
+}
+
+.aside-list--section > a {
+  display: block;
+  padding: 0.5rem 1rem;
+}
+
+.aside-list--subsection {
+  margin: 0;
+  padding: 0 0 1rem 1rem;
+  list-style: none;
+
+  display: none !important;
+
+  li:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
+.aside-list--subsection a {
+  font-weight: normal;
+  padding: 0.25rem 0;
+  line-height: 1;
+  display: block;
+  color: rgba(var(--color-grey-100-rgb), 0.3);
+}
+
+.theme-dark .aside-list--section {
+  background-color: rgba(var(--color-primary-700-rgb), 0.3);
+  border-color: rgba(var(--color-primary-400-rgb), 0.3);
+}
