@@ -4,7 +4,7 @@
 
 @forward "core" with (
 
-    $brand-color: #f8485e,
+    $brand-color: #0597FF,
 
     $color-model: rgb,
     $color-mode-harmony: true,
@@ -24,26 +24,26 @@
 
     $color-scheme-primary: true,
     $color-scheme-achromatic: true,
-    $color-scheme-slate: true,
-    $color-scheme-stone: true,
+    $color-scheme-slate: false,
+    $color-scheme-stone: false,
 
-    $color-scheme-analogous: true,
-    $color-scheme-complementary: true,
-    $color-scheme-hues: true,
-    $color-scheme-split: true,
-    $color-scheme-square: true,
-    $color-scheme-tetradic: true,
-    $color-scheme-triadic: true,
+    $color-scheme-analogous: false,
+    $color-scheme-complementary: false,
+    $color-scheme-hues: false,
+    $color-scheme-split: false,
+    $color-scheme-square: false,
+    $color-scheme-tetradic: false,
+    $color-scheme-triadic: false,
 
-    $color-scheme-danger: true,
-    $color-scheme-warning: true,
-    $color-scheme-success: true,
-    $color-scheme-info: true,
+    $color-scheme-danger: false,
+    $color-scheme-warning: false,
+    $color-scheme-success: false,
+    $color-scheme-info: false,
 
-    $color-scheme-alpha: true,
-    $color-scheme-equal: true,
-    $color-scheme-neutral: true,
-    $color-scheme-pastel: true,
+    $color-scheme-alpha: false,
+    $color-scheme-equal: false,
+    $color-scheme-neutral: false,
+    $color-scheme-pastel: false,
 
     $enable-root-colors: true,
 );
