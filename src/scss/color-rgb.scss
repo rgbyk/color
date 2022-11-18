@@ -4,7 +4,7 @@
 
 @forward "core" with (
 
-    $brand-color: #0597FF,
+    $brand-color: #007bff,
 
     $color-model: rgb,
     $color-mode-harmony: true,
@@ -24,7 +24,7 @@
 
     $color-scheme-primary: true,
     $color-scheme-achromatic: true,
-    $color-scheme-slate: false,
+    $color-scheme-slate: true,
     $color-scheme-stone: false,
 
     $color-scheme-analogous: false,
@@ -40,8 +40,8 @@
     $color-scheme-success: false,
     $color-scheme-info: false,
 
-    $color-scheme-alpha: false,
-    $color-scheme-equal: false,
+    $color-scheme-alpha: true,
+    $color-scheme-equal: true,
     $color-scheme-neutral: false,
     $color-scheme-pastel: false,
 
