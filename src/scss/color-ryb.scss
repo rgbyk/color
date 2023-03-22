@@ -3,7 +3,7 @@
 // ==========================================================================
 
 @forward "core" with ( 
-    $brand-color: #007bff,
+    $brand-color: #f8485e,
 
     $color-model: ryb,
     $color-mode-harmony: true,
@@ -24,15 +24,15 @@
     $color-scheme-primary: true,
     $color-scheme-achromatic: true,
     $color-scheme-slate: true,
-    $color-scheme-stone: false,
+    $color-scheme-stone: true,
 
-    $color-scheme-analogous: false,
-    $color-scheme-complementary: false,
+    $color-scheme-analogous: true,
+    $color-scheme-complementary: true,
     $color-scheme-hues: true,
-    $color-scheme-split: false,
-    $color-scheme-square: false,
-    $color-scheme-tetradic: false,
-    $color-scheme-triadic: false,
+    $color-scheme-split: true,
+    $color-scheme-square: true,
+    $color-scheme-tetradic: true,
+    $color-scheme-triadic: true,
 
     $color-scheme-danger: true,
     $color-scheme-warning: true,

@@ -216,30 +216,30 @@ function getScheme() {
 // colorSpectrumTable()
 // --------------------------------
 
-// function colorSpectrumTable() {
-//     let selector = document.querySelector("#spectrum-options");
-//     let selected = selector.options[selector.selectedIndex];
+function colorSpectrumTable() {
+    let selector = document.querySelector("#spectrum-options");
+    let selected = selector.options[selector.selectedIndex];
 
-//     // t g(selected.value);
+    // t g(selected.value);
 
-//     let type = selected.value;
+    let type = selected.value;
 
-//     document.querySelectorAll("[data-color]").forEach((e) => {
-//         let cs_value_rgb = window.getComputedStyle(e).getPropertyValue("background-color");
-//         let cs_value_hex = rgb2hex(cs_value_rgb);
+    document.querySelectorAll("[data-color]").forEach((e) => {
+        let cs_value_rgb = window.getComputedStyle(e).getPropertyValue("background-color");
+        let cs_value_hex = rgb2hex(cs_value_rgb);
 
-//         if ( type == 'hex' ) {
-//             e.innerHTML = cs_value_hex;
-//         }
+        if ( type == 'hex' ) {
+            e.innerHTML = cs_value_hex;
+        }
 
-//         if ( type == 'rgb' ) {
-//             e.innerHTML = cs_value_rgb;
-//         }
+        if ( type == 'rgb' ) {
+            e.innerHTML = cs_value_rgb;
+        }
 
-//         if ( type == 'pos' ) { }
+        if ( type == 'pos' ) { }
 
-//     });
-// }
+    });
+}
 
 // --------------------------------
 // getColorPosition()

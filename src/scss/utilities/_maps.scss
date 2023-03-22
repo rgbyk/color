@@ -40,6 +40,10 @@ $color-scheme-map-boolean: (
     "state": core.$color-scheme-achromatic,
     "colors": schemes.$map-achromatic
   ),
+  "achromaticValues": (
+    "state": core.$color-scheme-achromatic,
+    "colors": schemes.$map-achromaticValues
+  ),
   "slate": (
     "state": core.$color-scheme-slate,
     "colors": schemes.$map-slate
