@@ -1,50 +1,86 @@
-# @rgbyk/color
+# RGBYK Color System
 
-A color model system that generates a full range of accessible color palettes, and utility classes from a single color.
+The RGBYK Color System is a comprehensive color model system designed to generate a full range of accessible color palettes and utility classes from a single color. It offers a variety of advanced functions to analyze and determine color temperature, contrast, and more for design system automation.
 
-[View simulator](https://rgbyk.com/color/)
+## Why Use RGBYK Color System?
 
--- 
+The RGBYK Color System was developed as part of a research project on web accessibility for visual disabilities, but it can be used by anyone looking to create a comprehensive color system for their web or app development project. With RGBYK, you can:
 
-You can view the generated color schemes by visiting `./demo/[rgb|ryb].html`
-Please note that documentation for `v1.4.9` are in development.
+- Create fully documented color systems for easy integration into web or app development.
+- Generate a suite of utility classes with customizable CSS custom properties (variables) or HEX values.
+- Switch between RGB/RYB color modes.
+- Establish color relationships for harmonious color schemes.
+- Neutralize colors to create a "neutral-tone" palette to complement chromatic colors.
+- Establish similar color temperature conditions in grayscale palettes.
+
+## Examples of Use Cases
+- Creating a consistent color palette across a website or app.
+- Automatically generating utility classes for text color, background color, and border color.
+- Generating accessible color palettes for users with color vision deficiencies.
+- Creating a cohesive color scheme for a brand or product.
+
+## Key Features
+- Create fully documented color systems for easy integration into web or app development.
+- Generate a suite of utility classes with customizable CSS custom properties (variables) or HEX values.
+- Switch between RGB/RYB color modes.
+- Establish color relationships for harmonious color schemes.
+- Neutralize colors to create a "neutral-tone" palette to complement chromatic colors.
+- Establish similar color temperature conditions in grayscale palettes.
+
+## Toggling Features
+- Complementary, Analogous, Square, Split, Triaddic, and Tetradic color palettes.
+- Web accessibility features for color blindness, including Protanopia, Protanomaly, Deuteranopia, Deuteranomaly, Tritanopia, Tritanomaly, Achromatopsia, and Achromatomaly.
+- High-pitch color toggles for optimal contrast.
+- Alert palette to indicate status (e.g., error, warning, success).
+- Utility classes (e.g., .bg-, .border-, color-*).
+
+[Visual Demo & API](https://rgbyk.com/color/)
+
+Please note that `@rgbyk/color` is currently being upgraded to use Dart-Sass. More advanced functions and updated documentation will be made available as the branch is merged.
 
 ----
 
-## Command Line
+## Installation
 
 ### Requirements
-- [Node.js](https://nodejs.org/) v12.11.0
+- [Node.js](https://nodejs.org/) v19.0.0
 - [SASS](https://sass-lang.com/dart-sass) v1.26.0 (compiled with dart2js 2.7.1)
 
-### Install anywhere (npm)
+You can install `@rgbyk/color` anywhere using NPM:
+
 ```shell
 $ npm i @rgbyk/color --save-dev
 ```
 
-### Install anywhere (standalone)
-Install anywhere (standalone)
+Alternatively, you can install it as a standalone package using the following command:
 
 ```shell
-# run checks and full installation
+# Run checks and complete installation
 $ npm run rgbyk-unpack
 ```
 
-### cli.color
+## CLI Commands
+
+`@rgbyk/color` comes with several CLI commands that you can use to compile SCSS files. These include:
+
+### `cli.color`
+This command compiles `./src/scss/color.scss`:
+
 ```shell
-# compile `./src/scss/color.scss`
 $ npm run color
 ```
 
-### cli.color-rgb
+### `cli.color-rgb`
+This command compiles `./src/scss/color-rgb.scss`:
+
 ```shell
-# compile `./src/scss/color-rgb.scss`
 $ npm run color-rgb
 ```
 
-### cli.color-ryb
+### `cli.color-ryb`
+This command compiles `./src/scss/color-ryb.scss`:
+
 ```shell
-# compile `./src/scss/color-ryb.scss`
 $ npm run color-rgb
 ```
 
@@ -52,7 +88,7 @@ $ npm run color-rgb
 
 ## API
 
-### Example (npm)
+### Basic Usage (NPM)
 ```scss
 @forward "@rgbyk/color/src/scss/core" with (
     $brand-color: #432dd9,
@@ -65,22 +101,80 @@ $ npm run color-rgb
 @use "../../node_modules/@rgbyk/color/src/scss/utilities";
 ```
 
+## Advanced Usage
+### Color Calculation
+- `cs.calc.calc-luminance($color)` // calculate the luminance for a color.
+- `cs.calc.calc-contrast($back, $front)` // calculate the contrast ratio between two colors.
+- `cs.calc.calc-brightness($color)` // calculate brightness of a given color.
+
+### Color Detection
+- `is-color-grayscale($color)` // determine if color is grayscale
+- `is-color-cool($color)` // determine if color is "cool" or "warm"
+- `is-color-high-key-value($color)` // determine if color is high key value
+- `is-color-dark($color)` // determine if a color is dark (based on lightness and hue)
+
+### Color Modification
+- `make-color-harmony($mix, $base)` // establish similar light conditions between two colors
+- `make-color-harmony-grayscale($color)` // establish color relationship in your grayscale palette.
+- `make-color-neutral($color)` // convert a color to its neutral form
+- `make-color-mono($color, $weight)` // establish monochromatic scaling using the $chroma/$value system
+- `make-color-pastel($color)` // convert a color to its pastel form
+- `get-color-contrast($color)` // determine whether to use dark or light text on top of given color
+- `color-mix($color1, $color2, $percent, $model)` // mix two colors by percent in a color color model.
+- `find-hue-ryb($degree);` // return the degree of rgb color in ryb
+- `adjust-hue-ryb($color, $degrees);` // return a color with adjusted hue
+- `set-hue-ryb($color, $degree)` // set a new hue in the ryb model
+- `complement-ryb($color)` // return the complement of a color in ryb
+- `invert-ryb($color)` // return the inverse of a color in ryb
+- `color-tint($color, $percent)` // mix a color with white to reduces darkness
+- `color-shade($color, $percent)` // mix a color with black to increases darkness
+- `color-tone($color, $percent)` // add percentage of grey to a color
+- `color-equalize($color)` // equalize a given color
+
+---
+
 ### Color Model
-```scss
-$color-model: rgb; // [rgb | ryb]
-```
+`$color-model: rgb; // [rgb | ryb]`
 
 ### Color Harmony
+
+These variables are used to customize the behavior of the color generation. The `@forward` rule allows you to use the core code from the package while forwarding the passed variables.
+
+- The `color-model` variable determines whether the color model used will be `RGB` or `RYB`.
+- The `color-mode-harmony` variable determines whether the colors generated will have a color harmony.
+- The `color-mode-harmony-grayscale` variable determines whether a color harmony is applied to the grayscale colors.
+- The `color-mode-harmony-grayscale-cool-mix` variable determines the percentage of mixing if the primary color is cool.
+- The `color-mode-harmony-grayscale-warm-mix` variable determines the percentage of mixing if the primary color is warm.
+
 ```scss
+// Enable or disable color harmony
 $color-mode-harmony: false; // [true | false], create harmony in color scheme
+
+// Enable or disable color harmony in grayscale
 $color-mode-harmony-grayscale: false; // [true | false], create harmony in grayscale scheme
+
+// Set the percentage mix for cool and warm colors in grayscale mode
 $color-mode-harmony-grayscale-cool-mix: 3%; // [integer], the % amount to mix if primary is cool
 $color-mode-harmony-grayscale-warm-mix: 2%; // [integer], the % amount to mix if primary is warm
 ```
 
-### Color Accessibility
+### Color Accessibility (CVD)
+To ensure better accessibility for users with color vision deficiencies, the `$color-mode-cvd` variable can be used to simulate different types of color vision deficiencies. By default, this feature is disabled (`$color-mode-cvd: false`), but it can be enabled by setting this variable to one of the following values:
+
+- `"protanopia"`: A type of red-green color blindness that affects the ability to distinguish between red and green hues.
+- `"protanomaly"`: A milder form of protanopia that still affects the ability to distinguish between red and green hues, but to a lesser extent.
+- `"deuteranopia"`: Another type of red-green color blindness that affects the ability to distinguish between red and green hues, but with a different mechanism than protanopia.
+- `"deuteranomaly"`: A milder form of deuteranopia that still affects the ability to distinguish between red and green hues, but to a lesser extent.
+- `"tritanopia"`: A type of blue-yellow color blindness that affects the ability to distinguish between blue and yellow hues.
+- `"tritanomaly"`: A milder form of tritanopia that still affects the ability to distinguish between blue and yellow hues, but to a lesser extent.
+- `"achromatopsia"`: A complete absence of color vision, also known as monochromacy.
+- `"chromatomaly"`: A general term for any type of color vision deficiency that affects the ability to distinguish between hues.
+
 ```scss
+// Enable or disable color vision deficiency (CVD) simulation
 $color-mode-cvd: false;
+
+// Set the type of CVD simulation to apply
 $color-mode-cvd: "protanopia";
 $color-mode-cvd: "protanomaly";
 $color-mode-cvd: "deuteranopia";
@@ -91,17 +185,8 @@ $color-mode-cvd: "achromatopsia";
 $color-mode-cvd: "chromatomaly";
 ```
 
-### Color Utilities
-```scss
-$enable-utility-classes: true; // [true | false] => _all_ utilities
-$enable-utility-bg: true; // [true | false] => `.bg-` classes
-$enable-utility-color: true; // [true | false] => `.color-` classes
-$enable-utility-border: true; // [true | false] => `.border-` classes
-$enable-utility-fill: false; // [true | false] => `.fill-` classes
-$enable-utility-stroke: false; // [true | false] => `.stroke-` classes
-```
-
 ### Color Schemes
+
 ```scss
 $color-scheme-primary: true; // [true | false] => primary scheme
 $color-scheme-achromatic: true; // [true | false] => achromatic scheme
@@ -115,6 +200,8 @@ $color-scheme-triadic: false; // [true | false] => triadic scheme
 ```
 
 ### Color Schemes (Alert)
+These schemes can be useful to reflect the status of user interface components, such as error, warning, success, and info. The available options include `$color-scheme-danger`, `$color-scheme-warning`, `$color-scheme-success`, and `$color-scheme-info`. Each option can be set to `true` or `false` to enable or disable the corresponding scheme.
+
 ```scss
 $color-scheme-danger: false; // [true | false] => danger scheme
 $color-scheme-warning: false; // [true | false] => warning scheme
@@ -129,6 +216,24 @@ $color-scheme-pastel: false; // [true | false] => pastel palette
 $color-scheme-alpha: false; // [true | false] => alpha palette
 ```
 
+### Color Utilities
+
+- `$enable-utility-classes` - Enables or disables all the utility classes. Default value is true.
+- `$enable-utility-bg` - Enables or disables background-related utility classes (`.bg-`). Default value is true.
+- `$enable-utility-color` - Enables or disables text color-related utility classes (`.color-). Default value is true.
+- `$enable-utility-border` - Enables or disables border-related utility classes (`.border-). Default value is true.
+- `$enable-utility-fill` - Enables or disables fill-related utility classes (`.fill-`). Default value is false.
+- `$enable-utility-stroke` - Enables or disables stroke-related utility classes (`.stroke-`). Default value is false.
+
+```scss
+$enable-utility-classes: true; // [true | false] => _all_ utilities
+$enable-utility-bg: true; // [true | false] => `.bg-` classes
+$enable-utility-color: true; // [true | false] => `.color-` classes
+$enable-utility-border: true; // [true | false] => `.border-` classes
+$enable-utility-fill: false; // [true | false] => `.fill-` classes
+$enable-utility-stroke: false; // [true | false] => `.stroke-` classes
+```
+
 ### Code Output
 ```scss
 $enable-root-colors: true;
@@ -136,7 +241,7 @@ $enable-root-colors: true;
 // set `false` for => `#000000`
 ```
 
-----
+---
 
 ## Resources
 

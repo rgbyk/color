@@ -17,13 +17,13 @@ $brand-color: $-bc-default !default;
 
 // ==========================================================================
 // # Color Model
-// ============================================================================
+// ==========================================================================
 
 $color-model: rgb !default; // [rgb | ryb]
 
 // ==========================================================================
 // # Color Setting
-// ============================================================================
+// ==========================================================================
 
 $color-mode-harmony: false !default; // [true | false], create harmony in color scheme
 $color-mode-harmony-grayscale: false !default; // [true | false], create harmony in grayscale scheme
@@ -32,14 +32,14 @@ $color-mode-harmony-grayscale-warm-mix: 2% !default; // [integer], the % amount 
 
 // ==========================================================================
 // # Color Accessibility
-// ============================================================================
+// ==========================================================================
 
 $color-mode-cvd: false !default; // [false | "protanopia" | "protanomaly" | "deuteranopia" | "deuteranomaly" | "tritanopia" | "tritanomaly" | "achromatopsia" | "chromatomaly"]
 $color-mode-a11y: false !default; // [true | false] => a11y contrast features
 
 // ==========================================================================
 // # Color Utilities
-// ============================================================================
+// ==========================================================================
 
 $enable-utility-classes: true !default; // [true | false] => _all_ utilities
 $enable-utility-bg: true !default; // [true | false] => `.bg-` classes
@@ -48,15 +48,14 @@ $enable-utility-border: true !default; // [true | false] => `.border-` classes
 $enable-utility-fill: false !default; // [true | false] => `.fill-` classes
 $enable-utility-stroke: false !default; // [true | false] => `.stroke-` classes
 
-// 
-$enable-utility-docs: true !default; // [true | false] => table utilieis (for docs)
+$enable-utility-docs: false !default; // [true | false] => table utilities (for docs)
 
 // ==========================================================================
 // # Color Schemes
-// ============================================================================
+// ==========================================================================
 
 $color-scheme-primary: true !default; // [true | false] => primary scheme
-$color-scheme-achromatic: true !default; // [true | false] => achromatic scheme
+$color-scheme-achromatic: false !default; // [true | false] => achromatic scheme
 $color-scheme-slate: false !default;
 $color-scheme-stone: false !default;
 
@@ -70,7 +69,7 @@ $color-scheme-triadic: false !default; // [true | false] => triadic scheme
 
 // ==========================================================================
 // # Alert Schemes
-// ============================================================================
+// ==========================================================================
 
 $color-scheme-danger: false !default; // [true | false] => danger scheme
 $color-scheme-warning: false !default; // [true | false] => warning scheme
@@ -79,7 +78,7 @@ $color-scheme-info: false !default; // [true | false] => info scheme
 
 // ==========================================================================
 // # Misc. Color Scheme Options
-// ============================================================================
+// ==========================================================================
 
 $color-scheme-neutral: false !default; // [true | false] => neutral palette
 $color-scheme-alpha: false !default; // [true | false] => alpha palette
@@ -88,7 +87,7 @@ $color-scheme-equal: false !default; // [true | false ] => chromatic color (400)
 
 // ==========================================================================
 // # Disable Checks
-// ============================================================================
+// ==========================================================================
 
 @if (color.saturation($brand-color) < 8%) {
     $color-scheme-complementary: false;
@@ -100,7 +99,7 @@ $color-scheme-equal: false !default; // [true | false ] => chromatic color (400)
 
 // ==========================================================================
 // # Code Output
-// ============================================================================
+// ==========================================================================
 
 $enable-root-colors: true !default;
 // set `true` for => `var(--black)`

@@ -1,14 +1,20 @@
+// ! TODO `_color-func-ryb`
+
 // ==========================================================================
 // ryb-#{$func} functions
 // ==========================================================================
 // 
-// RYB is a color model based on Red Yellow and Blue base colors. This color space
-// is not very popular as there are many colors deffined via RGB or CMYK that can
-// not be converted to RYB. However this color model is good for physical mixture
-// of pigments. So this color model may be usefull for model painters and artists
-// who uses acrylic and especially oil paints.
+// RYB is a color model based on Red, Yellow, and Blue base colors. It is a subtractive
+// color model, which means that when colors are mixed together, they absorb more light
+// and appear darker. This color space is not as popular as RGB or CMYK because it is
+// not capable of defining all the colors that can be defined in RGB or CMYK.
+//
+// However, RYB is a useful color model for physical mixture of pigments. This makes it
+// particularly relevant for artists who work with traditional mediums such as oil or
+// acrylic paints. The RYB color model can be used to achieve a wide range of colors
+// through mixing pigments in different proportions.
 // 
-// RGB Hex codes for RYB primary colors are: 
+// RYB Primaries:
 // - Red: #FE2712
 // - Yellow: #FEFE33
 // - Blue: #0247FE
@@ -29,6 +35,7 @@
 // ==========================================================================
 // ryb-hue($color)
 // ==========================================================================
+
 $ryb-offset: 0 1 2 3 5 6 7 8 9 10 11 13 14 15 16 17 18 19 19 20 21 21 22 23 23
 24 25 25 26 27 27 28 28 29 29 30 30 31 31 32 32 32 33 33 34 34 35 35 35 36 36 37
 37 37 38 38 38 39 39 40 40 40 41 41 41 42 42 42 43 43 43 44 44 44 45 45 45 46 46
@@ -108,13 +115,13 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
 }
 
 // ==========================================================================
-// find-hue-ryb($degree);
+// ! # find-hue-ryb($degree);
 // ==========================================================================
 // 
-// return the degree of rgb color in ryb
+// Returns the hue of an RGB color in the RYB color space.
 // 
-// @param  {integer}    $degrees      - degrees (0 to 360) in rgb
-// @return {integer}                  - degrees (0 to 360) in ryb
+// @param `{$degree}` - the hue of the RGB color space (0 to 360)
+// @return `{$degree}` - the hue in the RYB color space (0 to 360)
 // 
 // @debug find-hue-ryb(30);  // 27.2941176471deg
 // @debug find-hue-ryb(60);  // 40deg
@@ -134,14 +141,14 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
 }
 
 // ==========================================================================
-// adjust-hue-ryb($color, $degrees);
+// ! # adjust-hue-ryb($color, $degrees);
 // ==========================================================================
 // 
-// return a color with adjusted hue
+// Returns a color with adjusted hue based on the RYB color model.
 // 
-// @param  {color}      $color        - Hex color
-// @param  {integer}    $degrees      - Degrees (0-360)
-// @return {color}                    - Hex color
+// @param `{color}` - The color to be adjusted, in hex format.
+// @param `{integer}` - The amount to be adjusted by (0 to 360).
+// @return `{color}` - The color after the adjustment, in hex format.
 //
 // @debug adjust-hue-ryb(#8e43e7, 0);   // #bd43e7
 // @debug adjust-hue-ryb(#8e43e7, 30);  // #e743b6
@@ -156,7 +163,6 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
 // @debug adjust-hue-ryb(#8e43e7, 300); // #43b7e7
 // @debug adjust-hue-ryb(#8e43e7, 330); // #434ee7
 // 
-
 @function adjust-hue-ryb($color, $degrees) {
   @if unit($degrees) == "%" {
     $degrees: 360 * ($degrees / 100%);
@@ -168,25 +174,26 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
   @return hsl(color.hue(ryb-interpolate($hue-adjust)), color.saturation($color), color.lightness($color));
 }
 
+
 // ==========================================================================
-// color-mix($color1, $color2, $percent: 50%, $model: $color-model)
+// ! # color-mix($color1, $color2, $percent: 50%, $model: $color-model)
 // ==========================================================================
 // 
-// mix two colors by percent in a color color model.
+// Mixes two colors based on a percentage in a specified color model.
 // 
-// @param  {color}      $color1        - Hex color
-// @param  {color}      $color2        - Hex color
-// @param  {percent}    $percent       - Percentage (0% to 100%)
-// @param  {model}      $model         - Color Model: [rgb | ryb]
-// @return {color}                     - Hex color
+// @param `{$color1}` - The first color to mix, in hex format.
+// @param `{$color2}` - The second color to mix, in hex format.
+// @param `{$percent}` (optional, default: 50%) - The percentage of the first color in the mix (0% to 100%).
+// @param `{$model}` (optional, default: rgb) - The color model to use: rgb or ryb.
+// @return `{color}` - The resulting color after the mix, in hex format.
 //
-// @debug functions.color-mix(#800080, #158466, 60%, ryb); // #340882
-// @debug functions.color-mix(#FFBF00, #0247FE, 60%, ryb); // #d8ff01
-// @debug functions.color-mix(#FF4000, #00FF80, 50%, ryb); // #ffdb00
-// 
-// @debug functions.color-mix(#800080, #158466, 60%, rgb); // #130882
-// @debug functions.color-mix(#FFBF00, #0247FE, 60%, rgb); // #10ff01
-// @debug functions.color-mix(#FF4000, #00FF80, 50%, rgb); // #9fff00
+// @debug color-mix(#800080, #158466, 60%, ryb); // #380882
+// @debug color-mix(#FFBF00, #0247FE, 60%, ryb); // #c6ff01
+// @debug color-mix(#FF4000, #00FF80, 50%, ryb); // #ffdf00
+//
+// @debug color-mix(#800080, #158466, 60%, rgb); // #130882
+// @debug color-mix(#FFBF00, #0247FE, 60%, rgb); // #10ff01
+// @debug color-mix(#FF4000, #00FF80, 50%, rgb); // #9fff00
 // 
 
 @function color-mix($color1, $color2, $percent: 50%, $model: null) {  
@@ -232,25 +239,25 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
 }
 
 // ==========================================================================
-// ryba($red, $yellow, $blue, $alpha)
+// ! # ryba($red, $yellow, $blue, $alpha)
 // ==========================================================================
 // 
-// return the hexdecimal of an ryba
+// Converts RYB values to an RGBA color.
 //
-// @param  {value}    $red        - the r() value (0 to 255)
-// @param  {value}    $yellow     - the y() value (0 to 255)
-// @param  {value}    $blue       - the b() value (0 to 255)
-// @param  {value}    $alpha      - the a() value (0 to 1)
-// @return {color}                - rgba(#, #, #, #);
+// @param `{$red}` - The red value of the RYB color (0 to 255).
+// @param `{$yellow}` - The yellow value of the RYB color (0 to 255).
+// @param `{$blue}` - The blue value of the RYB color (0 to 255).
+// @param `{$alpha}` - The alpha value of the RGBA color (0 to 1).
+// @return `{color}` - The resulting RGBA color.
 //
-// @debug ryba(187, 187, 47, .5); // rgba(255, 0, 0, 0.5)
-// @debug ryba(18, 4, 60, .9); // rgba(0, 77, 255, 0.9)
-//
+// @debug ryba(187, 187, 47, .5); // rgba(255, 32, 0, 0.5)
+// @debug ryba(18, 4, 60, .9); // rgba(0, 25, 255, 0.9)
+// 
 
 @function ryba($red, $yellow, $blue, $alpha) {
   $hue: 0;
   $saturation: 0;
-  $lightness: percentage(($red + $yellow + $blue) / (255 * 3));
+  $lightness: percentage(math.div($red + $yellow + $blue, 3 * 255));
 
   @if ($red == $yellow and $yellow == $blue) {
     @return hsla(0, 0, $lightness, $alpha);
@@ -259,9 +266,9 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
   @if ($red >= $yellow and $red >= $blue) {
     $hue: 0;
   } @else if ($yellow >= $red and $yellow >= $blue) {
-    $hue: 360 / 3;
+    $hue: math.div(360, 3);
   } @else if ($blue >= $red and $blue >= $yellow) {
-    $hue: 360 / 3 * 2;
+    $hue: math.div(360, 3) * 2;
   }
   
   $results: hsla(color.hue(ryb-interpolate($hue)), 100%, 50%, 1);
@@ -269,18 +276,18 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
 }
 
 // ==========================================================================
-// ryb($red, $yellow, $blue)
+// ! # ryb($red, $yellow, $blue)
 // ==========================================================================
 //
-// return the hexdecimal of an ryb
+// Converts RYB values to a hex color.
 // 
-// @param  {value}    $red        - the r() value (0 to 255)
-// @param  {value}    $yellow     - the y() value (0 to 255)
-// @param  {value}    $blue       - the b() value (0 to 255)
-// @return {color}                - Hex color
+// @param `{$red}` - The red value of the RYB color (0 to 255).
+// @param `{$yellow}` - The yellow value of the RYB color (0 to 255).
+// @param `{$blue}` - The blue value of the RYB color (0 to 255).
+// @return `{color}` - The resulting hex color.
 //
-// @debug ryb(187, 187, 47); // red
-// @debug ryb(18, 4, 60); // #004dff
+// @debug ryb(187, 187, 47); // #ff2000
+// @debug ryb(18, 4, 60); // #0019ff
 //
 
 @function ryb($red, $yellow, $blue) {
@@ -291,37 +298,38 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
 // set-hue-ryb($color, $degree)
 // ==========================================================================
 //
-// @param  {color}    $color      - Hex color
-// @param  {number}   $degree     - Degree (0-360)
-// @return {color}                - Hex color
+// Sets the hue of a color in the RYB color space.
 //
-// @debug set-hue-ryb(#FF0000, 0);   // #ff1700
-// @debug set-hue-ryb(#FF0000, 30);  // #ff4000
-// @debug set-hue-ryb(#FF0000, 60);  // #ff8000
-// @debug set-hue-ryb(#FF0000, 90);  // #ffbf00
-// @debug set-hue-ryb(#FF0000, 120); // #FFFF00
-// @debug set-hue-ryb(#FF0000, 150); // #c5ff00
-// @debug set-hue-ryb(#FF0000, 180); // #69ff00
-// @debug set-hue-ryb(#FF0000, 210); // #00ffba
-// @debug set-hue-ryb(#FF0000, 240); // #0046ff
-// @debug set-hue-ryb(#FF0000, 270); // #6500ff
-// @debug set-hue-ryb(#FF0000, 300); // #ff00ff
-// @debug set-hue-ryb(#FF0000, 330); // #ff004f
+// @param `{$color}` - The color to be adjusted, in hex format.
+// @param `{$degree}` - The degree of the color hue to be set (0 to 360).
+// @return `{color}` - The resulting color after the hue adjustment, in hex format.
+//
+// @debug set-hue-ryb(#FF0000, 0);   // #ff2000
+// @debug set-hue-ryb(#FF0000, 30);  // #ff6000
+// @debug set-hue-ryb(#FF0000, 60);  // #ff9f00
+// @debug set-hue-ryb(#FF0000, 90);  // #ffdf00
+// @debug set-hue-ryb(#FF0000, 120); // #e3ff00
+// @debug set-hue-ryb(#FF0000, 150); // #9dff00
+// @debug set-hue-ryb(#FF0000, 180); // #00ff64
+// @debug set-hue-ryb(#FF0000, 210); // #00bdff
+// @debug set-hue-ryb(#FF0000, 240); // #0019ff
+// @debug set-hue-ryb(#FF0000, 270); // #b800ff
+// @debug set-hue-ryb(#FF0000, 300); // #ff00bb
+// @debug set-hue-ryb(#FF0000, 330); // #ff0040
 //
 
 @function set-hue-ryb($color, $degree) {
   @return color.change($color, $hue: color.hue(ryb-interpolate($degree)));
 }
 
-
 // ==========================================================================
 // complement-ryb();
 // ==========================================================================
 //
-// return the complement of a color in ryb
+// Returns the complement of a color in the RYB color space.
 // 
-// @param  {color}    $color      - Hex color
-// @return {color}                - Hex color
+// @param `{color}` - The color to find the complement of, in hex format.
+// @return `{color}` - The complement color, in hex format.
 // 
 // @debug complement-ryb(#bd43e7); // #e2e743
 // @debug complement-ryb(#e743b6); // #c8e743
@@ -335,7 +343,6 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
 // @debug complement-ryb(#43e788); // #e75643
 // @debug complement-ryb(#43b7e7); // #e77943
 // @debug complement-ryb(#434ee7); // #e7a443
-//
 
 @function complement-ryb($color) {
   @return adjust-hue-ryb($color, 180deg);
@@ -345,10 +352,10 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
 // invert-ryb($color);
 // ==========================================================================
 // 
-// return the inverse of a color in ryb
+// Returns the inverse of a color in the RYB space
 // 
-// @param  {color}    $color      - Hex color
-// @return {color}                - Hex color
+// @param `{color}` - The color to invert, in hex format.
+// @return `{color}` - The inverted color, in hex format.
 // 
 // @debug invert-ryb(#bd43e7); // #b7bc18
 // @debug invert-ryb(#e743b6); // #9dbc18

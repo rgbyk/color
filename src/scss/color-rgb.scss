@@ -1,51 +1,49 @@
 // ==========================================================================
-// @rgbyk/color-rgb.scss
+// @rgbyk/color-ryb.scss
 // ==========================================================================
 
-@forward "core" with (
+@forward "core" with ( 
+    $brand-color: #ff9900,
 
-    $brand-color: #f8485e,
-
+    // Color Model
     $color-model: rgb,
     $color-mode-harmony: true,
-
-    $color-mode-harmony-grayscale: false,
+    
+    $color-mode-harmony-grayscale: true,
     $color-mode-harmony-grayscale-cool-mix: 3%,
     $color-mode-harmony-grayscale-warm-mix: 1%,
 
-    $enable-utility-docs: true,
+    $color-scheme-primary: true !default, // [true | false] => primary scheme
 
-    $enable-utility-classes: false,
-    $enable-utility-bg: false,
-    $enable-utility-color: false,
-    $enable-utility-border: false,
-    $enable-utility-fill: false,
-    $enable-utility-stroke: false,
+    $color-scheme-achromatic: true !default, // [true | false] => achromatic scheme
+    $color-scheme-slate: true !default, // [true | false] => achromatic (slate) scheme
+    $color-scheme-stone: true !default, // [true | false] => achromatic (stone) scheme
 
-    $color-scheme-primary: true,
-    $color-scheme-achromatic: true,
-    $color-scheme-slate: true,
-    $color-scheme-stone: true,
+    $color-scheme-analogous: true !default, // [true | false] => analogous scheme
+    $color-scheme-complementary: true !default, // [true | false] => complementary scheme
+    $color-scheme-split: true !default, // [true | false] => split scheme
+    $color-scheme-square: true !default, // [true | false] => split scheme
+    $color-scheme-tetradic: true !default, // [true | false] => tetradic scheme
+    $color-scheme-triadic: true !default, // [true | false] => triadic scheme
 
-    $color-scheme-analogous: true,
-    $color-scheme-complementary: true,
-    $color-scheme-hues: true,
-    $color-scheme-split: true,
-    $color-scheme-square: true,
-    $color-scheme-tetradic: true,
-    $color-scheme-triadic: true,
+    $color-scheme-hues: true !default, // [true | false] => hue scheme
 
-    $color-scheme-danger: true,
-    $color-scheme-warning: true,
-    $color-scheme-success: true,
-    $color-scheme-info: true,
+    $color-scheme-danger: false !default, // [true | false] => danger scheme
+    $color-scheme-warning: false !default, // [true | false] => warning scheme
+    $color-scheme-success: false !default, // [true | false] => success scheme
+    $color-scheme-info: false !default, // [true | false] => info scheme
 
-    $color-scheme-alpha: true,
-    $color-scheme-equal: true,
-    $color-scheme-neutral: false,
-    $color-scheme-pastel: false,
+    $color-scheme-alpha: true !default, // [true | false] => generates alpha colors
+    $color-scheme-equal: false !default, // [true | false] => generates 1x equal color
+    $color-scheme-neutral: true !default, // [true | false] => neutral schemes
+    $color-scheme-pastel: false !default, // [true | false] => pastel scheme
 
-    $enable-root-colors: true,
+    $enable-utility-classes: false !default,
+    $enable-utility-bg: false !default,
+    $enable-utility-color: false !default,
+    $enable-utility-border: false !default,
+    $enable-utility-fill: false !default,
+    $enable-utility-stroke: false !default,
 );
 
 @use "functions";
