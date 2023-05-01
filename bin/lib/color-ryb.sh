@@ -24,5 +24,6 @@ echo $black_ "... $ sass $FILE_STYLE_RYB_DOCS;" $reset
 sass $FOLDER_SRC_SCSS/docs/$FILE_STYLE_RYB_DOCS.scss $FOLDER_DIST_ASSETS_CSS/$FILE_STYLE_RYB_DOCS.docs.css --no-source-map --style compressed --charset
 
 mv $FOLDER_DIST_ASSETS_CSS/$FILE_STYLE_RYB_DOCS.docs.css ./demo/
+cp $FOLDER_DIST_ASSETS_CSS/$FILE_STYLE_RYB_DOCS.css ./demo/
 
 echo $green_ "... $ color.sh;\n" $reset
