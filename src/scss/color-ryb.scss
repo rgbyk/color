@@ -3,7 +3,7 @@
 // ==========================================================================
 
 @forward "core" with ( 
-    $brand-color: #ff9900,
+    $brand-color: #fca296,
 
     // Color Model
     $color-model: ryb,
@@ -16,17 +16,17 @@
     $color-scheme-primary: true !default, // [true | false] => primary scheme
 
     $color-scheme-achromatic: true !default, // [true | false] => achromatic scheme
-    $color-scheme-slate: true !default, // [true | false] => achromatic (slate) scheme
+    $color-scheme-slate: false !default, // [true | false] => achromatic (slate) scheme
     $color-scheme-stone: true !default, // [true | false] => achromatic (stone) scheme
 
-    $color-scheme-analogous: true !default, // [true | false] => analogous scheme
     $color-scheme-complementary: true !default, // [true | false] => complementary scheme
-    $color-scheme-split: true !default, // [true | false] => split scheme
-    $color-scheme-square: true !default, // [true | false] => split scheme
-    $color-scheme-tetradic: true !default, // [true | false] => tetradic scheme
-    $color-scheme-triadic: true !default, // [true | false] => triadic scheme
+    $color-scheme-analogous: true !default, // [true | false] => analogous scheme
+    $color-scheme-split: false !default, // [true | false] => split scheme
+    $color-scheme-square: false !default, // [true | false] => split scheme
+    $color-scheme-tetradic: false !default, // [true | false] => tetradic scheme
+    $color-scheme-triadic: false !default, // [true | false] => triadic scheme
 
-    $color-scheme-hues: true !default, // [true | false] => hue scheme
+    $color-scheme-hues: false !default, // [true | false] => hue scheme
 
     $color-scheme-danger: false !default, // [true | false] => danger scheme
     $color-scheme-warning: false !default, // [true | false] => warning scheme

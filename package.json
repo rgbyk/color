@@ -39,7 +39,7 @@
     "css-declaration-sorter": "^6.3.1",
     "cssnano": "^5.1.15",
     "minimist": "^1.2.8",
-    "nodemon": "^2.0.21",
+    "nodemon": "^3.0.2",
     "postcss-combine-duplicated-selectors": "^10.0.3",
     "postcss-merge-idents": "^5.1.1",
     "postcss-merge-rules": "^5.1.4",
