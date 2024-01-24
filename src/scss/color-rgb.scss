@@ -1,49 +1,9 @@
 // ==========================================================================
-// @rgbyk/color-ryb.scss
+// @rgbyk/color-rgb.scss
 // ==========================================================================
 
-@forward "core" with ( 
-    $brand-color: #ff5500,
-
-    // Color Model
+@use "config" with (
     $color-model: rgb,
-    $color-mode-harmony: true,
-    
-    $color-mode-harmony-grayscale: true,
-    $color-mode-harmony-grayscale-cool-mix: 3%,
-    $color-mode-harmony-grayscale-warm-mix: 1%,
-
-    $color-scheme-primary: true !default, // [true | false] => primary scheme
-
-    $color-scheme-achromatic: true !default, // [true | false] => achromatic scheme
-    $color-scheme-slate: true !default, // [true | false] => achromatic (slate) scheme
-    $color-scheme-stone: false !default, // [true | false] => achromatic (stone) scheme
-
-    $color-scheme-complementary: true !default, // [true | false] => complementary scheme
-    $color-scheme-analogous: true !default, // [true | false] => analogous scheme
-    $color-scheme-split: true !default, // [true | false] => split scheme
-    $color-scheme-square: true !default, // [true | false] => split scheme
-    $color-scheme-tetradic: true !default, // [true | false] => tetradic scheme
-    $color-scheme-triadic: true !default, // [true | false] => triadic scheme
-
-    $color-scheme-hues: true !default, // [true | false] => hue scheme
-
-    $color-scheme-danger: true !default, // [true | false] => danger scheme
-    $color-scheme-warning: true !default, // [true | false] => warning scheme
-    $color-scheme-success: true !default, // [true | false] => success scheme
-    $color-scheme-info: true !default, // [true | false] => info scheme
-
-    $color-scheme-alpha: true !default, // [true | false] => generates alpha colors
-    $color-scheme-equal: true !default, // [true | false] => generates 1x equal color
-    $color-scheme-neutral: true !default, // [true | false] => neutral schemes
-    $color-scheme-pastel: true !default, // [true | false] => pastel scheme
-
-    $enable-utility-classes: false !default,
-    $enable-utility-bg: false !default,
-    $enable-utility-color: false !default,
-    $enable-utility-border: false !default,
-    $enable-utility-fill: false !default,
-    $enable-utility-stroke: false !default,
 );
 
 @use "functions";

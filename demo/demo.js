@@ -86,7 +86,6 @@ const ready = callback => {
 //   });
 // });
 
-
 // --------------------------------
 // rgb2hex()
 // --------------------------------
@@ -103,86 +102,101 @@ function rgb2hex(rgb) {
 // --------------------------------
 // generateSchemeRow()
 // --------------------------------
-
-function generateSchemeRow() {
+function generateSchemeRowHtml() {
     const schemeRow = document.querySelectorAll(".scheme-row--js");
     const schemeRowDepth = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'];
-    
-    [].forEach.call(schemeRow, row => {
 
+    [].forEach.call(schemeRow, row => {
         const schemeRowType = row.getAttribute("data-scheme-type");
         const schemeRowName = row.getAttribute("data-scheme-name");
-    
-        const schemeTypeAlpha = schemeRowType == "alpha";
-        const schemeTypeNeutral = schemeRowType == "neutral";
-        
+
+        const schemeTypeAlpha = schemeRowType === "alpha";
+        const schemeTypeNeutral = schemeRowType === "neutral";
+
         [].forEach.call(schemeRowDepth, depth => {
-            const schemeColorType = (() => {
-                if (schemeTypeAlpha) {
-                    return `${schemeRowName}-${depth}-rgb`;
-                } else if (schemeTypeNeutral) {
-                    return `${schemeRowName}-${depth}-neutral`;
-                } else { 
-                    return `${schemeRowName}-${depth}`; }
-            })();
-
-            let x = `<li style="background-image: linear-gradient(-35deg, rgba(var(--color-${schemeColorType}-rgb), 0.4) 20%, rgba(var(--color-${schemeColorType}-rgb), 0.6));">
-                        <figure class="scheme-row--figure" data-cs-num="${depth}" data-cs-hex data-cs-rgb data-cs-var="${schemeColorType}">
-                            <button class="reset-button scheme-color--preview" data-clipboard-text style="background-color: var(--color-${schemeColorType})"></button>
-                            <figcaption class="scheme-color--meta">
-                                <div class="scheme-color--num"><span>${depth}</span></div>
-                                <div class="scheme-color--hex"></div>
-                                <div class="scheme-color--rgb"></div>
-                                <div class="scheme-color--rgba"></div>
-                                <div class="scheme-color--var"></div>
-                            </figcaption>
-                        </figure>
-                    </li>`;
-            row.innerHTML += x;
-        });
-
-        const schemeRowColor = row.querySelectorAll(".scheme-row--figure");
-
-        [].forEach.call(schemeRowColor, color => {
-            let schemeColorPreview = color.querySelector(".scheme-color--preview");
-            let schemeColor = schemeColorPreview.parentNode;
-
-            let schemeColorRgb = schemeColor.querySelector("scheme-color--rgb");
-
-            let getSchemeColorVariable = schemeColor.getAttribute("data-cs-var");
-            let getSchemeColorRgb = window.getComputedStyle(schemeColorPreview, null).getPropertyValue("background-color");
-            let = rgbString = getSchemeColorRgb.substring(4, getSchemeColorRgb.length-1).replace(/ /g, '').split(', ');
-
-            schemeColor.querySelector(".scheme-color--var").innerHTML = `<span>--color-${getSchemeColorVariable}</span>`;
-
-            if ( schemeTypeAlpha ) {
-                setAttributes(schemeColor, { 'data-cs-rgba': getSchemeColorRgb });
-                schemeColor.querySelector(".scheme-color--rgba").innerHTML = `<span>${getSchemeColorRgb}</span>`;
-                schemeColor.querySelector(".scheme-color--hex").remove();
-                schemeColor.querySelector(".scheme-color--rgb").remove();
-                schemeColor.removeAttribute("data-cs-hex");
-                schemeColor.removeAttribute("data-cs-rgb");
-            } else {
-
-                let colorhex = rgb2hex(getSchemeColorRgb);
-                setAttributes(schemeColor, {
-                    'data-cs-hex': colorhex,
-                    'data-cs-rgb': getSchemeColorRgb
-                });
-                setAttributes(schemeColorPreview, {
-                    'data-clipboard-text': colorhex,
-                });
-
-                schemeColor.querySelector(".scheme-color--rgb").innerHTML = `<span>${rgbString}</span>`;
-                schemeColor.querySelector(".scheme-color--hex").innerHTML = `<span>${colorhex}</span>`;
-            }
-
+            const schemeColorType = getSchemeColorType(schemeTypeAlpha, schemeTypeNeutral, schemeRowName, depth);
+            row.innerHTML += createListItem(schemeColorType, depth);
         });
     });
 }
 
-// Fire
-generateSchemeRow();
+function getSchemeColorType(schemeTypeAlpha, schemeTypeNeutral, schemeRowName, depth) {
+    if (schemeTypeAlpha) {
+        return `${schemeRowName}-${depth}-rgb`;
+    } else if (schemeTypeNeutral) {
+        return `${schemeRowName}-${depth}-neutral`;
+    }
+    return `${schemeRowName}-${depth}`;
+}
+
+function createListItem(schemeColorType, depth) {
+    return `<li style="background-image: linear-gradient(-35deg, rgba(var(--color-${schemeColorType}-rgb), 0.4) 20%, rgba(var(--color-${schemeColorType}-rgb), 0.6));">
+                <figure class="scheme-row--figure" data-cs-num="${depth}" data-cs-hex data-cs-rgb data-cs-var="${schemeColorType}">
+                    <button class="reset-button scheme-color--preview" data-clipboard-text style="background-color: var(--color-${schemeColorType})"></button>
+                    <figcaption class="scheme-color--meta">
+                        <div class="scheme-color--num"><span>${depth}</span></div>
+                        <div class="scheme-color--hex"></div>
+                        <div class="scheme-color--rgb"></div>
+                        <div class="scheme-color--rgba"></div>
+                        <div class="scheme-color--var"></div>
+                    </figcaption>
+                </figure>
+            </li>`;
+}
+
+function sampleAndSetAttributes() {
+    const schemeRow = document.querySelectorAll(".scheme-row--js");
+
+    [].forEach.call(schemeRow, row => {
+        const schemeTypeAlpha = row.getAttribute("data-scheme-type") === "alpha";
+        const schemeRowColor = row.querySelectorAll(".scheme-row--figure");
+
+        [].forEach.call(schemeRowColor, color => {
+            setSchemeAttributes(color, schemeTypeAlpha);
+        });
+    });
+}
+
+function setSchemeAttributes(color, schemeTypeAlpha) {
+    let schemeColorPreview = color.querySelector(".scheme-color--preview");
+    let schemeColor = schemeColorPreview.parentNode;
+
+    let getSchemeColorVariable = schemeColor.getAttribute("data-cs-var");
+    let getSchemeColorRgb = window.getComputedStyle(schemeColorPreview, null).getPropertyValue("background-color");
+
+    schemeColor.querySelector(".scheme-color--var").innerHTML = `<span>--color-${getSchemeColorVariable}</span>`;
+
+    if (schemeTypeAlpha) {
+        handleAlphaType(schemeColor, schemeColorPreview, getSchemeColorRgb);
+    } else {
+        handleNonAlphaType(schemeColor, schemeColorPreview, getSchemeColorRgb);
+    }
+}
+
+function handleAlphaType(schemeColor, schemeColorPreview, getSchemeColorRgb) {
+    setAttributes(schemeColor, { 'data-cs-rgba': getSchemeColorRgb });
+    schemeColor.querySelector(".scheme-color--rgba").innerHTML = `<span>${getSchemeColorRgb}</span>`;
+    schemeColor.querySelector(".scheme-color--hex").remove();
+    schemeColor.querySelector(".scheme-color--rgb").remove();
+    schemeColor.removeAttribute("data-cs-hex");
+    schemeColor.removeAttribute("data-cs-rgb");
+}
+
+function handleNonAlphaType(schemeColor, schemeColorPreview, getSchemeColorRgb) {
+    let colorhex = rgb2hex(getSchemeColorRgb);
+    setAttributes(schemeColor, {
+        'data-cs-hex': colorhex,
+        'data-cs-rgb': getSchemeColorRgb
+    });
+    setAttributes(schemeColorPreview, {
+        'data-clipboard-text': colorhex,
+    });
+
+    let rgbString = getSchemeColorRgb.substring(4, getSchemeColorRgb.length - 1).replace(/ /g, '').split(', ');
+    schemeColor.querySelector(".scheme-color--rgb").innerHTML = `<span>${rgbString}</span>`;
+    schemeColor.querySelector(".scheme-color--hex").innerHTML = `<span>${colorhex}</span>`;
+}
+
 
 // --------------------------------
 // Generate Unique IDs
@@ -240,6 +254,72 @@ function colorSpectrumTable() {
 
     });
 }
+
+// --------------------------------
+// --------------------------------
+function monitorNeutralizeSelector() {
+    const neutralizeSelector = document.querySelector('#selectNeutralize');
+
+    neutralizeSelector.addEventListener('change', () => {
+        const isSelectedTrue = neutralizeSelector.value === 'true';
+
+        const pureSchemeRows = document.querySelectorAll('.scheme-row--js[data-scheme-type="pure"]');
+        const neutralSchemeRows = document.querySelectorAll('.scheme-row--js[data-scheme-type="neutral"]');
+
+        pureSchemeRows.forEach(row => {
+            row.style.display = isSelectedTrue ? 'none' : 'grid';
+            row.setAttribute('aria-hidden', isSelectedTrue);
+        });
+
+        neutralSchemeRows.forEach(row => {
+            row.style.display = isSelectedTrue ? 'grid' : 'none';
+            row.setAttribute('aria-hidden', !isSelectedTrue);
+        });
+                sampleAndSetAttributes();
+
+    });
+}
+
+
+function initializeColorSchemeSelection() {
+    const modelSelector = document.querySelector('#modelSelector');
+    const selectHarmony = document.querySelector('#selectHarmony');
+  
+    function updateStylesheet() {
+        const selectedModel = modelSelector.value;
+        const harmonyEnabled = selectHarmony.value === 'true';
+
+        const rgbStylesheetId = harmonyEnabled ? 'rgbStylesheetHarmonized' : 'rgbStylesheet';
+        const rybStylesheetId = harmonyEnabled ? 'rybStylesheetHarmonized' : 'rybStylesheet';
+
+        const allStylesheets = ['rgbStylesheet', 'rybStylesheet', 'rgbStylesheetHarmonized', 'rybStylesheetHarmonized'];
+        for (const id of allStylesheets) {
+            const stylesheet = document.getElementById(id);
+            if (stylesheet) {
+                stylesheet.disabled = true;
+            }
+        }
+
+        document.getElementById(selectedModel === 'rgb' ? rgbStylesheetId : rybStylesheetId).disabled = false;
+        sampleAndSetAttributes();
+    }
+
+    updateStylesheet();
+
+    modelSelector.addEventListener('change', updateStylesheet);
+    selectHarmony.addEventListener('change', updateStylesheet);
+}
+
+
+// --------------------------------
+// --------------------------------
+document.addEventListener('DOMContentLoaded', initializeColorSchemeSelection);
+document.addEventListener('DOMContentLoaded', function() {
+    generateSchemeRowHtml();
+    initializeColorSchemeSelection();
+    monitorNeutralizeSelector();
+});
+
 
 // --------------------------------
 // getColorPosition()

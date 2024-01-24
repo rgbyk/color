@@ -1,0 +1,6 @@
+$brand-color: #ff5733;
+@use "path/to/your/core";
+@forward "core" with (
+  $brand-color: $brand-color !default,
+  // ... (other variables)
+);

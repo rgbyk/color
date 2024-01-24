@@ -1,51 +1,9 @@
 // ==========================================================================
-// @rgbyk/color-rgb.scss
+// @rgbyk/color-ryb.scss
 // ==========================================================================
 
-@forward "core" with (
-
-    $brand-color: #f8485e,
-
+@use "config" with (
     $color-model: rgb,
-    $color-mode-harmony: false,
-
-    $color-mode-harmony-grayscale: true,
-    $color-mode-harmony-grayscale-cool-mix: 3%,
-    $color-mode-harmony-grayscale-warm-mix: 1%,
-
-    $enable-utility-docs: true,
-
-    $enable-utility-classes: false,
-    $enable-utility-bg: false,
-    $enable-utility-color: false,
-    $enable-utility-border: false,
-    $enable-utility-fill: false,
-    $enable-utility-stroke: false,
-
-    $color-scheme-primary: true,
-    $color-scheme-achromatic: true,
-    $color-scheme-slate: true,
-    $color-scheme-stone: true,
-
-    $color-scheme-analogous: true,
-    $color-scheme-complementary: true,
-    $color-scheme-hues: true,
-    $color-scheme-split: true,
-    $color-scheme-square: true,
-    $color-scheme-tetradic: true,
-    $color-scheme-triadic: true,
-
-    $color-scheme-danger: true,
-    $color-scheme-warning: true,
-    $color-scheme-success: true,
-    $color-scheme-info: true,
-
-    $color-scheme-alpha: true,
-    $color-scheme-equal: true,
-    $color-scheme-neutral: false,
-    $color-scheme-pastel: false,
-
-    $enable-root-colors: true,
 );
 
 @use "functions";

@@ -6,8 +6,13 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="robots" content="all" />
-    <link rel="stylesheet" type="text/css" href="color-rgb.css">
-    <link rel="stylesheet" type="text/css" href="color-rgb.docs.css">
+
+    <link id="rgbStylesheet" rel="stylesheet" type="text/css" href="color-rgb.docs.css" disabled>
+    <link id="rybStylesheet" rel="stylesheet" type="text/css" href="color-ryb.docs.css" disabled>
+    <link id="rgbStylesheetHarmonized" rel="stylesheet" type="text/css" href="color-rgb.harmonized.docs.css">
+    <link id="rybStylesheetHarmonized" rel="stylesheet" type="text/css" href="color-ryb.harmonized.docs.css" disabled>
+
+
     <link rel="stylesheet" href="demo.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,9 +82,8 @@
                                     <path d="M13 1.188C6.477 1.188 1.187 6.476 1.187 13S6.478 24.813 13 24.813c6.523 0 11.813-5.29 11.813-11.813 0-6.523-5.29-11.813-11.813-11.813Zm2.46 18.308c-.608.238-1.093.422-1.456.547a3.864 3.864 0 0 1-1.262.187c-.734 0-1.308-.18-1.719-.539-.406-.355-.609-.812-.609-1.367 0-.215.016-.433.047-.656.027-.227.078-.477.144-.762l.762-2.687c.067-.258.125-.5.172-.73.047-.231.066-.442.066-.634 0-.34-.07-.582-.21-.714-.145-.137-.415-.204-.813-.204a2.23 2.23 0 0 0-.605.09 9.443 9.443 0 0 0-.532.176l.203-.828c.497-.203.973-.375 1.43-.52a4.27 4.27 0 0 1 1.29-.218c.73 0 1.296.18 1.69.531.395.352.594.812.594 1.375 0 .117-.011.324-.039.617a4.225 4.225 0 0 1-.152.813l-.758 2.68c-.062.214-.117.46-.168.734a4.05 4.05 0 0 0-.07.625c0 .355.078.601.238.73.156.13.434.192.828.192.184 0 .39-.032.625-.094a3.59 3.59 0 0 0 .504-.172Zm-.136-10.879a1.802 1.802 0 0 1-1.273.492c-.496 0-.926-.164-1.281-.492a1.563 1.563 0 0 1-.532-1.191c0-.465.18-.867.532-1.2a1.813 1.813 0 0 1 1.28-.496c.497 0 .923.165 1.274.497.356.332.531.734.531 1.199 0 .465-.175.863-.53 1.191Z" /></svg>
                             </span>
                         </label>
-                        <select class="docs-label--select" name="" id="" disabled>
-                            <option value="" selected="selected">N/A</option>
-                            <option value="rgb">RGB</option>
+                        <select class="docs-label--select" name="" id="modelSelector">
+                            <option value="rgb" selected="selected">RGB</option>
                             <option value="ryb">RYB</option>
                         </select>
                     </div>
@@ -94,9 +98,8 @@
                                     <path d="M13 1.188C6.477 1.188 1.187 6.476 1.187 13S6.478 24.813 13 24.813c6.523 0 11.813-5.29 11.813-11.813 0-6.523-5.29-11.813-11.813-11.813Zm2.46 18.308c-.608.238-1.093.422-1.456.547a3.864 3.864 0 0 1-1.262.187c-.734 0-1.308-.18-1.719-.539-.406-.355-.609-.812-.609-1.367 0-.215.016-.433.047-.656.027-.227.078-.477.144-.762l.762-2.687c.067-.258.125-.5.172-.73.047-.231.066-.442.066-.634 0-.34-.07-.582-.21-.714-.145-.137-.415-.204-.813-.204a2.23 2.23 0 0 0-.605.09 9.443 9.443 0 0 0-.532.176l.203-.828c.497-.203.973-.375 1.43-.52a4.27 4.27 0 0 1 1.29-.218c.73 0 1.296.18 1.69.531.395.352.594.812.594 1.375 0 .117-.011.324-.039.617a4.225 4.225 0 0 1-.152.813l-.758 2.68c-.062.214-.117.46-.168.734a4.05 4.05 0 0 0-.07.625c0 .355.078.601.238.73.156.13.434.192.828.192.184 0 .39-.032.625-.094a3.59 3.59 0 0 0 .504-.172Zm-.136-10.879a1.802 1.802 0 0 1-1.273.492c-.496 0-.926-.164-1.281-.492a1.563 1.563 0 0 1-.532-1.191c0-.465.18-.867.532-1.2a1.813 1.813 0 0 1 1.28-.496c.497 0 .923.165 1.274.497.356.332.531.734.531 1.199 0 .465-.175.863-.53 1.191Z" /></svg>
                             </span>
                         </label>
-                        <select class="docs-label--select" name="" id="" disabled>
-                            <option value="" selected="selected">N/A</option>
-                            <option value="true">True</option>
+                        <select class="docs-label--select" name="" id="selectHarmony">
+                            <option value="true" selected>True</option>
                             <option value="false">False</option>
                         </select>
                     </div>
@@ -111,10 +114,9 @@
                                     <path d="M13 1.188C6.477 1.188 1.187 6.476 1.187 13S6.478 24.813 13 24.813c6.523 0 11.813-5.29 11.813-11.813 0-6.523-5.29-11.813-11.813-11.813Zm2.46 18.308c-.608.238-1.093.422-1.456.547a3.864 3.864 0 0 1-1.262.187c-.734 0-1.308-.18-1.719-.539-.406-.355-.609-.812-.609-1.367 0-.215.016-.433.047-.656.027-.227.078-.477.144-.762l.762-2.687c.067-.258.125-.5.172-.73.047-.231.066-.442.066-.634 0-.34-.07-.582-.21-.714-.145-.137-.415-.204-.813-.204a2.23 2.23 0 0 0-.605.09 9.443 9.443 0 0 0-.532.176l.203-.828c.497-.203.973-.375 1.43-.52a4.27 4.27 0 0 1 1.29-.218c.73 0 1.296.18 1.69.531.395.352.594.812.594 1.375 0 .117-.011.324-.039.617a4.225 4.225 0 0 1-.152.813l-.758 2.68c-.062.214-.117.46-.168.734a4.05 4.05 0 0 0-.07.625c0 .355.078.601.238.73.156.13.434.192.828.192.184 0 .39-.032.625-.094a3.59 3.59 0 0 0 .504-.172Zm-.136-10.879a1.802 1.802 0 0 1-1.273.492c-.496 0-.926-.164-1.281-.492a1.563 1.563 0 0 1-.532-1.191c0-.465.18-.867.532-1.2a1.813 1.813 0 0 1 1.28-.496c.497 0 .923.165 1.274.497.356.332.531.734.531 1.199 0 .465-.175.863-.53 1.191Z" /></svg>
                             </span>
                         </label>
-                        <select class="docs-label--select" name="" id="" disabled>
-                            <option value="" selected="selected">N/A</option>
+                        <select class="docs-label--select" name="" id="selectNeutralize">
                             <option value="true">True</option>
-                            <option value="false">False</option>
+                            <option value="false" selected="selected">False</option>
                         </select>
                     </div>
                     <h3><span>Accessibility</span></h3>
@@ -184,9 +186,6 @@
                             </li>
                         </ol>
                     </div>
-                    <button>
-                        <span>View All Color Schemes</span>
-                    </button>
                 </article>
                 <article class="docs-section" id="section-cs--complementary">
                     <header class="scheme-row--header">
@@ -556,28 +555,28 @@
                     </header>
                     <div class="scheme-row--article">
                         <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-1" data-scheme-type="pure" aria-hidden="false"></ol>
-                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-1" data-scheme-type="neutral" aria-hidden="true"></ol>
                         <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-2" data-scheme-type="pure" aria-hidden="false"></ol>
-                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-2" data-scheme-type="neutral" aria-hidden="true"></ol>
                         <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-3" data-scheme-type="pure" aria-hidden="false"></ol>
-                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-3" data-scheme-type="neutral" aria-hidden="true"></ol>
                         <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-4" data-scheme-type="pure" aria-hidden="false"></ol>
-                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-4" data-scheme-type="neutral" aria-hidden="true"></ol>
                         <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-5" data-scheme-type="pure" aria-hidden="false"></ol>
-                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-5" data-scheme-type="neutral" aria-hidden="true"></ol>
                         <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-6" data-scheme-type="pure" aria-hidden="false"></ol>
-                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-6" data-scheme-type="neutral" aria-hidden="true"></ol>
                         <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-7" data-scheme-type="pure" aria-hidden="false"></ol>
-                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-7" data-scheme-type="neutral" aria-hidden="true"></ol>
                         <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-8" data-scheme-type="pure" aria-hidden="false"></ol>
-                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-8" data-scheme-type="neutral" aria-hidden="true"></ol>
                         <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-9" data-scheme-type="pure" aria-hidden="false"></ol>
-                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-9" data-scheme-type="neutral" aria-hidden="true"></ol>
                         <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-10" data-scheme-type="pure" aria-hidden="false"></ol>
-                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-10" data-scheme-type="neutral" aria-hidden="true"></ol>
                         <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-11" data-scheme-type="pure" aria-hidden="false"></ol>
-                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-11" data-scheme-type="neutral" aria-hidden="true"></ol>
                         <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-12" data-scheme-type="pure" aria-hidden="false"></ol>
+                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-1" data-scheme-type="neutral" aria-hidden="true"></ol>
+                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-2" data-scheme-type="neutral" aria-hidden="true"></ol>
+                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-3" data-scheme-type="neutral" aria-hidden="true"></ol>
+                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-4" data-scheme-type="neutral" aria-hidden="true"></ol>
+                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-5" data-scheme-type="neutral" aria-hidden="true"></ol>
+                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-6" data-scheme-type="neutral" aria-hidden="true"></ol>
+                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-7" data-scheme-type="neutral" aria-hidden="true"></ol>
+                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-8" data-scheme-type="neutral" aria-hidden="true"></ol>
+                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-9" data-scheme-type="neutral" aria-hidden="true"></ol>
+                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-10" data-scheme-type="neutral" aria-hidden="true"></ol>
+                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-11" data-scheme-type="neutral" aria-hidden="true"></ol>
                         <ol class="scheme-row scheme-row--js cvd" data-scheme-name="hue-12" data-scheme-type="neutral" aria-hidden="true"></ol>
                     </div>
                 </article>
@@ -605,17 +604,18 @@
                     </header>
                     <div class="scheme-row--article">
                         <ol class="scheme-row scheme-row--js cvd" data-scheme-name="success" data-scheme-type="pure" aria-hidden="false"></ol>
-                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="success" data-scheme-type="neutral" aria-hidden="true"></ol>
                         <ol class="scheme-row scheme-row--js cvd" data-scheme-name="danger" data-scheme-type="pure" aria-hidden="false"></ol>
-                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="danger" data-scheme-type="neutral" aria-hidden="true"></ol>
                         <ol class="scheme-row scheme-row--js cvd" data-scheme-name="warning" data-scheme-type="pure" aria-hidden="false"></ol>
-                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="warning" data-scheme-type="neutral" aria-hidden="true"></ol>
                         <ol class="scheme-row scheme-row--js cvd" data-scheme-name="info" data-scheme-type="pure" aria-hidden="false"></ol>
+
+                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="success" data-scheme-type="neutral" aria-hidden="true"></ol>
+                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="danger" data-scheme-type="neutral" aria-hidden="true"></ol>
+                        <ol class="scheme-row scheme-row--js cvd" data-scheme-name="warning" data-scheme-type="neutral" aria-hidden="true"></ol>
                         <ol class="scheme-row scheme-row--js cvd" data-scheme-name="info" data-scheme-type="neutral" aria-hidden="true"></ol>
                     </div>
                 </article>
             </section>
-            <section id="section-about">
+            <section class="content-section" id="section-about">
                 <header class="docs-header">
                     <div class="docs-header--title">
                         <h2>
@@ -628,7 +628,7 @@
                     </div>
                 </header>
             </section>
-            <section id="section-maintenance">
+            <section class="content-section" id="section-maintenance">
                 <header class="docs-header">
                     <div class="docs-header--title">
                         <h2>
@@ -640,7 +640,7 @@
                     </div>
                 </header>
             </section>
-            <section id="section-license">
+            <section class="content-section" id="section-license">
                 <header class="docs-header">
                     <div class="docs-header--title">
                         <h2>
@@ -653,7 +653,7 @@
                     </div>
                 </header>
             </section>
-            <section id="section-utility">
+            <section class="content-section" id="section-utility">
                 <header class="docs-header">
                     <div class="docs-header--title">
                         <h2>
@@ -673,7 +673,7 @@
                     </div>
                 </header>
             </section>
-            <section id="section-features">
+            <section class="content-section" id="section-features">
                 <header class="docs-header">
                     <div class="docs-header--title">
                         <h2>
@@ -691,7 +691,7 @@
                     </div>
                 </header>
             </section>
-            <section id="section-theory">
+            <section class="content-section" id="section-theory">
                 <header class="docs-header">
                     <div class="docs-header--title">
                         <h2>
@@ -817,13 +817,15 @@
                     </div>
                 </article>
             </section>
-            <section>
-                <header>
-                    <h3>
-                        <a href="#">
-                            <span>01. Hues</span>
-                        </a>
-                    </h3>
+            <section class="content-section">
+                <header class="docs-header">
+                    <div class="docs-header--title">
+                        <h3>
+                            <a href="#">
+                                <span>01. Hues</span>
+                            </a>
+                        </h3>
+                    </div>
                 </header>
                 <article>
                     <div>
@@ -851,13 +853,15 @@
                     </div>
                 </article>
             </section>
-            <section>
-                <header>
-                    <h3>
-                        <a href="#">
-                            <span>02. Values</span>
-                        </a>
-                    </h3>
+            <section class="content-section">
+                <header class="docs-header">
+                    <div class="docs-header--title">
+                        <h3>
+                            <a href="#">
+                                <span>02. Values</span>
+                            </a>
+                        </h3>
+                    </div>
                 </header>
                 <article>
                     <div>
@@ -890,13 +894,15 @@
                     </div>
                 </article>
             </section>
-            <section>
-                <header>
-                    <h3>
-                        <a href="#">
-                            <span>03. Chromas</span>
-                        </a>
-                    </h3>
+            <section class="content-section">
+                <header class="docs-header">
+                    <div class="docs-header--title">
+                        <h3>
+                            <a href="#">
+                                <span>03. Chromas</span>
+                            </a>
+                        </h3>
+                    </div>
                 </header>
                 <article>
                     <div>
@@ -910,7 +916,7 @@
                     </div>
                 </article>
             </section>
-            <section>
+            <section class="content-section">
                 <!-- Spectrum Table -->
                 <table class="table demo-colorspectrum-table primary chroma-show--var value-show--var" style="display: ;">
                     <thead>
@@ -1480,21 +1486,25 @@
     <script src="demo.js"></script>
     <script src="clipboard.min.js"></script>
     <script>
-    var clipboard = new ClipboardJS('.scheme-color--preview');
+    const initializeClipboard = () => {
+        const clipboard = new ClipboardJS('.scheme-color--preview');
 
-    clipboard.on('success', function(e) {
-        console.info('Action:', e.action);
-        console.info('Text:', e.text);
-        console.info('Trigger:', e.trigger);
+        clipboard.on('success', e => {
+            console.info('Action:', e.action);
+            console.info('Text:', e.text);
+            console.info('Trigger:', e.trigger);
 
-        e.clearSelection();
-    });
+            e.clearSelection();
+        });
 
-    clipboard.on('error', function(e) {
-        console.error('Action:', e.action);
-        console.error('Trigger:', e.trigger);
-    });
+        clipboard.on('error', e => {
+            console.error('Action:', e.action);
+            console.error('Trigger:', e.trigger);
+        });
+    };
     </script>
+
+
     <svg style="display:none;" xmlns="http://www.w3.org/2000/svg">
         <defs>
             <symbol id="icon-copy" viewBox="0 0 32 32">

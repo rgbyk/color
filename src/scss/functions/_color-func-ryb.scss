@@ -198,7 +198,7 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
 
 @function color-mix($color1, $color2, $percent: 50%, $model: null) {  
   // $decimal: abs($percent - 100%) / 100%;
-  $decimal: math.div(abs($percent - 100%), 100%);
+  $decimal: math.div(math.abs(-1 * ($percent - 100%)), 100%);
   
   $hue-offset: ();
 

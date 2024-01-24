@@ -933,10 +933,19 @@ body {
      margin: 0;
      border: 1px solid var(--color-slate-700);
 }
+.transitioning .scheme-row--article {
+  transition-duration: 100ms;
+  transition-property: all;
+  opacity: 0;
+}
 
 .docs-header { margin: 0 0 1.563rem; }
+.docs-header:last-of-type { margin-bottom: 0; }
 
-.docs-header--title h2 { font-size: 18px; }
+.docs-header--title h2 { font-size: 22px; margin-bottom: 1.25em; }
+.docs-header--title h3 { font-size: 18px; margin-bottom: 1.25em; }
+.docs-header--title p { line-height: 1.563; font-size: 16px; text-wrap: pretty; max-width: 39em; }
+.docs-header--title p + p { margin-top: 1em;  }
 .docs-header--title a {
     text-decoration: none;
     color: inherit;
@@ -979,8 +988,8 @@ body {
 
 .docs-section + .docs-section { 
 
-    margin-top: 3rem;
-    padding-top: 3rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
@@ -1239,7 +1248,11 @@ ol[data-scheme-name]::before {
     z-index: 1;
 }
 
-.scheme-row + .scheme-row { margin-top: 10px; }
+.scheme-row:first-of-type { margin-top: 0; }
+
+.scheme-row[aria-hidden="false"] + .scheme-row { margin-top: 10px; }
+.scheme-row[aria-hidden="true"] + .scheme-row { margin-top: 0; }
+
 
 .scheme-row[data-scheme-type="neutral"] {}
 .scheme-row[data-scheme-type="alpha"] .scheme-color--preview {
@@ -1456,6 +1469,30 @@ ol[data-scheme-name]::before {
 .scheme-color--meta .scheme-color--var { display: none; }
 
 
+.content-section {
+  padding-top: 2.441rem;
+  padding-bottom: 2.441rem;
+  border-top: 1px solid var(--color-slate-500);
+}
+
+.content-section ol {
+  list-style: disc;
+  list-style-position: inside;
+  margin-top: 1em;
+}
+
+.content-section table {
+  margin-top: 1.563em;
+  margin-bottom: 1.563em;
+  border-collapse: collapse;
+  border: 1px solid var(--color-slate-600);
+  color: var(--color-white);
+  font-size: 16px;
+}
+
+.content-section table td {
+  border: 1px solid var(--color-slate-600);
+}
 
 /*======================================
 =            Color Spectrum            =

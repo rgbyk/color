@@ -1,12 +1,12 @@
 // ==========================================================================
-// @rgbyk/docs/color-ryb.scss
+// @rgbyk/docs/color-ryb.harmonized.scss
 // ==========================================================================
 
 @use "../config" with (
     $color-model: ryb,
-    $color-mode-harmony: false,
+    $color-mode-harmony: true,
     $enable-utility-docs: true,
-    $color-mode-harmony-grayscale: false,
+    $color-mode-harmony-grayscale: true,
     $color-scheme-achromatic: true,
     $color-scheme-slate: true,
     $color-scheme-stone: true,

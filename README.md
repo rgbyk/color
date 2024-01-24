@@ -20,6 +20,7 @@ The RGBYK Color System was developed as part of a research project on web access
 - Creating a cohesive color scheme for a brand or product.
 
 ## Key Features
+- Avaialble as CLI tool, NPM package
 - Create fully documented color systems for easy integration into web or app development.
 - Generate a suite of utility classes with customizable CSS custom properties (variables) or HEX values.
 - Switch between RGB/RYB color modes.
@@ -40,11 +41,13 @@ Please note that `@rgbyk/color` is currently being upgraded to use Dart-Sass. Mo
 
 ----
 
-## Installation
+## Get Started
 
 ### Requirements
 - [Node.js](https://nodejs.org/) v19.0.0
-- [SASS](https://sass-lang.com/dart-sass) v1.26.0 (compiled with dart2js 2.7.1)
+- [DartSASS](https://sass-lang.com/dart-sass) v1.26.0 (compiled with dart2js 2.7.1)
+
+## Installation
 
 You can install `@rgbyk/color` anywhere using NPM:
 
@@ -59,7 +62,107 @@ Alternatively, you can install it as a standalone package using the following co
 $ npm run rgbyk-unpack
 ```
 
-## CLI Commands
+## `RGBYKCOLOR` Class
+
+The `RGBYKCOLOR` class offers a suite of methods to dynamically control and update SASS variables within a configuration file. This flexibility facilitates the customization of color schemes and settings directly from Node.js, enhancing the development workflow for styling.
+
+### Methods
+All methods in the `RGBYKCOLOR` class are synchronous and directly update the SASS configuration file.
+
+- `updateColor(hex)`: Updates the primary color of the color system
+- `updateColorModel(model)` (string): Switches between `RGB` and `RYB` color models.
+- `generateColorScheme()`: Generates a color scheme based on the current color model.
+- `compileSass()`: Compiles SASS using Dart Sass, useful for converting SASS to CSS.
+- `copyFiles(outputPath)`: Copies generated files to the specified output path.
+- `outputPath` (string): The destination path where the compiled files will be copied.
+
+### Basic Example
+
+```
+const RGBYKCOLOR = require('./class/index.js');
+
+const colorGen = new RGBYKCOLOR();
+
+// Update the brand color and other configurations
+colorGen.updateColorAndConfig('#0ae448', {
+  colorMode: 'all',
+  colorModeHarmony: true,
+  colorModeHarmonyGrayscale: false,
+  colorModeHarmonyGrayscaleCoolMix: '3%',
+  colorModeHarmonyGrayscaleWarmMix: '1%',
+  colorSchemeAchromatic: true,
+});
+
+// Compile SCSS with the new configuration
+colorGen.compileSCSS();
+colorGen.compileDocumentationSass(); // Add this line
+
+// Post-process with PostCSS
+colorGen.postProcessWithPostCSS(`./dist/color-${colorGen.colorModel}.css`);
+```
+
+### Setting Color
+
+```node
+const RGBYKCOLOR = require('./cli/index.js');
+const colorGen = new RGBYKCOLOR();
+
+colorGen.updateColor('#ff5733');
+```
+
+### Color Models
+`colorGen.updateColorModel('ryb'); // or 'rgb'`
+
+### Color Harmony
+Set a color harmony across all generated schemes:
+- `setColorModeHarmony(boolean)` - Sets color harmony mode for all color schemes
+
+Sets the cool or warm mix percentage for the grayscale in the color harmony mode.
+- `setColorModeHarmonyGrayscale(boolean)`: Enables or disables color harmony for grayscale colors
+- `setColorModeHarmonyGrayscaleCoolMix(value)`: (string): Sets the percentage of mixing for cool grayscale colors in string format (e.g., '3%')
+- `setColorModeHarmonyGrayscaleWarmMix(value)`: (string): Sets the percentage of mixing for warm grayscale colors in string format (e.g., '1%')
+
+Example:
+
+```node
+const RGBYKCOLOR = require('./cli/index.js');
+
+const colorGen = new RGBYKCOLOR();
+
+colorGen.setColorModeHarmonyGrayscale('true');
+colorGen.setColorModeHarmonyGrayscaleCoolMix('5%');
+colorGen.setColorModeHarmonyGrayscaleWarmMix('2%');
+colorGen.setColorSchemeAchromatic('true');
+```
+
+### Color Schemes (Primaries)
+`setColorSchemeX(bool)` (e.g., `setColorSchemeAchromatic(bool)`):
+
+- `setColorSchemeAchromatic(bool)` - generates a grayscale color scheme
+- `setColorSchemeSlate(bool)` - generates a cool grayscale color scheme
+- `setColorSchemeStone(bool)` - generates a warm grayscale color scheme
+- `setColorSchemeComplementary(bool)` - generates the complementary color scheme
+- `setColorSchemeAnalogous(bool)` - generates the analogous color scheme
+- `setColorSchemeSplit(bool)` - generates the split color scheme
+- `setColorSchemeSquare(bool)` - generates the square color scheme
+- `setColorSchemeTetradic(bool)` - generates the tetradic color scheme
+- `setColorSchemeTriadic(bool)` - generates the triadic color scheme
+- `setColorSchemeHues(bool)` - generates the hue (1-12) color scheme 
+
+### Color Schemes (UI Color)
+- `setColorSchemeDanger(bool)` - generates the danger color scheme
+- `setColorSchemeWarning(bool)` - generates the warning color scheme
+- `setColorSchemeInfo(bool)` - generates the info color scheme
+- `setColorSchemeSuccess(bool)` - generates the success color scheme
+
+### Color Scheme (Options)
+- `setColorSchemeAlpha(bool)` - generates the `r, g, b` value for all enabled color schemes
+- `setColorSchemeNeutral(bool)` - generates the neutral version of all enabled color schemes
+
+- `setColorSchemeEqual(bool)` - *experimental* generates the equalized version of all enabled color schemes
+- `setColorSchemePastel(bool)` - *experimental* generates the pastel version of all enabled color scheme
+
+## CLI
 
 `@rgbyk/color` comes with several CLI commands that you can use to compile SCSS files. These include:
 
@@ -86,19 +189,19 @@ $ npm run color-rgb
 
 ----
 
-## API
+## API Documentation
 
-### Basic Usage (NPM)
+### Basic Usage
 ```scss
-@forward "@rgbyk/color/src/scss/core" with (
+@use "../path/to/config" with (
     $brand-color: #432dd9,
     $color-model: ryb,
     $color-mode-harmony: true
 );
 
-@use "../../node_modules/@rgbyk/color/src/scss/functions";
-@use "../../node_modules/@rgbyk/color/src/scss/schemes";
-@use "../../node_modules/@rgbyk/color/src/scss/utilities";
+@use "../path/to/functions";
+@use "../path/to/schemes";
+@use "../path/to/utilities";
 ```
 
 ## Advanced Usage
