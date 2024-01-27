@@ -865,7 +865,6 @@ body {
 
 .docs-grid {
     display: grid;
-    padding: var(--grid-pad);
     grid-gap: var(--grid-gap);
     grid-template-areas:
         "rainbow"

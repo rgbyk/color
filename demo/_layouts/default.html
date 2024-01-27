@@ -7,11 +7,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="robots" content="all" />
 
+
+  <link rel="preload" as="style" href="assets/css/color.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/color.harmonized.docs.css" onload="this.rel='stylesheet'">
+
+  <link rel="preload" as="style" href="assets/css/0ae448.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/0ae448.harmonized.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/1877f2.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/1877f2.harmonized.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/1da1f2.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/1da1f2.harmonized.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/ed1c16.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/ed1c16.harmonized.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/ee3322.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/ee3322.harmonized.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/ff0000.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/ff0000.harmonized.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/a4c639.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/a4c639.harmonized.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/2a5934.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/2a5934.harmonized.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/1769ff.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/1769ff.harmonized.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/ffb900.docs.css" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="assets/css/ffb900.harmonized.docs.css" onload="this.rel='stylesheet'">
+
   <link rel="stylesheet" href="assets/css/style.css">
-
-
-  <link id="stylesheet" rel="stylesheet" type="text/css" href="assets/css/1877f2.docs.css">
-  <link id="stylesheetHarmonized" rel="stylesheet" type="text/css" href="assets/css/1877f2.harmonized.docs.css" disabled>
+  <link id="stylesheet" rel="stylesheet" type="text/css" href="assets/css/color.docs.css">
+  <link id="stylesheetHarmonized" rel="stylesheet" type="text/css" href="assets/css/color.harmonized.docs.css"
+    disabled>
 
   <title>{{ page.title }}</title>
   <meta name="description" content="{{ page.description }}">
@@ -20,24 +44,35 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap">
 </head>
+
 <body>
   {% include symbols.html %}
-
-  <div class="container my-5">
-    <div class="row">
-      <div class="col">
-  {% include header.html %}
-  <div class="docs-grid">
-  {% include aside.html %}
-  <div class="docs-grid--main">
-  {{ content }}
-  </div>
-  </div>      
+  <div id="smooth-wrapper">
+    <div class="container my-5">
+      <div class="row" id="smooth-content">
+        <div class="col">
+          {% include header.html %}
+          <div class="docs-grid">
+            {% include aside.html %}
+            <div class="docs-grid--main">
+              {{ content }}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="assets/js/package/dist/all.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+    // ScrollTrigger.normalizeScroll(true)
+    let smoother = ScrollSmoother.create({
+      smooth: 1,
+      smoothTouch: true,
+      effects: false,
+    });
+  </script>
   <script src="assets/js/app.js"></script>
-
 </body>
 </html>

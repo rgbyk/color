@@ -346,20 +346,20 @@ function monitorColorSelector() {
     const selectColor = document.querySelector('#selectColor');
 
     // Preload links for each color option
-    Array.from(selectColor.options).forEach(option => {
-        const colorScheme = option.value;
-        const preloadLink = document.createElement('link');
-        preloadLink.rel = 'preload';
-        preloadLink.as = 'style';
-        preloadLink.href = `assets/css/${colorScheme}.docs.css`;
-        document.head.appendChild(preloadLink);
+    // Array.from(selectColor.options).forEach(option => {
+    //     const colorScheme = option.value;
+    //     const preloadLink = document.createElement('link');
+    //     preloadLink.rel = 'preload';
+    //     preloadLink.as = 'style';
+    //     preloadLink.href = `assets/css/${colorScheme}.docs.css`;
+    //     document.head.appendChild(preloadLink);
 
-        const preloadLinkHarmonized = document.createElement('link');
-        preloadLinkHarmonized.rel = 'preload';
-        preloadLinkHarmonized.as = 'style';
-        preloadLinkHarmonized.href = `assets/css/${colorScheme}.harmonized.docs.css`;
-        document.head.appendChild(preloadLinkHarmonized);
-    });
+    //     const preloadLinkHarmonized = document.createElement('link');
+    //     preloadLinkHarmonized.rel = 'preload';
+    //     preloadLinkHarmonized.as = 'style';
+    //     preloadLinkHarmonized.href = `assets/css/${colorScheme}.harmonized.docs.css`;
+    //     document.head.appendChild(preloadLinkHarmonized);
+    // });
 
     function updateStylesheet() {
         const colorScheme = selectColor.value;
@@ -506,33 +506,3 @@ document.addEventListener('DOMContentLoaded', function() {
 // ready(() => {
 //     getColorSelected("primary");
 // });
-
-
-
-// Smooth scrolling.
-let lenis;
-const initSmoothScrolling = () => {
-    lenis = new Lenis({
-        lerp: 0.1,
-        smoothWheel: true,
-        orientation: 'vertical',
-    });
-    
-    lenis.on('scroll', () => ScrollTrigger.update());
-    
-    const scrollFn = () => {
-        lenis.raf();
-        requestAnimationFrame(scrollFn);
-    };
-    requestAnimationFrame(scrollFn);
-};
-
-// .content elements
-const contentElems = [...document.querySelectorAll('.content')];
-contentElems.forEach(el => new Content(el));
-
-// smooth scrolling with Lenis
-initSmoothScrolling();
-
-// Preload images then remove loader (loading class) from body
-preloadImages('.canvas-wrap').then(() => document.body.classList.remove('loading'));
