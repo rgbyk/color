@@ -1,4 +1,4 @@
-const RGBYKCOLOR = require('./class/index.js');
+const RGBYKCOLOR = require('./app/index.js');
 
 const colorGen = new RGBYKCOLOR();
 
@@ -6,9 +6,9 @@ const colorGen = new RGBYKCOLOR();
 colorGen.updateColorAndConfig('#0ae448', {
   colorMode: 'all',
   colorModeHarmony: true,
-  colorModeHarmonyGrayscale: false,
-  colorModeHarmonyGrayscaleCoolMix: '3%',
-  colorModeHarmonyGrayscaleWarmMix: '1%',
+  colorModeHarmonyGrayscale: true,
+  // colorModeHarmonyGrayscaleCoolMix: '3%',
+  // colorModeHarmonyGrayscaleWarmMix: '2%',
   colorSchemeAchromatic: true,
 });
 
@@ -17,6 +17,6 @@ colorGen.compileSCSS();
 colorGen.compileDocumentationSass(); // Add this line
 
 // Post-process with PostCSS
-colorGen.postProcessWithPostCSS(`./dist/assets/css/color.css`);
+colorGen.postProcessWithPostCSS(`./demo/assets/css/color.css`);
 // colorGen.postGenerateActions('./demo');
 colorGen.generateHarmonizedFiles();

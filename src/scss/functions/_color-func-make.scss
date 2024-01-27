@@ -144,30 +144,35 @@
 
 @function make-color-neutral($color) {
   $complementary: color.complement($color);
+  $weight: 23%;
 
   @if cfi.is-color-highest-key-value($color) {
     @if cfi.is-color-high-key-value($complementary) {
-      @return color.mix($complementary, $color, $weight: 19%);
+      $weight: 19%;
     } @else {
-      @return color.mix($complementary, $color, $weight: 13%);
+      $weight: 13%;
     }
   } @else if cfi.is-color-high-key-value($color) {
     @if cfi.is-color-high-key-value($complementary) {
-      @return color.mix($complementary, $color, $weight: 31%);
+      $weight: 31%;
     } @else {
-      @return color.mix($complementary, $color, $weight: 23%);
+      $weight: 23%;
     }
   } @else {
     @if cfi.is-color-highest-key-value($complementary) {
-      @return color.mix($complementary, $color, $weight: 31%);
-    }
-    @if cfi.is-color-high-key-value($complementary) {
-      @return color.mix($complementary, $color, $weight: 26%);
+      $weight: 31%;
     } @else {
-      @return color.mix($complementary, $color, $weight: 23%);
+      @if cfi.is-color-high-key-value($complementary) {
+        $weight: 26%;
+      } @else {
+        $weight: 23%;
+      }
     }
   }
+
+  @return color.mix($complementary, $color, $weight: $weight);
 }
+
 
 // ==========================================================================
 // make-color-mono($color, $weight)

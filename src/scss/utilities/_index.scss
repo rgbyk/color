@@ -77,7 +77,7 @@
 			--#{$name}: #{$hex};
 		}
 
-			@each $name, $hex in maps.$color-scheme-map {
+		@each $name, $hex in maps.$color-scheme-map {
 				@if (str-index($name, "black")) or 
 						(str-index($name, "white")) or
 						(str-index($name, "grey")) or
@@ -86,7 +86,22 @@
 				@else {
 					@if core.$color-scheme-neutral {
 						$hex-neutral: functions.make-color-neutral($hex);
-						--#{$name}-neutral: #{$hex-neutral};
+						--#{$name}n: #{$hex-neutral};
+				}
+			}
+		}
+
+		@each $name, $hex in maps.$color-scheme-map {
+				@if (str-index($name, "black")) or 
+						(str-index($name, "white")) or
+						(str-index($name, "grey")) or
+						(str-index($name, "slate")) or
+						(str-index($name, "stone")) {}
+				@else {
+					@if core.$color-scheme-neutral {
+						$hex-neutral: functions.make-color-neutral($hex);
+						$hex-neutral-alpha: color.red($hex-neutral), color.green($hex-neutral), color.blue($hex-neutral);
+						--#{$name}an: #{$hex-neutral-alpha};
 				}
 			}
 		}
@@ -94,7 +109,7 @@
 		@if core.$color-scheme-alpha {
 			@each $name, $hex in maps.$color-scheme-map {
 				$hex-alpha: color.red($hex), color.green($hex), color.blue($hex);
-				--#{$name}-alpha: #{$hex-alpha};
+				--#{$name}a: #{$hex-alpha};
 			}
 		}
 
@@ -108,7 +123,7 @@
 				@else if (str-index($name, "400")) {
 					$hex-pastel: functions.make-color-pastel($hex);
 					$name: str-replace($name, '-400', '');
-					--color-#{$name}-pastel: #{$hex-pastel};
+					--color-#{$name}p: #{$hex-pastel};
 				}
 				
 				@else {}

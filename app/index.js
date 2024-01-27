@@ -68,7 +68,7 @@ postProcessWithPostCSS(inputCSSFile, colorModel = 'all') {
 // Compile Documentation Sass
 compileDocumentationSass(colorModel = 'all') {
   try {
-      const DocsCommand = `sass ./src/scss/docs/color.scss ./demo/color.docs.css --no-source-map --style compressed --charset`;
+      const DocsCommand = `sass ./src/scss/docs/color.scss ./demo/assets/css/color.docs.css --no-source-map --style compressed --charset`;
       this.executeCommand(DocsCommand, 'Documentation Sass compilation failed', '\x1b[36mDocumentation Sass Success\x1b[0m');
 
     console.log('Documentation Sass compiled successfully');
@@ -80,7 +80,7 @@ compileDocumentationSass(colorModel = 'all') {
 // Generate Harmonized Files
 generateHarmonizedFiles(colorModel = 'all') {
   try {
-    const demoPath = './demo/';
+    const demoPath = './demo/assets/css/';
     
     const DocsCommand = `sass ./src/scss/docs/color.scss ${demoPath}/color.docs.css --no-source-map --style compressed --charset`;
     const DocsHarmonizedCommand = `sass ./src/scss/docs/color.harmonized.scss ${demoPath}/color.harmonized.docs.css --no-source-map --style compressed --charset`;
@@ -106,7 +106,7 @@ generateColorScheme() {
 
 postGenerateActions(outputPath) {
   try {
-    const demoPath = './demo/';
+    const demoPath = './demo/assets/css/';
     const compiledFilePath = `${outputPath}/color-${this.colorModel}.css`;
 
     this.copyFile(compiledFilePath, `${demoPath}/color-${this.colorModel}.css`);

@@ -116,7 +116,7 @@ function generateSchemeRowHtml() {
 
         [].forEach.call(schemeRowDepth, depth => {
             const schemeColorType = getSchemeColorType(schemeTypeAlpha, schemeModel, schemeTypeNeutral, schemeRowName, depth);
-            row.innerHTML += createListItem(schemeColorType, depth);
+            row.innerHTML += createListItem(schemeColorType, schemeModel, depth);
         });
     });
 }
@@ -125,31 +125,37 @@ function getSchemeColorType(schemeTypeAlpha, schemeModel, schemeTypeNeutral, sch
 if (['primary', 'slate', 'stone', 'grey'].includes(schemeRowName)) {
 
         if (schemeTypeAlpha) {
-            return `${schemeRowName}-${depth}-alpha`;
+            return `${schemeRowName}-${depth}a`;
         } else if (schemeTypeNeutral) {
-            return `${schemeRowName}-${depth}-neutral`;
+            return `${schemeRowName}-${depth}n`;
         }
 
         return `${schemeRowName}-${depth}`;        
     }
     if (schemeTypeAlpha) {
-        return `${schemeRowName}-${schemeModel}-${depth}-alpha`;
+        return `${schemeRowName}-${schemeModel}-${depth}a`;
     } else if (schemeTypeNeutral) {
-        return `${schemeRowName}-${schemeModel}-${depth}-neutral`;
+        return `${schemeRowName}-${schemeModel}-${depth}n`;
     }
     return `${schemeRowName}-${schemeModel}-${depth}`;
 }
 
-function createListItem(schemeColorType, depth) {
-    return `<li style="background-image: linear-gradient(-35deg, rgba(var(--${schemeColorType}-alpha), 0.4) 20%, rgba(var(--${schemeColorType}-alpha), 0.6));">
+function createListItem(schemeColorType, schemeModel, depth) {
+    return `<li style="background-image: linear-gradient(-35deg, rgba(var(--${schemeColorType}a), 0.4) 20%, rgba(var(--${schemeColorType}a), 0.6));">
                 <figure class="scheme-row--figure" data-cs-num="${depth}" data-cs-hex data-cs-rgb data-cs-var="${schemeColorType}">
-                    <button class="reset-button scheme-color--preview" data-clipboard-text style="background-color: var(--${schemeColorType})"></button>
+                    <button class="reset-button scheme-color--preview" data-clipboard-text style="background-color: var(--${schemeColorType})">
+                        <div class="color-model-${schemeModel}"></div>
+                    </button>
+                    <button class="reset-button scheme-color--tooltip"><i class="icon-tooltip"><svg><use xlink:href="#icon-tooltip"></use></svg></i></button>
+                    
                     <figcaption class="scheme-color--meta">
-                        <div class="scheme-color--num"><span>${depth}</span></div>
+                        <div class="scheme-color--lvl"><span>${depth}</span></div>
                         <div class="scheme-color--hex"></div>
                         <div class="scheme-color--rgb"></div>
-                        <div class="scheme-color--rgba"></div>
                         <div class="scheme-color--var"></div>
+                        <div class="scheme-color--var-a"></div>
+                        <div class="scheme-color--var-n"></div>
+                        <div class="scheme-color--var-an"></div>
                     </figcaption>
                 </figure>
             </li>`;
@@ -175,7 +181,10 @@ function setSchemeAttributes(color, schemeTypeAlpha) {
     let getSchemeColorVariable = schemeColor.getAttribute("data-cs-var");
     let getSchemeColorRgb = window.getComputedStyle(schemeColorPreview, null).getPropertyValue("background-color");
 
-    schemeColor.querySelector(".scheme-color--var").innerHTML = `<span>--${getSchemeColorVariable}</span>`;
+    // schemeColor.querySelector(".scheme-color--var").innerHTML = `<span class="preview" style="background-color: var(--${getSchemeColorVariable})"></span><span>--${getSchemeColorVariable}</span>`;
+    // schemeColor.querySelector(".scheme-color--var-a").innerHTML = `<span class="preview" style="background-color: var(--${getSchemeColorVariable})"></span><span>--${getSchemeColorVariable}a</span>`;
+    // schemeColor.querySelector(".scheme-color--var-n").innerHTML = `<span class="preview" style="background-color: var(--${getSchemeColorVariable})"></span><span>--${getSchemeColorVariable}n</span>`;
+    // schemeColor.querySelector(".scheme-color--var-an").innerHTML = `<span class="preview" style="background-color: var(--${getSchemeColorVariable})"></span><span>--${getSchemeColorVariable}an</span>`;
 
     if (schemeTypeAlpha) {
         handleAlphaType(schemeColor, schemeColorPreview, getSchemeColorRgb);
@@ -186,7 +195,6 @@ function setSchemeAttributes(color, schemeTypeAlpha) {
 
 function handleAlphaType(schemeColor, schemeColorPreview, getSchemeColorRgb) {
     setAttributes(schemeColor, { 'data-cs-rgba': getSchemeColorRgb });
-    schemeColor.querySelector(".scheme-color--rgba").innerHTML = `<span>${getSchemeColorRgb}</span>`;
     schemeColor.querySelector(".scheme-color--hex").remove();
     schemeColor.querySelector(".scheme-color--rgb").remove();
     schemeColor.removeAttribute("data-cs-hex");
@@ -204,7 +212,7 @@ function handleNonAlphaType(schemeColor, schemeColorPreview, getSchemeColorRgb) 
     });
 
     let rgbString = getSchemeColorRgb.substring(4, getSchemeColorRgb.length - 1).replace(/ /g, '').split(', ');
-    schemeColor.querySelector(".scheme-color--rgb").innerHTML = `<span>${rgbString}</span>`;
+    schemeColor.querySelector(".scheme-color--rgb").innerHTML = `<span>rgb(${rgbString})</span>`;
     schemeColor.querySelector(".scheme-color--hex").innerHTML = `<span>${colorhex}</span>`;
 }
 
@@ -273,27 +281,20 @@ function updateMarginForSchemeRows() {
 
     articleRows.forEach(articleRow => {
         const childRows = articleRow.querySelectorAll('.scheme-row--js');
-        let isFirstVisibleRow = true;
+        let isFirstGridRow = true;
 
         childRows.forEach(childRow => {
-            const isHidden = childRow.getAttribute('aria-hidden') === 'true';
+            const isGrid = childRow.style.display === 'grid';
 
-            if (!isHidden && isFirstVisibleRow) {
-                isFirstVisibleRow = false;
-            } else if (!isHidden) {
-                childRow.style.marginTop = '12px';
-            } else {
+            if (isGrid && isFirstGridRow) {
                 childRow.style.marginTop = '0';
+                isFirstGridRow = false;
+            } else if (isGrid) {
+                childRow.style.marginTop = '12px';
             }
         });
-
-        if (!isFirstVisibleRow) {
-            childRows[0].style.marginTop = '0';
-        }
     });
 }
-
-
 
 function monitorSchemeSelection() {
     const modelSelector = document.querySelector('#modelSelector');
@@ -303,10 +304,16 @@ function monitorSchemeSelection() {
         const selectedModel = modelSelector.value;
         const selectedNeutralization = neutralizeSelector.value;
 
+        const noneRows = document.querySelectorAll('.scheme-row--js[data-scheme-model="none"]');
         const rgbRows = document.querySelectorAll('.scheme-row--js[data-scheme-model="rgb"]');
         const rybRows = document.querySelectorAll('.scheme-row--js[data-scheme-model="ryb"]');
         const pureSchemeRows = document.querySelectorAll('.scheme-row--js[data-scheme-type="pure"]');
         const neutralSchemeRows = document.querySelectorAll('.scheme-row--js[data-scheme-type="neutral"]');
+
+        noneRows.forEach(row => {
+            row.style.display = 'grid';
+            row.setAttribute('aria-hidden', false);
+        });
 
         rgbRows.forEach(row => {
             const isNeutral = row.dataset.schemeType === 'neutral';
@@ -335,7 +342,39 @@ function monitorSchemeSelection() {
     neutralizeSelector.addEventListener('change', updateSchemeDisplay);
 }
 
+function monitorColorSelector() {
+    const selectColor = document.querySelector('#selectColor');
 
+    // Preload links for each color option
+    Array.from(selectColor.options).forEach(option => {
+        const colorScheme = option.value;
+        const preloadLink = document.createElement('link');
+        preloadLink.rel = 'preload';
+        preloadLink.as = 'style';
+        preloadLink.href = `assets/css/${colorScheme}.docs.css`;
+        document.head.appendChild(preloadLink);
+
+        const preloadLinkHarmonized = document.createElement('link');
+        preloadLinkHarmonized.rel = 'preload';
+        preloadLinkHarmonized.as = 'style';
+        preloadLinkHarmonized.href = `assets/css/${colorScheme}.harmonized.docs.css`;
+        document.head.appendChild(preloadLinkHarmonized);
+    });
+
+    function updateStylesheet() {
+        const colorScheme = selectColor.value;
+        const stylesheetUrl = `assets/css/${colorScheme}.docs.css`;
+        const stylesheetHarmonizedUrl = `assets/css/${colorScheme}.harmonized.docs.css`;
+
+        document.getElementById('stylesheet').setAttribute('href', stylesheetUrl);
+        document.getElementById('stylesheetHarmonized').setAttribute('href', stylesheetHarmonizedUrl);
+
+        sampleAndSetAttributes();
+    }
+
+    updateStylesheet();
+    selectColor.addEventListener('change', updateStylesheet);
+}
 
 
 function initializeColorSchemeSelection() {
@@ -356,6 +395,49 @@ function initializeColorSchemeSelection() {
     selectHarmony.addEventListener('change', updateStylesheet);
 }
 
+class TooltipGenerator {
+    constructor() {
+        this.figures = document.querySelectorAll('.scheme-row--figure');
+        this.figures.forEach(figure => this.createTooltip(figure));
+    }
+
+        createTooltip(figure) {
+        const tooltipDiv = document.createElement('div');
+        tooltipDiv.className = 'tooltip';
+
+        const tooltipList = document.createElement('ol');
+        tooltipList.innerHTML = `
+            <li>${this.getName(figure)} (${this.getModel(figure)})</li>
+            <li>Level: ${figure.dataset.csNum}</li>
+            ${this.getType(figure) ? `<li>Type: ${this.getType(figure)}</li>` : ''}
+            <li><code>Hex: ${figure.dataset.csHex}</code></li>
+            <li><code>RGB: ${this.getRgbValues(figure.dataset.csRgb)}</code></li>
+            <li><code>--${figure.dataset.csVar}</code></li>
+            <li><code>--${figure.dataset.csVar}a</code></li>
+        `;
+        tooltipDiv.appendChild(tooltipList);
+        figure.parentNode.appendChild(tooltipDiv);
+    }
+
+
+    getName(figure) {
+        return figure.dataset.csVar.split('-')[0].charAt(0).toUpperCase() + figure.dataset.csVar.split('-')[0].slice(1);
+    }
+
+    getType(figure) {
+        return figure.dataset.csVar.includes('n') ? 'Neutral' : '';
+    }
+
+    getModel(figure) {
+        return figure.dataset.csVar.includes('-rgb') ? 'RGB' : 'RYB';
+    }
+
+
+    getRgbValues(rgbString) {
+        return rgbString.match(/\d+, \d+, \d+/)[0];
+    }
+}
+
 
 
 // --------------------------------
@@ -365,6 +447,9 @@ document.addEventListener('DOMContentLoaded', function() {
     generateSchemeRowHtml();
     initializeColorSchemeSelection();
     monitorSchemeSelection();
+    monitorColorSelector();
+    new TooltipGenerator();
+
 });
 
 
@@ -421,3 +506,33 @@ document.addEventListener('DOMContentLoaded', function() {
 // ready(() => {
 //     getColorSelected("primary");
 // });
+
+
+
+// Smooth scrolling.
+let lenis;
+const initSmoothScrolling = () => {
+    lenis = new Lenis({
+        lerp: 0.1,
+        smoothWheel: true,
+        orientation: 'vertical',
+    });
+    
+    lenis.on('scroll', () => ScrollTrigger.update());
+    
+    const scrollFn = () => {
+        lenis.raf();
+        requestAnimationFrame(scrollFn);
+    };
+    requestAnimationFrame(scrollFn);
+};
+
+// .content elements
+const contentElems = [...document.querySelectorAll('.content')];
+contentElems.forEach(el => new Content(el));
+
+// smooth scrolling with Lenis
+initSmoothScrolling();
+
+// Preload images then remove loader (loading class) from body
+preloadImages('.canvas-wrap').then(() => document.body.classList.remove('loading'));

@@ -1,0 +1,76 @@
+primary:
+  - { name: "primary", type: "pure", model: "none" }
+
+achromatic:
+  - { name: "grey", type: "pure", model: "none" }
+  - { name: "stone", type: "pure", model: "none" }
+  - { name: "slate", type: "pure", model: "none" }
+
+
+complementary:
+  - { name: "complementary", type: "pure", model: "rgb" }
+  - { name: "complementary", type: "neutral", model: "rgb" }
+  - { name: "complementary", type: "pure", model: "ryb" }
+  - { name: "complementary", type: "neutral", model: "ryb" }
+
+analogous:
+  - { name: "analogous-1", type: "pure", model: "rgb" }
+  - { name: "analogous-1", type: "neutral", model: "rgb" }
+  - { name: "analogous-1", type: "pure", model: "ryb" }
+  - { name: "analogous-1", type: "neutral", model: "ryb" }
+  - { name: "analogous-2", type: "pure", model: "rgb" }
+  - { name: "analogous-2", type: "neutral", model: "rgb" }
+  - { name: "analogous-2", type: "pure", model: "ryb" }
+  - { name: "analogous-2", type: "neutral", model: "ryb" }
+  - { name: "analogous-3", type: "pure", model: "rgb" }
+  - { name: "analogous-3", type: "neutral", model: "rgb" }
+  - { name: "analogous-3", type: "pure", model: "ryb" }
+  - { name: "analogous-3", type: "neutral", model: "ryb" }
+
+split:
+  - { name: "split-1", type: "pure", model: "rgb" }
+  - { name: "split-1", type: "neutral", model: "rgb" }
+  - { name: "split-1", type: "pure", model: "ryb" }
+  - { name: "split-1", type: "neutral", model: "ryb" }
+  - { name: "split-2", type: "pure", model: "rgb" }
+  - { name: "split-2", type: "neutral", model: "rgb" }
+  - { name: "split-2", type: "pure", model: "ryb" }
+  - { name: "split-2", type: "neutral", model: "ryb" }
+
+square:
+  - { name: "square-1", type: "pure", model: "rgb", degree }
+  - { name: "square-1", type: "neutral", model: "rgb" }
+  - { name: "square-1", type: "pure", model: "ryb" }
+  - { name: "square-1", type: "neutral", model: "ryb" }
+  - { name: "square-2", type: "pure", model: "rgb" }
+  - { name: "square-2", type: "neutral", model: "rgb" }
+  - { name: "square-2", type: "pure", model: "ryb" }
+  - { name: "square-2", type: "neutral", model: "ryb" }
+  - { name: "square-3", type: "pure", model: "rgb" }
+  - { name: "square-3", type: "neutral", model: "rgb" }
+  - { name: "square-3", type: "pure", model: "ryb" }
+  - { name: "square-3", type: "neutral", model: "ryb" }
+
+triadic:
+  - { name: "triadic-1", type: "pure", model: "rgb", degree }
+  - { name: "triadic-1", type: "neutral", model: "rgb" }
+  - { name: "triadic-1", type: "pure", model: "ryb" }
+  - { name: "triadic-1", type: "neutral", model: "ryb" }
+  - { name: "triadic-2", type: "pure", model: "rgb" }
+  - { name: "triadic-2", type: "neutral", model: "rgb" }
+  - { name: "triadic-2", type: "pure", model: "ryb" }
+  - { name: "triadic-2", type: "neutral", model: "ryb" }
+
+tetradic:
+  - { name: "tetradic-1", type: "pure", model: "rgb", degree }
+  - { name: "tetradic-1", type: "neutral", model: "rgb" }
+  - { name: "tetradic-1", type: "pure", model: "ryb" }
+  - { name: "tetradic-1", type: "neutral", model: "ryb" }
+  - { name: "tetradic-2", type: "pure", model: "rgb" }
+  - { name: "tetradic-2", type: "neutral", model: "rgb" }
+  - { name: "tetradic-2", type: "pure", model: "ryb" }
+  - { name: "tetradic-2", type: "neutral", model: "ryb" }
+  - { name: "tetradic-3", type: "pure", model: "rgb" }
+  - { name: "tetradic-3", type: "neutral", model: "rgb" }
+  - { name: "tetradic-3", type: "pure", model: "ryb" }
+  - { name: "tetradic-3", type: "neutral", model: "ryb" }

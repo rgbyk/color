@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US" dir="ltr" prefix="og: http://ogp.me/ns#">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="all" />
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+
+  <link id="stylesheet" rel="stylesheet" type="text/css" href="assets/css/1877f2.docs.css">
+  <link id="stylesheetHarmonized" rel="stylesheet" type="text/css" href="assets/css/1877f2.harmonized.docs.css" disabled>
+
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap">
+</head>
+<body>
+  {% include symbols.html %}
+
+  <div class="container my-5">
+    <div class="row">
+      <div class="col">
+  {% include header.html %}
+  <div class="docs-grid">
+  {% include aside.html %}
+  <div class="docs-grid--main">
+  {{ content }}
+  </div>
+  </div>      
+      </div>
+    </div>
+  </div>
+  
+  <script src="assets/js/app.js"></script>
+
+</body>
+</html>

@@ -131,7 +131,7 @@ function generateSchemeRow() {
                         <figure class="scheme-row--figure" data-cs-num="${depth}" data-cs-hex data-cs-rgb data-cs-var="${schemeColorType}">
                             <button class="reset-button scheme-color--preview" data-clipboard-text style="background-color: var(--color-${schemeColorType})"></button>
                             <figcaption class="scheme-color--meta">
-                                <div class="scheme-color--num"><span>${depth}</span></div>
+                                <div class="scheme-color--lvl"><span>${depth}</span></div>
                                 <div class="scheme-color--hex"></div>
                                 <div class="scheme-color--rgb"></div>
                                 <div class="scheme-color--rgba"></div>

@@ -1,0 +1,21 @@
+<article class="docs-section" id="section-cs--{{ include.id | downcase }}">
+    <header class="scheme-row--header">
+        <h3>
+            <a href="#section-cs--{{ include.id | downcase }}">
+                <span>{{ include.title }}</span>
+            </a>
+        </h3>
+    </header>
+    <div class="scheme-row--article">
+        <div class="scheme-row--article">
+        {% for ol in include.ols %}
+            <ol class="scheme-row scheme-row--js cvd" 
+                data-scheme-name="{{ ol.name }}"
+                data-scheme-type="{{ ol.type }}" 
+                data-scheme-model="{{ ol.model }}"
+                aria-hidden="true">
+            </ol>
+        {% endfor %}
+        </div>
+    </div>
+</article>

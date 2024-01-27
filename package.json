@@ -24,6 +24,7 @@
   "license": "MIT",
   "author": "Daniel Haim",
   "scripts": {
+    "build": "node index.js",
     "color": "chmod +x ./bin/lib/color.sh && ./bin/lib/color.sh",
     "color-rgb": "chmod +x ./bin/lib/color-rgb.sh && ./bin/lib/color-rgb.sh",
     "color-ryb": "chmod +x ./bin/lib/color-ryb.sh && ./bin/lib/color-ryb.sh",
