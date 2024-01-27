@@ -54,6 +54,9 @@ $enable-utility-docs: false !default; // [true | false] => table utilities (for 
 // # Color Schemes
 // ==========================================================================
 
+$color-model-ryb: true !default;
+$color-model-rgb: true !default;
+
 $color-scheme-primary: true !default; // [true | false] => primary scheme
 $color-scheme-achromatic: false !default; // [true | false] => achromatic scheme
 $color-scheme-slate: false !default;

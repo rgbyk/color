@@ -24,6 +24,7 @@
 // 
 
 @use "sass:color";
+@use "sass:map";
 
 @use "../core";
 @use "../functions";
@@ -32,75 +33,48 @@
 // # Variables
 // ==========================================================================
 
-$-triadic-1-500: color.adjust(core.$brand-color, $hue: 120);
-$-triadic-2-500: color.adjust(core.$brand-color, $hue: 240);
+$-base: core.$brand-color;
+$-hues: (1: 120, 2: 240);
+$-colors: ();
 
-@if (core.$color-model == ryb) {
-    $-triadic-1-500: functions.adjust-hue-ryb(core.$brand-color, 120); 
-    $-triadic-2-500: functions.adjust-hue-ryb(core.$brand-color, 240); 
-} @else {}
-
-@if core.$color-mode-harmony{
-    $-triadic-1-500: functions.make-color-harmony(core.$brand-color, $-triadic-1-500);
-    $-triadic-2-500: functions.make-color-harmony(core.$brand-color, $-triadic-2-500);
-} @else{}
+$-name: 'triadic';
 
 // ==========================================================================
-// # Monochromatic
+// # Base Colors and Shades
 // ==========================================================================
 
-// ## Triadic (1) @ 120°
-$triadic-1-50: functions.make-color-mono($-triadic-1-500, 50) !default;
-$triadic-1-100: functions.make-color-mono($-triadic-1-500, 100) !default;
-$triadic-1-200: functions.make-color-mono($-triadic-1-500, 200) !default;
-$triadic-1-300: functions.make-color-mono($-triadic-1-500, 300) !default;
-$triadic-1-400: functions.make-color-mono($-triadic-1-500, 400) !default;
-$triadic-1-500: functions.make-color-mono($-triadic-1-500, 500) !default;
-$triadic-1-600: functions.make-color-mono($-triadic-1-500, 600) !default;
-$triadic-1-700: functions.make-color-mono($-triadic-1-500, 700) !default;
-$triadic-1-800: functions.make-color-mono($-triadic-1-500, 800) !default;
-$triadic-1-900: functions.make-color-mono($-triadic-1-500, 900) !default;
+$-shades: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900);
 
-// ## Triadic (2) @ 240°
-$triadic-2-50: functions.make-color-mono($-triadic-2-500, 50) !default;
-$triadic-2-100: functions.make-color-mono($-triadic-2-500, 100) !default;
-$triadic-2-200: functions.make-color-mono($-triadic-2-500, 200) !default;
-$triadic-2-300: functions.make-color-mono($-triadic-2-500, 300) !default;
-$triadic-2-400: functions.make-color-mono($-triadic-2-500, 400) !default;
-$triadic-2-500: functions.make-color-mono($-triadic-2-500, 500) !default;
-$triadic-2-600: functions.make-color-mono($-triadic-2-500, 600) !default;
-$triadic-2-700: functions.make-color-mono($-triadic-2-500, 700) !default;
-$triadic-2-800: functions.make-color-mono($-triadic-2-500, 800) !default;
-$triadic-2-900: functions.make-color-mono($-triadic-2-500, 900) !default;
+@each $index, $hue in $-hues {
+  $color-rgb: color.adjust($-base, $hue: $hue);
+  $color-ryb: functions.adjust-hue-ryb($-base, $hue);
 
-// =============================================================================
-// # Map
-// =============================================================================
+  // Conditional harmony application
+  @if core.$color-mode-harmony {
+    $color-rgb: functions.make-color-harmony($-base, $color-rgb);
+    $color-ryb: functions.make-color-harmony($-base, $color-ryb);
+  }
 
-$map-triadic-1: (
-  "triadic-1-50": $triadic-1-50,
-  "triadic-1-100": $triadic-1-100,
-  "triadic-1-200": $triadic-1-200,
-  "triadic-1-300": $triadic-1-300,
-  "triadic-1-400": $triadic-1-400,
-  "triadic-1-500": $triadic-1-500,
-  "triadic-1-600": $triadic-1-600,
-  "triadic-1-700": $triadic-1-700,
-  "triadic-1-800": $triadic-1-800,
-  "triadic-1-900": $triadic-1-900
-) !default;
+  // Generating shades for each base color
+  @if core.$color-model-rgb {
+    @each $shade in $-shades {
+      $rgb-shade-color-name: "#{$-name}-#{$index}-rgb-#{$shade}";
+      $rgb-shade-color: functions.make-color-mono($color-rgb, $shade);
+      $-colors: map.merge($-colors, ($rgb-shade-color-name: $rgb-shade-color));
+    }
+  }
 
-$map-triadic-2: (
-  "triadic-2-50": $triadic-2-50,
-  "triadic-2-100": $triadic-2-100,
-  "triadic-2-200": $triadic-2-200,
-  "triadic-2-300": $triadic-2-300,
-  "triadic-2-400": $triadic-2-400,
-  "triadic-2-500": $triadic-2-500,
-  "triadic-2-600": $triadic-2-600,
-  "triadic-2-700": $triadic-2-700,
-  "triadic-2-800": $triadic-2-800,
-  "triadic-2-900": $triadic-2-900
-) !default;
+  @if core.$color-model-ryb {
+    @each $shade in $-shades {
+      $ryb-shade-color-name: "#{$-name}-#{$index}-ryb-#{$shade}";
+      $ryb-shade-color: functions.make-color-mono($color-ryb, $shade);
+      $-colors: map.merge($-colors, ($ryb-shade-color-name: $ryb-shade-color));
+    }
+  }
+}
 
-$map-triadic: core.map-collect($map-triadic-1, $map-triadic-2) !default;
+// ==========================================================================
+// # Map Creation
+// ==========================================================================
+
+$map-triadic: core.map-collect($-colors) !default;

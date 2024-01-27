@@ -163,16 +163,25 @@ $ryb-interpolation: #FE2712 #FF2000 #FF4000 #FF6000 #FF8000 #FF9F00 #FFBF00
 // @debug adjust-hue-ryb(#8e43e7, 300); // #43b7e7
 // @debug adjust-hue-ryb(#8e43e7, 330); // #434ee7
 // 
+
+@function round-to-decimal($number, $decimals) {
+  $n: math.pow(10, $decimals);
+  @return math.div(math.round($number * $n), $n);
+}
+
 @function adjust-hue-ryb($color, $degrees) {
   @if unit($degrees) == "%" {
     $degrees: 360 * ($degrees / 100%);
   }
 
-  // $hue-adjust: (ryb-hue($color) + $degrees) / 1deg;
   $hue-adjust: math.div(abs(ryb-hue($color) + $degrees), 1deg);
+  $hue: round-to-decimal(color.hue(ryb-interpolate($hue-adjust)), 2);
+  $saturation: round-to-decimal(color.saturation($color), 2);
+  $lightness: round-to-decimal(color.lightness($color), 2);
 
-  @return hsl(color.hue(ryb-interpolate($hue-adjust)), color.saturation($color), color.lightness($color));
+  @return hsl($hue, $saturation, $lightness);
 }
+
 
 
 // ==========================================================================

@@ -3,34 +3,32 @@
 // ==========================================================================
 
 @use "../config" with (
-    $color-model: ryb,
+    $color-model: rgb,
     $color-mode-harmony: true,
-    $enable-utility-docs: true,
     $color-mode-harmony-grayscale: true,
+
+    $enable-utility-docs: true,
+
+    $color-scheme-alpha: true,
+    $color-scheme-neutral: true,
+
     $color-scheme-achromatic: true,
     $color-scheme-slate: true,
     $color-scheme-stone: true,
+
     $color-scheme-analogous: true,
     $color-scheme-complementary: true,
     $color-scheme-split: true,
     $color-scheme-square: true,
     $color-scheme-tetradic: true,
     $color-scheme-triadic: true,
+
     $color-scheme-hues: true,
-    $color-scheme-danger: true,
-    $color-scheme-warning: true,
-    $color-scheme-success: true,
-    $color-scheme-info: true,
-    $color-scheme-alpha: true,
-    $color-scheme-equal: true,
-    $color-scheme-neutral: true,
-    $color-scheme-pastel: true,
-    $enable-utility-classes: true,
-    $enable-utility-bg: true,
-    $enable-utility-color: true,
-    $enable-utility-border: true,
-    $enable-utility-fill: true,
-    $enable-utility-stroke: true
+
+    $color-scheme-danger: false,
+    $color-scheme-warning: false,
+    $color-scheme-success: false,
+    $color-scheme-info: false
 );
 
 @use "../functions";

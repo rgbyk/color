@@ -17,6 +17,6 @@ colorGen.compileSCSS();
 colorGen.compileDocumentationSass(); // Add this line
 
 // Post-process with PostCSS
-colorGen.postProcessWithPostCSS(`./dist/color-${colorGen.colorModel}.css`);
+colorGen.postProcessWithPostCSS(`./dist/assets/css/color.css`);
 // colorGen.postGenerateActions('./demo');
 colorGen.generateHarmonizedFiles();

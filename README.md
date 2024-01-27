@@ -237,7 +237,10 @@ $ npm run color-rgb
 ---
 
 ### Color Model
-`$color-model: rgb; // [rgb | ryb]`
+`$color-model: rgb; // [rgb | ryb]` // Deprecated
+
+`$color-model-rgb: true; // [true | false]`
+`$color-model-ryb: true; // [true | false]`
 
 ### Color Harmony
 

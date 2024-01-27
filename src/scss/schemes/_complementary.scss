@@ -22,6 +22,7 @@
 // 
 
 @use "sass:color";
+@use "sass:map";
 
 @use "../core";
 @use "../functions";
@@ -30,44 +31,48 @@
 // # Variables
 // ==========================================================================
 
-$-complementary-500: color.adjust(core.$brand-color, $hue: 180);
+$-base: core.$brand-color;
+$-hues: (1: 180);
+$-colors: ();
 
-@if (core.$color-model == ryb) {
-  $-complementary-500: functions.adjust-hue-ryb(core.$brand-color, 180);
-} @else {}
-
-@if core.$color-mode-harmony {
-  $-complementary-500: functions.make-color-harmony(core.$brand-color, $-complementary-500);
-} @else {}
+$-name: 'complementary';
 
 // ==========================================================================
-// # Monochromatic
+// # Base Colors and Shades
 // ==========================================================================
 
-$complementary-50: functions.make-color-mono($-complementary-500, 50) !default;
-$complementary-100: functions.make-color-mono($-complementary-500, 100) !default;
-$complementary-200: functions.make-color-mono($-complementary-500, 200) !default;
-$complementary-300: functions.make-color-mono($-complementary-500, 300) !default;
-$complementary-400: functions.make-color-mono($-complementary-500, 400) !default;
-$complementary-500: functions.make-color-mono($-complementary-500, 500) !default;
-$complementary-600: functions.make-color-mono($-complementary-500, 600) !default;
-$complementary-700: functions.make-color-mono($-complementary-500, 700) !default;
-$complementary-800: functions.make-color-mono($-complementary-500, 800) !default;
-$complementary-900: functions.make-color-mono($-complementary-500, 900) !default;
+$-shades: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900);
 
-// =============================================================================
-// # Map
-// =============================================================================
+@each $index, $hue in $-hues {
+  $color-rgb: color.adjust($-base, $hue: $hue);
+  $color-ryb: functions.adjust-hue-ryb($-base, $hue);
 
-$map-complementary: (
-  "complementary-50": $complementary-50,
-  "complementary-100": $complementary-100,
-  "complementary-200": $complementary-200,
-  "complementary-300": $complementary-300,
-  "complementary-400": $complementary-400,
-  "complementary-500": $complementary-500,
-  "complementary-600": $complementary-600,
-  "complementary-700": $complementary-700,
-  "complementary-800": $complementary-800,
-  "complementary-900": $complementary-900
-) !default;
+  // Conditional harmony application
+  @if core.$color-mode-harmony {
+    $color-rgb: functions.make-color-harmony($-base, $color-rgb);
+    $color-ryb: functions.make-color-harmony($-base, $color-ryb);
+  }
+
+  // Generating shades for each base color
+  @if core.$color-model-rgb {
+    @each $shade in $-shades {
+      $rgb-shade-color-name: "#{$-name}-rgb-#{$shade}";
+      $rgb-shade-color: functions.make-color-mono($color-rgb, $shade);
+      $-colors: map.merge($-colors, ($rgb-shade-color-name: $rgb-shade-color));
+    }
+  }
+
+  @if core.$color-model-ryb {
+    @each $shade in $-shades {
+      $ryb-shade-color-name: "#{$-name}-ryb-#{$shade}";
+      $ryb-shade-color: functions.make-color-mono($color-ryb, $shade);
+      $-colors: map.merge($-colors, ($ryb-shade-color-name: $ryb-shade-color));
+    }
+  }
+}
+
+// ==========================================================================
+// # Map Creation
+// ==========================================================================
+
+$map-complementary: core.map-collect($-colors) !default;

@@ -52,13 +52,14 @@
 	}
 }
 
-
-/// Replace `$search` with `$replace` in `$string`
-/// @author Kitty Giraudel
-/// @param {String} $string - Initial string
-/// @param {String} $search - Substring to replace
-/// @param {String} $replace ('') - New value
-/// @return {String} - Updated string
+// 
+// Replace `$search` with `$replace` in `$string`
+// @author Kitty Giraudel
+// @param {String} $string - Initial string
+// @param {String} $search - Substring to replace
+// @param {String} $replace ('') - New value
+// @return {String} - Updated string
+// 
 @function str-replace($string, $search, $replace: '') {
   $index: str-index($string, $search);
   
@@ -73,7 +74,7 @@
 	:root {
 
 		@each $name, $hex in maps.$color-scheme-map {
-			--color-#{$name}: #{$hex};
+			--#{$name}: #{$hex};
 		}
 
 			@each $name, $hex in maps.$color-scheme-map {
@@ -85,7 +86,7 @@
 				@else {
 					@if core.$color-scheme-neutral {
 						$hex-neutral: functions.make-color-neutral($hex);
-						--color-#{$name}-neutral: #{$hex-neutral};
+						--#{$name}-neutral: #{$hex-neutral};
 				}
 			}
 		}
@@ -93,7 +94,7 @@
 		@if core.$color-scheme-alpha {
 			@each $name, $hex in maps.$color-scheme-map {
 				$hex-alpha: color.red($hex), color.green($hex), color.blue($hex);
-				--color-#{$name}-rgb: #{$hex-alpha};
+				--#{$name}-alpha: #{$hex-alpha};
 			}
 		}
 

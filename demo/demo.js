@@ -109,30 +109,41 @@ function generateSchemeRowHtml() {
     [].forEach.call(schemeRow, row => {
         const schemeRowType = row.getAttribute("data-scheme-type");
         const schemeRowName = row.getAttribute("data-scheme-name");
+        const schemeModel = row.getAttribute("data-scheme-model");
 
         const schemeTypeAlpha = schemeRowType === "alpha";
         const schemeTypeNeutral = schemeRowType === "neutral";
 
         [].forEach.call(schemeRowDepth, depth => {
-            const schemeColorType = getSchemeColorType(schemeTypeAlpha, schemeTypeNeutral, schemeRowName, depth);
+            const schemeColorType = getSchemeColorType(schemeTypeAlpha, schemeModel, schemeTypeNeutral, schemeRowName, depth);
             row.innerHTML += createListItem(schemeColorType, depth);
         });
     });
 }
 
-function getSchemeColorType(schemeTypeAlpha, schemeTypeNeutral, schemeRowName, depth) {
-    if (schemeTypeAlpha) {
-        return `${schemeRowName}-${depth}-rgb`;
-    } else if (schemeTypeNeutral) {
-        return `${schemeRowName}-${depth}-neutral`;
+function getSchemeColorType(schemeTypeAlpha, schemeModel, schemeTypeNeutral, schemeRowName, depth) {
+if (['primary', 'slate', 'stone', 'grey'].includes(schemeRowName)) {
+
+        if (schemeTypeAlpha) {
+            return `${schemeRowName}-${depth}-alpha`;
+        } else if (schemeTypeNeutral) {
+            return `${schemeRowName}-${depth}-neutral`;
+        }
+
+        return `${schemeRowName}-${depth}`;        
     }
-    return `${schemeRowName}-${depth}`;
+    if (schemeTypeAlpha) {
+        return `${schemeRowName}-${schemeModel}-${depth}-alpha`;
+    } else if (schemeTypeNeutral) {
+        return `${schemeRowName}-${schemeModel}-${depth}-neutral`;
+    }
+    return `${schemeRowName}-${schemeModel}-${depth}`;
 }
 
 function createListItem(schemeColorType, depth) {
-    return `<li style="background-image: linear-gradient(-35deg, rgba(var(--color-${schemeColorType}-rgb), 0.4) 20%, rgba(var(--color-${schemeColorType}-rgb), 0.6));">
+    return `<li style="background-image: linear-gradient(-35deg, rgba(var(--${schemeColorType}-alpha), 0.4) 20%, rgba(var(--${schemeColorType}-alpha), 0.6));">
                 <figure class="scheme-row--figure" data-cs-num="${depth}" data-cs-hex data-cs-rgb data-cs-var="${schemeColorType}">
-                    <button class="reset-button scheme-color--preview" data-clipboard-text style="background-color: var(--color-${schemeColorType})"></button>
+                    <button class="reset-button scheme-color--preview" data-clipboard-text style="background-color: var(--${schemeColorType})"></button>
                     <figcaption class="scheme-color--meta">
                         <div class="scheme-color--num"><span>${depth}</span></div>
                         <div class="scheme-color--hex"></div>
@@ -164,7 +175,7 @@ function setSchemeAttributes(color, schemeTypeAlpha) {
     let getSchemeColorVariable = schemeColor.getAttribute("data-cs-var");
     let getSchemeColorRgb = window.getComputedStyle(schemeColorPreview, null).getPropertyValue("background-color");
 
-    schemeColor.querySelector(".scheme-color--var").innerHTML = `<span>--color-${getSchemeColorVariable}</span>`;
+    schemeColor.querySelector(".scheme-color--var").innerHTML = `<span>--${getSchemeColorVariable}</span>`;
 
     if (schemeTypeAlpha) {
         handleAlphaType(schemeColor, schemeColorPreview, getSchemeColorRgb);
@@ -261,54 +272,76 @@ function monitorNeutralizeSelector() {
     const neutralizeSelector = document.querySelector('#selectNeutralize');
 
     neutralizeSelector.addEventListener('change', () => {
-        const isSelectedTrue = neutralizeSelector.value === 'true';
+        const selectedOption = neutralizeSelector.value;
 
         const pureSchemeRows = document.querySelectorAll('.scheme-row--js[data-scheme-type="pure"]');
         const neutralSchemeRows = document.querySelectorAll('.scheme-row--js[data-scheme-type="neutral"]');
 
+        // Determine display style based on selected option
+        let displayPure = selectedOption === 'all' || selectedOption === 'false';
+        let displayNeutral = selectedOption === 'all' || selectedOption === 'true';
+
         pureSchemeRows.forEach(row => {
-            row.style.display = isSelectedTrue ? 'none' : 'grid';
-            row.setAttribute('aria-hidden', isSelectedTrue);
+            row.style.display = displayPure ? 'grid' : 'none';
+            row.setAttribute('aria-hidden', !displayPure);
         });
 
         neutralSchemeRows.forEach(row => {
-            row.style.display = isSelectedTrue ? 'grid' : 'none';
-            row.setAttribute('aria-hidden', !isSelectedTrue);
+            row.style.display = displayNeutral ? 'grid' : 'none';
+            row.setAttribute('aria-hidden', !displayNeutral);
         });
-                sampleAndSetAttributes();
 
+        sampleAndSetAttributes();
+    });
+}
+
+
+function monitorModelSelector() {
+    const modelSelector = document.querySelector('#modelSelector');
+
+    modelSelector.addEventListener('change', () => {
+        const selectedModel = modelSelector.value;
+
+        const rgbRows = document.querySelectorAll('.scheme-row--js[data-scheme-model="rgb"]');
+        const rybRows = document.querySelectorAll('.scheme-row--js[data-scheme-model="ryb"]');
+
+        // Determine display style based on selected model
+        let displayRgb = selectedModel === 'all' || selectedModel === 'rgb';
+        let displayRyb = selectedModel === 'all' || selectedModel === 'ryb';
+
+        rgbRows.forEach(row => {
+            row.style.display = displayRgb ? 'grid' : 'none';
+            row.setAttribute('aria-hidden', !displayRgb);
+        });
+
+        rybRows.forEach(row => {
+            row.style.display = displayRyb ? 'grid' : 'none';
+            row.setAttribute('aria-hidden', !displayRyb);
+        });
+
+        sampleAndSetAttributes();
     });
 }
 
 
 function initializeColorSchemeSelection() {
-    const modelSelector = document.querySelector('#modelSelector');
     const selectHarmony = document.querySelector('#selectHarmony');
-  
+
     function updateStylesheet() {
-        const selectedModel = modelSelector.value;
         const harmonyEnabled = selectHarmony.value === 'true';
 
-        const rgbStylesheetId = harmonyEnabled ? 'rgbStylesheetHarmonized' : 'rgbStylesheet';
-        const rybStylesheetId = harmonyEnabled ? 'rybStylesheetHarmonized' : 'rybStylesheet';
+        const stylesheetId = harmonyEnabled ? 'stylesheetHarmonized' : 'stylesheet';
 
-        const allStylesheets = ['rgbStylesheet', 'rybStylesheet', 'rgbStylesheetHarmonized', 'rybStylesheetHarmonized'];
-        for (const id of allStylesheets) {
-            const stylesheet = document.getElementById(id);
-            if (stylesheet) {
-                stylesheet.disabled = true;
-            }
-        }
-
-        document.getElementById(selectedModel === 'rgb' ? rgbStylesheetId : rybStylesheetId).disabled = false;
+        document.getElementById('stylesheet').disabled = harmonyEnabled;
+        document.getElementById('stylesheetHarmonized').disabled = !harmonyEnabled;
         sampleAndSetAttributes();
     }
 
     updateStylesheet();
 
-    modelSelector.addEventListener('change', updateStylesheet);
     selectHarmony.addEventListener('change', updateStylesheet);
 }
+
 
 
 // --------------------------------
@@ -318,6 +351,7 @@ document.addEventListener('DOMContentLoaded', function() {
     generateSchemeRowHtml();
     initializeColorSchemeSelection();
     monitorNeutralizeSelector();
+    monitorModelSelector();
 });
 
 

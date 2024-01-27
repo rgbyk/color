@@ -37,21 +37,8 @@ class RGBYKCOLOR {
   }// Compile SCSS
 compileSCSS(colorModel = 'all') {
   try {
-    if (colorModel === 'all') {
-      // Compile SCSS for both RGB and RYB
-      const rgbSassCommand = `sass ./src/scss/color-rgb.scss ${this.outputPath}/color-rgb.css --no-source-map --charset`;
-      const rybSassCommand = `sass ./src/scss/color-ryb.scss ${this.outputPath}/color-ryb.css --no-source-map --charset`;
-      this.executeCommand(rgbSassCommand, 'RGB Sass compilation failed', '\x1b[36mRGB Sass Success\x1b[0m');
-      this.executeCommand(rybSassCommand, 'RYB Sass compilation failed', '\x1b[36mRYB Sass Success\x1b[0m');
-    } else if (colorModel === 'rgb' || colorModel === 'ryb') {
-      // Compile SCSS based on the specified color model
-      const sassCommand = `sass ./src/scss/color-${colorModel}.scss ${this.outputPath}/color-${colorModel}.css --no-source-map --charset`;
-      this.executeCommand(sassCommand, 'Sass compilation failed', `\x1b[36m${colorModel.toUpperCase()} Sass Success\x1b[0m`);
-    } else {
-      console.error('Invalid color model specified. Use "rgb", "ryb", or "all".');
-    }
-
-    console.log('Sass compiled successfully');
+    const rgbSassCommand = `sass ./src/scss/color.scss ${this.outputPath}/color.css --no-source-map --charset`;
+    this.executeCommand(rgbSassCommand, 'Sass compilation failed', '\x1b[36mSass Success\x1b[0m');
   } catch (error) {
     console.error(`Error compiling SCSS: ${error.message}`);
   }
@@ -59,45 +46,18 @@ compileSCSS(colorModel = 'all') {
 // Post-process with PostCSS
 postProcessWithPostCSS(inputCSSFile, colorModel = 'all') {
   try {
-    if (colorModel === 'all') {
+
       // Check if the RYB CSS file exists
-      if (fs.existsSync(`${this.outputPath}/color-ryb.css`)) {
-        const rybPostCSSCommand = [
+      if (fs.existsSync(`${this.outputPath}/color.css`)) {
+        const PostCSSCommand = [
           path.join(__dirname, '..', 'node_modules', '.bin', 'postcss'), // Specify postcssBinaryPath
-          `${this.outputPath}/color-ryb.css`,
+          `${this.outputPath}/color.css`,
           '-o',
-          `${this.outputPath}/color-ryb.min.css`,
+          `${this.outputPath}/color.min.css`,
         ];
-        spawnSync(rybPostCSSCommand[0], rybPostCSSCommand.slice(1), { stdio: 'inherit' });
+        spawnSync(PostCSSCommand[0], PostCSSCommand.slice(1), { stdio: 'inherit' });
       }
 
-      // Check if the RGB CSS file exists
-      if (fs.existsSync(`${this.outputPath}/color-rgb.css`)) {
-        const rgbPostCSSCommand = [
-          path.join(__dirname, '..', 'node_modules', '.bin', 'postcss'), // Specify postcssBinaryPath
-          `${this.outputPath}/color-rgb.css`,
-          '-o',
-          `${this.outputPath}/color-rgb.min.css`,
-        ];
-        spawnSync(rgbPostCSSCommand[0], rgbPostCSSCommand.slice(1), { stdio: 'inherit' });
-      }
-    } else if (colorModel === 'rgb' || colorModel === 'ryb') {
-      // Process CSS based on the specified color model
-      if (fs.existsSync(`${this.outputPath}/color-${colorModel}.css`)) {
-        const postcssCommand = [
-          path.join(__dirname, '..', 'node_modules', '.bin', 'postcss'), // Specify postcssBinaryPath
-          `${this.outputPath}/color-${colorModel}.css`,
-          '-o',
-          `${this.outputPath}/color-${colorModel}.min.css`,
-        ];
-        spawnSync(postcssCommand[0], postcssCommand.slice(1), { stdio: 'inherit' });
-        console.log(`${colorModel.toUpperCase()} PostCSS completed successfully`);
-      } else {
-        console.error(`CSS file for ${colorModel.toUpperCase()} not found.`);
-      }
-    } else {
-      console.error('Invalid color model specified. Use "rgb", "ryb", or "all".');
-    }
   } catch (error) {
     console.error(`Error post-processing with PostCSS: ${error.message}`);
   }
@@ -108,19 +68,8 @@ postProcessWithPostCSS(inputCSSFile, colorModel = 'all') {
 // Compile Documentation Sass
 compileDocumentationSass(colorModel = 'all') {
   try {
-    if (colorModel === 'all') {
-      // Compile documentation Sass for both RGB and RYB
-      const rgbDocsCommand = `sass ./src/scss/docs/color-rgb.scss ./demo/color-rgb.docs.css --no-source-map --style compressed --charset`;
-      const rybDocsCommand = `sass ./src/scss/docs/color-ryb.scss ./demo/color-ryb.docs.css --no-source-map --style compressed --charset`;
-      this.executeCommand(rgbDocsCommand, 'RGB Documentation Sass compilation failed', '\x1b[36mRGB Documentation Sass Success\x1b[0m');
-      this.executeCommand(rybDocsCommand, 'RYB Documentation Sass compilation failed', '\x1b[36mRYB Documentation Sass Success\x1b[0m');
-    } else if (colorModel === 'rgb' || colorModel === 'ryb') {
-      // Compile documentation Sass based on the specified color model
-      const docsCommand = `sass ./src/scss/docs/color-${colorModel}.scss ./demo/color-${colorModel}.docs.css --no-source-map --style compressed --charset`;
-      this.executeCommand(docsCommand, `${colorModel.toUpperCase()} Documentation Sass compilation failed`, `\x1b[36m${colorModel.toUpperCase()} Documentation Sass Success\x1b[0m`);
-    } else {
-      console.error('Invalid color model specified. Use "rgb", "ryb", or "all".');
-    }
+      const DocsCommand = `sass ./src/scss/docs/color.scss ./demo/color.docs.css --no-source-map --style compressed --charset`;
+      this.executeCommand(DocsCommand, 'Documentation Sass compilation failed', '\x1b[36mDocumentation Sass Success\x1b[0m');
 
     console.log('Documentation Sass compiled successfully');
   } catch (error) {
@@ -133,17 +82,11 @@ generateHarmonizedFiles(colorModel = 'all') {
   try {
     const demoPath = './demo/';
     
-    const rgbDocsCommand = `sass ./src/scss/docs/color-rgb.scss ${demoPath}/color-rgb.docs.css --no-source-map --style compressed --charset`;
-    const rybDocsCommand = `sass ./src/scss/docs/color-ryb.scss ${demoPath}/color-ryb.docs.css --no-source-map --style compressed --charset`;
+    const DocsCommand = `sass ./src/scss/docs/color.scss ${demoPath}/color.docs.css --no-source-map --style compressed --charset`;
+    const DocsHarmonizedCommand = `sass ./src/scss/docs/color.harmonized.scss ${demoPath}/color.harmonized.docs.css --no-source-map --style compressed --charset`;
 
-    const rgbDocsHarmonizedCommand = `sass ./src/scss/docs/color-rgb.harmonized.scss ${demoPath}/color-rgb.harmonized.docs.css --no-source-map --style compressed --charset`;
-    const rybDocsHarmonizedCommand = `sass ./src/scss/docs/color-ryb.harmonized.scss ${demoPath}/color-ryb.harmonized.docs.css --no-source-map --style compressed --charset`;
-
-    this.executeCommand(rgbDocsHarmonizedCommand, 'RGB Harmonized Documentation Sass compilation failed', '\x1b[36mRGB Harmonized Documentation Sass Success\x1b[0m');
-    this.executeCommand(rybDocsHarmonizedCommand, 'RYB Harmonized Documentation Sass compilation failed', '\x1b[36mRYB Harmonized Documentation Sass Success\x1b[0m');
-    
-    this.executeCommand(rgbDocsCommand, 'RGB Documentation Sass compilation failed', '\x1b[36mRGB Documentation Sass Success\x1b[0m');
-    this.executeCommand(rybDocsCommand, 'RYB Documentation Sass compilation failed', '\x1b[36mRYB Documentation Sass Success\x1b[0m');
+    this.executeCommand(DocsCommand, 'RGB Documentation Sass compilation failed', '\x1b[36mRGB Documentation Sass Success\x1b[0m');
+    this.executeCommand(DocsHarmonizedCommand, 'RGB Harmonized Documentation Sass compilation failed', '\x1b[36mRGB Harmonized Documentation Sass Success\x1b[0m');    
 
     console.log('Documentation files generated successfully');
   } catch (error) {

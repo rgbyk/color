@@ -348,8 +348,13 @@ ol[data-scheme-name=hue-10]::before { content: '270°'; }
 ol[data-scheme-name=hue-11]::before { content: '300°'; }
 ol[data-scheme-name=hue-12]::before { content: '330°'; }
 
-ol[data-scheme-name=primary]::before { content: 'Base'; }
-ol[data-scheme-name=complementary]::before { content: '180°'; }
+ol[data-scheme-name=primary]::before { content: 'Primary'; }
+
+ol[data-scheme-name=complementary][data-scheme-type=pure][data-scheme-model="ryb"]::before { content: '180° (RYB)'; }
+ol[data-scheme-name=complementary][data-scheme-type=pure][data-scheme-model="rgb"]::before { content: '180° (RGB)'; }
+
+ol[data-scheme-name=complementary][data-scheme-type=neutral][data-scheme-model="ryb"]::before { content: '180° Neutral (RYB)'; }
+ol[data-scheme-name=complementary][data-scheme-type=neutral][data-scheme-model="rgb"]::before { content: '180° Neutral (RGB)'; }
 
 ol[data-scheme-name=split-1]::before { content: '150°'; }
 ol[data-scheme-name=split-2]::before { content: '210°'; }
@@ -378,7 +383,8 @@ ol[data-scheme-name="grey"]::before { content: 'Grey'; }
 ol[data-scheme-name="slate"]::before { content: 'Slate'; }
 ol[data-scheme-name="stone"]::before { content: 'Stone'; }
 
-ol[data-scheme-type=neutral]::before { content: 'Neutral'; }
+// ol[data-scheme-type=neutral][data-scheme-model="ryb"]::before { content: 'Neutral (RYB)'; }
+// ol[data-scheme-type=neutral][data-scheme-model="rgb"]::before { content: 'Neutral (RGB)'; }
 
 ol[data-scheme-name] { position: relative; }
 ol[data-scheme-name]::before {
@@ -396,8 +402,8 @@ ol[data-scheme-name]::before {
     font-weight: bold;
     height: 30px;
     z-index: 0;
- background-color: var(--color-slate-900);
- box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+     background-color: var(--color-slate-900);
+     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 /*==================================
