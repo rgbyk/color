@@ -268,60 +268,74 @@ function colorSpectrumTable() {
 
 // --------------------------------
 // --------------------------------
-function monitorNeutralizeSelector() {
-    const neutralizeSelector = document.querySelector('#selectNeutralize');
+function updateMarginForSchemeRows() {
+    const articleRows = document.querySelectorAll('.scheme-row--article');
 
-    neutralizeSelector.addEventListener('change', () => {
-        const selectedOption = neutralizeSelector.value;
+    articleRows.forEach(articleRow => {
+        const childRows = articleRow.querySelectorAll('.scheme-row--js');
+        let isFirstVisibleRow = true;
 
-        const pureSchemeRows = document.querySelectorAll('.scheme-row--js[data-scheme-type="pure"]');
-        const neutralSchemeRows = document.querySelectorAll('.scheme-row--js[data-scheme-type="neutral"]');
+        childRows.forEach(childRow => {
+            const isHidden = childRow.getAttribute('aria-hidden') === 'true';
 
-        // Determine display style based on selected option
-        let displayPure = selectedOption === 'all' || selectedOption === 'false';
-        let displayNeutral = selectedOption === 'all' || selectedOption === 'true';
-
-        pureSchemeRows.forEach(row => {
-            row.style.display = displayPure ? 'grid' : 'none';
-            row.setAttribute('aria-hidden', !displayPure);
+            if (!isHidden && isFirstVisibleRow) {
+                isFirstVisibleRow = false;
+            } else if (!isHidden) {
+                childRow.style.marginTop = '12px';
+            } else {
+                childRow.style.marginTop = '0';
+            }
         });
 
-        neutralSchemeRows.forEach(row => {
-            row.style.display = displayNeutral ? 'grid' : 'none';
-            row.setAttribute('aria-hidden', !displayNeutral);
-        });
-
-        sampleAndSetAttributes();
+        if (!isFirstVisibleRow) {
+            childRows[0].style.marginTop = '0';
+        }
     });
 }
 
 
-function monitorModelSelector() {
-    const modelSelector = document.querySelector('#modelSelector');
 
-    modelSelector.addEventListener('change', () => {
+function monitorSchemeSelection() {
+    const modelSelector = document.querySelector('#modelSelector');
+    const neutralizeSelector = document.querySelector('#selectNeutralize');
+
+    function updateSchemeDisplay() {
         const selectedModel = modelSelector.value;
+        const selectedNeutralization = neutralizeSelector.value;
 
         const rgbRows = document.querySelectorAll('.scheme-row--js[data-scheme-model="rgb"]');
         const rybRows = document.querySelectorAll('.scheme-row--js[data-scheme-model="ryb"]');
-
-        // Determine display style based on selected model
-        let displayRgb = selectedModel === 'all' || selectedModel === 'rgb';
-        let displayRyb = selectedModel === 'all' || selectedModel === 'ryb';
+        const pureSchemeRows = document.querySelectorAll('.scheme-row--js[data-scheme-type="pure"]');
+        const neutralSchemeRows = document.querySelectorAll('.scheme-row--js[data-scheme-type="neutral"]');
 
         rgbRows.forEach(row => {
-            row.style.display = displayRgb ? 'grid' : 'none';
-            row.setAttribute('aria-hidden', !displayRgb);
+            const isNeutral = row.dataset.schemeType === 'neutral';
+            const displayRow = (selectedModel === 'all' || selectedModel === 'rgb') &&
+                               (selectedNeutralization === 'all' || (selectedNeutralization === 'true' === isNeutral));
+            row.style.display = displayRow ? 'grid' : 'none';
+            row.setAttribute('aria-hidden', !displayRow);
         });
 
         rybRows.forEach(row => {
-            row.style.display = displayRyb ? 'grid' : 'none';
-            row.setAttribute('aria-hidden', !displayRyb);
+            const isNeutral = row.dataset.schemeType === 'neutral';
+            const displayRow = (selectedModel === 'all' || selectedModel === 'ryb') &&
+                               (selectedNeutralization === 'all' || (selectedNeutralization === 'true' === isNeutral));
+            row.style.display = displayRow ? 'grid' : 'none';
+            row.setAttribute('aria-hidden', !displayRow);
         });
 
         sampleAndSetAttributes();
-    });
+        updateMarginForSchemeRows();
+    }
+
+    updateSchemeDisplay();
+    updateMarginForSchemeRows();
+
+    modelSelector.addEventListener('change', updateSchemeDisplay);
+    neutralizeSelector.addEventListener('change', updateSchemeDisplay);
 }
+
+
 
 
 function initializeColorSchemeSelection() {
@@ -350,8 +364,7 @@ document.addEventListener('DOMContentLoaded', initializeColorSchemeSelection);
 document.addEventListener('DOMContentLoaded', function() {
     generateSchemeRowHtml();
     initializeColorSchemeSelection();
-    monitorNeutralizeSelector();
-    monitorModelSelector();
+    monitorSchemeSelection();
 });
 
 
