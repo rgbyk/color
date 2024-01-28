@@ -1,7 +1,7 @@
 primary:
   - id: primary
     title: Base
-    paragraph: ...
+    paragraph: The primary color (primary-500) is the base color.
   - { name: "primary", type: "pure", model: "none" }
   - { name: "primary", type: "neutral", model: "none" }
 
@@ -16,7 +16,7 @@ achromatic:
 complementary:
   - id: complementary
     title: Complementary
-    paragraph: ...
+    paragraph: Complementary colors are a pair of colors which, when combined or mixed cancel each other out by producing a grayscale color. In RGB, when complementary colors are combined or mixed together they cancel each other and produce a grayscale color while in RYB, the results are different.
   - { name: "complementary", type: "pure", model: "rgb" }
   - { name: "complementary", type: "neutral", model: "rgb" }
   - { name: "complementary", type: "pure", model: "ryb" }
@@ -25,7 +25,7 @@ complementary:
 analogous:
   - id: analogous
     title: Analogous
-    paragraph: ...
+    paragraph: A four-color combination consisting of a base color and three colors that are 30 degrees, 60 degrees, and 90 degrees apart from the base color.
   - { name: "analogous-1", type: "pure", model: "rgb" }
   - { name: "analogous-1", type: "neutral", model: "rgb" }
   - { name: "analogous-1", type: "pure", model: "ryb" }
@@ -42,7 +42,7 @@ analogous:
 split:
   - id: Split
     title: Split
-    paragraph: ...
+    paragraph: A three-color combination consisting of a base color and two colors that are 150 degrees and 210 degrees apart from the base color.
   - { name: "split-1", type: "pure", model: "rgb" }
   - { name: "split-1", type: "neutral", model: "rgb" }
   - { name: "split-1", type: "pure", model: "ryb" }
@@ -55,7 +55,7 @@ split:
 square:
   - id: square
     title: Square
-    paragraph: ...
+    paragraph: A four-color combination consisting of a base color and three colors that are 90 degrees apart from the base color.
   - { name: "square-1", type: "pure", model: "rgb", degree }
   - { name: "square-1", type: "neutral", model: "rgb" }
   - { name: "square-1", type: "pure", model: "ryb" }
@@ -72,7 +72,7 @@ square:
 triadic:
   - id: triadic
     title: Triadic
-    paragraph: ...
+    paragraph: A three-color combination consisting of a base color and two colors that are 120 degrees and 240 degrees apart from the base color.
   - { name: "triadic-1", type: "pure", model: "rgb", degree }
   - { name: "triadic-1", type: "neutral", model: "rgb" }
   - { name: "triadic-1", type: "pure", model: "ryb" }
@@ -85,7 +85,7 @@ triadic:
 tetradic:
   - id: tetradic
     title: Tetradic
-    paragraph: ...
+    paragraph: A four-color combination consisting of a base color and three colors that are 60 degrees apart from the base color.
   - { name: "tetradic-1", type: "pure", model: "rgb", degree }
   - { name: "tetradic-1", type: "neutral", model: "rgb" }
   - { name: "tetradic-1", type: "pure", model: "ryb" }
@@ -98,3 +98,13 @@ tetradic:
   - { name: "tetradic-3", type: "neutral", model: "rgb" }
   - { name: "tetradic-3", type: "pure", model: "ryb" }
   - { name: "tetradic-3", type: "neutral", model: "ryb" }
+
+hues:
+  - id: hue
+    title: 12 Hues
+    paragraph: The hue scheme is a natural order of hues -> red, yellow, green, blue, purple, and the system will generate a full color wheel composed of 12 hues.
+
+gui:
+  - id: gui
+    title: GUI Colors
+    paragraph: ...
