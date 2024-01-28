@@ -1,21 +1,35 @@
-<article class="docs-section" id="section-cs--{{ include.id | downcase }}" data-speed="1">
-    <header class="scheme-row--header">
-        <h3>
-            <a href="#section-cs--{{ include.id | downcase }}">
-                <span>{{ include.title }}</span>
-            </a>
-        </h3>
-    </header>
-    <div class="scheme-row--article">
+{% for item in include.include %}
+  {% if item.id %}
+    <article class="docs-section" id="section-cs--{{ item.id | downcase }}" data-speed="1">
+      {% if item.title or item.paragraph %}
+        <header class="scheme-row--header">
+          {% if item.title %}
+            <h3>
+              <a href="#section-cs--{{ item.id | downcase }}">
+                <span>{{ item.title }}</span>
+              </a>
+            </h3>
+          {% endif %}
+          {% if item.paragraph %}
+            <p>{{ item.paragraph }}</p>
+          {% endif %}
+        </header>
+      {% endif %}
+      <div class="scheme-row--article">
         <div class="scheme-row--article">
-        {% for ol in include.ols %}
-            <ol class="scheme-row scheme-row--js cvd" 
-                data-scheme-name="{{ ol.name }}"
-                data-scheme-type="{{ ol.type }}" 
-                data-scheme-model="{{ ol.model }}"
-                aria-hidden="true">
-            </ol>
-        {% endfor %}
+          {% for ol in include.include %}
+            {% if ol.name and ol.type and ol.model %}
+              <ol class="scheme-row scheme-row--js cvd" 
+                  data-scheme-name="{{ ol.name }}"
+                  data-scheme-type="{{ ol.type }}" 
+                  data-scheme-model="{{ ol.model }}"
+                  aria-hidden="true">
+              </ol>
+            {% endif %}
+          {% endfor %}
         </div>
-    </div>
-</article>
+      </div>
+    </article>
+  {% endif %}
+{% endfor %}
+

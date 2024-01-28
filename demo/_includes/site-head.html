@@ -1,0 +1,21 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="all">
+
+  <link rel="stylesheet" href="https://use.typekit.net/ouc6erk.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  {% for option in site.data.selectors.selectColors %}
+    <link rel="preload" as="style" href="assets/css/{{ option.value }}.docs.css">
+    <link rel="preload" as="style" href="assets/css/{{ option.value }}.harmonized.docs.css">
+  {% endfor %}
+
+  <link id="mainStylesheet" rel="stylesheet" type="text/css" href="assets/css/color.docs.css">
+  <link id="harmonizedStylesheet" rel="stylesheet" type="text/css" href="assets/css/color.harmonized.docs.css" disabled>
+
+
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+</head>

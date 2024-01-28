@@ -1,0 +1,66 @@
+<section class="api-section" id="api-section--cs.get">
+    <header class="api-header">
+        <div class="api-header--meta max-lf">
+            <h3 class="api-header--title">
+                <a class="api-header--title_link" href="#api-section--cs.get">
+                    <i class="ico-hashtag"></i>
+                </a>
+                <span class="api-header--title_text">Get Functions</span>
+            </h3>
+        </div>
+    </header>
+    <article class="api-article" id="cs.get.use">
+        <header class="api-article--header">
+            <h4><span>@use</span></h4>
+            <div class="btn-group">
+                <a class="btn btn-secondary" href="#cs.get.use">
+                    <i class="ico-hashtag"></i>
+                    <span class="sr-only">Link to code</span>
+                </a>
+            </div>
+        </header>
+        <div class="api-article--content">
+            <div class="api-article--content_code">
+{% highlight scss %}
+@use "@rgbyk/color/src/scss/functions/color-func-get" as *;
+{% endhighlight %}
+            </div>
+        </div>
+    </article>
+
+    <article class="api-article" id="cs.get.get-color-contrast">
+        <header class="api-article--header">
+            <h4><span>get-color-contrast($color)</span></h4>
+            <div class="btn-group">
+                <a class="btn btn-secondary" href="#cs.get.get-color-contrast">
+                    <i class="ico-hashtag"></i>
+                    <span class="sr-only">Link to code</span>
+                </a>
+            </div>
+        </header>
+        <div class="api-article--content">
+            <div class="api-article--content_info">
+{% highlight sass %}
+// determine whether to use dark or light text on top of given color
+// returns black for dark text and white for light text
+{% endhighlight %}
+            </div>
+        <div class="api-article--content_code">
+{% highlight sass %}
+@debug get-color-contrast(#FF0000); // #000000
+@debug get-color-contrast(#FF8000); // #000000
+@debug get-color-contrast(#FFFF00); // #000000
+@debug get-color-contrast(#80FF00); // #000000
+@debug get-color-contrast(#00FF00); // #000000
+@debug get-color-contrast(#00FF80); // #000000
+@debug get-color-contrast(#00FFFF); // #000000
+@debug get-color-contrast(#0080FF); // #000000
+@debug get-color-contrast(#0000FF); // #FFFFFF
+@debug get-color-contrast(#7F00FF); // #FFFFFF
+@debug get-color-contrast(#FF00FF); // #000000
+@debug get-color-contrast(#FF007F); // #000000
+{% endhighlight %}
+            </div>
+        </div>
+    </article>
+</section>

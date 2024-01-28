@@ -1,19 +1,31 @@
 primary:
+  - id: primary
+    title: Base
+    paragraph: ...
   - { name: "primary", type: "pure", model: "none" }
+  - { name: "primary", type: "neutral", model: "none" }
 
 achromatic:
+  - id: Achromatic
+    title: Acrhomatic
+    paragraph: ...
   - { name: "grey", type: "pure", model: "none" }
   - { name: "stone", type: "pure", model: "none" }
   - { name: "slate", type: "pure", model: "none" }
 
-
 complementary:
+  - id: complementary
+    title: Complementary
+    paragraph: ...
   - { name: "complementary", type: "pure", model: "rgb" }
   - { name: "complementary", type: "neutral", model: "rgb" }
   - { name: "complementary", type: "pure", model: "ryb" }
   - { name: "complementary", type: "neutral", model: "ryb" }
 
 analogous:
+  - id: analogous
+    title: Analogous
+    paragraph: ...
   - { name: "analogous-1", type: "pure", model: "rgb" }
   - { name: "analogous-1", type: "neutral", model: "rgb" }
   - { name: "analogous-1", type: "pure", model: "ryb" }
@@ -28,6 +40,9 @@ analogous:
   - { name: "analogous-3", type: "neutral", model: "ryb" }
 
 split:
+  - id: Split
+    title: Split
+    paragraph: ...
   - { name: "split-1", type: "pure", model: "rgb" }
   - { name: "split-1", type: "neutral", model: "rgb" }
   - { name: "split-1", type: "pure", model: "ryb" }
@@ -38,6 +53,9 @@ split:
   - { name: "split-2", type: "neutral", model: "ryb" }
 
 square:
+  - id: square
+    title: Square
+    paragraph: ...
   - { name: "square-1", type: "pure", model: "rgb", degree }
   - { name: "square-1", type: "neutral", model: "rgb" }
   - { name: "square-1", type: "pure", model: "ryb" }
@@ -52,6 +70,9 @@ square:
   - { name: "square-3", type: "neutral", model: "ryb" }
 
 triadic:
+  - id: triadic
+    title: Triadic
+    paragraph: ...
   - { name: "triadic-1", type: "pure", model: "rgb", degree }
   - { name: "triadic-1", type: "neutral", model: "rgb" }
   - { name: "triadic-1", type: "pure", model: "ryb" }
@@ -62,6 +83,9 @@ triadic:
   - { name: "triadic-2", type: "neutral", model: "ryb" }
 
 tetradic:
+  - id: tetradic
+    title: Tetradic
+    paragraph: ...
   - { name: "tetradic-1", type: "pure", model: "rgb", degree }
   - { name: "tetradic-1", type: "neutral", model: "rgb" }
   - { name: "tetradic-1", type: "pure", model: "ryb" }

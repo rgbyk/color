@@ -1,0 +1,12 @@
+selectColors:
+  - { text: 'Default', value: 'color', selected: true }
+  - { text: 'Facebook', value: '1877f2' }
+  - { text: 'GSAP', value: '0ae448' }
+  - { text: 'Twitter', value: '1da1f2' }
+  - { text: 'Coca Cola', value: 'ed1c16' }
+  - { text: 'BuzzFeed', value: 'ee3322' }
+  - { text: 'Adobe', value: 'ff0000' }
+  - { text: 'Android', value: 'a4c639' }
+  - { text: 'FWAI', value: '2a5934' }
+  - { text: 'Behance', value: '1769ff' }
+  - { text: 'Bing', value: 'ffb900' }

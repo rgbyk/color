@@ -170,21 +170,21 @@ colorGen.setColorSchemeAchromatic('true');
 This command compiles `./src/scss/color.scss`:
 
 ```shell
-$ npm run color
+npm run color
 ```
 
 ### `cli.color-rgb`
 This command compiles `./src/scss/color-rgb.scss`:
 
 ```shell
-$ npm run color-rgb
+npm run color-rgb
 ```
 
 ### `cli.color-ryb`
 This command compiles `./src/scss/color-ryb.scss`:
 
 ```shell
-$ npm run color-rgb
+npm run color-rgb
 ```
 
 ----

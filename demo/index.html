@@ -6,26 +6,35 @@ title: Color Generator
 ---
 
 {% assign ols_data = site.data.schemes.primary %}
-{% include rows.html id="primary" title="Primary" ols=ols_data %}
+{% include rows.html include=ols_data %}
 
 {% assign ols_data = site.data.schemes.complementary %}
-{% include rows.html id="complementary" title="Complementary" ols=ols_data %}
+{% include rows.html include=ols_data %}
 
 {% assign ols_data = site.data.schemes.analogous %}
-{% include rows.html title="Analogous" ols=ols_data %}
+{% include rows.html include=ols_data %}
 
 {% assign ols_data = site.data.schemes.split %}
-{% include rows.html title="Split" ols=ols_data %}
+{% include rows.html include=ols_data %}
 
 {% assign ols_data = site.data.schemes.square %}
-{% include rows.html title="Square" ols=ols_data %}
-
-{% assign ols_data = site.data.schemes.tetradic %}
-{% include rows.html title="Tetradic" ols=ols_data %}
+{% include rows.html include=ols_data %}
 
 {% assign ols_data = site.data.schemes.triadic %}
-{% include rows.html title="Triadic" ols=ols_data %}
+{% include rows.html include=ols_data %}
 
+{% assign ols_data = site.data.schemes.tetradic %}
+{% include rows.html include=ols_data %}
 
 {% assign ols_data = site.data.schemes.achromatic %}
-{% include rows.html id="achromatic" title="achromatic" ols=ols_data %}
+{% include rows.html include=ols_data %}
+
+{% comment %}
+{% include content/color-schemes.html %}
+{% include content/color-features.html %}
+{% include content/color-theory.html %}
+{% include content/color-cli.html %}
+{% include content/color-api.html %}
+{% include content/color-license.html %}
+{% include content/color-resources.html %}
+{% endcomment %}

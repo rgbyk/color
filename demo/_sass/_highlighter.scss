@@ -1,0 +1,571 @@
+// html
+// <article class="api-article" id="cs.calc.calc-luminance"> <header class="api-article--header"> <h4><span>cs.calc.calc-luminance($color)</span></h4> <div class="btn-group"> <a class="btn btn-secondary" href="#cs.calc.calc-luminance"> <i class="ico-hashtag"></i> <span class="sr-only">Link to code</span> </a> </div> </header> <div class="api-article--content"> <div class="api-article--content_info"> <figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// calculate the luminance for a color.</span>
+// <span class="c1">// https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests</span></code></pre></figure> </div> <div class="api-article--content_code"> <figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@debug</span> <span class="nf">calc-luminance</span><span class="p">(</span><span class="mh" style="background: rgb(255, 0, 0); color: rgba(255, 255, 255, 0.7);">#FF0000</span><span class="p">);</span> <span class="c1">// 0.2126</span>
+// <span class="k">@debug</span> <span class="nf">calc-luminance</span><span class="p">(</span><span class="mh" style="background: rgb(255, 128, 0); color: rgba(255, 255, 255, 0.7);">#FF8000</span><span class="p">);</span> <span class="c1">// 0.3669834297</span>
+// <span class="k">@debug</span> <span class="nf">calc-luminance</span><span class="p">(</span><span class="mh" style="background: rgb(255, 255, 0); color: rgba(0, 0, 0, 0.7);">#FFFF00</span><span class="p">);</span> <span class="c1">// 0.9278</span>
+// <span class="k">@debug</span> <span class="nf">calc-luminance</span><span class="p">(</span><span class="mh" style="background: rgb(128, 255, 0); color: rgba(0, 0, 0, 0.7);">#80FF00</span><span class="p">);</span> <span class="c1">// 0.7610919423</span>
+// <span class="k">@debug</span> <span class="nf">calc-luminance</span><span class="p">(</span><span class="mh" style="background: rgb(0, 255, 0); color: rgba(255, 255, 255, 0.7);">#00FF00</span><span class="p">);</span> <span class="c1">// 0.7152</span>
+// <span class="k">@debug</span> <span class="nf">calc-luminance</span><span class="p">(</span><span class="mh" style="background: rgb(0, 255, 128); color: rgba(255, 255, 255, 0.7);">#00FF80</span><span class="p">);</span> <span class="c1">// 0.7307851281</span>
+// <span class="k">@debug</span> <span class="nf">calc-luminance</span><span class="p">(</span><span class="mh" style="background: rgb(0, 255, 255); color: rgba(255, 255, 255, 0.7);">#00FFFF</span><span class="p">);</span> <span class="c1">// 0.7874</span>
+// <span class="k">@debug</span> <span class="nf">calc-luminance</span><span class="p">(</span><span class="mh" style="background: rgb(0, 128, 255); color: rgba(255, 255, 255, 0.7);">#0080FF</span><span class="p">);</span> <span class="c1">// 0.2265834297</span>
+// <span class="k">@debug</span> <span class="nf">calc-luminance</span><span class="p">(</span><span class="mh" style="background: rgb(0, 0, 255); color: rgba(255, 255, 255, 0.7);">#0000FF</span><span class="p">);</span> <span class="c1">// 0.0722</span>
+// <span class="k">@debug</span> <span class="nf">calc-luminance</span><span class="p">(</span><span class="mh" style="background: rgb(127, 0, 255); color: rgba(255, 255, 255, 0.7);">#7F00FF</span><span class="p">);</span> <span class="c1">// 0.117320259</span>
+// <span class="k">@debug</span> <span class="nf">calc-luminance</span><span class="p">(</span><span class="mh" style="background: rgb(255, 0, 255); color: rgba(255, 255, 255, 0.7);">#FF00FF</span><span class="p">);</span> <span class="c1">// 0.2848</span>
+// <span class="k">@debug</span> <span class="nf">calc-luminance</span><span class="p">(</span><span class="mh" style="background: rgb(255, 0, 127); color: rgba(255, 255, 255, 0.7);">#FF007F</span><span class="p">);</span> <span class="c1">// 0.2279230607</span></code></pre></figure> </div> </div> </article>
+
+.api-section + .api-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+}
+
+.api-header {
+  margin-bottom: 1rem;
+}
+
+.api-header--meta {
+  display: flex;
+  justify-content: space-between;
+}
+.api-header--title,
+.api-header--sectiontitle {
+  line-height: 1.215;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+
+.api-header--sectiontitle {
+  font-size: 18px;
+}
+.api-header--title {
+  font-size: 16px;
+}
+
+.api-header--title_text {
+  order: 1;
+  // temporary
+  // padding-left: 16px;
+  padding-left: 0;
+}
+.api-header--title_link {
+  order: 0;
+  opacity: 0.3;
+  position: absolute;
+
+  // temporary
+  display: none;
+}
+.api-header--title_desc {
+  margin-top: 0.5rem;
+  font-size: 16px;
+  line-height: 1.415;
+}
+
+@media (max-width: 992px) {
+  .api-header--title_text,
+  .api-header--title,
+  .api-header--sectiontitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0;
+    width: 100%;
+  }
+  .api-header--sectiontitle {
+    width: 100%;
+    position: relative;
+  }
+  .api-header--title_link {
+    position: absolute;
+    right: 0;
+    transform: translateY(-50%);
+    top: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  // .api-header--title_text{
+  // padding-left: 1rem;
+  // }
+  .api-header--title_link {
+    order: 0;
+    opacity: 0.3;
+    position: absolute;
+    margin-right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .api-header--title_link:focus {
+    outline: 0;
+    opacity: 0.8;
+    color: var(--primary-400);
+  }
+}
+
+.api-article {
+  overflow: hidden;
+  border-radius: 3px;
+}
+.api-article + .api-article {
+  margin-top: 1rem;
+}
+
+.api-article--header {
+  margin-bottom: 0;
+  background: var(--primary-900);
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  border-radius: 3px 3px 0 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.api-article--header h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  font-weight: bold;
+  padding-left: 0.5rem;
+  flex: auto;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .api-article--header h4 {
+    font-size: 14px;
+  }
+}
+.api-article--header .tag {
+  margin-right: 0.2rem;
+}
+
+.api-article--header .btn-secondary {
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+}
+.api-article--header .btn-secondary i {
+  transform: scale(0.8);
+}
+.api-article--header .btn-secondary {
+  border-width: 0 0 0 1px;
+  border-style: solid;
+}
+
+.api-article--content {
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+  margin-top: 0;
+  box-shadow: 0 0 0 0;
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+}
+
+.api-article--content_info {
+  border-bottom: 1px solid;
+}
+.api-article--content_info .highlight {
+  border-bottom: 0px;
+}
+.api-article--content_code .highlight,
+.api-article--content_info .highlight {
+  // max-height: 240px;
+  overflow: auto;
+}
+
+@media (min-width: 992px) {
+  .api-article--content_code .highlight::-webkit-scrollbar {
+    width: 5px;
+  }
+}
+
+.theme-dark .api-article--header,
+.theme-dark .api-article--content,
+.theme-dark .api-article--content .api-article--content_info,
+.theme-dark .api-article--content .api-article--content_info .highlight,
+.theme-dark .api-article--content .api-article--content_code .highlight,
+.theme-dark .api-article--header .btn-secondary {
+  border-color: var(--grey-600-a);
+}
+.theme-dark .api-article--header {
+  background-color: var(--primary-700-a);
+  color: var(--white);
+}
+.theme-dark .api-article--content_info .highlight {
+  background-color: var(--grey-800a) !important;
+}
+.theme-dark .api-article--content_code .highlight {
+  background-color: var(--grey-900a) !important;
+}
+.theme-dark .api-article--header .btn-secondary {
+  background-color: var(--primary-500-a);
+  color: var(--primary-200);
+}
+.theme-dark .api-article--header .btn-secondary:hover {
+  background-color: var(--primary-400-a);
+}
+.theme-dark .api-article--header .btn-secondary:focus {
+  background-color: var(--primary-600-a);
+  box-shadow: 0 0 0 0;
+}
+
+@media (min-width: 992px) {
+  .theme-dark
+    .api-article--content_code:hover
+    .highlight::-webkit-scrollbar-track {
+    background-color: var(--grey-800-a);
+  }
+  .theme-dark
+    .api-article--content_code:hover
+    .highlight::-webkit-scrollbar-thumb {
+    background-color: var(--grey-400-a);
+  }
+}
+
+.theme-light .api-article {
+  transition: box-shadow ease 0.2s;
+  box-shadow: 0 1px 2px var(--grey-300-a);
+}
+.theme-light .api-article:hover {
+  box-shadow: 0 4px 8px var(--grey-700-a);
+}
+
+.theme-light .api-article--header,
+.theme-light .api-article--content,
+.theme-light .api-article--content .api-article--content_info,
+.theme-light .api-article--content .api-article--content_info .highlight,
+.theme-light .api-article--content .api-article--content_code .highlight,
+.theme-light .api-article--header .btn-secondary {
+  border-color: var(--grey-300);
+}
+.theme-light .api-article--header {
+  background-color: var(--primary-200-a);
+  color: var(--grey-900);
+}
+.theme-light .api-article--content_info .highlight {
+  background-color: var(--primary-100a) !important;
+}
+.theme-light .api-article--content_code .highlight {
+  background-color: var(--grey-100a) !important;
+}
+.theme-light .api-article--header .btn-secondary {
+  background-color: var(--primary-100-a);
+  color: var(--primary-400-n);
+}
+.theme-light .api-article--header .btn-secondary:hover {
+  background-color: var(--primary-200-a);
+}
+.theme-light .api-article--header .btn-secondary:focus {
+  box-shadow: 0 0 0 0;
+}
+@media (min-width: 992px) {
+  .theme-light .api-article--content_code .highlight::-webkit-scrollbar-track {
+    background-color: var(--grey-100-a);
+  }
+  .theme-light .api-article--content_code .highlight::-webkit-scrollbar-thumb {
+    background-color: var(--grey-800-a);
+  }
+}
+
+
+// ==================================================================
+// Highlighter
+// ==================================================================
+
+.code-label {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 0;
+  padding: 0.25rem 0.5rem;
+  border-width: 1px 1px 0 1px;
+  border-style: solid;
+  border-radius: 3px 3px 0 0;
+  background: var(--primary-900);
+}
+
+.code-label + .highlight {
+  margin-top: 0;
+  border-width: 0 1px 1px 1px;
+  border-style: solid;
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+  box-shadow: 0 0 0 0;
+}
+
+.highlight pre {
+  font-size: 15px;
+  line-height: 1.563;
+  padding: 0.5rem;
+}
+
+.highlight .kt,
+.highlight .no,
+.highlight .nc,
+.highlight .nd,
+.highlight .nn,
+.highlight .ne,
+.highlight .bp,
+.highlight .gs,
+.highlight .k,
+.highlight .kd,
+.highlight .kv,
+.highlight .ow,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .gh,
+.highlight .gu,
+.highlight .nl,
+.highlight .nt,
+.highlight .kc,
+.highlight .mf,
+.highlight .mh,
+.highlight .il,
+.highlight .mo,
+.highlight .mb,
+.highlight .mx,
+.highlight .ld,
+.highlight .ld,
+.highlight .ss,
+.highlight .s,
+.highlight .sb,
+.highlight .sd,
+.highlight .s2,
+.highlight .sh,
+.highlight .sx,
+.highlight .sr,
+.highlight .s1,
+.highlight .se,
+.highlight .sc,
+.highlight .si,
+.highlight .ni,
+.highlight .nv,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi {
+  font-weight: bold;
+}
+
+.highlight .ge {
+  font-style: italic;
+}
+
+.theme-dark {
+  .code-label {
+    color: var(--primary-200) !important;
+    border-color: var(--primary-700) !important;
+    background-color: var(--primary-900) !important;
+  }
+
+  .highlight {
+    border-color: var(--primary-700) !important;
+    background-color: var(--primary-800) !important;
+    code {
+      color: var(--white);
+    }
+
+    .o,
+    .p,
+    .err {
+      color: var(--grey-500);
+    }
+    .mh {
+      border-radius: 0.25rem;
+    }
+    .n {
+      color: var(--primary-400-n);
+    }
+    .ow,
+    .pi,
+    .se,
+    .sc,
+    .si {
+      color: #4df4ff;
+    }
+    .nf,
+    .py,
+    .na,
+    .nv,
+    .vc,
+    .vg,
+    .vi {
+      color: var(--square3-400-n);
+    }
+    .kn,
+    .kp,
+    .kr,
+    .gh,
+    .gu,
+    .nl,
+    .nt {
+      color: var(--square2-400-n);
+    }
+    .k,
+    .kd,
+    .kv {
+      color: var(--square2-400-n);
+    }
+    .s,
+    .sb,
+    .sd,
+    .s2,
+    .sh,
+    .sx,
+    .sr,
+    .s1 {
+      color: var(--primary-300-n);
+    }
+    .kt,
+    .no,
+    .nc,
+    .nd,
+    .nn,
+    .ne,
+    .gi {
+      color: var(--complementary-400-n);
+    }
+    .bp {
+      border-radius: 0.25rem;
+      background-color: var(--analogous2-400-a);
+    }
+    .m,
+    .mf,
+    .mh,
+    .mi,
+    .il,
+    .mo,
+    .mb,
+    .mx,
+    .ld,
+    .ld,
+    .ss,
+    .kc {
+      color: var(--square1-300);
+    }
+    .gd {
+      color: #c00;
+    }
+    .gt {
+      color: var(--grey-200);
+      background-color: var(--grey-500);
+    }
+    .ni,
+    .c1 {
+      color: var(--grey-400);
+    }
+    .w,
+    .go {
+      color: var(--grey-300);
+    }
+  }
+}
+
+.theme-light {
+  .code-label {
+    color: var(--primary-500) !important;
+    border-color: var(--primary-300) !important;
+    background-color: var(--primary-200) !important;
+  }
+
+  .highlight {
+    border-color: var(--primary-300) !important;
+    background-color: var(--primary-100) !important;
+    code {
+      color: var(--primary-500);
+    }
+
+    .o,
+    .p {
+      color: var(--grey-500);
+    }
+    .n {
+      color: var(--analogous1-400-n);
+    }
+
+    .ow,
+    .pi,
+    .se,
+    .sc,
+    .si {
+      color: var(--hue-150-400-n);
+    }
+    .nf,
+    .py,
+    .na,
+    .nv,
+    .vc,
+    .vg,
+    .vi {
+      color: var(--hue-240-400-n);
+    }
+    .kn,
+    .kp,
+    .kr,
+    .gh,
+    .gu,
+    .nl,
+    .nt {
+      color: var(--analogous2-500-n);
+    }
+    .k,
+    .kd,
+    .kv {
+      color: var(--analogous2-500-n);
+    }
+    .s,
+    .sb,
+    .sd,
+    .s2,
+    .sh,
+    .sx,
+    .sr,
+    .s1 {
+      color: var(--analogous2-500-n);
+    }
+    .kt,
+    .no,
+    .nc,
+    .nd,
+    .nn,
+    .ne,
+    .bp,
+    .gi {
+      color: var(--hue-270-400);
+    }
+    .m,
+    .mf,
+    .mh,
+    .mi,
+    .il,
+    .mo,
+    .mb,
+    .mx,
+    .ld,
+    .ld,
+    .ss,
+    .kc {
+      color: var(--analogous1-500-n);
+    }
+    .gd {
+      color: var(--hue-0-400);
+    }
+    .gt {
+      color: var(--grey-200);
+      background-color: var(--grey-500);
+    }
+    .ni,
+    .c1 {
+      color: var(--grey-400);
+    }
+    .w,
+    .go {
+      color: var(--grey-300);
+    }
+  }
+}
