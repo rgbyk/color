@@ -16,18 +16,16 @@
         </header>
       {% endif %}
       <div class="scheme-row--article">
-        <div class="scheme-row--article">
-          {% for ol in include.include %}
-            {% if ol.name and ol.type and ol.model %}
-              <ol class="scheme-row scheme-row--js cvd" 
-                  data-scheme-name="{{ ol.name }}"
-                  data-scheme-type="{{ ol.type }}" 
-                  data-scheme-model="{{ ol.model }}"
-                  aria-hidden="true">
-              </ol>
-            {% endif %}
-          {% endfor %}
-        </div>
+        {% for ol in include.include %}
+          {% if ol.name and ol.type and ol.model %}
+            <ol class="scheme-row scheme-row--js cvd" 
+                data-scheme-name="{{ ol.name }}"
+                data-scheme-type="{{ ol.type }}" 
+                data-scheme-model="{{ ol.model }}"
+                aria-hidden="true">
+            </ol>
+          {% endif %}
+        {% endfor %}
       </div>
     </article>
   {% endif %}

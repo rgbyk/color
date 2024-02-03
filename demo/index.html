@@ -5,6 +5,11 @@ title: Color Generator
 
 ---
 
+{% include content/color-about.html %}
+{% include content/color-theory.html %}
+{% include content/color-spectrum.html %}
+
+
 {% assign ols_data = site.data.schemes.primary %}
 {% include rows.html include=ols_data %}
 
@@ -26,7 +31,13 @@ title: Color Generator
 {% assign ols_data = site.data.schemes.tetradic %}
 {% include rows.html include=ols_data %}
 
-{% assign ols_data = site.data.schemes.achromatic %}
+{% assign ols_data = site.data.schemes.grayscale %}
+{% include rows.html include=ols_data %}
+
+{% assign ols_data = site.data.schemes.stone %}
+{% include rows.html include=ols_data %}
+
+{% assign ols_data = site.data.schemes.slate %}
 {% include rows.html include=ols_data %}
 
 {% comment %}

@@ -289,12 +289,12 @@ function updateMarginForSchemeRows() {
 // --------------------------------
 
 function monitorSchemeSelector() {
-    const modelSelector = document.querySelector('#modelSelector');
-    const neutralizeSelector = document.querySelector('#selectNeutralize');
+    const colorModelSelector = document.querySelector('#colorModelSelector');
+    const colorNeutralizeSelector = document.querySelector('#colorNeutralizeSelector');
 
     function updateSchemeDisplay() {
-        const selectedModel = modelSelector.value;
-        const selectedNeutralization = neutralizeSelector.value;
+        const selectedModel = colorModelSelector.value;
+        const selectedNeutralization = colorNeutralizeSelector.value;
 
         const rows = document.querySelectorAll('.scheme-row--js');
 
@@ -320,8 +320,8 @@ function monitorSchemeSelector() {
     updateSchemeDisplay();
     updateMarginForSchemeRows();
 
-    modelSelector.addEventListener('change', updateSchemeDisplay);
-    neutralizeSelector.addEventListener('change', updateSchemeDisplay);
+    colorModelSelector.addEventListener('change', updateSchemeDisplay);
+    colorNeutralizeSelector.addEventListener('change', updateSchemeDisplay);
 }
 
 function monitorColorSelector() {
@@ -350,12 +350,12 @@ function monitorColorSelector() {
 }
 
 function monitorHarmonySelector() {
-    const selectHarmony = document.querySelector('#selectHarmony');
+    const colorHarmonySelector = document.querySelector('#colorHarmonySelector');
     const mainStylesheet = document.getElementById('mainStylesheet');
     const harmonizedStylesheet = document.getElementById('harmonizedStylesheet');
 
     const updateStylesheets = () => {
-        const harmonyEnabled = selectHarmony.value === 'true';
+        const harmonyEnabled = colorHarmonySelector.value === 'true';
 
         if (mainStylesheet.disabled !== harmonyEnabled) {
             mainStylesheet.disabled = harmonyEnabled;
@@ -370,7 +370,7 @@ function monitorHarmonySelector() {
 
     updateStylesheets();
 
-    selectHarmony.addEventListener('change', updateStylesheets);
+    colorHarmonySelector.addEventListener('change', updateStylesheets);
 }
 
 function monitorCvdSelector() {
@@ -396,64 +396,60 @@ function monitorCvdSelector() {
 }
 
 function monitorUiSelector() {
-    const selectUi = document.getElementById("selectUi");
-    const elements = document.querySelectorAll(".scheme-row--header");
-    const metaElements = document.querySelectorAll(".scheme-color--meta");
-
+    const selectCardSize = document.getElementById("selectCardSize");
+    const classArray = Array.from(selectCardSize.options).map(option => option.value);
     const updateUi = () => {
-        const selectedValue = selectUi.value; // Get the selected value from the <select> element
-        if (selectedValue === "compact") { // Check if the selected value is "true"
-            elements.forEach(element => element.parentNode.classList.add("is-compact")); // Hide elements
-        } else {
-        }
+        const selectedValue = selectCardSize.value;
+        document.querySelectorAll(".scheme-row--header").forEach(element => {
+            classArray.forEach(className => element.parentNode.classList.remove(className));
+            element.parentNode.classList.add(selectedValue);
+        });
     }
 
-    selectUi.addEventListener('change', updateUi);
+    selectCardSize.addEventListener('change', updateUi);
+}
+
+function switchCopyAction() {
+    const selectCopyAction = document.getElementById("selectCopyAction");
+
+    selectCopyAction.addEventListener('change', () => {
+        const selectedValue = selectCopyAction.value; // var, hex, or rgb
+        document.querySelectorAll('.scheme-row--figure').forEach(figure => {
+            const button = figure.querySelector('.scheme-color--preview');
+            switch (selectedValue) {
+                case 'var':
+                    button.setAttribute('data-clipboard-text', `var(--${figure.getAttribute('data-cs-var')})`);
+                    break;
+                case 'hex':
+                    button.setAttribute('data-clipboard-text', figure.getAttribute('data-cs-hex'));
+                    break;
+                case 'rgb':
+                    button.setAttribute('data-clipboard-text', figure.getAttribute('data-cs-rgb'));
+                    break;
+            }
+        });
+    });
+
+    initializeClipboard();
 }
 
 
-class TooltipGenerator {
-    constructor() {
-        this.figures = document.querySelectorAll('.scheme-row--figure');
-        this.figures.forEach(figure => this.createTooltip(figure));
-    }
+const initializeClipboard = () => {
+    const clipboard = new ClipboardJS('.scheme-color--preview');
 
-        createTooltip(figure) {
-        const tooltipDiv = document.createElement('div');
-        tooltipDiv.className = 'tooltip';
+    clipboard.on('success', e => {
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
 
-        const tooltipList = document.createElement('ol');
-        tooltipList.innerHTML = `
-            <li>${this.getName(figure)} (${this.getModel(figure)})</li>
-            <li>Level: ${figure.dataset.csNum}</li>
-            ${this.getType(figure) ? `<li>Type: ${this.getType(figure)}</li>` : ''}
-            <li><code>Hex: ${figure.dataset.csHex}</code></li>
-            <li><code>RGB: ${this.getRgbValues(figure.dataset.csRgb)}</code></li>
-            <li><code>--${figure.dataset.csVar}</code></li>
-            <li><code>--${figure.dataset.csVar}a</code></li>
-        `;
-        tooltipDiv.appendChild(tooltipList);
-        figure.parentNode.appendChild(tooltipDiv);
-    }
+        e.clearSelection();
+    });
 
-
-    getName(figure) {
-        return figure.dataset.csVar.split('-')[0].charAt(0).toUpperCase() + figure.dataset.csVar.split('-')[0].slice(1);
-    }
-
-    getType(figure) {
-        return figure.dataset.csVar.includes('n') ? 'Neutral' : '';
-    }
-
-    getModel(figure) {
-        return figure.dataset.csVar.includes('-rgb') ? 'RGB' : 'RYB';
-    }
-
-
-    getRgbValues(rgbString) {
-        return rgbString.match(/\d+, \d+, \d+/)[0];
-    }
-}
+    clipboard.on('error', e => {
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+    });
+};
 
 // --------------------------------
 // --------------------------------
@@ -467,6 +463,14 @@ document.addEventListener('DOMContentLoaded', function() {
     monitorSchemeSelector();
     monitorCvdSelector();
     monitorUiSelector();
+
+
+switchCopyAction();
+
+
+
+
+
 });
 
 

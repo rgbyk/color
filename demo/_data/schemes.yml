@@ -5,12 +5,22 @@ primary:
   - { name: "primary", type: "pure", model: "none" }
   - { name: "primary", type: "neutral", model: "none" }
 
-achromatic:
-  - id: Achromatic
+grayscale:
+  - id: achromatic-grayscale
     title: Acrhomatic
     paragraph: ...
   - { name: "grey", type: "pure", model: "none" }
-  - { name: "stone", type: "pure", model: "none" }
+
+stone:
+  - id: achromatic-stone
+    title: Stone (Achromatic)
+    paragraph: Stone, in its essence, is a grayscale blend enriched with warm undertones, invoking a sense of earthy warmth and comfort.
+  - { name: "grey", type: "pure", model: "none" }
+
+slate:
+  - id: achromatic-slate
+    title: Slate (Achromatic)
+    paragraph: Slate presents a grayscale foundation infused with cool undertones, suggesting a sleek, refined, and contemporary ambiance.
   - { name: "slate", type: "pure", model: "none" }
 
 complementary:

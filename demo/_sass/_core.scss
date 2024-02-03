@@ -976,7 +976,7 @@ p {
   text-wrap: pretty;
 }
 p + p {
-  margin-top: calc(var(--abs-p1) * 1em);
+  margin-top: 1em;
 }
 
 *,

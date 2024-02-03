@@ -18,20 +18,31 @@
             {% endfor %}
         </select>
     </div>
-    <h3><span>UI Elements</span></h3>
-    <div class="docs-label-wrapper">
-        <label class="docs-label" for="">
-            <span class="docs-label--text">UI Theme</span>
+    <h3><span>User Interface</span></h3>
+    <div class="docs-label-wrapper label-inline">
+        <label class="docs-label" for="CardSizeSelector">
+            <span class="docs-label--text">Card Size</span>
         </label>
-        <select class="docs-label--select" name="" id="selectUi">
-            <option value="large" selected>Large</option>
-            <option value="compact">Compact</option>
+        <select class="docs-label--select" name="CardSizeSelector" id="selectCardSize">
+            <option value="is-full" selected>Full Cards</option>
+            <option value="no-gap" selected>No Gaps</option>
+            <option value="is-compact">Compact Cards</option>
+        </select>
+    </div>
+    <div class="docs-label-wrapper label-inline">
+        <label class="docs-label" for="CopyActionSelector">
+            <span class="docs-label--text">Copy Action</span>
+        </label>
+        <select class="docs-label--select" name="CopyActionSelector" id="selectCopyAction">
+            <option value="var" selected>Variable</option>
+            <option value="hex">Hex</option>
+            <option value="rgb">RGB</option>
         </select>
     </div>
 
     <h3><span>Options</span></h3>
-    <div class="docs-label-wrapper">
-        <label class="docs-label" for="">
+    <div class="docs-label-wrapper label-inline">
+        <label class="docs-label" for="colorModelSelector">
             <span class="docs-label--text">Color Model</span>
             <span class="docs-label--icon">
                 <a>
@@ -41,15 +52,15 @@
                     <path d="M13 1.188C6.477 1.188 1.187 6.476 1.187 13S6.478 24.813 13 24.813c6.523 0 11.813-5.29 11.813-11.813 0-6.523-5.29-11.813-11.813-11.813Zm2.46 18.308c-.608.238-1.093.422-1.456.547a3.864 3.864 0 0 1-1.262.187c-.734 0-1.308-.18-1.719-.539-.406-.355-.609-.812-.609-1.367 0-.215.016-.433.047-.656.027-.227.078-.477.144-.762l.762-2.687c.067-.258.125-.5.172-.73.047-.231.066-.442.066-.634 0-.34-.07-.582-.21-.714-.145-.137-.415-.204-.813-.204a2.23 2.23 0 0 0-.605.09 9.443 9.443 0 0 0-.532.176l.203-.828c.497-.203.973-.375 1.43-.52a4.27 4.27 0 0 1 1.29-.218c.73 0 1.296.18 1.69.531.395.352.594.812.594 1.375 0 .117-.011.324-.039.617a4.225 4.225 0 0 1-.152.813l-.758 2.68c-.062.214-.117.46-.168.734a4.05 4.05 0 0 0-.07.625c0 .355.078.601.238.73.156.13.434.192.828.192.184 0 .39-.032.625-.094a3.59 3.59 0 0 0 .504-.172Zm-.136-10.879a1.802 1.802 0 0 1-1.273.492c-.496 0-.926-.164-1.281-.492a1.563 1.563 0 0 1-.532-1.191c0-.465.18-.867.532-1.2a1.813 1.813 0 0 1 1.28-.496c.497 0 .923.165 1.274.497.356.332.531.734.531 1.199 0 .465-.175.863-.53 1.191Z" /></svg>
             </span>
         </label>
-        <select class="docs-label--select" name="" id="modelSelector">
+        <select class="docs-label--select" name="colorModelSelector" id="colorModelSelector">
             <option value="all">Show Both</option>
             <option value="rgb" selected="selected">RGB</option>
             <option value="ryb">RYB</option>
         </select>
     </div>
-    <div class="docs-label-wrapper">
-        <label class="docs-label" for="">
-            <span class="docs-label--text">Harmonized</span>
+    <div class="docs-label-wrapper label-inline">
+        <label class="docs-label" for="colorHarmonySelector">
+            <span class="docs-label--text">Harmonize</span>
             <span class="docs-label--icon">
                 <a>
                     <span class="sr-only"> ... </span>
@@ -58,14 +69,14 @@
                     <path d="M13 1.188C6.477 1.188 1.187 6.476 1.187 13S6.478 24.813 13 24.813c6.523 0 11.813-5.29 11.813-11.813 0-6.523-5.29-11.813-11.813-11.813Zm2.46 18.308c-.608.238-1.093.422-1.456.547a3.864 3.864 0 0 1-1.262.187c-.734 0-1.308-.18-1.719-.539-.406-.355-.609-.812-.609-1.367 0-.215.016-.433.047-.656.027-.227.078-.477.144-.762l.762-2.687c.067-.258.125-.5.172-.73.047-.231.066-.442.066-.634 0-.34-.07-.582-.21-.714-.145-.137-.415-.204-.813-.204a2.23 2.23 0 0 0-.605.09 9.443 9.443 0 0 0-.532.176l.203-.828c.497-.203.973-.375 1.43-.52a4.27 4.27 0 0 1 1.29-.218c.73 0 1.296.18 1.69.531.395.352.594.812.594 1.375 0 .117-.011.324-.039.617a4.225 4.225 0 0 1-.152.813l-.758 2.68c-.062.214-.117.46-.168.734a4.05 4.05 0 0 0-.07.625c0 .355.078.601.238.73.156.13.434.192.828.192.184 0 .39-.032.625-.094a3.59 3.59 0 0 0 .504-.172Zm-.136-10.879a1.802 1.802 0 0 1-1.273.492c-.496 0-.926-.164-1.281-.492a1.563 1.563 0 0 1-.532-1.191c0-.465.18-.867.532-1.2a1.813 1.813 0 0 1 1.28-.496c.497 0 .923.165 1.274.497.356.332.531.734.531 1.199 0 .465-.175.863-.53 1.191Z" /></svg>
             </span>
         </label>
-        <select class="docs-label--select" name="" id="selectHarmony">
+        <select class="docs-label--select" name="colorHarmonySelector" id="colorHarmonySelector">
             <option value="true">True</option>
             <option value="false" selected>False</option>
         </select>
     </div>
-    <div class="docs-label-wrapper">
-        <label class="docs-label" for="">
-            <span class="docs-label--text">Neutralized</span>
+    <div class="docs-label-wrapper label-inline">
+        <label class="docs-label" for="colorNeutralizeSelector">
+            <span class="docs-label--text">Neutralize</span>
             <span class="docs-label--icon">
                 <a>
                     <span class="sr-only"> ... </span>
@@ -74,10 +85,10 @@
                     <path d="M13 1.188C6.477 1.188 1.187 6.476 1.187 13S6.478 24.813 13 24.813c6.523 0 11.813-5.29 11.813-11.813 0-6.523-5.29-11.813-11.813-11.813Zm2.46 18.308c-.608.238-1.093.422-1.456.547a3.864 3.864 0 0 1-1.262.187c-.734 0-1.308-.18-1.719-.539-.406-.355-.609-.812-.609-1.367 0-.215.016-.433.047-.656.027-.227.078-.477.144-.762l.762-2.687c.067-.258.125-.5.172-.73.047-.231.066-.442.066-.634 0-.34-.07-.582-.21-.714-.145-.137-.415-.204-.813-.204a2.23 2.23 0 0 0-.605.09 9.443 9.443 0 0 0-.532.176l.203-.828c.497-.203.973-.375 1.43-.52a4.27 4.27 0 0 1 1.29-.218c.73 0 1.296.18 1.69.531.395.352.594.812.594 1.375 0 .117-.011.324-.039.617a4.225 4.225 0 0 1-.152.813l-.758 2.68c-.062.214-.117.46-.168.734a4.05 4.05 0 0 0-.07.625c0 .355.078.601.238.73.156.13.434.192.828.192.184 0 .39-.032.625-.094a3.59 3.59 0 0 0 .504-.172Zm-.136-10.879a1.802 1.802 0 0 1-1.273.492c-.496 0-.926-.164-1.281-.492a1.563 1.563 0 0 1-.532-1.191c0-.465.18-.867.532-1.2a1.813 1.813 0 0 1 1.28-.496c.497 0 .923.165 1.274.497.356.332.531.734.531 1.199 0 .465-.175.863-.53 1.191Z" /></svg>
             </span>
         </label>
-        <select class="docs-label--select" name="" id="selectNeutralize">
-            <option value="all">Show All</option>
-            <option value="true">Show Only</option>
-            <option value="false" selected="selected">Hide All</option>
+        <select class="docs-label--select" name="colorNeutralizeSelector" id="colorNeutralizeSelector">
+            <option value="all">Show Both</option>
+            <option value="true">True</option>
+            <option value="false" selected="selected">False</option>
         </select>
     </div>
     <h3><span>Accessibility</span></h3>
