@@ -2,8 +2,19 @@ const RGBYKCOLOR = require('./app/index.js');
 
 const colorGen = new RGBYKCOLOR();
 
+// 'palettes' => [
+//     '#FFD600',
+//     '#FF5100',
+//     '#FF0069',
+//     '#D300C5',
+//     '#7638FA',
+//     '#007bff',
+//     '#9454f4',
+//     '#607d8b',
+// ],
+
 // Update the brand color and other configurations
-colorGen.updateColorAndConfig('#0ae448', {
+colorGen.updateColorAndConfig('#f56040', {
   colorMode: 'all',
   colorModeHarmony: true,
   colorModeHarmonyGrayscale: true,
