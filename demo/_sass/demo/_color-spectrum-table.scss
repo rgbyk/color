@@ -1,0 +1,61 @@
+
+table.demo-colorspectrum-table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid;
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+table.demo-colorspectrum-table{
+    background-color: #222;
+    color: #fff;
+}
+table.demo-colorspectrum-table tbody th,
+table.demo-colorspectrum-table tbody td {
+    border-color: #444;
+}
+
+table.demo-colorspectrum-table tbody td span,
+table.demo-colorspectrum-table tbody td code {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+}
+
+table.demo-colorspectrum-table th,
+table.demo-colorspectrum-table td {
+    vertical-align: middle;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    padding: 0;
+    font-family: inherit;
+    width: 7.6923076923%;
+}
+
+table.demo-colorspectrum-table th:last-child,
+table.demo-colorspectrum-table td:last-child {
+    border-right: 0px;
+}
+
+
+table.demo-colorspectrum-table tr:last-child th,
+table.demo-colorspectrum-table tr:last-child td {
+    border-bottom: 0px;
+}
+
+table.demo-colorspectrum-table tbody tr,
+table.demo-colorspectrum-table tbody th,
+table.demo-colorspectrum-table thead th {
+    border: 0px solid;
+    font-size: 14.44px;
+    font-weight: 500;
+    vertical-align: middle;
+    text-align: center;
+    width: 100px;
+    height: 42px;
+}
+            

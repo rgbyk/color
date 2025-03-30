@@ -1,0 +1,31 @@
+$ratios: (
+  "minor-second": 1.067,
+  "major-second": 1.125,
+  "minor-third": 1.2,
+  "major-third": 1.25,
+  "perfect-fourth": 1.333,
+  "augmented-fourth": 1.414,
+  "perfect-fifth": 1.5,
+  "golden-ratio": 1.618
+);
+
+@function ratios($key) {
+  @return map-get($ratios, $key);
+}
+
+$space-base-size: 1rem;
+$space-size-ratio: ratios("minor-second");
+
+$space-levels: 1, 2, 3, 4, 5;
+
+$spacer: ();
+$level-size: $space-base-size;
+
+@each $level in $space-levels {
+  $level-size: $level-size * $space-size-ratio;
+  $spacer: map-merge($spacer, (#{"s"}$level: $level-size));
+}
+
+@function space-size($key) {
+  @return map-get($spacer, $key);
+}

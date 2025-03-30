@@ -1,0 +1,148 @@
+html {
+  font-size: 14px;
+}
+
+@media (max-width: 575.98px) {
+  html {
+    font-size: 14.938px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  html {
+    font-size: 15.938846px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  html {
+    font-size: 17.006748682px;
+  }
+}
+
+@media (min-width: 992px) {
+  html {
+    font-size: 18.146200843694px;
+  }
+}
+
+body {
+  line-height: 1.5;
+  font-size: 1rem;
+  font-family: var(--ff-base);
+  font-weight: var(--fw-base);
+  font-size: var(--fs-base);
+  text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -ms-overflow-style: scrollbar;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricprecision;
+}
+
+h1, h2, h3,
+h4, h5, h6,
+.h1, .h2, .h3,
+.h4, .h5, .h6 {
+  text-indent: 0;
+  font-weight: 400;
+
+  &:not(:last-child) {
+    margin-bottom: 0.65em;
+  }
+}
+
+h1, h2, h3, .h1, .h2, .h3{}
+h4, h5, h6, .h4, .h5, .h6{}
+
+p, ul, ol, form, table, pre {
+  font-size: 1rem;
+  text-indent: 0;
+
+  &:not(:last-child){
+    margin-bottom: 1em;
+  }
+}
+
+bold, strong{
+  font-weight: 400;
+}
+
+$_type-levels: 5, 4, 3, 2, 1;
+$_type-styles: ();
+
+$_level-size: $space-base-size;
+
+@each $_level in $_type-levels {
+  $_level-size: $_level-size * $space-size-ratio;
+  $_type-styles: map-merge($_type-styles, (#{"h"}$_level: $_level-size));
+
+  h#{$_level}, .h#{$_level} {
+    font-size: $_level-size;
+    line-height: calc(2px + 2ex + 2px);
+
+    @if ($space-size-ratio > 1.2) {
+      $_level-unitless: $_level-size / ($_level-size * 0 + 1);
+
+      $_fluid-reduction: if($_level-size > 4, 0.5, 0.33);
+      $_fluid-min: $_level-unitless - ($_fluid-reduction * $_level-unitless);
+
+      $_fluid-min: if($_fluid-min > $space-base-size, $_fluid-min, 1);
+      $_fluid-scaler: ($_level-unitless - $_fluid-min) + 4vw;
+
+      font-size: unquote(
+        "min(max(#{$_fluid-min}rem, #{$_fluid-scaler}), #{$_level-size})"
+      );
+    }
+  }
+}
+
+@function type-style($key) {
+  @return map-get($_type-styles, $key);
+}
+
+// h1, h2, h3, h4, p, li{
+//   word-break: break-word;
+//   hyphens: auto;
+// }
+
+small {
+  font-size: 87.5%;
+  display: inline-block;
+}
+
+
+ul, ol{
+   list-style-position: inside;
+}
+
+li{
+  break-inside: avoid-column;
+  -webkit-column-break-inside: avoid;
+}
+
+/*==========================================
+=            Ligature & Kerning            =
+==========================================*/
+
+html, body, table {font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 0, "tnum" 0, "onum" 0, "lnum" 0, "dlig" 0;}
+h1, .h1,h2, .h2,h3, .h3 {font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 0, "tnum" 0, "onum" 0, "lnum" 0, "dlig" 0;}
+abbr {text-transform: uppercase;font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 0, "tnum" 0, "onum" 0, "lnum" 0, "smcp" 1, "c2sc" 1;}
+time {font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 0, "tnum" 0, "onum" 0, "lnum" 0;}
+pre, kbd, samp, code {font-feature-settings: "kern" 0, "liga" 0, "calt" 1, "dlig" 0, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1;}
+sup {font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 0, "tnum" 0, "onum" 0, "lnum" 0, "dlig" 0, "sups" 1;}
+sub {font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 0, "tnum" 0, "onum" 0, "lnum" 0, "dlig" 0, "subs" 1;}
+
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="number"],
+input[type="range"]
+input[type="tel"],
+input[type="week"] {font-feature-settings: "kern" 0, "liga" 1, "calt" 1, "pnum" 0, "tnum" 0, "onum" 0, "lnum" 1, "zero" 0;}
+button{font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 0, "tnum" 0, "onum" 0, "lnum" 0, "dlig" 0;}
+tbody,caption {font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1;}

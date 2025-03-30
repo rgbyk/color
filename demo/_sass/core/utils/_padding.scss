@@ -1,0 +1,153 @@
+/*=========================================
+=            Padding Utilities            =
+=========================================*/
+
+.p-0 { padding: 0 0 !important; }
+.py-0, .pt-0 { padding-top: 0 !important; }
+.py-0, .pb-0 { padding-bottom: 0 !important; }
+.px-0, .pr-0 { padding-right: 0 !important; }
+.px-0, .pl-0 { padding-left: 0 !important; }
+
+.p-1 { padding: 1rem 1rem !important; }
+.px-1, .pr-1 { padding-right: 1rem !important; }
+.px-1, .pl-1 { padding-left: 1rem !important; }
+.py-1, .pt-1 { padding-top: 1rem !important; }
+.py-1, .pb-1 { padding-bottom: 1rem !important; }
+
+.p-2 { padding: var(--scale-2) var(--scale-2) !important; }
+.px-2, .pr-2 { padding-right: var(--scale-2) !important; }
+.px-2, .pl-2 { padding-left: var(--scale-2) !important; }
+.py-2, .pt-2 { padding-top: var(--scale-2) !important; }
+.py-2, .pb-2 { padding-bottom: var(--scale-2) !important; }
+
+.p-3 { padding: var(--scale-3) var(--scale-3) !important; }
+.px-3, .pr-3 { padding-right: var(--scale-3) !important; }
+.px-3, .pl-3 { padding-left: var(--scale-3) !important; }
+.py-3, .pt-3 { padding-top: var(--scale-3) !important; }
+.py-3, .pb-3 { padding-bottom: var(--scale-3) !important; }
+
+.p-4 { padding: var(--scale-4) var(--scale-4) !important; }
+.px-4, .pr-4 { padding-right: var(--scale-4) !important; }
+.px-4, .pl-4 { padding-left: var(--scale-4) !important; }
+.py-4, .pt-4 { padding-top: var(--scale-4) !important; }
+.py-4, .pb-4 { padding-bottom: var(--scale-4) !important; }
+
+.p-5 { padding: var(--scale-5) var(--scale-5) !important; }
+.px-5, .pr-5 { padding-right: var(--scale-5) !important; }
+.px-5, .pl-5 { padding-left: var(--scale-5) !important; }
+.py-5, .pt-5 { padding-top: var(--scale-5) !important; }
+.py-5, .pb-5 { padding-bottom: var(--scale-5) !important; }
+
+@include media(sm-only) {
+    .p-sm-0 { padding: 0 0 !important; }
+    .py-sm-0, .pt-sm-0 { padding-top: 0 !important; }
+    .py-sm-0, .pb-sm-0 { padding-bottom: 0 !important; }
+    .px-sm-0, .pr-sm-0 { padding-right: 0 !important; }
+    .px-sm-0, .pl-sm-0 { padding-left: 0 !important; }
+
+    .p-sm-1 { padding: 1rem 1rem !important; }
+    .px-sm-1, .pr-sm-1 { padding-right: 1rem !important; }
+    .px-sm-1, .pl-sm-1 { padding-left: 1rem !important; }
+    .py-sm-1, .pt-sm-1 { padding-top: 1rem !important; }
+    .py-sm-1, .pb-sm-1 { padding-bottom: 1rem !important; }
+
+    .p-sm-2 { padding: var(--scale-2) var(--scale-2) !important; }
+    .px-sm-2, .pr-sm-2 { padding-right: var(--scale-2) !important; }
+    .px-sm-2, .pl-sm-2 { padding-left: var(--scale-2) !important; }
+    .py-sm-2, .pt-sm-2 { padding-top: var(--scale-2) !important; }
+    .py-sm-2, .pb-sm-2 { padding-bottom: var(--scale-2) !important; }
+
+    .p-sm-3 { padding: var(--scale-3) var(--scale-3) !important; }
+    .px-sm-3, .pr-sm-3 { padding-right: var(--scale-3) !important; }
+    .px-sm-3, .pl-sm-3 { padding-left: var(--scale-3) !important; }
+    .py-sm-3, .pt-sm-3 { padding-top: var(--scale-3) !important; }
+    .py-sm-3, .pb-sm-3 { padding-bottom: var(--scale-3) !important; }
+
+    .p-sm-4 { padding: var(--scale-4) var(--scale-4) !important; }
+    .px-sm-4, .pr-sm-4 { padding-right: var(--scale-4) !important; }
+    .px-sm-4, .pl-sm-4 { padding-left: var(--scale-4) !important; }
+    .py-sm-4, .pt-sm-4 { padding-top: var(--scale-4) !important; }
+    .py-sm-4, .pb-sm-4 { padding-bottom: var(--scale-4) !important; }
+
+    .p-sm-5 { padding: var(--scale-5) var(--scale-5) !important; }
+    .px-sm-5, .pr-sm-5 { padding-right: var(--scale-5) !important; }
+    .px-sm-5, .pl-sm-5 { padding-left: var(--scale-5) !important; }
+    .py-sm-5, .pt-sm-5 { padding-top: var(--scale-5) !important; }
+    .py-sm-5, .pb-sm-5 { padding-bottom: var(--scale-5) !important; }
+}
+
+@include media(md-only) {
+    .p-md-0 { padding: 0 0 !important; }
+    .py-md-0, .pt-md-0 { padding-top: 0 !important; }
+    .py-md-0, .pb-md-0 { padding-bottom: 0 !important; }
+    .px-md-0, .pr-md-0 { padding-right: 0 !important; }
+    .px-md-0, .pl-md-0 { padding-left: 0 !important; }
+
+    .p-md-1 { padding: 1rem 1rem !important; }
+    .px-md-1, .pr-md-1 { padding-right: 1rem !important; }
+    .px-md-1, .pl-md-1 { padding-left: 1rem !important; }
+    .py-md-1, .pt-md-1 { padding-top: 1rem !important; }
+    .py-md-1, .pb-md-1 { padding-bottom: 1rem !important; }
+
+    .p-md-2 { padding: var(--scale-2) var(--scale-2) !important; }
+    .px-md-2, .pr-md-2 { padding-right: var(--scale-2) !important; }
+    .px-md-2, .pl-md-2 { padding-left: var(--scale-2) !important; }
+    .py-md-2, .pt-md-2 { padding-top: var(--scale-2) !important; }
+    .py-md-2, .pb-md-2 { padding-bottom: var(--scale-2) !important; }
+
+    .p-md-3 { padding: var(--scale-3) var(--scale-3) !important; }
+    .px-md-3, .pr-md-3 { padding-right: var(--scale-3) !important; }
+    .px-md-3, .pl-md-3 { padding-left: var(--scale-3) !important; }
+    .py-md-3, .pt-md-3 { padding-top: var(--scale-3) !important; }
+    .py-md-3, .pb-md-3 { padding-bottom: var(--scale-3) !important; }
+
+    .p-md-4 { padding: var(--scale-4) var(--scale-4) !important; }
+    .px-md-4, .pr-md-4 { padding-right: var(--scale-4) !important; }
+    .px-md-4, .pl-md-4 { padding-left: var(--scale-4) !important; }
+    .py-md-4, .pt-md-4 { padding-top: var(--scale-4) !important; }
+    .py-md-4, .pb-md-4 { padding-bottom: var(--scale-4) !important; }
+
+    .p-md-5 { padding: var(--scale-5) var(--scale-5) !important; }
+    .px-md-5, .pr-md-5 { padding-right: var(--scale-5) !important; }
+    .px-md-5, .pl-md-5 { padding-left: var(--scale-5) !important; }
+    .py-md-5, .pt-md-5 { padding-top: var(--scale-5) !important; }
+    .py-md-5, .pb-md-5 { padding-bottom: var(--scale-5) !important; }
+}
+
+@include media(lg-up) {
+    .p-lg-0 { padding: 0 0 !important; }
+    .py-lg-0, .pt-lg-0 { padding-top: 0 !important; }
+    .py-lg-0, .pb-lg-0 { padding-bottom: 0 !important; }
+    .px-lg-0, .pr-lg-0 { padding-right: 0 !important; }
+    .px-lg-0, .pl-lg-0 { padding-left: 0 !important; }
+
+    .p-lg-1 { padding: 1rem 1rem !important; }
+    .px-lg-1, .pr-lg-1 { padding-right: 1rem !important; }
+    .px-lg-1, .pl-lg-1 { padding-left: 1rem !important; }
+    .py-lg-1, .pt-lg-1 { padding-top: 1rem !important; }
+    .py-lg-1, .pb-lg-1 { padding-bottom: 1rem !important; }
+
+    .p-lg-2 { padding: var(--scale-2) var(--scale-2) !important; }
+    .px-lg-2, .pr-lg-2 { padding-right: var(--scale-2) !important; }
+    .px-lg-2, .pl-lg-2 { padding-left: var(--scale-2) !important; }
+    .py-lg-2, .pt-lg-2 { padding-top: var(--scale-2) !important; }
+    .py-lg-2, .pb-lg-2 { padding-bottom: var(--scale-2) !important; }
+
+    .p-lg-3 { padding: var(--scale-3) var(--scale-3) !important; }
+    .px-lg-3, .pr-lg-3 { padding-right: var(--scale-3) !important; }
+    .px-lg-3, .pl-lg-3 { padding-left: var(--scale-3) !important; }
+    .py-lg-3, .pt-lg-3 { padding-top: var(--scale-3) !important; }
+    .py-lg-3, .pb-lg-3 { padding-bottom: var(--scale-3) !important; }
+
+    .p-lg-4 { padding: var(--scale-4) var(--scale-4) !important; }
+    .px-lg-4, .pr-lg-4 { padding-right: var(--scale-4) !important; }
+    .px-lg-4, .pl-lg-4 { padding-left: var(--scale-4) !important; }
+    .py-lg-4, .pt-lg-4 { padding-top: var(--scale-4) !important; }
+    .py-lg-4, .pb-lg-4 { padding-bottom: var(--scale-4) !important; }
+
+    .p-lg-5 { padding: var(--scale-5) var(--scale-5) !important; }
+    .px-lg-5, .pr-lg-5 { padding-right: var(--scale-5) !important; }
+    .px-lg-5, .pl-lg-5 { padding-left: var(--scale-5) !important; }
+    .py-lg-5, .pt-lg-5 { padding-top: var(--scale-5) !important; }
+    .py-lg-5, .pb-lg-5 { padding-bottom: var(--scale-5) !important; }
+}

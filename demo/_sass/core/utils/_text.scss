@@ -1,0 +1,71 @@
+/*======================================
+=            Text Utilities            =
+======================================*/
+
+/**
+ *
+ * Alignments
+ *
+ */
+
+.text-left { text-align: left !important;}
+.text-right { text-align: right !important;}
+.text-center { text-align: center !important;}
+
+@include media(sm-only) {
+  .text-sm-left { text-align: left !important;}
+  .text-sm-right { text-align: right !important;}
+  .text-sm-center { text-align: center !important;}
+}
+
+@include media(md-only) {
+  .text-md-left { text-align: left !important;}
+  .text-md-right { text-align: right !important;}
+  .text-md-center { text-align: center !important;}
+}
+
+@include media(lg-up) {
+  .text-lg-left { text-align: left !important;}
+  .text-lg-right { text-align: right !important;}
+  .text-lg-center { text-align: center !important;}
+}
+
+/**
+ *
+ * Transforms
+ *
+ */
+
+.text-uppercase { text-transform: uppercase !important;}
+.text-lowercase { text-transform: lowercase !important;}
+.text-capitalize { text-transform: capitalize !important;}
+
+/**
+ *
+ * Weight
+ *
+ */
+
+.text-bold { font-weight: bold !important;}
+.text-normal { font-weight: normal !important;}
+
+/**
+ *
+ * Decoration
+ *
+ */
+
+.text-underline{ text-decoration: underline !important;}
+.text-italic { font-style: italic !important;}
+
+/**
+ *
+ * Ellipsis
+ *
+ */
+
+.text-ellipsis {
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+}

@@ -5,23 +5,23 @@ layout: compress
 ---
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US" dir="ltr" prefix="og: http://ogp.me/ns#">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US" dir="ltr" prefix="og: http://ogp.me/ns#" class="theme-dark">
 
-{% include site-head.html %}
+{% include docs-meta.html %}
 
 <body>
-  {% include symbols.html %}
-    <div class="container-fluid" >
+      {% include docs-header.html %}
+
+    <div class="container" >
       <div class="row">
         <div class="col">
           <div class="docs-body">
-            {% include header.html %}
             
           </div>
 
           <div class="docs-grid">
             <div class="docs-grid--menu">
-              {% include aside.html %}    
+              {% include docs-aside.html %}    
             </div>
 
             <div class="docs-grid--main">
@@ -33,20 +33,8 @@ layout: compress
       </div>
     </div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="assets/js/package/dist/all.js"></script>
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
-    const menu = document.querySelector('.docs-grid--menu');
-    ScrollTrigger.create({
-      trigger: menu,
-      start: 'top top+=20',
-      end: 'bottom',
-      pin: true,
-      pinSpacing: false,
-    });
-  </script>
-  <script src="assets/js/clipboard.js"></script>
-  <script src="assets/js/app.js"></script>
+  {% include docs-symbols.html %}
+  {% include docs-scripts.html %}
+
 </body>
 </html>

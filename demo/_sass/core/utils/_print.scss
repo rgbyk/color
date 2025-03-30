@@ -1,0 +1,16 @@
+/*=======================================
+=            Print Utilities            =
+=======================================*/
+
+.visible-print-block,
+.visible-print-inline,
+.visible-print-inline-block {
+    display: none !important;
+}
+
+@media print{
+  .visible-print-block{ display: block !important; }
+  .visible-print-inline{ display: inline !important; }
+  .visible-print-inline-block{ display: inline-block !important; }
+  .hidden-print { display: none !important; }
+}

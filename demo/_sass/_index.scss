@@ -1,4 +1,47 @@
-@import "demo.scss";
-@import "core.scss";
+// @import "demo.scss";
+// @import "core.scss";
 
 .scheme-row[aria-hidden=true] { margin-top: 1rem; }
+
+@import 'core/scale';
+@import 'core/media';
+
+@import 'core/reset';
+
+@import 'core/root';
+
+@import 'core/type';
+@import 'core/utils';
+@import 'core/layout';
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #111;
+    --text-color: #eee;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --slate-50:  #1e1e1e;
+        --slate-100: #262626;
+        --slate-200: #474747;
+        --slate-300: #585858;
+        --slate-400: #727272;
+        --slate-500: #afafaf;
+        --slate-600: #d5d5d5;
+        --slate-700: #eeeeee;
+        --slate-800: #f4f4f4;
+        --slate-900: #fafafa;
+    }
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+@import 'docs/docs-aside';
+@import 'docs/docs-header';
+@import 'docs/docs-content';
+

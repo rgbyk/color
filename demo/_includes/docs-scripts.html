@@ -1,0 +1,64 @@
+
+  <script src="assets/js/clipboard.js"></script>
+  <script src="assets/js/app.js"></script>
+
+<script>
+if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  document.documentElement.classList.add('theme-dark');
+}
+
+function initMunsellDemoControls() {
+  const chromaSwatches = document.querySelectorAll('.chroma-swatch');
+  const hueSwatches = document.querySelectorAll('.demo-hues .hue-swatch');
+  const valueSwatches = document.querySelectorAll('.demo-values .value-swatch');
+
+  let activeHueIndex = 0;
+  let activeValueIndex = 0;
+
+  function setHue(index) {
+    activeHueIndex = index;
+    hueSwatches.forEach((el, i) => {
+      el.classList.toggle('is-active', i === index);
+    });
+    const hueClass = `hue-${index + 1}`;
+    chromaSwatches.forEach(swatch => {
+      swatch.setAttribute('data-color', hueClass);
+    });
+  }
+
+  function setValue(index) {
+    activeValueIndex = index;
+    valueSwatches.forEach((el, i) => {
+      el.classList.toggle('is-active', i === index);
+    });
+    chromaSwatches.forEach(swatch => {
+      swatch.setAttribute('data-value', index);
+    });
+  }
+
+  hueSwatches.forEach((el, index) => {
+    el.addEventListener('click', () => {
+      setHue(index);
+    });
+  });
+
+  valueSwatches.forEach((el, index) => {
+    el.addEventListener('click', () => {
+      setValue(index);
+    });
+  });
+
+
+  function rotateHue() {
+    setHue(activeHueIndex);
+    activeHueIndex = (activeHueIndex + 1) % hueSwatches.length;
+  }
+
+  setHue(activeHueIndex);
+  setValue(activeValueIndex);
+}
+
+document.addEventListener('DOMContentLoaded', initMunsellDemoControls);
+
+
+</script>

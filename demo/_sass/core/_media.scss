@@ -1,0 +1,71 @@
+@mixin media($size){
+   //
+   // Down
+   //
+   @if $size == xs-down{
+      @media (max-width: 575.98px){
+         @content;
+      }
+   }
+
+   @if $size == sm-down{
+      @media (max-width: 767.98px){
+         @content;
+      }
+   }
+
+   @if $size == md-down{
+      @media (max-width: 991.98px){
+         @content;
+      }
+   }
+
+   //
+   // Up
+   //
+   @if $size == sm-up{
+      @media (min-width: 576px){
+         @content;
+      }
+   }
+
+   @if $size == md-up{
+      @media (min-width: 768px){
+         @content;
+      }
+   }
+
+   @if $size == lg-up{
+      @media (min-width: 992px){
+         @content;
+      }
+   }
+
+   //
+   // Only
+   //
+   @if $size == xs-only{
+      @media (min-width: 320px) and (max-width: 575.98px){
+         @content;
+      }
+   }
+
+   @if $size == sm-only{
+      @media (min-width: 576px) and (max-width: 767.98px){
+         @content;
+      }
+   }
+
+   @if $size == md-only{
+      @media (min-width: 768px) and (max-width: 991.99px){
+         @content;
+      }
+   }
+
+   @if $size == lg-only{
+      @media (min-width: 992px) and (max-width: 1199.98px){
+         @content;
+      }
+   }
+
+}

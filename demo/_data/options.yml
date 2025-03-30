@@ -1,0 +1,77 @@
+sections:
+  - title: Settings
+    fields:
+      - label: Color
+        id: selectColor
+        icon: true
+        tooltip: "Choose a predefined color scheme for the interface."
+        options:
+          - { text: 'Default', value: 'color', selected: true }
+          - { text: 'Facebook', value: '1877f2' }
+          - { text: 'GSAP', value: '0ae448' }
+          - { text: 'Twitter', value: '1da1f2' }
+          - { text: 'Coca Cola', value: 'ed1c16' }
+          - { text: 'BuzzFeed', value: 'ee3322' }
+          - { text: 'Adobe', value: 'ff0000' }
+          - { text: 'Android', value: 'a4c639' }
+          - { text: 'FWAI', value: '2a5934' }
+          - { text: 'Behance', value: '1769ff' }
+          - { text: 'Bing', value: 'ffb900' }
+
+  - title: User Interface
+    fields:
+      - label: Card Size
+        id: selectCardSize
+        options:
+          - { text: 'Full Cards', value: 'is-full', selected: true }
+          - { text: 'No Gaps', value: 'no-gap', selected: true }
+          - { text: 'Compact Cards', value: 'is-compact' }
+      - label: Copy Action
+        id: selectCopyAction
+        options:
+          - { text: 'Variable', value: 'var', selected: true }
+          - { text: 'Hex', value: 'hex' }
+          - { text: 'RGB', value: 'rgb' }
+
+  - title: Options
+    fields:
+      - label: Color Model
+        id: colorModelSelector
+        icon: true
+        tooltip: "Switch between RGB and RYB color models, or show both."
+        options:
+          - { text: 'Show Both', value: 'all' }
+          - { text: 'RGB', value: 'rgb', selected: true }
+          - { text: 'RYB', value: 'ryb' }
+      - label: Harmonize
+        id: colorHarmonySelector
+        icon: true
+        tooltip: "Toggle automatic generation of harmonious color palettes."
+        options:
+          - { text: 'True', value: 'true' }
+          - { text: 'False', value: 'false', selected: true }
+      - label: Neutralize
+        id: colorNeutralizeSelector
+        icon: true
+        tooltip: "Enable or disable neutral tones in generated color schemes."
+        options:
+          - { text: 'Show Both', value: 'all' }
+          - { text: 'True', value: 'true' }
+          - { text: 'False', value: 'false', selected: true }
+
+  - title: Accessibility
+    fields:
+      - label: Color Blindness
+        id: selectCvd
+        icon: true
+        tooltip: "Preview the UI as seen by users with different types of color vision deficiencies."
+        options:
+          - { text: 'None', value: 'none', selected: true }
+          - { text: 'Achromatopsia', value: 'achromatopsia' }
+          - { text: 'Achromatomaly', value: 'achromatomaly' }
+          - { text: 'Deuteranopia', value: 'deuteranopia' }
+          - { text: 'Deuteranomaly', value: 'deuteranomaly' }
+          - { text: 'Protanopia', value: 'protanopia' }
+          - { text: 'Protanomaly', value: 'protanomaly' }
+          - { text: 'Tritanopia', value: 'tritanopia' }
+          - { text: 'Tritanomaly', value: 'tritanomaly' }

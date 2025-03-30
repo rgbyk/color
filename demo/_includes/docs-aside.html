@@ -1,0 +1,30 @@
+<form>
+    {% for section in site.data.options.sections %}
+    <h3><span>{{ section.title }}</span></h3>
+    {% for field in section.fields %}
+    <div class="docs-label-wrapper label-inline">
+        <label class="docs-label" for="{{ field.id }}">
+            <span class="docs-label--text">{{ field.label }}</span>
+            {% if field.icon %}
+            <span class="docs-label--icon">
+                <a tabindex="0" class="has-tooltip" data-tooltip="{{ field.tooltip | escape }}"
+                    aria-describedby="{{ field.id }}-tooltip">
+                    <svg height="202" viewBox="0 0 204.627 201.617" width="205" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="m88.336 65.44c0-36.119 6.263-65.44 13.978-65.44s13.978 29.321 13.978 65.44c23.216-27.67 46.86-46.106 52.774-41.144 5.909 4.957-8.141 31.446-31.358 59.116 35.568-6.275 65.534-5.196 66.872 2.398 1.343 7.599-26.45 18.86-62.017 25.131 31.28 18.06 53.539 38.146 49.681 44.827-3.853 6.681-32.383-2.554-63.66-20.614 12.353 33.936 16.496 63.633 9.247 66.275-7.25 2.637-23.164-22.777-35.517-56.713-12.353 33.936-28.268 59.35-35.517 56.713-7.25-2.642-3.106-32.339 9.247-66.275-31.278 18.06-59.805 27.294-63.662 20.614-3.857-6.681 18.405-26.767 49.684-44.827-35.569-6.271-63.359-17.532-62.02-25.131 1.34-7.594 31.305-8.673 66.873-2.398-23.216-27.67-37.266-54.159-31.356-59.116 5.91-4.962 29.556 13.474 52.772 41.144z"
+                            fill="var(--primary-500)" fill-rule="evenodd" />
+                    </svg>
+                </a>
+                <span id="{{ field.id }}-tooltip" class="sr-only">{{ field.tooltip }}</span>
+            </span>
+            {% endif %}
+        </label>
+        <select class="docs-label--select" id="{{ field.id }}" name="{{ field.id }}">
+            {% for option in field.options %}
+            <option value="{{ option.value }}" {% if option.selected %}selected{% endif %}>{{ option.text }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    {% endfor %}
+    {% endfor %}
+</form>

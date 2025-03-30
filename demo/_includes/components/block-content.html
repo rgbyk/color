@@ -1,0 +1,16 @@
+{% assign anchor = include.title | slugify %}
+
+<section class="section-block" id="{{ anchor }}" data-anchor="{{ anchor }}">
+  <header class="section-block--header">
+    <h2 class="section-block--title">
+      <a class="section-block--title-link" href="#{{ anchor }}" aria-label="Jump to {{ include.title }} section">
+        <i class="ico-hashtag" aria-hidden="true"></i>
+      </a>
+      <span class="section-block--title-text">{{ include.title }}</span>
+    </h2>
+  </header>
+
+  <div class="section-block--content">
+    {{ include.content }}
+  </div>
+</section>

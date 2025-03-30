@@ -1,0 +1,26 @@
+/*===============================
+=            Typeset            =
+===============================*/
+
+.small-caps {
+    font-variant-caps: small-caps;
+    -moz-font-feature-settings: 'smcp';
+    -webkit-font-feature-settings: 'smcp';
+    font-feature-settings: 'smcp';
+}
+
+// Double quote (') marks
+.pull-double {margin-left: -.38em; }
+.push-double {margin-right: .38em; }
+
+// Single quote (') marks
+.pull-single {margin-left: -.15em; }
+.push-single {margin-right: .15em; }
+
+// Optical margin alignment for particular letters
+.pull-t, .pull-v, .pull-w, .pull-y {margin-left: -0.07em; }
+.push-t, .push-v, .push-w, .push-y {margin-right: 0.07em; }
+.pull-o, .pull-c, .pull-o, .pull-c {margin-left: -0.04em; }
+.push-o, .push-c, .push-o, .push-c {margin-right: 0.04em; }
+.pull-a {margin-left: -0.03em; }
+.push-a {margin-right: 0.03em; }

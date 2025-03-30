@@ -5,10 +5,52 @@ title: Color Generator
 
 ---
 
-{% include content/color-about.html %}
-{% include content/color-theory.html %}
-{% include content/color-spectrum.html %}
+{% capture color_intro %}
+  <h3>01. Foundations of Color</h3>
+  <p>This project started with a simple goal: make color more accessible for everyone. I’ve been building this system since 2013, shaped by years of working on inclusive design challenges. At the center of it is <code>@rgbyk/color</code> — a core library that brings structure to color in a way that’s both thoughtful and flexible.</p>
 
+  <h3>02. Color Theory in Practice</h3>
+  <p>While it's deeply practical, the system is also grounded in theory—primarily the Munsell Color System. If you're familiar with Munsell, you'll notice a few thoughtful evolutions: an expanded hue set (12 instead of 10), more intuitive naming, and improved perceptual balance.</p>
+
+  <h3>03. Designing for Perception</h3>
+  <p>The framework analyzes color through a cylindrical model—evaluating hue, lightness, and saturation—then calibrates spacing using human visual response data. The aim is perceptual uniformity, not just numerical symmetry. And while it’s already finely tuned, nearly every parameter can be adjusted or extended as needed.</p>
+{% endcapture %}
+{% capture color_theory %}
+    <h3 class="section-subheading">01. Hue <small>(Circular Axis)</small></h3>
+    <p><strong>Hue</strong> is the angle around the color wheel. It defines the color family — red, blue, green, etc. — based on its rotation around the circle.</p>
+
+    <div class="demo-doc demo-hues">
+      {% for i in (1..12) %}
+        <div class="hue-swatch hue-{{ i }} cvd" style="background-color: var(--hue-{{ i }}-500);"></div>
+      {% endfor %}
+    </div>
+
+    <h3 class="section-subheading">02. Value <small>(Vertical Axis)</small></h3>
+    <p><strong>Value</strong> describes lightness, from black at the bottom (<code>$value-0</code>) to white at the top (<code>$value-24</code>). Grays lie along this axis and form the neutral middle range.</p>
+
+    <div class="demo-doc demo-values">
+      {% for i in (1..24) %}
+        <div class="value-swatch value-{{ i }}" style="background-color: var(--value-{{ i }});"></div>
+      {% endfor %}
+    </div>
+
+    <h3 class="section-subheading">03. Chroma <small>(Radial Distance)</small></h3>
+    <p><strong>Chroma</strong> measures color intensity. Starting from gray at the center, chroma increases outward — low chroma is muted; high chroma is vivid and saturated.</p>
+
+    <div class="demo-doc demo-chromas">
+      {% for chroma in (1..10) %}
+        {% for value in (0..24) %}
+          <div class="chroma-swatch chroma-{{ chroma }} cvd" 
+               data-chroma="{{ chroma }}" 
+               data-value="{{ value }}" 
+               data-color="hue-1"></div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+{% endcapture %}
+
+{% include components/block-content.html title="Building a Perceptual Color Model" content=color_intro %}
+{% include components/block-content.html title="Navigating the Color Wheel" content=color_theory %}
 
 {% assign ols_data = site.data.schemes.primary %}
 {% include rows.html include=ols_data %}
